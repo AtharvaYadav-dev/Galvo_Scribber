@@ -78,8 +78,6 @@ class MainWindow(QMainWindow):
         self.stepper_controller = StepperController(self.galvo_controller.connection)
         self.galvo_preview_thread = None
         self.galvo_has_disconnected = False
-        if not self.galvo_controller.is_connected:
-            self.ui.titleLabel.setText("LASER SCRIBING (Demo Mode)")
 
         self.util.debugFlag = True
         
@@ -549,6 +547,7 @@ class MainWindow(QMainWindow):
         # settings_widget_list.append(self.wh.configWidget(self, QLineEdit, "feedLineEdit", "returnPressed", self.settingAction, role="feed"))
         settings_widget_list.append(self.wh.configWidget(self, QPushButton, "cameraoffsetPushButton", "clicked", self.settingAction, role="cameraoffset"))
         settings_widget_list.append(self.wh.configWidget(self, QPushButton, "setconfigPushButton", "clicked", self.settingAction, role="setconfig"))
+        # settings_widget_list.append(self.wh.configWidget(self, QPushButton, "setadvancalPushButton", "clicked", self.settingAction, role="setadvancal")) 
         
         self.util.dedupeList(settings_widget_list)
         self.settings_widgets = self.wh.createMap(*settings_widget_list)
@@ -998,6 +997,7 @@ class MainWindow(QMainWindow):
         self.main_page_dict["printgalvo"] = 8
         self.main_page_dict["configgalvo"] = 9
         self.main_page_dict["terminal"] = 10
+        # self.main_page_dict["ezcad"] = 11             #ezcad page index
 
     
     def initInfoPages(self):
@@ -1229,7 +1229,6 @@ class MainWindow(QMainWindow):
                 self.galvo_controller.galvo_home()
             self.stepper_controller.connection = self.galvo_controller.connection
             if success:
-                self.ui.titleLabel.setText("LASER SCRIBING")
                 self.ui.mainconnectgalvoPushButton.setEnabled(False)
                 self.ui.maindisconnectgalvoPushButton.setEnabled(True)
                 self.showAutoCloseMessage("Connected", "Galvo controller connected successfully.", timeout_ms=3000)
@@ -1239,7 +1238,6 @@ class MainWindow(QMainWindow):
             
         elif action == "maindisconnectgalvo":
             self.galvo_controller.disconnect()
-            self.ui.titleLabel.setText("LASER SCRIBING (Demo Mode)")
             self.galvo_has_disconnected = True
             self.ui.mainconnectgalvoPushButton.setEnabled(True)
             self.ui.maindisconnectgalvoPushButton.setEnabled(False)
@@ -1459,6 +1457,10 @@ class MainWindow(QMainWindow):
         if action == "setconfig":
             self.showMainPages("configgalvo")
             return
+            
+        # if action == "setadvancal":
+        #     self.showMainPages("ezcad")
+        #     return
         
     def toggleCameraJog(self):
         # State depends on "cameraoffsetPushButton" (ON/OFF toggle)
@@ -2463,7 +2465,6 @@ class MainWindow(QMainWindow):
                 
                 # Auto disconnect
                 self.galvo_controller.disconnect()
-                self.ui.titleLabel.setText("LASER SCRIBING (Demo Mode)")
                 self.ui.mainconnectgalvoPushButton.setEnabled(True)
                 self.ui.maindisconnectgalvoPushButton.setEnabled(False)
                 
@@ -2496,7 +2497,6 @@ class MainWindow(QMainWindow):
                 
                 # Auto disconnect
                 self.galvo_controller.disconnect()
-                self.ui.titleLabel.setText("LASER SCRIBING (Demo Mode)")
                 self.ui.mainconnectgalvoPushButton.setEnabled(True)
                 self.ui.maindisconnectgalvoPushButton.setEnabled(False)
                 

@@ -75,12 +75,12 @@
 	border-radius: 20px;
 }
 
-#jogFrame, #laserconfFrame, #programFrame, #printFrame, #terminalFrame, #cameraFrame, #joggalvoFrame, #axisposgalvoFrame, #galvolaserconfFrame, #programgalvoFrame, #printgalvoFrame, #configgalveFrame {
+#jogFrame, #laserconfFrame, #programFrame, #printFrame, #terminalFrame, #cameraFrame, #joggalvoFrame, #axisposgalvoFrame, #galvolaserconfFrame, #programgalvoFrame, #printgalvoFrame, #configgalveFrame, #ezcadFrame {
 	background-color: rgb(167, 198, 229);
 	border-radius: 20px;
 }
 
-#homeFrame, #stepsFrame, #xyFrame, #zFrame, #axisposFrame, #setfocusFrame, #flaserFrame, #zfocusFrame, #fsetFrame, #loffsetFrame, #offlaserFrame, #xyoffsetFrame, #xyposFrame, #offsetFrame, #offbtnFrame, #progFrame, #printimgFrame, #printopFrame, #printprogramFrame, #printprogressFrame, #camFrame, #cameraxyoffFrame, #objheightFrame, #axisposgalvoFrame, #testpatterngalvoFrame, #zgalvoFrame, #homegalvoFrame,  #pgmgalvoFrame, #printprogressgalvoFrame, #printimggalvoFrame, #printopgalvoFrame, #fsetgalvoFrame, #zfocusgalvoFrame, #objheightlasrFrame, #goposgalvoFrame, #galvo1Frame, #galvo2Frame, #aspectgalvoFrame, #powerFrame{
+#homeFrame, #stepsFrame, #xyFrame, #zFrame, #axisposFrame, #setfocusFrame, #flaserFrame, #zfocusFrame, #fsetFrame, #loffsetFrame, #offlaserFrame, #xyoffsetFrame, #xyposFrame, #offsetFrame, #offbtnFrame, #progFrame, #printimgFrame, #printopFrame, #printprogramFrame, #printprogressFrame, #camFrame, #cameraxyoffFrame, #objheightFrame, #axisposgalvoFrame, #testpatterngalvoFrame, #zgalvoFrame, #homegalvoFrame,  #pgmgalvoFrame, #printprogressgalvoFrame, #printimggalvoFrame, #printopgalvoFrame, #fsetgalvoFrame, #zfocusgalvoFrame, #objheightlasrFrame, #goposgalvoFrame, #galvo1Frame, #galvo2Frame, #aspectgalvoFrame, #powerFrame, #ez1Frame, #ez2Frame, #ez3Frame, #ez4Frame{
 	background-color: rgb(144, 170, 197);
 	border-radius: 20px;
 	border: 2px solid rgb(16, 42, 131);
@@ -819,7 +819,7 @@
              </font>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="comPage">
              <property name="styleSheet">
@@ -1259,7 +1259,7 @@ QPushButton:disabled {
                  </property>
                  <item>
                   <widget class="QWidget" name="widget" native="true">
-                   <layout class="QVBoxLayout" name="verticalLayout_75">
+                   <layout class="QVBoxLayout" name="verticalLayout_94">
                     <property name="spacing">
                      <number>0</number>
                     </property>
@@ -1454,6 +1454,50 @@ QPushButton:disabled {
                          </property>
                          <property name="text">
                           <string>CONFIG</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="machinesetFrame_3">
+                      <layout class="QVBoxLayout" name="verticalLayout_75">
+                       <property name="topMargin">
+                        <number>9</number>
+                       </property>
+                       <item>
+                        <widget class="QPushButton" name="setadvancalPushButton">
+                         <property name="font">
+                          <font>
+                           <pointsize>12</pointsize>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(16, 42, 131);
+	border-color: transparent;
+	border-style: outset;
+	border-radius: 15px;
+	border-width: 2px;
+	padding: 6px;
+}
+
+QPushButton:hover {
+	color: rgb(16, 42, 131);
+	background-color: rgb(167, 198, 229);
+	border-color: rgb(16, 42, 131);
+}
+
+QPushButton:disabled {
+	background-color: rgb(172, 172, 172);
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>Advanced
+Calibration</string>
                          </property>
                         </widget>
                        </item>
@@ -2357,7 +2401,7 @@ QPushButton:disabled {
                 </font>
                </property>
                <property name="text">
-                <string>LASER SCRIBING</string>
+                <string>PATTERNING MACHINE</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -2537,7 +2581,7 @@ QPushButton:disabled {
                 </size>
                </property>
                <property name="currentIndex">
-                <number>6</number>
+                <number>11</number>
                </property>
                <widget class="QWidget" name="jogPage">
                 <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -11831,7 +11875,7 @@ QProgressBar::chunk {
                        <property name="geometry">
                         <rect>
                          <x>0</x>
-                         <y>0</y>
+                         <y>-354</y>
                          <width>613</width>
                          <height>687</height>
                         </rect>
@@ -14235,6 +14279,2497 @@ QPushButton:disabled {
                  </item>
                 </layout>
                </widget>
+               <widget class="QWidget" name="ezcadPage">
+                <layout class="QVBoxLayout" name="verticalLayout_88">
+                 <item>
+                  <widget class="QLabel" name="page3Label_8">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>14</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>EZCAD 9-Point Calibration Studio</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="ezcadFrame">
+                   <property name="frameShape">
+                    <enum>QFrame::Shape::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Shadow::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_127">
+                    <property name="leftMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>9</number>
+                    </property>
+                    <item>
+                     <widget class="QScrollArea" name="scrollArea_3">
+                      <property name="widgetResizable">
+                       <bool>true</bool>
+                      </property>
+                      <widget class="QWidget" name="scrollAreaWidgetContents_3">
+                       <property name="geometry">
+                        <rect>
+                         <x>-254</x>
+                         <y>-286</y>
+                         <width>828</width>
+                         <height>731</height>
+                        </rect>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_93">
+                        <item>
+                         <widget class="QFrame" name="frame_62">
+                          <property name="frameShape">
+                           <enum>QFrame::Shape::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Shadow::Raised</enum>
+                          </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_139">
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QFrame" name="ez1Frame">
+                             <property name="frameShape">
+                              <enum>QFrame::Shape::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Shadow::Raised</enum>
+                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_89" stretch="0,4,0">
+                              <item alignment="Qt::AlignmentFlag::AlignHCenter">
+                               <widget class="QLabel" name="label_110">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>12</pointsize>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+}</string>
+                                </property>
+                                <property name="text">
+                                 <string>Visual Orientation(Match Physical Mark)</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="visualorientFrame">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_64">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_130">
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_3">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Image:</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="imgindLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QPushButton" name="changeimgPushButton">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(16, 42, 131);
+	border-color: transparent;
+	border-style: outset;
+	border-radius: 15px;
+	border-width: 2px;
+	padding: 6px;
+}
+
+QPushButton:hover {
+	color: rgb(16, 42, 131);
+	background-color: rgb(167, 198, 229);
+	border-color: rgb(16, 42, 131);
+}
+
+QPushButton:disabled {
+	background-color: rgb(172, 172, 172);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Change Image&gt;&gt;</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="ez2Frame">
+                             <property name="frameShape">
+                              <enum>QFrame::Shape::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Shadow::Raised</enum>
+                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_90">
+                              <property name="leftMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="topMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>0</number>
+                              </property>
+                              <item alignment="Qt::AlignmentFlag::AlignHCenter">
+                               <widget class="QLabel" name="label_111">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>12</pointsize>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+}</string>
+                                </property>
+                                <property name="text">
+                                 <string>Measured Distances from Center(mm)'</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_66">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                 </font>
+                                </property>
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_129">
+                                 <property name="leftMargin">
+                                  <number>9</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_4">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>11</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Target Half-Width(W)</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="targhalfwidLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>120</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_29">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>11</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>mm(Nominal 
+Field=2*W)</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QPushButton" name="resettonominalPushButton">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>11</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(16, 42, 131);
+	border-color: transparent;
+	border-style: outset;
+	border-radius: 15px;
+	border-width: 2px;
+	padding: 6px;
+}
+
+QPushButton:hover {
+	color: rgb(16, 42, 131);
+	background-color: rgb(167, 198, 229);
+	border-color: rgb(16, 42, 131);
+}
+
+QPushButton:disabled {
+	background-color: rgb(172, 172, 172);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Reset to Nominal</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_67">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_128" stretch="0,2,2,2">
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_8">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Pt</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_7">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>X Distance(mm)</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_6">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Y Distance(mm)</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_5">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Description</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_68">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_131" stretch="0,2,2,2">
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_9">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>1</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="x1mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="y1mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item alignment="Qt::AlignmentFlag::AlignHCenter">
+                                  <widget class="QLabel" name="feedLabel_10">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>11</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Top-Left Corner</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_69">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_132" stretch="0,2,2,2">
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_11">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>2</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="x2mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="y2mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_12">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>13</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Top Center</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_75">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_138" stretch="0,2,2,2">
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_23">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>3</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="x3mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="y3mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_24">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Top-Right Corner</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_70">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_133" stretch="0,2,2,2">
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_13">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>4</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="x4mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="y4mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_14">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Left Center</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_71">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_134" stretch="0,2,2,2">
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_15">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>5</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="x5mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="y5mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_16">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Center(0,0)</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_72">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_135" stretch="0,2,2,2">
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_17">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>6</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="x6mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="y6mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_18">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Right Center</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_74">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_137" stretch="0,2,2,2">
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_21">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>7</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="x7mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="y7mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_22">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>11</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Bottom-Left Corner</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_73">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_136" stretch="0,2,2,2">
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_19">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>8</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="x8mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="y8mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_20">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Bottom Center</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_84">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_146" stretch="0,2,2,2">
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>9</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_27">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>9</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="x9mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="y9mmLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_28">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>11</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Bottom-Right Corner</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QFrame" name="frame_76">
+                          <property name="frameShape">
+                           <enum>QFrame::Shape::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Shadow::Raised</enum>
+                          </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_145">
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QFrame" name="ez3Frame">
+                             <property name="frameShape">
+                              <enum>QFrame::Shape::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Shadow::Raised</enum>
+                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_91">
+                              <property name="leftMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="topMargin">
+                               <number>5</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>0</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="indexLabel_2">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>12</pointsize>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                </property>
+                                <property name="text">
+                                 <string>Laser Marking Controls</string>
+                                </property>
+                                <property name="alignment">
+                                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_79">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_140">
+                                 <item>
+                                  <widget class="QLabel" name="indexLabel_3">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Power(%)</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QSlider" name="powerHorizontalSlider">
+                                   <property name="orientation">
+                                    <enum>Qt::Orientation::Horizontal</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="indexLabel_4">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>100</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="indexLabel_5">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Freq(kHz)</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QSlider" name="freqHorizontalSlider">
+                                   <property name="orientation">
+                                    <enum>Qt::Orientation::Horizontal</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="indexLabel_6">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>30</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_80">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_141">
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_25">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Mark Speed:</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="markspeedLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="feedLabel_26">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Jump Speed:</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="jumpspeedLineEdit">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_81">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_142">
+                                 <item>
+                                  <widget class="QPushButton" name="reddotPushButton">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(16, 42, 131);
+	border-color: transparent;
+	border-style: outset;
+	border-radius: 15px;
+	border-width: 2px;
+	padding: 6px;
+}
+
+QPushButton:hover {
+	color: rgb(16, 42, 131);
+	background-color: rgb(167, 198, 229);
+	border-color: rgb(16, 42, 131);
+}
+
+QPushButton:disabled {
+	background-color: rgb(172, 172, 172);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Red Dot Frame</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QPushButton" name="markcalgridPushButton">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(16, 42, 131);
+	border-color: transparent;
+	border-style: outset;
+	border-radius: 15px;
+	border-width: 2px;
+	padding: 6px;
+}
+
+QPushButton:hover {
+	color: rgb(16, 42, 131);
+	background-color: rgb(167, 198, 229);
+	border-color: rgb(16, 42, 131);
+}
+
+QPushButton:disabled {
+	background-color: rgb(172, 172, 172);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Mark Calibration Grid</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QPushButton" name="stopPushButton">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(16, 42, 131);
+	border-color: transparent;
+	border-style: outset;
+	border-radius: 15px;
+	border-width: 2px;
+	padding: 6px;
+}
+
+QPushButton:hover {
+	color: rgb(16, 42, 131);
+	background-color: rgb(167, 198, 229);
+	border-color: rgb(16, 42, 131);
+}
+
+QPushButton:disabled {
+	background-color: rgb(172, 172, 172);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Stop</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_65">
+                             <property name="frameShape">
+                              <enum>QFrame::Shape::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Shadow::Raised</enum>
+                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_95">
+                              <property name="leftMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="topMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>0</number>
+                              </property>
+                              <item>
+                               <widget class="QFrame" name="ez4Frame">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_92">
+                                 <item>
+                                  <widget class="QLabel" name="indexLabel_7">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Apply Verification Calibration</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QFrame" name="frame_82">
+                                   <property name="frameShape">
+                                    <enum>QFrame::Shape::StyledPanel</enum>
+                                   </property>
+                                   <property name="frameShadow">
+                                    <enum>QFrame::Shadow::Raised</enum>
+                                   </property>
+                                   <layout class="QHBoxLayout" name="horizontalLayout_143">
+                                    <item alignment="Qt::AlignmentFlag::AlignLeft">
+                                     <widget class="QLabel" name="indexLabel_8">
+                                      <property name="font">
+                                       <font>
+                                        <pointsize>12</pointsize>
+                                        <bold>true</bold>
+                                       </font>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>Status : Ready</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignmentFlag::AlignCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QFrame" name="frame_83">
+                                   <property name="frameShape">
+                                    <enum>QFrame::Shape::StyledPanel</enum>
+                                   </property>
+                                   <property name="frameShadow">
+                                    <enum>QFrame::Shadow::Raised</enum>
+                                   </property>
+                                   <layout class="QHBoxLayout" name="horizontalLayout_144">
+                                    <property name="leftMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="topMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="rightMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="bottomMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <item>
+                                     <widget class="QPushButton" name="calapplyPushButton">
+                                      <property name="font">
+                                       <font>
+                                        <pointsize>12</pointsize>
+                                        <bold>true</bold>
+                                       </font>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(16, 42, 131);
+	border-color: transparent;
+	border-style: outset;
+	border-radius: 15px;
+	border-width: 2px;
+	padding: 6px;
+}
+
+QPushButton:hover {
+	color: rgb(16, 42, 131);
+	background-color: rgb(167, 198, 229);
+	border-color: rgb(16, 42, 131);
+}
+
+QPushButton:disabled {
+	background-color: rgb(172, 172, 172);
+}</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>Calculate Apply
+ Calibration</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QPushButton" name="markvershapePushButton">
+                                      <property name="font">
+                                       <font>
+                                        <pointsize>12</pointsize>
+                                        <bold>true</bold>
+                                       </font>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(16, 42, 131);
+	border-color: transparent;
+	border-style: outset;
+	border-radius: 15px;
+	border-width: 2px;
+	padding: 6px;
+}
+
+QPushButton:hover {
+	color: rgb(16, 42, 131);
+	background-color: rgb(167, 198, 229);
+	border-color: rgb(16, 42, 131);
+}
+
+QPushButton:disabled {
+	background-color: rgb(172, 172, 172);
+}</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>Mark Verification 
+Shape</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_63">
+                                <property name="frameShape">
+                                 <enum>QFrame::Shape::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Shadow::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_147" stretch="3,2">
+                                 <item>
+                                  <spacer name="horizontalSpacer_12">
+                                   <property name="orientation">
+                                    <enum>Qt::Orientation::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
+                                    <size>
+                                     <width>170</width>
+                                     <height>9</height>
+                                    </size>
+                                   </property>
+                                  </spacer>
+                                 </item>
+                                 <item>
+                                  <widget class="QPushButton" name="ezcadclosePushButton">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(16, 42, 131);
+	border-color: transparent;
+	border-style: outset;
+	border-radius: 15px;
+	border-width: 2px;
+	padding: 6px;
+}
+
+QPushButton:hover {
+	color: rgb(16, 42, 131);
+	background-color: rgb(167, 198, 229);
+	border-color: rgb(16, 42, 131);
+}
+
+QPushButton:disabled {
+	background-color: rgb(172, 172, 172);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Close</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
               </widget>
              </item>
             </layout>
@@ -14416,7 +16951,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 </size>
                </property>
                <property name="text">
-                <string>Copyright Specialize Products Pvt. Ltd.</string>
+                <string>Copyright Spécialisé Products Pvt. Ltd.</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
