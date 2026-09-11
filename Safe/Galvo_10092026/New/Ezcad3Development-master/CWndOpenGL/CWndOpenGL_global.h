@@ -1,0 +1,12 @@
+#ifndef CWNDOPENGL_GLOBAL_H
+#define CWNDOPENGL_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(CWNDOPENGL_LIBRARY)
+#  define CWNDOPENGL_EXPORT Q_DECL_EXPORT
+#else
+#  define CWNDOPENGL_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // CWNDOPENGL_GLOBAL_H

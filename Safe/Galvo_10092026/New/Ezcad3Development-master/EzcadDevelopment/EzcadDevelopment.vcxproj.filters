@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Mgr">
+      <UniqueIdentifier>{ebea58a5-dec2-46a4-b774-3482f6954302}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mgr">
+      <UniqueIdentifier>{664dfeed-58c4-4672-a6d7-3611874fdf95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Widget">
+      <UniqueIdentifier>{927a1ae5-6a1f-4232-819a-338cddf97a9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Widget">
+      <UniqueIdentifier>{edff4348-9aef-40b3-b942-8a87035d7516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Mgr\GTS">
+      <UniqueIdentifier>{3dd6663d-6d25-4a26-8f7c-ad63cde90777}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Mgr\Ezcad">
+      <UniqueIdentifier>{019bf7e5-1804-4259-b2b6-af108ef701b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mgr\GTS">
+      <UniqueIdentifier>{5b218675-4175-4964-90e3-f9fa33422220}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mgr\Ezcad">
+      <UniqueIdentifier>{80f02a23-9afc-4a4a-8c4a-cc2a8b9c57cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Mgr\General">
+      <UniqueIdentifier>{cbac1d03-1f0c-4bc3-a9ca-af7140cbe4d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mgr\General">
+      <UniqueIdentifier>{edef3896-bd49-47e0-8d55-42776304d642}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="EzcadDevelopment.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Widget\EzcadDevelopment.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\AxisControlWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\LaserCtrlWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\MainCtrlWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\MainWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\PreviewWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\SettingsWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\GtsSettingWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GtsCore\GtsAxisMgr.cpp">
+      <Filter>Source Files\Mgr\GTS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GtsCore\GtsBoardMgr.cpp">
+      <Filter>Source Files\Mgr\GTS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GtsCore\GtsConfigMgr.cpp">
+      <Filter>Source Files\Mgr\GTS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GtsCore\GtsFeedbackMgr.cpp">
+      <Filter>Source Files\Mgr\GTS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GtsCore\GtsInterpolationMgr.cpp">
+      <Filter>Source Files\Mgr\GTS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GtsCore\GtsIOMgr.cpp">
+      <Filter>Source Files\Mgr\GTS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GtsCore\GtsMotionMgr.cpp">
+      <Filter>Source Files\Mgr\GTS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GtsCore\GtsMgr.cpp">
+      <Filter>Source Files\Mgr\GTS</Filter>
+    </ClCompile>
+    <ClCompile Include="Mgr\EzcadMgr.cpp">
+      <Filter>Source Files\Mgr\Ezcad</Filter>
+    </ClCompile>
+    <ClCompile Include="Mgr\MarkWorker.cpp">
+      <Filter>Source Files\Mgr\Ezcad</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\IOWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="Mgr\GeneralMgr.cpp">
+      <Filter>Source Files\Mgr\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Mgr\LogMgr.cpp">
+      <Filter>Source Files\Mgr\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Mgr\MenuMgr.cpp">
+      <Filter>Source Files\Mgr\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\GeneralSettingWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Widget\EzcadDevelopment.h">
+      <Filter>Header Files\Widget</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget\AxisControlWidget.h">
+      <Filter>Header Files\Widget</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget\LaserCtrlWidget.h">
+      <Filter>Header Files\Widget</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget\MainCtrlWidget.h">
+      <Filter>Header Files\Widget</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget\MainWidget.h">
+      <Filter>Header Files\Widget</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget\PreviewWidget.h">
+      <Filter>Header Files\Widget</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget\SettingsWidget.h">
+      <Filter>Header Files\Widget</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget\GtsSettingWidget.h">
+      <Filter>Header Files\Widget</Filter>
+    </QtMoc>
+    <QtMoc Include="Mgr\EzcadMgr.h">
+      <Filter>Header Files\Mgr\Ezcad</Filter>
+    </QtMoc>
+    <QtMoc Include="Mgr\MarkWorker.h">
+      <Filter>Header Files\Mgr\Ezcad</Filter>
+    </QtMoc>
+    <QtMoc Include="..\GtsCore\GtsAxisMgr.h">
+      <Filter>Header Files\Mgr\GTS</Filter>
+    </QtMoc>
+    <QtMoc Include="..\GtsCore\GtsBoardMgr.h">
+      <Filter>Header Files\Mgr\GTS</Filter>
+    </QtMoc>
+    <QtMoc Include="..\GtsCore\GtsConfigMgr.h">
+      <Filter>Header Files\Mgr\GTS</Filter>
+    </QtMoc>
+    <QtMoc Include="..\GtsCore\GtsFeedbackMgr.h">
+      <Filter>Header Files\Mgr\GTS</Filter>
+    </QtMoc>
+    <QtMoc Include="..\GtsCore\GtsInterpolationMgr.h">
+      <Filter>Header Files\Mgr\GTS</Filter>
+    </QtMoc>
+    <QtMoc Include="..\GtsCore\GtsIOMgr.h">
+      <Filter>Header Files\Mgr\GTS</Filter>
+    </QtMoc>
+    <QtMoc Include="..\GtsCore\GtsMotionMgr.h">
+      <Filter>Header Files\Mgr\GTS</Filter>
+    </QtMoc>
+    <QtMoc Include="..\GtsCore\GtsMgr.h">
+      <Filter>Header Files\Mgr\GTS</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget\IOWidget.h">
+      <Filter>Header Files\Widget</Filter>
+    </QtMoc>
+    <QtMoc Include="Mgr\GeneralMgr.h">
+      <Filter>Header Files\Mgr\General</Filter>
+    </QtMoc>
+    <QtMoc Include="Mgr\LogMgr.h">
+      <Filter>Header Files\Mgr\General</Filter>
+    </QtMoc>
+    <QtMoc Include="Mgr\MenuMgr.h">
+      <Filter>Header Files\Mgr\General</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget\GeneralSettingWidget.h">
+      <Filter>Header Files\Widget</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="Widget\EzcadDevelopment.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Widget\MainWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Widget\PreviewWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Widget\LaserCtrlWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Widget\MainCtrlWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Widget\AxisControlWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Widget\SettingsWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Widget\GtsSettingWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Widget\IOWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Widget\GeneralSettingWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\GtsCore\ControllerData.h">
+      <Filter>Header Files\Mgr\GTS</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

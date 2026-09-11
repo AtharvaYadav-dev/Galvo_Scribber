@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/EzcadDevelopment">
+        <file>res/Clear.png</file>
+        <file>res/Debug.png</file>
+        <file>res/Help.png</file>
+        <file>res/Main.png</file>
+        <file>res/Model.png</file>
+        <file>res/owl.png</file>
+        <file>res/Preview.png</file>
+        <file>res/Project.png</file>
+        <file>res/RegularSetting.png</file>
+        <file>res/Rescource.png</file>
+        <file>res/Reset.png</file>
+        <file>res/ReturnZero.png</file>
+        <file>res/RobotArm.png</file>
+        <file>res/Setting.png</file>
+        <file>res/Start.png</file>
+        <file>res/Stop.png</file>
+        <file>res/User.png</file>
+        <file>res/Axis.png</file>
+        <file>res/Mark.png</file>
+        <file>res/Param.png</file>
+        <file>res/Redlight.png</file>
+        <file>res/Io.png</file>
+    </qresource>
+</RCC>

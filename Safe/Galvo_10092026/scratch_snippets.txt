@@ -1,0 +1,58 @@
+    def setupJogGalvo(self):
+        widget_list = []
+        widget_list.append(self.wh.configWidget(self, QPushButton, "galvohomePushButton", "clicked", self.jogGalvoAction, role="galvohome"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "galvozhomePushButton", "clicked", self.jogGalvoAction, role="galvozhome"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "circlePushButton", "clicked", self.jogGalvoAction, role="circle"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "trianglePushButton", "clicked", self.jogGalvoAction, role="triangle"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "squarePushButton", "clicked", self.jogGalvoAction, role="square"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "zplusgalvoPushButton", "clicked", self.jogGalvoAction, role="zplusgalvo"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "ztravelPushButton", "clicked", self.jogGalvoAction, role="ztravel"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "zminusgalvoPushButton", "clicked", self.jogGalvoAction, role="zminusgalvo"))
+        self.util.dedupeList(widget_list)
+        self.joggalvo_widgets = self.wh.createMap(*widget_list)
+
+    def setupLaserConfGalvo(self):
+        widget_list = []
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "galvoobjheightLineEdit", "textChanged", self.laserConfGalvoAction, role="galvoobjheight"))
+        widget_list.append(self.wh.configWidget(self, QComboBox, "flasergalvoComboBox", "currentTextChanged", self.laserConfGalvoAction, role="flasergalvo"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "flasergalvoPushButton", "clicked", self.laserConfGalvoAction, role="flasergalvo"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "fplusgalvoPushButton", "clicked", self.laserConfGalvoAction, role="fplusgalvo"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "ftravelgalvoPushButton", "clicked", self.laserConfGalvoAction, role="ftravelgalvo"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "fminusgalvoPushButton", "clicked", self.laserConfGalvoAction, role="fminusgalvo"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "fsetgalvoPushButton", "clicked", self.laserConfGalvoAction, role="fsetgalvo"))
+        self.util.dedupeList(widget_list)
+        self.laserconfgalvo_widgets = self.wh.createMap(*widget_list)
+
+    def setupProgramsGalvo(self):
+        widget_list = []
+        widget_list.append(self.wh.configWidget(self, QPushButton, "pgmfilegalvoPushButton", "clicked", self.programsGalvoAction, role="pgmfilegalvo"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmheightgalvoLineEdit", "textChanged", self.programsGalvoAction, role="pgmheightgalvo"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmmarkspeedgalvoLineEdit", "textChanged", self.programsGalvoAction, role="pgmmarkspeedgalvo"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmjumpspeedLineEdit", "textChanged", self.programsGalvoAction, role="pgmjumpspeed"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmloopcountLineEdit", "textChanged", self.programsGalvoAction, role="pgmloopcount"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmstartposxLineEdit", "textChanged", self.programsGalvoAction, role="pgmstartposx"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmstartposyLineEdit", "textChanged", self.programsGalvoAction, role="pgmstartposy"))
+        widget_list.append(self.wh.configWidget(self, QCheckBox, "pgmenablehatchCheckBox", "clicked", self.programsGalvoAction, role="pgmenablehatch"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmhatchspacingLineEdit", "textChanged", self.programsGalvoAction, role="pgmhatchspacing"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmhatchangleLineEdit", "textChanged", self.programsGalvoAction, role="pgmhatchangle"))
+        widget_list.append(self.wh.configWidget(self, QCheckBox, "pgmmodeCheckBox", "clicked", self.programsGalvoAction, role="pgmmode"))
+        widget_list.append(self.wh.configWidget(self, QComboBox, "pgmhatchstyleComboBox", "currentTextChanged", self.programsGalvoAction, role="pgmhatchstyle"))
+        widget_list.append(self.wh.configWidget(self, QComboBox, "pgmhatcheffectComboBox", "currentTextChanged", self.programsGalvoAction, role="pgmhatcheffect"))
+        widget_list.append(self.wh.configWidget(self, QComboBox, "pgmwobradComboBox", "currentTextChanged", self.programsGalvoAction, role="pgmwobrad"))
+        widget_list.append(self.wh.configWidget(self, QComboBox, "pgmwobspeedComboBox", "currentTextChanged", self.programsGalvoAction, role="pgmwobspeed"))
+        self.util.dedupeList(widget_list)
+        self.programgalvo_widgets = self.wh.createMap(*widget_list)
+
+    def setupPrintGalvo(self):
+        widget_list = []
+        widget_list.append(self.wh.configWidget(self, QPushButton, "printrungalvoPushButton", "clicked", self.printGalvoAction, role="printrungalvo"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "printabortgalvoPushButton", "clicked", self.printGalvoAction, role="printabortgalvo"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "redlightprePushButton", "clicked", self.printGalvoAction, role="redlightpre"))
+        self.util.dedupeList(widget_list)
+        self.printgalvo_widgets = self.wh.createMap(*widget_list)
+
+    def setupConfigGalvo(self):
+        widget_list = []
+        self.util.dedupeList(widget_list)
+        self.configgalvo_widgets = self.wh.createMap(*widget_list)
+

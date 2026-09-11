@@ -1,0 +1,12 @@
+{
+    "Galvo program page parameters": {
+        "Sample Height": "0.0",
+        "Mark Speed": "100000",
+        "Jump Speed": "200000",
+        "Loop Count": "5",
+        "Start Pos X": "10",
+        "Start Pos Y": "10",
+        "Enable Hatch": false,
+        "Mode": null
+    }
+}

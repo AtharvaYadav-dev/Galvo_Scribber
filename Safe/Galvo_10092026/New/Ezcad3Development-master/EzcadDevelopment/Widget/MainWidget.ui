@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CMainWidgetClass</class>
+ <widget class="QWidget" name="CMainWidgetClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>779</width>
+    <height>530</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CMainWidget</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout" stretch="4,6">
+   <property name="spacing">
+    <number>20</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="widget_laser" native="true"/>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_mainCtrl" native="true"/>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
