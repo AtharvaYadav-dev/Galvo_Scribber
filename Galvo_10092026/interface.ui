@@ -2581,7 +2581,7 @@ QPushButton:disabled {
                 </size>
                </property>
                <property name="currentIndex">
-                <number>11</number>
+                <number>5</number>
                </property>
                <widget class="QWidget" name="jogPage">
                 <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -7581,8 +7581,8 @@ QPushButton:disabled {
                                   </property>
                                   <property name="maximumSize">
                                    <size>
-                                    <width>16777215</width>
-                                    <height>16777215</height>
+                                    <width>150</width>
+                                    <height>150</height>
                                    </size>
                                   </property>
                                   <property name="font">
@@ -7643,8 +7643,8 @@ QPushButton:disabled {
                                   </property>
                                   <property name="maximumSize">
                                    <size>
-                                    <width>16777215</width>
-                                    <height>16777215</height>
+                                    <width>150</width>
+                                    <height>150</height>
                                    </size>
                                   </property>
                                   <property name="font">
@@ -7705,8 +7705,8 @@ QPushButton:disabled {
                                   </property>
                                   <property name="maximumSize">
                                    <size>
-                                    <width>16777215</width>
-                                    <height>16777215</height>
+                                    <width>150</width>
+                                    <height>150</height>
                                    </size>
                                   </property>
                                   <property name="font">
@@ -7828,8 +7828,8 @@ QPushButton:disabled {
                                   </property>
                                   <property name="maximumSize">
                                    <size>
-                                    <width>16777215</width>
-                                    <height>16777215</height>
+                                    <width>150</width>
+                                    <height>150</height>
                                    </size>
                                   </property>
                                   <property name="font">
@@ -7880,8 +7880,8 @@ QPushButton:disabled {
                                   </property>
                                   <property name="maximumSize">
                                    <size>
-                                    <width>16777215</width>
-                                    <height>16777215</height>
+                                    <width>150</width>
+                                    <height>150</height>
                                    </size>
                                   </property>
                                   <property name="font">
@@ -7933,8 +7933,8 @@ QPushButton:disabled {
                                   </property>
                                   <property name="maximumSize">
                                    <size>
-                                    <width>16777215</width>
-                                    <height>16777215</height>
+                                    <width>150</width>
+                                    <height>150</height>
                                    </size>
                                   </property>
                                   <property name="font">
@@ -11875,7 +11875,7 @@ QProgressBar::chunk {
                        <property name="geometry">
                         <rect>
                          <x>0</x>
-                         <y>-354</y>
+                         <y>0</y>
                          <width>613</width>
                          <height>687</height>
                         </rect>
@@ -14338,8 +14338,8 @@ QPushButton:disabled {
                       <widget class="QWidget" name="scrollAreaWidgetContents_3">
                        <property name="geometry">
                         <rect>
-                         <x>-254</x>
-                         <y>-286</y>
+                         <x>0</x>
+                         <y>0</y>
                          <width>828</width>
                          <height>731</height>
                         </rect>

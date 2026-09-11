@@ -1473,3 +1473,53 @@
 2026-09-10 18:24 - INFO - ==================================================
 2026-09-10 18:24 - INFO - New session close at 2026-09-10 18:24
 2026-09-10 18:24 - INFO - ==================================================
+2026-09-11 12:59 - INFO - UI load successful
+2026-09-11 12:59 - INFO - Profile : Supervisor
+2026-09-11 12:59 - CRITICAL - Laser 1 : OFF
+2026-09-11 12:59 - CRITICAL - Laser 2 : OFF
+2026-09-11 12:59 - INFO - Stepper Lasers Shutdown
+2026-09-11 12:59 - INFO - COM connection close successfully
+2026-09-11 12:59 - INFO - Main window close successfully
+2026-09-11 12:59 - INFO - ==================================================
+2026-09-11 12:59 - INFO - New session close at 2026-09-11 12:59
+2026-09-11 12:59 - INFO - ==================================================
+2026-09-11 14:24 - INFO - UI load successful
+2026-09-11 14:24 - INFO - Profile : Supervisor
+2026-09-11 14:27 - CRITICAL - Laser 1 : OFF
+2026-09-11 14:27 - CRITICAL - Laser 2 : OFF
+2026-09-11 14:27 - INFO - Stepper Lasers Shutdown
+2026-09-11 14:27 - INFO - COM connection close successfully
+2026-09-11 14:27 - INFO - Main window close successfully
+2026-09-11 14:27 - INFO - ==================================================
+2026-09-11 14:27 - INFO - New session close at 2026-09-11 14:27
+2026-09-11 14:27 - INFO - ==================================================
+2026-09-11 14:27 - INFO - UI load successful
+2026-09-11 14:28 - INFO - UI load successful
+2026-09-11 14:28 - INFO - Profile : Supervisor
+2026-09-11 14:31 - INFO - UI load successful
+2026-09-11 14:31 - INFO - Profile : Supervisor
+2026-09-11 14:32 - INFO - UI load successful
+2026-09-11 14:33 - INFO - Profile : Supervisor
+2026-09-11 14:34 - INFO - UI load successful
+2026-09-11 14:34 - INFO - Profile : Supervisor
+2026-09-11 14:35 - CRITICAL - Laser 1 : OFF
+2026-09-11 14:35 - CRITICAL - Laser 2 : OFF
+2026-09-11 14:35 - INFO - Stepper Lasers Shutdown
+2026-09-11 14:35 - INFO - COM connection close successfully
+2026-09-11 14:35 - INFO - Main window close successfully
+2026-09-11 14:35 - INFO - ==================================================
+2026-09-11 14:35 - INFO - New session close at 2026-09-11 14:35
+2026-09-11 14:35 - INFO - ==================================================
+2026-09-11 14:35 - INFO - UI load successful
+2026-09-11 14:35 - INFO - Profile : Supervisor
+2026-09-11 14:36 - INFO - Close event ignored.
+2026-09-11 14:40 - INFO - UI load successful
+2026-09-11 14:40 - INFO - Profile : Supervisor
+2026-09-11 14:41 - CRITICAL - Laser 1 : OFF
+2026-09-11 14:41 - CRITICAL - Laser 2 : OFF
+2026-09-11 14:41 - INFO - Stepper Lasers Shutdown
+2026-09-11 14:41 - INFO - COM connection close successfully
+2026-09-11 14:41 - INFO - Main window close successfully
+2026-09-11 14:41 - INFO - ==================================================
+2026-09-11 14:41 - INFO - New session close at 2026-09-11 14:41
+2026-09-11 14:41 - INFO - ==================================================

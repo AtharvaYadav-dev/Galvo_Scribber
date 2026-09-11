@@ -593,7 +593,7 @@ class MainWindow(QMainWindow):
         # settings_widget_list.append(self.wh.configWidget(self, QLineEdit, "feedLineEdit", "returnPressed", self.settingAction, role="feed"))
         settings_widget_list.append(self.wh.configWidget(self, QPushButton, "cameraoffsetPushButton", "clicked", self.settingAction, role="cameraoffset"))
         settings_widget_list.append(self.wh.configWidget(self, QPushButton, "setconfigPushButton", "clicked", self.settingAction, role="setconfig"))
-        # settings_widget_list.append(self.wh.configWidget(self, QPushButton, "setadvancalPushButton", "clicked", self.settingAction, role="setadvancal")) 
+        settings_widget_list.append(self.wh.configWidget(self, QPushButton, "setadvancalPushButton", "clicked", self.settingAction, role="setadvancal")) 
         
         self.util.dedupeList(settings_widget_list)
         self.settings_widgets = self.wh.createMap(*settings_widget_list)

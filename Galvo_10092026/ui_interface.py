@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfacecPxrse.ui'
+## Form generated from reading UI file 'interfaceVlIocs.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -3979,7 +3979,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setHeightForWidth(self.circlePushButton.sizePolicy().hasHeightForWidth())
         self.circlePushButton.setSizePolicy(sizePolicy5)
         self.circlePushButton.setMinimumSize(QSize(0, 0))
-        self.circlePushButton.setMaximumSize(QSize(16777215, 16777215))
+        self.circlePushButton.setMaximumSize(QSize(150, 150))
         self.circlePushButton.setFont(font2)
         self.circlePushButton.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);	\n"
@@ -4012,7 +4012,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setHeightForWidth(self.trianglePushButton.sizePolicy().hasHeightForWidth())
         self.trianglePushButton.setSizePolicy(sizePolicy5)
         self.trianglePushButton.setMinimumSize(QSize(0, 0))
-        self.trianglePushButton.setMaximumSize(QSize(16777215, 16777215))
+        self.trianglePushButton.setMaximumSize(QSize(150, 150))
         self.trianglePushButton.setFont(font2)
         self.trianglePushButton.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);	\n"
@@ -4045,7 +4045,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setHeightForWidth(self.squarePushButton.sizePolicy().hasHeightForWidth())
         self.squarePushButton.setSizePolicy(sizePolicy5)
         self.squarePushButton.setMinimumSize(QSize(0, 0))
-        self.squarePushButton.setMaximumSize(QSize(16777215, 16777215))
+        self.squarePushButton.setMaximumSize(QSize(150, 150))
         self.squarePushButton.setFont(font2)
         self.squarePushButton.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);	\n"
@@ -4106,7 +4106,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setHeightForWidth(self.zplusgalvoPushButton.sizePolicy().hasHeightForWidth())
         self.zplusgalvoPushButton.setSizePolicy(sizePolicy5)
         self.zplusgalvoPushButton.setMinimumSize(QSize(0, 0))
-        self.zplusgalvoPushButton.setMaximumSize(QSize(16777215, 16777215))
+        self.zplusgalvoPushButton.setMaximumSize(QSize(150, 150))
         self.zplusgalvoPushButton.setFont(font2)
         self.zplusgalvoPushButton.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);	\n"
@@ -4135,7 +4135,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setHeightForWidth(self.ztravelPushButton.sizePolicy().hasHeightForWidth())
         self.ztravelPushButton.setSizePolicy(sizePolicy5)
         self.ztravelPushButton.setMinimumSize(QSize(0, 0))
-        self.ztravelPushButton.setMaximumSize(QSize(16777215, 16777215))
+        self.ztravelPushButton.setMaximumSize(QSize(150, 150))
         self.ztravelPushButton.setFont(font2)
         self.ztravelPushButton.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);	\n"
@@ -4165,7 +4165,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setHeightForWidth(self.zminusgalvoPushButton.sizePolicy().hasHeightForWidth())
         self.zminusgalvoPushButton.setSizePolicy(sizePolicy5)
         self.zminusgalvoPushButton.setMinimumSize(QSize(0, 0))
-        self.zminusgalvoPushButton.setMaximumSize(QSize(16777215, 16777215))
+        self.zminusgalvoPushButton.setMaximumSize(QSize(150, 150))
         self.zminusgalvoPushButton.setFont(font2)
         self.zminusgalvoPushButton.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);	\n"
@@ -6218,7 +6218,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, -354, 613, 687))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 613, 687))
         self.verticalLayout_85 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_85.setObjectName(u"verticalLayout_85")
         self.frame_42 = QFrame(self.scrollAreaWidgetContents_2)
@@ -7484,7 +7484,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(-254, -286, 828, 731))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 828, 731))
         self.verticalLayout_93 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_93.setObjectName(u"verticalLayout_93")
         self.frame_62 = QFrame(self.scrollAreaWidgetContents_3)
@@ -8897,7 +8897,7 @@ class Ui_MainWindow(object):
 
         self.centerMenuPages.setCurrentIndex(1)
         self.infoSubPages.setCurrentIndex(0)
-        self.mainPages.setCurrentIndex(11)
+        self.mainPages.setCurrentIndex(5)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
