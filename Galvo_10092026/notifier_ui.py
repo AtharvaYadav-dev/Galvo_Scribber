@@ -422,3 +422,68 @@ class NotifierUI:
         if main_window.popupResult == QMessageBox.Ok:
             return [inp.text() for inp in main_window.notifyInputs]
         return None
+
+    @staticmethod
+    def showActionPopup(main_window, title, message, button_labels):
+        """Shows a notification with dynamically generated custom buttons and returns the clicked button's text."""
+        if hasattr(main_window, "notifyLabel"):
+            main_window.notifyLabel.setText(title)
+        if hasattr(main_window, "notifyTextEdit"):
+            main_window.notifyTextEdit.setText(message)
+            main_window.notifyTextEdit.show()
+
+        # Hide standard buttons
+        main_window.btnOk.hide()
+        main_window.btnYes.hide()
+        main_window.btnNo.hide()
+        main_window.btnCancel.hide()
+
+        # Custom result tracking
+        main_window.customPopupResult = None
+
+        def create_callback(label_text):
+            def callback():
+                main_window.customPopupResult = label_text
+                if main_window.popupLoop.isRunning():
+                    main_window.popupLoop.quit()
+                main_window.notify_menu_widgets.notify.collapseMenu()
+            return callback
+
+        # Create custom buttons
+        custom_buttons = []
+        for label in button_labels:
+            btn = QPushButton(label)
+            btn.setStyleSheet("""
+                QPushButton {
+                    background-color: rgb(16, 42, 131);
+                    color: white;
+                    border: 1px solid rgb(16, 42, 131);
+                    border-radius: 8px;
+                    padding: 6px 20px;
+                    font-weight: bold;
+                    font-size: 12px;
+                }
+                QPushButton:hover {
+                    background-color: rgb(40, 70, 160);
+                    color: white;
+                }
+                QPushButton:pressed {
+                    background-color: rgb(10, 30, 100);
+                }
+            """)
+            btn.clicked.connect(create_callback(label))
+            main_window.notifyBtnLayout.addWidget(btn)
+            custom_buttons.append(btn)
+
+        if not main_window.notify_menu_widgets.notify.isExpanded():
+            main_window.notify_menu_widgets.notify.expandMenu()
+            
+        main_window.popupLoop.exec()
+
+        # Cleanup custom buttons
+        for btn in custom_buttons:
+            main_window.notifyBtnLayout.removeWidget(btn)
+            btn.deleteLater()
+
+        return main_window.customPopupResult
+

@@ -169,6 +169,7 @@ class MainWindow(QMainWindow):
         self.setupProgramsGalvo()
         self.setupPrintGalvo()
         self.setupConfigGalvo()
+        self.setupAdvancedCalibration()
         self.setupHeader()
         
         # widget setup calls ends here
@@ -929,20 +930,6 @@ class MainWindow(QMainWindow):
 
         # Galvo 2
         widget_list.append(self.wh.configWidget(self, QCheckBox, "neggalvo2confCheckBox", "clicked", self.configGalvoAction, role="neggalvo2conf"))
-
-        # Inject Advanced Calibration Button
-        if hasattr(self.ui, 'setconfigPushButton') and self.ui.setconfigPushButton.parentWidget():
-            if not hasattr(self, 'adv_calib_btn'):
-                self.adv_calib_btn = QPushButton("Advanced Calibration")
-                self.adv_calib_btn.setFont(self.ui.setconfigPushButton.font())
-                self.adv_calib_btn.setStyleSheet(self.ui.setconfigPushButton.styleSheet())
-                layout = self.ui.setconfigPushButton.parentWidget().layout()
-                if layout:
-                    layout.addWidget(self.adv_calib_btn)
-                self.adv_calib_btn.clicked.connect(self.open_calibration_dialog)
-
-
-
         widget_list.append(self.wh.configWidget(self, QLineEdit, "confscalegalvo2LineEdit", "textChanged", self.configGalvoAction, role="confscalegalvo2"))
         widget_list.append(self.wh.configWidget(self, QPushButton, "confscalegalvo2PushButton", "clicked", self.configGalvoAction, role="confscalegalvo2btn"))
         widget_list.append(self.wh.configWidget(self, QLineEdit, "confbargalvo2LineEdit", "textChanged", self.configGalvoAction, role="confbargalvo2"))
@@ -966,16 +953,6 @@ class MainWindow(QMainWindow):
 
         self.util.dedupeList(widget_list)
         self.configgalvo_widgets = self.wh.createMap(*widget_list)
-
-    def open_calibration_dialog(self):
-        from core.calibration_ui import CalibrationDialog
-        from PySide6.QtWidgets import QMessageBox
-        if hasattr(self.galvo_controller, 'connection') and hasattr(self.galvo_controller.connection, 'calibration'):
-            calib = self.galvo_controller.connection.calibration
-            dlg = CalibrationDialog(calib, self, self.galvo_controller)
-            dlg.exec()
-        else:
-            QMessageBox.warning(self, "Error", "Calibration module not found in hardware connection.")
 
     def setupHeader(self): 
         self.wh.configWidget(self, QPushButton, "menuPushButton", role="menu", toolTip="Menu")
@@ -1043,7 +1020,7 @@ class MainWindow(QMainWindow):
         self.main_page_dict["printgalvo"] = 8
         self.main_page_dict["configgalvo"] = 9
         self.main_page_dict["terminal"] = 10
-        # self.main_page_dict["ezcad"] = 11             #ezcad page index
+        self.main_page_dict["ezcad"] = 11
 
     
     def initInfoPages(self):
@@ -1508,9 +1485,29 @@ class MainWindow(QMainWindow):
             self.showMainPages("configgalvo")
             return
             
-        # if action == "setadvancal":
-        #     self.showMainPages("ezcad")
-        #     return
+        if action == "setadvancal":
+            from notifier_ui import NotifierUI
+            from PySide6.QtWidgets import QFileDialog, QMessageBox
+            res = NotifierUI.showActionPopup(self, "Advanced Calibration", "Choose an action:", ["Load cor file", "Create a cor file"])
+            if res == "Load cor file":
+                file_path, _ = QFileDialog.getOpenFileName(self, "Open Calibration File", "", "EZCAD Cor Files (*.cor);;All Files (*)")
+                if file_path:
+                    if hasattr(self.galvo_controller, 'connection') and hasattr(self.galvo_controller.connection, 'calibration'):
+                        self.galvo_controller.connection.calibration.load_calibration(file_path)
+                        if self.galvo_controller.connection.calibration.is_valid:
+                            QMessageBox.information(self, "Success", "Binary .cor file loaded successfully!")
+                        else:
+                            QMessageBox.warning(self, "Error", "Failed to load the selected file. Ensure it is a valid EZCAD .cor file.")
+                    else:
+                        QMessageBox.warning(self, "Error", "Calibration module not found.")
+            elif res == "Create a cor file":
+                self.showMainPages("ezcad")
+                if hasattr(self, 'center_menu_widgets') and hasattr(self.center_menu_widgets, 'center'):
+                    self.center_menu_widgets.center.collapseMenu()
+                if hasattr(self, 'center_menu_btn') and self.center_menu_btn:
+                    self.center_menu_btn.setStyleSheet("background-color: rgb(16, 42, 131);")
+                    self.center_menu_btn = None
+            return
         
     def toggleCameraJog(self):
         # State depends on "cameraoffsetPushButton" (ON/OFF toggle)
@@ -4067,9 +4064,314 @@ class MainWindow(QMainWindow):
 
 
   
+
+    def setupAdvancedCalibration(self):
+        from core.calibration_generator_ui import GridPreviewWidget
+        from PySide6.QtWidgets import QVBoxLayout
+
+        self.cal_state_idx = 0
+        self.cal_default_w = 30.0
+        self.cal_is_stopped = False
+        
+        # Attach preview widget
+        if hasattr(self.ui, 'visualorientFrame'):
+            layout = self.ui.visualorientFrame.layout()
+            if not layout:
+                layout = QVBoxLayout(self.ui.visualorientFrame)
+            self.cal_preview = GridPreviewWidget(self.ui.visualorientFrame)
+            layout.addWidget(self.cal_preview)
+            
+        # Lists for inputs
+        self.cal_inputs_x = []
+        self.cal_inputs_y = []
+        for i in range(1, 10):
+            le_x = getattr(self.ui, f"x{i}mmLineEdit", None)
+            le_y = getattr(self.ui, f"y{i}mmLineEdit", None)
+            if le_x: self.cal_inputs_x.append(le_x)
+            if le_y: self.cal_inputs_y.append(le_y)
+
+        # Connections
+        if hasattr(self.ui, 'changeimgPushButton'):
+            self.ui.changeimgPushButton.clicked.connect(self.next_cal_state)
+        if hasattr(self.ui, 'targhalfwidLineEdit'):
+            self.ui.targhalfwidLineEdit.setText(str(self.cal_default_w))
+            self.ui.targhalfwidLineEdit.textChanged.connect(self.on_cal_w_changed)
+        if hasattr(self.ui, 'resettonominalPushButton'):
+            self.ui.resettonominalPushButton.clicked.connect(self.reset_cal_to_nominal)
+            
+        if hasattr(self.ui, 'markcalgridPushButton'):
+            self.ui.markcalgridPushButton.clicked.connect(self.draw_cal_pattern)
+        if hasattr(self.ui, 'stopPushButton'):
+            self.ui.stopPushButton.clicked.connect(self.stop_cal_pattern)
+        if hasattr(self.ui, 'calapplyPushButton'):
+            self.ui.calapplyPushButton.clicked.connect(self.generate_calibration)
+        if hasattr(self.ui, 'markvershapePushButton'):
+            self.ui.markvershapePushButton.clicked.connect(self.dummy_cal_action)
+        if hasattr(self.ui, 'ezcadclosePushButton'):
+            self.ui.ezcadclosePushButton.clicked.connect(lambda: self.showMainPages("home"))
+            
+        # Initial values
+        if hasattr(self.ui, 'imgindLineEdit'):
+            self.ui.imgindLineEdit.setText(f"{self.cal_state_idx + 1}")
+            self.ui.imgindLineEdit.setReadOnly(True)
+
+    def on_cal_w_changed(self, text):
+        try:
+            val = float(text)
+            if val > 0:
+                self.cal_default_w = val
+        except ValueError:
+            pass
+
+    def reset_cal_to_nominal(self):
+        w = self.cal_default_w
+        default_vals = [
+            (w, w), (0, w), (w, w),
+            (w, 0), (0, 0), (w, 0),
+            (w, w), (0, w), (w, w)
+        ]
+        for i in range(9):
+            if i < len(self.cal_inputs_x) and default_vals[i][0] != 0:
+                self.cal_inputs_x[i].setText(f"{default_vals[i][0]:.3f}")
+            if i < len(self.cal_inputs_y) and default_vals[i][1] != 0:
+                self.cal_inputs_y[i].setText(f"{default_vals[i][1]:.3f}")
+                
+            if i < len(self.cal_inputs_x) and default_vals[i][0] == 0:
+                self.cal_inputs_x[i].setText("0.000")
+                self.cal_inputs_x[i].setEnabled(False)
+            if i < len(self.cal_inputs_y) and default_vals[i][1] == 0:
+                self.cal_inputs_y[i].setText("0.000")
+                self.cal_inputs_y[i].setEnabled(False)
+
+    def next_cal_state(self):
+        self.cal_state_idx = (self.cal_state_idx + 1) % 8
+        if hasattr(self.ui, 'imgindLineEdit'):
+            self.ui.imgindLineEdit.setText(f"{self.cal_state_idx + 1}")
+        if hasattr(self, 'cal_preview'):
+            self.cal_preview.set_state(self.cal_state_idx)
+
+    def dummy_cal_action(self):
+        from PySide6.QtWidgets import QMessageBox, QApplication
+        self.cal_is_stopped = False
+        if not self.galvo_controller or not self.galvo_controller.connection:
+            QMessageBox.warning(self, "Error", "Galvo controller not connected.")
+            return
+            
+        scale = 533.89
+        # User requested a 60x60mm square. So half-width is 30mm.
+        hw = int(30.0 * scale)
+        c = 32767
+        
+        min_x = c - hw
+        max_x = c + hw
+        min_y = c - hw
+        max_y = c + hw
+        
+        conn = self.galvo_controller.connection
+        
+        try:
+            pwr = float(self.ui.powerHorizontalSlider.value()) if hasattr(self.ui, 'powerHorizontalSlider') else 100.0
+            freq = float(self.ui.freqHorizontalSlider.value()) if hasattr(self.ui, 'freqHorizontalSlider') else 30.0
+            mark_speed = int(self.ui.markspeedLineEdit.text()) if hasattr(self.ui, 'markspeedLineEdit') and self.ui.markspeedLineEdit.text() else 5000
+            jump_speed = int(self.ui.jumpspeedLineEdit.text()) if hasattr(self.ui, 'jumpspeedLineEdit') and self.ui.jumpspeedLineEdit.text() else 15000
+        except ValueError:
+            QMessageBox.warning(self, "Error", "Invalid laser parameters. Using defaults.")
+            pwr, freq, mark_speed, jump_speed = 100.0, 30.0, 5000, 15000
+
+        if hasattr(conn, 'set_analog_do_bit'):
+            for test_bit in [0, 1, 2]:
+                conn.set_analog_do_bit(100.0, pwr, freq, test_bit)
+            import time
+            time.sleep(0.05)
+        
+        queue = []
+        def jump(x, y): queue.append({'type': 'jump', 'x': int(x), 'y': int(y), 'speed': jump_speed})
+        def mark(x, y): queue.append({'type': 'mark', 'x': int(x), 'y': int(y), 'speed': mark_speed})
+            
+        try:
+            # Draw outer 60x60 square
+            jump(min_x, max_y)
+            mark(max_x, max_y)
+            mark(max_x, min_y)
+            mark(min_x, min_y)
+            mark(min_x, max_y)
+            
+            if hasattr(self.ui, 'markvershapePushButton'):
+                self.ui.markvershapePushButton.setEnabled(False)
+                
+            success = self.galvo_controller.execute_queue(
+                queue,
+                loop_count=1,
+                abort_check=lambda: self.cal_is_stopped,
+                progress_callback=lambda idx, tot, x, y, ctype: QApplication.processEvents()
+            )
+            
+            if self.cal_is_stopped or not success:
+                raise InterruptedError("Drawing stopped by user or failed")
+                
+            conn.laser_off()
+            conn.galvo_move_xy(c, c)
+            
+            QMessageBox.information(self, "Info", "Verification shape (60x60mm) drawn!")
+        except InterruptedError:
+            pass
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to draw pattern: {e}")
+        finally:
+            if conn: conn.laser_off()
+            if hasattr(self.ui, 'markvershapePushButton'):
+                self.ui.markvershapePushButton.setEnabled(True)
+
+    def stop_cal_pattern(self):
+        self.cal_is_stopped = True
+
+    def draw_cal_pattern(self):
+        from PySide6.QtWidgets import QMessageBox, QApplication
+        self.cal_is_stopped = False
+        if not self.galvo_controller or not self.galvo_controller.connection:
+            QMessageBox.warning(self, "Error", "Galvo controller not connected.")
+            return
+            
+        scale = 533.89
+        hw = int(self.cal_default_w * scale)
+        c = 32767
+        
+        min_x = c - hw
+        max_x = c + hw
+        min_y = c - hw
+        max_y = c + hw
+        
+        conn = self.galvo_controller.connection
+        
+        try:
+            pwr = float(self.ui.powerHorizontalSlider.value()) if hasattr(self.ui, 'powerHorizontalSlider') else 100.0
+            freq = float(self.ui.freqHorizontalSlider.value()) if hasattr(self.ui, 'freqHorizontalSlider') else 30.0
+            mark_speed = int(self.ui.markspeedLineEdit.text()) if hasattr(self.ui, 'markspeedLineEdit') and self.ui.markspeedLineEdit.text() else 5000
+            jump_speed = int(self.ui.jumpspeedLineEdit.text()) if hasattr(self.ui, 'jumpspeedLineEdit') and self.ui.jumpspeedLineEdit.text() else 15000
+        except ValueError:
+            QMessageBox.warning(self, "Error", "Invalid laser parameters. Using defaults.")
+            pwr, freq, mark_speed, jump_speed = 100.0, 30.0, 5000, 15000
+
+        if hasattr(conn, 'set_analog_do_bit'):
+            for test_bit in [0, 1, 2]:
+                conn.set_analog_do_bit(100.0, pwr, freq, test_bit)
+            import time
+            time.sleep(0.05)
+        
+        queue = []
+        def jump(x, y): queue.append({'type': 'jump', 'x': int(x), 'y': int(y), 'speed': jump_speed})
+        def mark(x, y): queue.append({'type': 'mark', 'x': int(x), 'y': int(y), 'speed': mark_speed})
+            
+        try:
+            jump(min_x, max_y)
+            mark(max_x, max_y)
+            mark(max_x, min_y)
+            mark(min_x, min_y)
+            mark(min_x, max_y)
+            
+            jump(c, max_y)
+            mark(c, min_y)
+            
+            jump(min_x, c)
+            mark(max_x, c)
+            
+            ms = int(2.0 * scale)
+            
+            jump(min_x - ms, max_y + ms)
+            mark(min_x + ms, max_y + ms)
+            mark(min_x + ms, max_y - ms)
+            mark(min_x - ms, max_y - ms)
+            mark(min_x - ms, max_y + ms)
+            
+            jump(max_x, min_y + ms)
+            mark(max_x + ms, min_y)
+            mark(max_x, min_y - ms)
+            mark(max_x - ms, min_y)
+            mark(max_x, min_y + ms)
+            
+            tick_x = c - int(hw * 0.3)
+            tick_y_top = c + int(hw * 0.2)
+            tick_y_bot = c - int(hw * 0.2)
+            jump(tick_x, tick_y_top)
+            mark(tick_x, tick_y_bot)
+            
+            if hasattr(self.ui, 'markcalgridPushButton'):
+                self.ui.markcalgridPushButton.setEnabled(False)
+                
+            success = self.galvo_controller.execute_queue(
+                queue,
+                loop_count=1,
+                abort_check=lambda: self.cal_is_stopped,
+                progress_callback=lambda idx, tot, x, y, ctype: QApplication.processEvents()
+            )
+            
+            if self.cal_is_stopped or not success:
+                raise InterruptedError("Drawing stopped by user or failed")
+                
+            conn.laser_off()
+            conn.galvo_move_xy(c, c)
+            
+            QMessageBox.information(self, "Info", "Pattern drawn! Please measure the 9 points and enter the values.")
+        except InterruptedError:
+            pass
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to draw pattern: {e}")
+        finally:
+            if conn: conn.laser_off()
+            if hasattr(self.ui, 'markcalgridPushButton'):
+                self.ui.markcalgridPushButton.setEnabled(True)
+
+    def generate_calibration(self):
+        from core.calibration_generator_ui import TRANSFORMS
+        from core.calibration_generator import generate_cor_file
+        from PySide6.QtWidgets import QMessageBox
+        
+        ui_measurements = []
+        for i in range(9):
+            try:
+                x = float(self.cal_inputs_x[i].text()) if i < len(self.cal_inputs_x) else 0.0
+                y = float(self.cal_inputs_y[i].text()) if i < len(self.cal_inputs_y) else 0.0
+                ui_measurements.append((x, y))
+            except ValueError:
+                QMessageBox.warning(self, "Error", f"Invalid input at point {i+1}")
+                return
+                
+        transform = TRANSFORMS[self.cal_state_idx]
+        galvo_measurements = [None] * 9
+        
+        signs = [
+            (-1, 1),  (0, 1),  (1, 1),
+            (-1, 0),  (0, 0),  (1, 0),
+            (-1, -1), (0, -1), (1, -1)
+        ]
+        
+        for galvo_idx in range(9):
+            ui_idx = transform.index(galvo_idx)
+            raw_x, raw_y = ui_measurements[ui_idx]
+            
+            sx, sy = signs[galvo_idx]
+            meas_x = raw_x * sx if sx != 0 else 0
+            meas_y = raw_y * sy if sy != 0 else 0
+            
+            galvo_measurements[galvo_idx] = (meas_x, meas_y)
+            
+        scale = 533.89 
+        
+        try:
+            generate_cor_file("generated_calibration.cor", scale, self.cal_default_w, galvo_measurements)
+            QMessageBox.information(self, "Success", "generated_calibration.cor created successfully!")
+            
+            # Auto-load the newly generated file if connection available
+            if hasattr(self.galvo_controller, 'connection') and hasattr(self.galvo_controller.connection, 'calibration'):
+                self.galvo_controller.connection.calibration.load_calibration("generated_calibration.cor")
+                if self.galvo_controller.connection.calibration.is_valid:
+                    QMessageBox.information(self, "Loaded", "New calibration automatically loaded!")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to generate: {e}")
+
 if __name__ == '__main__':
     
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
-    sys.exit(app.exec_()) 
+    sys.exit(app.exec_())
