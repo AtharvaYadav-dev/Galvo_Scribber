@@ -42,6 +42,10 @@ class BaseConnection:
         """Sets a digital IO pin high (1) or low (0)."""
         raise NotImplementedError
 
+    def get_di_bit(self, io_pin):
+        """Reads a digital input pin."""
+        raise NotImplementedError
+
     def laser_on(self):
         """Turns the laser emission ON."""
         raise NotImplementedError

@@ -148,6 +148,12 @@ class GalvoController:
         self.connection.reddot_off()
         return True
 
+    def get_di_bit(self, io_pin):
+        """Reads a digital input from the controller."""
+        if self.connection:
+            return self.connection.get_di_bit(io_pin)
+        return 0
+
     def test_pattern(self):
         """Generates a simple test pattern (e.g. center, then square)"""
         if not self.connection:

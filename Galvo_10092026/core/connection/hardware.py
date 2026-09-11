@@ -97,6 +97,10 @@ class HardwareConnection(BaseConnection):
             self.dll.GT_PROSYS_U3_set_do_bit.argtypes = [c_short, c_short]
             self.dll.GT_PROSYS_U3_set_do_bit.restype = None
 
+        if hasattr(self.dll, 'GT_PROSYS_U3_get_di_bit'):
+            self.dll.GT_PROSYS_U3_get_di_bit.argtypes = [c_short, POINTER(c_short)]
+            self.dll.GT_PROSYS_U3_get_di_bit.restype = c_short
+
         if hasattr(self.dll, 'GT_PROSYS_U3_SetPass'):
             self.dll.GT_PROSYS_U3_SetPass.argtypes = [c_int32]
             self.dll.GT_PROSYS_U3_SetPass.restype = c_int32
@@ -251,6 +255,16 @@ class HardwareConnection(BaseConnection):
         print(f"HARDWARE COMMAND: Setting IO pin {io_pin} to state {state}")
         if self.dll and hasattr(self.dll, 'GT_PROSYS_U3_set_do_bit'):
             self.dll.GT_PROSYS_U3_set_do_bit(c_short(io_pin), c_short(state))
+
+    def get_di_bit(self, io_pin):
+        if self.dll and hasattr(self.dll, 'GT_PROSYS_U3_get_di_bit'):
+            val = c_short(0)
+            try:
+                self.dll.GT_PROSYS_U3_get_di_bit(c_short(io_pin), byref(val))
+                return val.value
+            except Exception as e:
+                print(f"Error getting DI bit: {e}")
+        return 0
 
     def laser_on(self):
         print("HARDWARE COMMAND: laser_on() called. Setting DO1 (Pin 0) to HIGH (1) to turn ON the laser/LED.")

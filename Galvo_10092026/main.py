@@ -79,7 +79,7 @@ class MainWindow(QMainWindow):
         self.galvo_preview_thread = None
         self.galvo_has_disconnected = False
         if not self.galvo_controller.is_connected:
-            self.ui.titleLabel.setText("LASER SCRIBING (Demo Mode)")
+            self.ui.titleLabel.setText("Patterning Machine (Demo Mode)")
 
         self.util.debugFlag = True
         
@@ -237,6 +237,8 @@ class MainWindow(QMainWindow):
         else:
             self.showMainPages("jog")
         
+        self.setup_di_polling()
+        
         # UI init ends here
         
     def initConfig(self, config_dir="config", config_file="config.ini"):
@@ -255,6 +257,47 @@ class MainWindow(QMainWindow):
             self.showAutoCloseMessage("Hardware Connected", "Connected with machine, card is active.", timeout_ms=5000)
         else:
             self.showAutoCloseMessage("Hardware Disconnected", "Connect the card and try to connect again.", timeout_ms=5000)
+
+    def setup_di_polling(self):
+        self.di1_last_state = 0
+        self.di2_last_state = 0
+        self.di_timer = QTimer(self)
+        self.di_timer.setInterval(100)
+        self.di_timer.timeout.connect(self.poll_di_inputs)
+        self.di_timer.start()
+
+    def poll_di_inputs(self):
+        if not hasattr(self, 'galvo_controller') or not self.galvo_controller.is_connected:
+            return
+            
+        try:
+            di1_state = self.galvo_controller.get_di_bit(11)
+            di2_state = self.galvo_controller.get_di_bit(12)
+            
+            # Rising edge DI1 (Start)
+            if di1_state == 1 and self.di1_last_state == 0:
+                self.logger.info("DI1 (Pin 11) Triggered - Starting Print")
+                if str(self.galvo_mode).upper() == "ON":
+                    if hasattr(self.ui, 'printrungalvoPushButton') and self.ui.printrungalvoPushButton.isEnabled():
+                        self.printGalvoAction(self.printgalvo_widgets.printrungalvo)
+                else:
+                    if hasattr(self.ui, 'printrunPushButton') and self.ui.printrunPushButton.isEnabled():
+                        self.printAction(self.print_widgets.printrun)
+                        
+            # Rising edge DI2 (Abort)
+            if di2_state == 1 and self.di2_last_state == 0:
+                self.logger.info("DI2 (Pin 12) Triggered - Aborting Print")
+                if str(self.galvo_mode).upper() == "ON":
+                    if hasattr(self.ui, 'printabortgalvoPushButton') and self.ui.printabortgalvoPushButton.isEnabled():
+                        self.printGalvoAction(self.printgalvo_widgets.printabortgalvo)
+                else:
+                    if hasattr(self.ui, 'printabortPushButton') and self.ui.printabortPushButton.isEnabled():
+                        self.printAction(self.print_widgets.printabort)
+                        
+            self.di1_last_state = di1_state
+            self.di2_last_state = di2_state
+        except Exception as e:
+            self.logger.error(f"Error polling DI inputs: {e}")
 
     def applyGalvoMode(self):
         is_on = (str(self.galvo_mode).upper() == "ON")
@@ -1229,7 +1272,7 @@ class MainWindow(QMainWindow):
                 self.galvo_controller.galvo_home()
             self.stepper_controller.connection = self.galvo_controller.connection
             if success:
-                self.ui.titleLabel.setText("LASER SCRIBING")
+                self.ui.titleLabel.setText("Patterning Machine")
                 self.ui.mainconnectgalvoPushButton.setEnabled(False)
                 self.ui.maindisconnectgalvoPushButton.setEnabled(True)
                 self.showAutoCloseMessage("Connected", "Galvo controller connected successfully.", timeout_ms=3000)
@@ -1239,7 +1282,7 @@ class MainWindow(QMainWindow):
             
         elif action == "maindisconnectgalvo":
             self.galvo_controller.disconnect()
-            self.ui.titleLabel.setText("LASER SCRIBING (Demo Mode)")
+            self.ui.titleLabel.setText("Patterning Machine (Demo Mode)")
             self.galvo_has_disconnected = True
             self.ui.mainconnectgalvoPushButton.setEnabled(True)
             self.ui.maindisconnectgalvoPushButton.setEnabled(False)
@@ -2463,7 +2506,7 @@ class MainWindow(QMainWindow):
                 
                 # Auto disconnect
                 self.galvo_controller.disconnect()
-                self.ui.titleLabel.setText("LASER SCRIBING (Demo Mode)")
+                self.ui.titleLabel.setText("Patterning Machine (Demo Mode)")
                 self.ui.mainconnectgalvoPushButton.setEnabled(True)
                 self.ui.maindisconnectgalvoPushButton.setEnabled(False)
                 
@@ -2496,7 +2539,7 @@ class MainWindow(QMainWindow):
                 
                 # Auto disconnect
                 self.galvo_controller.disconnect()
-                self.ui.titleLabel.setText("LASER SCRIBING (Demo Mode)")
+                self.ui.titleLabel.setText("Patterning Machine (Demo Mode)")
                 self.ui.mainconnectgalvoPushButton.setEnabled(True)
                 self.ui.maindisconnectgalvoPushButton.setEnabled(False)
                 

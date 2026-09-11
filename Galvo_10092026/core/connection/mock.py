@@ -70,6 +70,10 @@ class MockConnection(BaseConnection):
     def set_io(self, io_pin, state):
         log_command(f"SET_IO pin={io_pin} state={state}")
 
+    def get_di_bit(self, io_pin):
+        # In mock mode, we simulate inputs as 0
+        return 0
+
     def laser_on(self):
         self.set_io(1, 1)
         log_command("LASER_ON")

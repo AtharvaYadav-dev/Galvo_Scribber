@@ -79,6 +79,10 @@ class GalvoDLLWrapper:
             self.dll.GT_PROSYS_U3_SetPass.argtypes = [c_int32]
             self.dll.GT_PROSYS_U3_SetPass.restype = c_int32
 
+        if hasattr(self.dll, 'GT_PROSYS_U3_get_di_bit'):
+            self.dll.GT_PROSYS_U3_get_di_bit.argtypes = [c_short, POINTER(c_short)]
+            self.dll.GT_PROSYS_U3_get_di_bit.restype = c_short
+
         if hasattr(self.dll, 'GT_PROSYS_U3_XY_Data'):
             self.dll.GT_PROSYS_U3_XY_Data.argtypes = [c_short, c_uint32]
             self.dll.GT_PROSYS_U3_XY_Data.restype = c_short
@@ -248,6 +252,16 @@ class GalvoDLLWrapper:
     def laser_off(self):
         self.set_io(1, 0)
         log_command("LASER_OFF")
+
+    def get_di_bit(self, io_pin):
+        if self.is_initialized and self.dll and hasattr(self.dll, 'GT_PROSYS_U3_get_di_bit'):
+            val = c_short(0)
+            try:
+                self.dll.GT_PROSYS_U3_get_di_bit(c_short(io_pin), byref(val))
+                return val.value
+            except Exception as e:
+                print(f"Error getting DI bit: {e}")
+        return 0
 
     def get_home_status(self, axis):
         if self.is_initialized and self.dll and hasattr(self.dll, 'GT_PROSYS_U3_get_home_status'):
