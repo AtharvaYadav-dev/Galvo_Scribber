@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfacegFfLXv.ui'
+## Form generated from reading UI file 'interfacecPxrse.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -89,13 +89,13 @@ class Ui_MainWindow(object):
 "	border-radius: 20px;\n"
 "}\n"
 "\n"
-"#jogFrame, #laserconfFrame, #programFrame, #printFrame, #terminalFrame, #cameraFrame, #joggalvoFrame, #axisposgalvoFrame, #galvolaserconfFrame, #programgalvoFrame, #printgalvoFrame, #configgalveFrame {\n"
+"#jogFrame, #laserconfFrame, #programFrame, #printFrame, #terminalFrame, #cameraFrame, #joggalvoFrame, #axisposgalvoFrame, #galvolaserconfFrame, #programgalvoFrame, #printgalvoFrame, #configgalveFrame, #ezcadFrame {\n"
 "	background-color: rgb(167, 198, 229);\n"
 "	border-radius: 20px;\n"
 "}\n"
 "\n"
-"#homeFrame, #stepsFrame, #xyFrame, #zFrame, #axisposFrame, #setfocusFrame, #flaserFrame, #zfocusFrame, #fsetFrame, #loffsetFrame, #offlaserFrame, #xyoffsetFrame, #xyposFrame, #offsetFrame, #offbtnFrame, #progFrame, #printimgFrame, #printopFrame, #printprogramFrame, #printprogressFrame, #camFrame, #cameraxyoffFrame, #objheightFrame, #axisposgalvoFrame, #testpatterngalvoFrame, #zgalvoFrame, #homegalvoFrame,  #pgmgalvoFrame, #printprogressgalvoFrame, #printimggalvoFrame, #printopgalvoFrame, #fsetgalvoFrame, #zfocusgalvoFrame, #objheightlasrFrame, #goposgalvoFrame, #galvo1Frame, #galvo2Frame, #aspectgalvoFram"
-                        "e, #powerFrame{\n"
+"#homeFrame, #stepsFrame, #xyFrame, #zFrame, #axisposFrame, #setfocusFrame, #flaserFrame, #zfocusFrame, #fsetFrame, #loffsetFrame, #offlaserFrame, #xyoffsetFrame, #xyposFrame, #offsetFrame, #offbtnFrame, #progFrame, #printimgFrame, #printopFrame, #printprogramFrame, #printprogressFrame, #camFrame, #cameraxyoffFrame, #objheightFrame, #axisposgalvoFrame, #testpatterngalvoFrame, #zgalvoFrame, #homegalvoFrame,  #pgmgalvoFrame, #printprogressgalvoFrame, #printimggalvoFrame, #printopgalvoFrame, #fsetgalvoFrame, #zfocusgalvoFrame, #objheightlasrFrame, #goposgalvoFrame, #galvo1Frame, #galvo2Frame, #as"
+                        "pectgalvoFrame, #powerFrame, #ez1Frame, #ez2Frame, #ez3Frame, #ez4Frame{\n"
 "	background-color: rgb(144, 170, 197);\n"
 "	border-radius: 20px;\n"
 "	border: 2px solid rgb(16, 42, 131);\n"
@@ -643,10 +643,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_50.setContentsMargins(5, 5, 5, 5)
         self.widget = QWidget(self.setFrame)
         self.widget.setObjectName(u"widget")
-        self.verticalLayout_75 = QVBoxLayout(self.widget)
-        self.verticalLayout_75.setSpacing(0)
-        self.verticalLayout_75.setObjectName(u"verticalLayout_75")
-        self.verticalLayout_75.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_94 = QVBoxLayout(self.widget)
+        self.verticalLayout_94.setSpacing(0)
+        self.verticalLayout_94.setObjectName(u"verticalLayout_94")
+        self.verticalLayout_94.setContentsMargins(0, 0, 0, 0)
         self.indexFrame = QFrame(self.widget)
         self.indexFrame.setObjectName(u"indexFrame")
         self.verticalLayout_26 = QVBoxLayout(self.indexFrame)
@@ -683,7 +683,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_26.addWidget(self.indexLineEdit)
 
 
-        self.verticalLayout_75.addWidget(self.indexFrame)
+        self.verticalLayout_94.addWidget(self.indexFrame)
 
         self.machinesetFrame = QFrame(self.widget)
         self.machinesetFrame.setObjectName(u"machinesetFrame")
@@ -726,7 +726,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_35.addWidget(self.cameraoffsetPushButton)
 
 
-        self.verticalLayout_75.addWidget(self.machinesetFrame)
+        self.verticalLayout_94.addWidget(self.machinesetFrame)
 
         self.machinesetFrame_2 = QFrame(self.widget)
         self.machinesetFrame_2.setObjectName(u"machinesetFrame_2")
@@ -758,7 +758,40 @@ class Ui_MainWindow(object):
         self.verticalLayout_45.addWidget(self.setconfigPushButton)
 
 
-        self.verticalLayout_75.addWidget(self.machinesetFrame_2)
+        self.verticalLayout_94.addWidget(self.machinesetFrame_2)
+
+        self.machinesetFrame_3 = QFrame(self.widget)
+        self.machinesetFrame_3.setObjectName(u"machinesetFrame_3")
+        self.verticalLayout_75 = QVBoxLayout(self.machinesetFrame_3)
+        self.verticalLayout_75.setObjectName(u"verticalLayout_75")
+        self.verticalLayout_75.setContentsMargins(-1, 9, -1, -1)
+        self.setadvancalPushButton = QPushButton(self.machinesetFrame_3)
+        self.setadvancalPushButton.setObjectName(u"setadvancalPushButton")
+        self.setadvancalPushButton.setFont(font5)
+        self.setadvancalPushButton.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);	\n"
+"	background-color: rgb(16, 42, 131);\n"
+"	border-color: transparent;\n"
+"	border-style: outset;\n"
+"	border-radius: 15px;\n"
+"	border-width: 2px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	color: rgb(16, 42, 131);\n"
+"	background-color: rgb(167, 198, 229);\n"
+"	border-color: rgb(16, 42, 131);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background-color: rgb(172, 172, 172);\n"
+"}")
+
+        self.verticalLayout_75.addWidget(self.setadvancalPushButton)
+
+
+        self.verticalLayout_94.addWidget(self.machinesetFrame_3)
 
 
         self.verticalLayout_50.addWidget(self.widget)
@@ -6185,7 +6218,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 613, 687))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, -354, 613, 687))
         self.verticalLayout_85 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_85.setObjectName(u"verticalLayout_85")
         self.frame_42 = QFrame(self.scrollAreaWidgetContents_2)
@@ -7426,6 +7459,1332 @@ class Ui_MainWindow(object):
         self.verticalLayout_34.addWidget(self.terminalFrame)
 
         self.mainPages.addWidget(self.terminalPage)
+        self.ezcadPage = QWidget()
+        self.ezcadPage.setObjectName(u"ezcadPage")
+        self.verticalLayout_88 = QVBoxLayout(self.ezcadPage)
+        self.verticalLayout_88.setObjectName(u"verticalLayout_88")
+        self.page3Label_8 = QLabel(self.ezcadPage)
+        self.page3Label_8.setObjectName(u"page3Label_8")
+        self.page3Label_8.setMinimumSize(QSize(0, 20))
+        self.page3Label_8.setMaximumSize(QSize(16777215, 20))
+        self.page3Label_8.setFont(font2)
+        self.page3Label_8.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_88.addWidget(self.page3Label_8)
+
+        self.ezcadFrame = QFrame(self.ezcadPage)
+        self.ezcadFrame.setObjectName(u"ezcadFrame")
+        self.ezcadFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.ezcadFrame.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_127 = QHBoxLayout(self.ezcadFrame)
+        self.horizontalLayout_127.setObjectName(u"horizontalLayout_127")
+        self.horizontalLayout_127.setContentsMargins(9, 9, 9, 9)
+        self.scrollArea_3 = QScrollArea(self.ezcadFrame)
+        self.scrollArea_3.setObjectName(u"scrollArea_3")
+        self.scrollArea_3.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_3 = QWidget()
+        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(-254, -286, 828, 731))
+        self.verticalLayout_93 = QVBoxLayout(self.scrollAreaWidgetContents_3)
+        self.verticalLayout_93.setObjectName(u"verticalLayout_93")
+        self.frame_62 = QFrame(self.scrollAreaWidgetContents_3)
+        self.frame_62.setObjectName(u"frame_62")
+        self.frame_62.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_62.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_139 = QHBoxLayout(self.frame_62)
+        self.horizontalLayout_139.setObjectName(u"horizontalLayout_139")
+        self.horizontalLayout_139.setContentsMargins(0, 0, 0, 0)
+        self.ez1Frame = QFrame(self.frame_62)
+        self.ez1Frame.setObjectName(u"ez1Frame")
+        self.ez1Frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.ez1Frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_89 = QVBoxLayout(self.ez1Frame)
+        self.verticalLayout_89.setObjectName(u"verticalLayout_89")
+        self.label_110 = QLabel(self.ez1Frame)
+        self.label_110.setObjectName(u"label_110")
+        self.label_110.setFont(font5)
+        self.label_110.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"}")
+
+        self.verticalLayout_89.addWidget(self.label_110, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.visualorientFrame = QFrame(self.ez1Frame)
+        self.visualorientFrame.setObjectName(u"visualorientFrame")
+        self.visualorientFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.visualorientFrame.setFrameShadow(QFrame.Shadow.Raised)
+
+        self.verticalLayout_89.addWidget(self.visualorientFrame)
+
+        self.frame_64 = QFrame(self.ez1Frame)
+        self.frame_64.setObjectName(u"frame_64")
+        self.frame_64.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_64.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_130 = QHBoxLayout(self.frame_64)
+        self.horizontalLayout_130.setObjectName(u"horizontalLayout_130")
+        self.feedLabel_3 = QLabel(self.frame_64)
+        self.feedLabel_3.setObjectName(u"feedLabel_3")
+        self.feedLabel_3.setFont(font5)
+        self.feedLabel_3.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_3.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_130.addWidget(self.feedLabel_3)
+
+        self.imgindLineEdit = QLineEdit(self.frame_64)
+        self.imgindLineEdit.setObjectName(u"imgindLineEdit")
+        sizePolicy2.setHeightForWidth(self.imgindLineEdit.sizePolicy().hasHeightForWidth())
+        self.imgindLineEdit.setSizePolicy(sizePolicy2)
+        self.imgindLineEdit.setMinimumSize(QSize(0, 0))
+        self.imgindLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.imgindLineEdit.setFont(font5)
+        self.imgindLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.imgindLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_130.addWidget(self.imgindLineEdit)
+
+        self.changeimgPushButton = QPushButton(self.frame_64)
+        self.changeimgPushButton.setObjectName(u"changeimgPushButton")
+        self.changeimgPushButton.setFont(font5)
+        self.changeimgPushButton.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);	\n"
+"	background-color: rgb(16, 42, 131);\n"
+"	border-color: transparent;\n"
+"	border-style: outset;\n"
+"	border-radius: 15px;\n"
+"	border-width: 2px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	color: rgb(16, 42, 131);\n"
+"	background-color: rgb(167, 198, 229);\n"
+"	border-color: rgb(16, 42, 131);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background-color: rgb(172, 172, 172);\n"
+"}")
+
+        self.horizontalLayout_130.addWidget(self.changeimgPushButton)
+
+
+        self.verticalLayout_89.addWidget(self.frame_64)
+
+        self.verticalLayout_89.setStretch(1, 4)
+
+        self.horizontalLayout_139.addWidget(self.ez1Frame)
+
+        self.ez2Frame = QFrame(self.frame_62)
+        self.ez2Frame.setObjectName(u"ez2Frame")
+        self.ez2Frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.ez2Frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_90 = QVBoxLayout(self.ez2Frame)
+        self.verticalLayout_90.setObjectName(u"verticalLayout_90")
+        self.verticalLayout_90.setContentsMargins(0, 0, 0, 0)
+        self.label_111 = QLabel(self.ez2Frame)
+        self.label_111.setObjectName(u"label_111")
+        self.label_111.setFont(font5)
+        self.label_111.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"}")
+
+        self.verticalLayout_90.addWidget(self.label_111, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.frame_66 = QFrame(self.ez2Frame)
+        self.frame_66.setObjectName(u"frame_66")
+        self.frame_66.setFont(font8)
+        self.frame_66.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_66.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_129 = QHBoxLayout(self.frame_66)
+        self.horizontalLayout_129.setObjectName(u"horizontalLayout_129")
+        self.horizontalLayout_129.setContentsMargins(9, -1, -1, -1)
+        self.feedLabel_4 = QLabel(self.frame_66)
+        self.feedLabel_4.setObjectName(u"feedLabel_4")
+        font17 = QFont()
+        font17.setPointSize(11)
+        font17.setBold(True)
+        self.feedLabel_4.setFont(font17)
+        self.feedLabel_4.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_129.addWidget(self.feedLabel_4)
+
+        self.targhalfwidLineEdit = QLineEdit(self.frame_66)
+        self.targhalfwidLineEdit.setObjectName(u"targhalfwidLineEdit")
+        sizePolicy2.setHeightForWidth(self.targhalfwidLineEdit.sizePolicy().hasHeightForWidth())
+        self.targhalfwidLineEdit.setSizePolicy(sizePolicy2)
+        self.targhalfwidLineEdit.setMinimumSize(QSize(0, 30))
+        self.targhalfwidLineEdit.setMaximumSize(QSize(120, 16777215))
+        self.targhalfwidLineEdit.setFont(font5)
+        self.targhalfwidLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.targhalfwidLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_129.addWidget(self.targhalfwidLineEdit)
+
+        self.feedLabel_29 = QLabel(self.frame_66)
+        self.feedLabel_29.setObjectName(u"feedLabel_29")
+        self.feedLabel_29.setFont(font17)
+        self.feedLabel_29.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_29.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_129.addWidget(self.feedLabel_29)
+
+        self.resettonominalPushButton = QPushButton(self.frame_66)
+        self.resettonominalPushButton.setObjectName(u"resettonominalPushButton")
+        self.resettonominalPushButton.setFont(font17)
+        self.resettonominalPushButton.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);	\n"
+"	background-color: rgb(16, 42, 131);\n"
+"	border-color: transparent;\n"
+"	border-style: outset;\n"
+"	border-radius: 15px;\n"
+"	border-width: 2px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	color: rgb(16, 42, 131);\n"
+"	background-color: rgb(167, 198, 229);\n"
+"	border-color: rgb(16, 42, 131);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background-color: rgb(172, 172, 172);\n"
+"}")
+
+        self.horizontalLayout_129.addWidget(self.resettonominalPushButton)
+
+
+        self.verticalLayout_90.addWidget(self.frame_66)
+
+        self.frame_67 = QFrame(self.ez2Frame)
+        self.frame_67.setObjectName(u"frame_67")
+        self.frame_67.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_67.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_128 = QHBoxLayout(self.frame_67)
+        self.horizontalLayout_128.setObjectName(u"horizontalLayout_128")
+        self.horizontalLayout_128.setContentsMargins(-1, 0, -1, 0)
+        self.feedLabel_8 = QLabel(self.frame_67)
+        self.feedLabel_8.setObjectName(u"feedLabel_8")
+        self.feedLabel_8.setFont(font5)
+        self.feedLabel_8.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_8.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_128.addWidget(self.feedLabel_8)
+
+        self.feedLabel_7 = QLabel(self.frame_67)
+        self.feedLabel_7.setObjectName(u"feedLabel_7")
+        self.feedLabel_7.setFont(font5)
+        self.feedLabel_7.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_7.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_128.addWidget(self.feedLabel_7)
+
+        self.feedLabel_6 = QLabel(self.frame_67)
+        self.feedLabel_6.setObjectName(u"feedLabel_6")
+        self.feedLabel_6.setFont(font5)
+        self.feedLabel_6.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_6.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_128.addWidget(self.feedLabel_6)
+
+        self.feedLabel_5 = QLabel(self.frame_67)
+        self.feedLabel_5.setObjectName(u"feedLabel_5")
+        self.feedLabel_5.setFont(font5)
+        self.feedLabel_5.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_5.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_128.addWidget(self.feedLabel_5)
+
+        self.horizontalLayout_128.setStretch(1, 2)
+        self.horizontalLayout_128.setStretch(2, 2)
+        self.horizontalLayout_128.setStretch(3, 2)
+
+        self.verticalLayout_90.addWidget(self.frame_67)
+
+        self.frame_68 = QFrame(self.ez2Frame)
+        self.frame_68.setObjectName(u"frame_68")
+        self.frame_68.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_68.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_131 = QHBoxLayout(self.frame_68)
+        self.horizontalLayout_131.setObjectName(u"horizontalLayout_131")
+        self.horizontalLayout_131.setContentsMargins(-1, 0, -1, 0)
+        self.feedLabel_9 = QLabel(self.frame_68)
+        self.feedLabel_9.setObjectName(u"feedLabel_9")
+        self.feedLabel_9.setFont(font5)
+        self.feedLabel_9.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_9.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_131.addWidget(self.feedLabel_9)
+
+        self.x1mmLineEdit = QLineEdit(self.frame_68)
+        self.x1mmLineEdit.setObjectName(u"x1mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.x1mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.x1mmLineEdit.setSizePolicy(sizePolicy2)
+        self.x1mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.x1mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.x1mmLineEdit.setFont(font5)
+        self.x1mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.x1mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_131.addWidget(self.x1mmLineEdit)
+
+        self.y1mmLineEdit = QLineEdit(self.frame_68)
+        self.y1mmLineEdit.setObjectName(u"y1mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.y1mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.y1mmLineEdit.setSizePolicy(sizePolicy2)
+        self.y1mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.y1mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.y1mmLineEdit.setFont(font5)
+        self.y1mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.y1mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_131.addWidget(self.y1mmLineEdit)
+
+        self.feedLabel_10 = QLabel(self.frame_68)
+        self.feedLabel_10.setObjectName(u"feedLabel_10")
+        self.feedLabel_10.setFont(font17)
+        self.feedLabel_10.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_10.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_131.addWidget(self.feedLabel_10, 0, Qt.AlignmentFlag.AlignHCenter)
+
+        self.horizontalLayout_131.setStretch(1, 2)
+        self.horizontalLayout_131.setStretch(2, 2)
+        self.horizontalLayout_131.setStretch(3, 2)
+
+        self.verticalLayout_90.addWidget(self.frame_68)
+
+        self.frame_69 = QFrame(self.ez2Frame)
+        self.frame_69.setObjectName(u"frame_69")
+        self.frame_69.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_69.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_132 = QHBoxLayout(self.frame_69)
+        self.horizontalLayout_132.setObjectName(u"horizontalLayout_132")
+        self.horizontalLayout_132.setContentsMargins(-1, 0, -1, 0)
+        self.feedLabel_11 = QLabel(self.frame_69)
+        self.feedLabel_11.setObjectName(u"feedLabel_11")
+        self.feedLabel_11.setFont(font5)
+        self.feedLabel_11.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_11.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_132.addWidget(self.feedLabel_11)
+
+        self.x2mmLineEdit = QLineEdit(self.frame_69)
+        self.x2mmLineEdit.setObjectName(u"x2mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.x2mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.x2mmLineEdit.setSizePolicy(sizePolicy2)
+        self.x2mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.x2mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.x2mmLineEdit.setFont(font5)
+        self.x2mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.x2mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_132.addWidget(self.x2mmLineEdit)
+
+        self.y2mmLineEdit = QLineEdit(self.frame_69)
+        self.y2mmLineEdit.setObjectName(u"y2mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.y2mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.y2mmLineEdit.setSizePolicy(sizePolicy2)
+        self.y2mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.y2mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.y2mmLineEdit.setFont(font5)
+        self.y2mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.y2mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_132.addWidget(self.y2mmLineEdit)
+
+        self.feedLabel_12 = QLabel(self.frame_69)
+        self.feedLabel_12.setObjectName(u"feedLabel_12")
+        self.feedLabel_12.setFont(font9)
+        self.feedLabel_12.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_12.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_132.addWidget(self.feedLabel_12)
+
+        self.horizontalLayout_132.setStretch(1, 2)
+        self.horizontalLayout_132.setStretch(2, 2)
+        self.horizontalLayout_132.setStretch(3, 2)
+
+        self.verticalLayout_90.addWidget(self.frame_69)
+
+        self.frame_75 = QFrame(self.ez2Frame)
+        self.frame_75.setObjectName(u"frame_75")
+        self.frame_75.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_75.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_138 = QHBoxLayout(self.frame_75)
+        self.horizontalLayout_138.setObjectName(u"horizontalLayout_138")
+        self.horizontalLayout_138.setContentsMargins(-1, 0, -1, 0)
+        self.feedLabel_23 = QLabel(self.frame_75)
+        self.feedLabel_23.setObjectName(u"feedLabel_23")
+        self.feedLabel_23.setFont(font5)
+        self.feedLabel_23.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_23.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_138.addWidget(self.feedLabel_23)
+
+        self.x3mmLineEdit = QLineEdit(self.frame_75)
+        self.x3mmLineEdit.setObjectName(u"x3mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.x3mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.x3mmLineEdit.setSizePolicy(sizePolicy2)
+        self.x3mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.x3mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.x3mmLineEdit.setFont(font5)
+        self.x3mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.x3mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_138.addWidget(self.x3mmLineEdit)
+
+        self.y3mmLineEdit = QLineEdit(self.frame_75)
+        self.y3mmLineEdit.setObjectName(u"y3mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.y3mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.y3mmLineEdit.setSizePolicy(sizePolicy2)
+        self.y3mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.y3mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.y3mmLineEdit.setFont(font5)
+        self.y3mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.y3mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_138.addWidget(self.y3mmLineEdit)
+
+        self.feedLabel_24 = QLabel(self.frame_75)
+        self.feedLabel_24.setObjectName(u"feedLabel_24")
+        self.feedLabel_24.setFont(font5)
+        self.feedLabel_24.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_24.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_138.addWidget(self.feedLabel_24)
+
+        self.horizontalLayout_138.setStretch(1, 2)
+        self.horizontalLayout_138.setStretch(2, 2)
+        self.horizontalLayout_138.setStretch(3, 2)
+
+        self.verticalLayout_90.addWidget(self.frame_75)
+
+        self.frame_70 = QFrame(self.ez2Frame)
+        self.frame_70.setObjectName(u"frame_70")
+        self.frame_70.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_70.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_133 = QHBoxLayout(self.frame_70)
+        self.horizontalLayout_133.setObjectName(u"horizontalLayout_133")
+        self.horizontalLayout_133.setContentsMargins(-1, 0, -1, 0)
+        self.feedLabel_13 = QLabel(self.frame_70)
+        self.feedLabel_13.setObjectName(u"feedLabel_13")
+        self.feedLabel_13.setFont(font5)
+        self.feedLabel_13.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_13.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_133.addWidget(self.feedLabel_13)
+
+        self.x4mmLineEdit = QLineEdit(self.frame_70)
+        self.x4mmLineEdit.setObjectName(u"x4mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.x4mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.x4mmLineEdit.setSizePolicy(sizePolicy2)
+        self.x4mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.x4mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.x4mmLineEdit.setFont(font5)
+        self.x4mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.x4mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_133.addWidget(self.x4mmLineEdit)
+
+        self.y4mmLineEdit = QLineEdit(self.frame_70)
+        self.y4mmLineEdit.setObjectName(u"y4mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.y4mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.y4mmLineEdit.setSizePolicy(sizePolicy2)
+        self.y4mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.y4mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.y4mmLineEdit.setFont(font5)
+        self.y4mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.y4mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_133.addWidget(self.y4mmLineEdit)
+
+        self.feedLabel_14 = QLabel(self.frame_70)
+        self.feedLabel_14.setObjectName(u"feedLabel_14")
+        self.feedLabel_14.setFont(font5)
+        self.feedLabel_14.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_14.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_133.addWidget(self.feedLabel_14)
+
+        self.horizontalLayout_133.setStretch(1, 2)
+        self.horizontalLayout_133.setStretch(2, 2)
+        self.horizontalLayout_133.setStretch(3, 2)
+
+        self.verticalLayout_90.addWidget(self.frame_70)
+
+        self.frame_71 = QFrame(self.ez2Frame)
+        self.frame_71.setObjectName(u"frame_71")
+        self.frame_71.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_71.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_134 = QHBoxLayout(self.frame_71)
+        self.horizontalLayout_134.setObjectName(u"horizontalLayout_134")
+        self.horizontalLayout_134.setContentsMargins(-1, 0, -1, 0)
+        self.feedLabel_15 = QLabel(self.frame_71)
+        self.feedLabel_15.setObjectName(u"feedLabel_15")
+        self.feedLabel_15.setFont(font5)
+        self.feedLabel_15.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_15.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_134.addWidget(self.feedLabel_15)
+
+        self.x5mmLineEdit = QLineEdit(self.frame_71)
+        self.x5mmLineEdit.setObjectName(u"x5mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.x5mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.x5mmLineEdit.setSizePolicy(sizePolicy2)
+        self.x5mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.x5mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.x5mmLineEdit.setFont(font5)
+        self.x5mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.x5mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_134.addWidget(self.x5mmLineEdit)
+
+        self.y5mmLineEdit = QLineEdit(self.frame_71)
+        self.y5mmLineEdit.setObjectName(u"y5mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.y5mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.y5mmLineEdit.setSizePolicy(sizePolicy2)
+        self.y5mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.y5mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.y5mmLineEdit.setFont(font5)
+        self.y5mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.y5mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_134.addWidget(self.y5mmLineEdit)
+
+        self.feedLabel_16 = QLabel(self.frame_71)
+        self.feedLabel_16.setObjectName(u"feedLabel_16")
+        self.feedLabel_16.setFont(font5)
+        self.feedLabel_16.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_16.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_134.addWidget(self.feedLabel_16)
+
+        self.horizontalLayout_134.setStretch(1, 2)
+        self.horizontalLayout_134.setStretch(2, 2)
+        self.horizontalLayout_134.setStretch(3, 2)
+
+        self.verticalLayout_90.addWidget(self.frame_71)
+
+        self.frame_72 = QFrame(self.ez2Frame)
+        self.frame_72.setObjectName(u"frame_72")
+        self.frame_72.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_72.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_135 = QHBoxLayout(self.frame_72)
+        self.horizontalLayout_135.setObjectName(u"horizontalLayout_135")
+        self.horizontalLayout_135.setContentsMargins(-1, 0, -1, 0)
+        self.feedLabel_17 = QLabel(self.frame_72)
+        self.feedLabel_17.setObjectName(u"feedLabel_17")
+        self.feedLabel_17.setFont(font5)
+        self.feedLabel_17.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_17.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_135.addWidget(self.feedLabel_17)
+
+        self.x6mmLineEdit = QLineEdit(self.frame_72)
+        self.x6mmLineEdit.setObjectName(u"x6mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.x6mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.x6mmLineEdit.setSizePolicy(sizePolicy2)
+        self.x6mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.x6mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.x6mmLineEdit.setFont(font5)
+        self.x6mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.x6mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_135.addWidget(self.x6mmLineEdit)
+
+        self.y6mmLineEdit = QLineEdit(self.frame_72)
+        self.y6mmLineEdit.setObjectName(u"y6mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.y6mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.y6mmLineEdit.setSizePolicy(sizePolicy2)
+        self.y6mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.y6mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.y6mmLineEdit.setFont(font5)
+        self.y6mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.y6mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_135.addWidget(self.y6mmLineEdit)
+
+        self.feedLabel_18 = QLabel(self.frame_72)
+        self.feedLabel_18.setObjectName(u"feedLabel_18")
+        self.feedLabel_18.setFont(font5)
+        self.feedLabel_18.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_18.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_135.addWidget(self.feedLabel_18)
+
+        self.horizontalLayout_135.setStretch(1, 2)
+        self.horizontalLayout_135.setStretch(2, 2)
+        self.horizontalLayout_135.setStretch(3, 2)
+
+        self.verticalLayout_90.addWidget(self.frame_72)
+
+        self.frame_74 = QFrame(self.ez2Frame)
+        self.frame_74.setObjectName(u"frame_74")
+        self.frame_74.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_74.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_137 = QHBoxLayout(self.frame_74)
+        self.horizontalLayout_137.setObjectName(u"horizontalLayout_137")
+        self.horizontalLayout_137.setContentsMargins(-1, 0, -1, 0)
+        self.feedLabel_21 = QLabel(self.frame_74)
+        self.feedLabel_21.setObjectName(u"feedLabel_21")
+        self.feedLabel_21.setFont(font5)
+        self.feedLabel_21.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_21.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_137.addWidget(self.feedLabel_21)
+
+        self.x7mmLineEdit = QLineEdit(self.frame_74)
+        self.x7mmLineEdit.setObjectName(u"x7mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.x7mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.x7mmLineEdit.setSizePolicy(sizePolicy2)
+        self.x7mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.x7mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.x7mmLineEdit.setFont(font5)
+        self.x7mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.x7mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_137.addWidget(self.x7mmLineEdit)
+
+        self.y7mmLineEdit = QLineEdit(self.frame_74)
+        self.y7mmLineEdit.setObjectName(u"y7mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.y7mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.y7mmLineEdit.setSizePolicy(sizePolicy2)
+        self.y7mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.y7mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.y7mmLineEdit.setFont(font5)
+        self.y7mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.y7mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_137.addWidget(self.y7mmLineEdit)
+
+        self.feedLabel_22 = QLabel(self.frame_74)
+        self.feedLabel_22.setObjectName(u"feedLabel_22")
+        self.feedLabel_22.setFont(font17)
+        self.feedLabel_22.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_22.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_137.addWidget(self.feedLabel_22)
+
+        self.horizontalLayout_137.setStretch(1, 2)
+        self.horizontalLayout_137.setStretch(2, 2)
+        self.horizontalLayout_137.setStretch(3, 2)
+
+        self.verticalLayout_90.addWidget(self.frame_74)
+
+        self.frame_73 = QFrame(self.ez2Frame)
+        self.frame_73.setObjectName(u"frame_73")
+        self.frame_73.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_73.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_136 = QHBoxLayout(self.frame_73)
+        self.horizontalLayout_136.setObjectName(u"horizontalLayout_136")
+        self.horizontalLayout_136.setContentsMargins(-1, 0, -1, 0)
+        self.feedLabel_19 = QLabel(self.frame_73)
+        self.feedLabel_19.setObjectName(u"feedLabel_19")
+        self.feedLabel_19.setFont(font5)
+        self.feedLabel_19.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_19.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_136.addWidget(self.feedLabel_19)
+
+        self.x8mmLineEdit = QLineEdit(self.frame_73)
+        self.x8mmLineEdit.setObjectName(u"x8mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.x8mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.x8mmLineEdit.setSizePolicy(sizePolicy2)
+        self.x8mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.x8mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.x8mmLineEdit.setFont(font5)
+        self.x8mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.x8mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_136.addWidget(self.x8mmLineEdit)
+
+        self.y8mmLineEdit = QLineEdit(self.frame_73)
+        self.y8mmLineEdit.setObjectName(u"y8mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.y8mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.y8mmLineEdit.setSizePolicy(sizePolicy2)
+        self.y8mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.y8mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.y8mmLineEdit.setFont(font5)
+        self.y8mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.y8mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_136.addWidget(self.y8mmLineEdit)
+
+        self.feedLabel_20 = QLabel(self.frame_73)
+        self.feedLabel_20.setObjectName(u"feedLabel_20")
+        self.feedLabel_20.setFont(font5)
+        self.feedLabel_20.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_20.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_136.addWidget(self.feedLabel_20)
+
+        self.horizontalLayout_136.setStretch(1, 2)
+        self.horizontalLayout_136.setStretch(2, 2)
+        self.horizontalLayout_136.setStretch(3, 2)
+
+        self.verticalLayout_90.addWidget(self.frame_73)
+
+        self.frame_84 = QFrame(self.ez2Frame)
+        self.frame_84.setObjectName(u"frame_84")
+        self.frame_84.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_84.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_146 = QHBoxLayout(self.frame_84)
+        self.horizontalLayout_146.setObjectName(u"horizontalLayout_146")
+        self.horizontalLayout_146.setContentsMargins(-1, 0, -1, 9)
+        self.feedLabel_27 = QLabel(self.frame_84)
+        self.feedLabel_27.setObjectName(u"feedLabel_27")
+        self.feedLabel_27.setFont(font5)
+        self.feedLabel_27.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_27.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_146.addWidget(self.feedLabel_27)
+
+        self.x9mmLineEdit = QLineEdit(self.frame_84)
+        self.x9mmLineEdit.setObjectName(u"x9mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.x9mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.x9mmLineEdit.setSizePolicy(sizePolicy2)
+        self.x9mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.x9mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.x9mmLineEdit.setFont(font5)
+        self.x9mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.x9mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_146.addWidget(self.x9mmLineEdit)
+
+        self.y9mmLineEdit = QLineEdit(self.frame_84)
+        self.y9mmLineEdit.setObjectName(u"y9mmLineEdit")
+        sizePolicy2.setHeightForWidth(self.y9mmLineEdit.sizePolicy().hasHeightForWidth())
+        self.y9mmLineEdit.setSizePolicy(sizePolicy2)
+        self.y9mmLineEdit.setMinimumSize(QSize(0, 0))
+        self.y9mmLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.y9mmLineEdit.setFont(font5)
+        self.y9mmLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.y9mmLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_146.addWidget(self.y9mmLineEdit)
+
+        self.feedLabel_28 = QLabel(self.frame_84)
+        self.feedLabel_28.setObjectName(u"feedLabel_28")
+        self.feedLabel_28.setFont(font17)
+        self.feedLabel_28.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_28.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_146.addWidget(self.feedLabel_28)
+
+        self.horizontalLayout_146.setStretch(1, 2)
+        self.horizontalLayout_146.setStretch(2, 2)
+        self.horizontalLayout_146.setStretch(3, 2)
+
+        self.verticalLayout_90.addWidget(self.frame_84)
+
+
+        self.horizontalLayout_139.addWidget(self.ez2Frame)
+
+
+        self.verticalLayout_93.addWidget(self.frame_62)
+
+        self.frame_76 = QFrame(self.scrollAreaWidgetContents_3)
+        self.frame_76.setObjectName(u"frame_76")
+        self.frame_76.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_76.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_145 = QHBoxLayout(self.frame_76)
+        self.horizontalLayout_145.setObjectName(u"horizontalLayout_145")
+        self.horizontalLayout_145.setContentsMargins(0, 0, 0, 0)
+        self.ez3Frame = QFrame(self.frame_76)
+        self.ez3Frame.setObjectName(u"ez3Frame")
+        self.ez3Frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.ez3Frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_91 = QVBoxLayout(self.ez3Frame)
+        self.verticalLayout_91.setObjectName(u"verticalLayout_91")
+        self.verticalLayout_91.setContentsMargins(0, 5, 0, 0)
+        self.indexLabel_2 = QLabel(self.ez3Frame)
+        self.indexLabel_2.setObjectName(u"indexLabel_2")
+        self.indexLabel_2.setFont(font5)
+        self.indexLabel_2.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.indexLabel_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_91.addWidget(self.indexLabel_2)
+
+        self.frame_79 = QFrame(self.ez3Frame)
+        self.frame_79.setObjectName(u"frame_79")
+        self.frame_79.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_79.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_140 = QHBoxLayout(self.frame_79)
+        self.horizontalLayout_140.setObjectName(u"horizontalLayout_140")
+        self.indexLabel_3 = QLabel(self.frame_79)
+        self.indexLabel_3.setObjectName(u"indexLabel_3")
+        self.indexLabel_3.setFont(font5)
+        self.indexLabel_3.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.indexLabel_3.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_140.addWidget(self.indexLabel_3)
+
+        self.powerHorizontalSlider = QSlider(self.frame_79)
+        self.powerHorizontalSlider.setObjectName(u"powerHorizontalSlider")
+        self.powerHorizontalSlider.setOrientation(Qt.Orientation.Horizontal)
+
+        self.horizontalLayout_140.addWidget(self.powerHorizontalSlider)
+
+        self.indexLabel_4 = QLabel(self.frame_79)
+        self.indexLabel_4.setObjectName(u"indexLabel_4")
+        self.indexLabel_4.setFont(font5)
+        self.indexLabel_4.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.indexLabel_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_140.addWidget(self.indexLabel_4)
+
+        self.indexLabel_5 = QLabel(self.frame_79)
+        self.indexLabel_5.setObjectName(u"indexLabel_5")
+        self.indexLabel_5.setFont(font5)
+        self.indexLabel_5.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.indexLabel_5.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_140.addWidget(self.indexLabel_5)
+
+        self.freqHorizontalSlider = QSlider(self.frame_79)
+        self.freqHorizontalSlider.setObjectName(u"freqHorizontalSlider")
+        self.freqHorizontalSlider.setOrientation(Qt.Orientation.Horizontal)
+
+        self.horizontalLayout_140.addWidget(self.freqHorizontalSlider)
+
+        self.indexLabel_6 = QLabel(self.frame_79)
+        self.indexLabel_6.setObjectName(u"indexLabel_6")
+        self.indexLabel_6.setFont(font5)
+        self.indexLabel_6.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.indexLabel_6.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_140.addWidget(self.indexLabel_6)
+
+
+        self.verticalLayout_91.addWidget(self.frame_79)
+
+        self.frame_80 = QFrame(self.ez3Frame)
+        self.frame_80.setObjectName(u"frame_80")
+        self.frame_80.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_80.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_141 = QHBoxLayout(self.frame_80)
+        self.horizontalLayout_141.setObjectName(u"horizontalLayout_141")
+        self.feedLabel_25 = QLabel(self.frame_80)
+        self.feedLabel_25.setObjectName(u"feedLabel_25")
+        self.feedLabel_25.setFont(font5)
+        self.feedLabel_25.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_25.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_141.addWidget(self.feedLabel_25)
+
+        self.markspeedLineEdit = QLineEdit(self.frame_80)
+        self.markspeedLineEdit.setObjectName(u"markspeedLineEdit")
+        sizePolicy2.setHeightForWidth(self.markspeedLineEdit.sizePolicy().hasHeightForWidth())
+        self.markspeedLineEdit.setSizePolicy(sizePolicy2)
+        self.markspeedLineEdit.setMinimumSize(QSize(0, 0))
+        self.markspeedLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.markspeedLineEdit.setFont(font5)
+        self.markspeedLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.markspeedLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_141.addWidget(self.markspeedLineEdit)
+
+        self.feedLabel_26 = QLabel(self.frame_80)
+        self.feedLabel_26.setObjectName(u"feedLabel_26")
+        self.feedLabel_26.setFont(font5)
+        self.feedLabel_26.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_26.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_141.addWidget(self.feedLabel_26)
+
+        self.jumpspeedLineEdit = QLineEdit(self.frame_80)
+        self.jumpspeedLineEdit.setObjectName(u"jumpspeedLineEdit")
+        sizePolicy2.setHeightForWidth(self.jumpspeedLineEdit.sizePolicy().hasHeightForWidth())
+        self.jumpspeedLineEdit.setSizePolicy(sizePolicy2)
+        self.jumpspeedLineEdit.setMinimumSize(QSize(0, 0))
+        self.jumpspeedLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.jumpspeedLineEdit.setFont(font5)
+        self.jumpspeedLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.jumpspeedLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_141.addWidget(self.jumpspeedLineEdit)
+
+
+        self.verticalLayout_91.addWidget(self.frame_80)
+
+        self.frame_81 = QFrame(self.ez3Frame)
+        self.frame_81.setObjectName(u"frame_81")
+        self.frame_81.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_81.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_142 = QHBoxLayout(self.frame_81)
+        self.horizontalLayout_142.setObjectName(u"horizontalLayout_142")
+        self.reddotPushButton = QPushButton(self.frame_81)
+        self.reddotPushButton.setObjectName(u"reddotPushButton")
+        self.reddotPushButton.setFont(font5)
+        self.reddotPushButton.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);	\n"
+"	background-color: rgb(16, 42, 131);\n"
+"	border-color: transparent;\n"
+"	border-style: outset;\n"
+"	border-radius: 15px;\n"
+"	border-width: 2px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	color: rgb(16, 42, 131);\n"
+"	background-color: rgb(167, 198, 229);\n"
+"	border-color: rgb(16, 42, 131);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background-color: rgb(172, 172, 172);\n"
+"}")
+
+        self.horizontalLayout_142.addWidget(self.reddotPushButton)
+
+        self.markcalgridPushButton = QPushButton(self.frame_81)
+        self.markcalgridPushButton.setObjectName(u"markcalgridPushButton")
+        self.markcalgridPushButton.setFont(font5)
+        self.markcalgridPushButton.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);	\n"
+"	background-color: rgb(16, 42, 131);\n"
+"	border-color: transparent;\n"
+"	border-style: outset;\n"
+"	border-radius: 15px;\n"
+"	border-width: 2px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	color: rgb(16, 42, 131);\n"
+"	background-color: rgb(167, 198, 229);\n"
+"	border-color: rgb(16, 42, 131);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background-color: rgb(172, 172, 172);\n"
+"}")
+
+        self.horizontalLayout_142.addWidget(self.markcalgridPushButton)
+
+        self.stopPushButton = QPushButton(self.frame_81)
+        self.stopPushButton.setObjectName(u"stopPushButton")
+        self.stopPushButton.setFont(font5)
+        self.stopPushButton.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);	\n"
+"	background-color: rgb(16, 42, 131);\n"
+"	border-color: transparent;\n"
+"	border-style: outset;\n"
+"	border-radius: 15px;\n"
+"	border-width: 2px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	color: rgb(16, 42, 131);\n"
+"	background-color: rgb(167, 198, 229);\n"
+"	border-color: rgb(16, 42, 131);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background-color: rgb(172, 172, 172);\n"
+"}")
+
+        self.horizontalLayout_142.addWidget(self.stopPushButton)
+
+
+        self.verticalLayout_91.addWidget(self.frame_81)
+
+
+        self.horizontalLayout_145.addWidget(self.ez3Frame)
+
+        self.frame_65 = QFrame(self.frame_76)
+        self.frame_65.setObjectName(u"frame_65")
+        self.frame_65.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_65.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_95 = QVBoxLayout(self.frame_65)
+        self.verticalLayout_95.setObjectName(u"verticalLayout_95")
+        self.verticalLayout_95.setContentsMargins(0, 0, 0, 0)
+        self.ez4Frame = QFrame(self.frame_65)
+        self.ez4Frame.setObjectName(u"ez4Frame")
+        self.ez4Frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.ez4Frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_92 = QVBoxLayout(self.ez4Frame)
+        self.verticalLayout_92.setObjectName(u"verticalLayout_92")
+        self.indexLabel_7 = QLabel(self.ez4Frame)
+        self.indexLabel_7.setObjectName(u"indexLabel_7")
+        self.indexLabel_7.setFont(font5)
+        self.indexLabel_7.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.indexLabel_7.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_92.addWidget(self.indexLabel_7)
+
+        self.frame_82 = QFrame(self.ez4Frame)
+        self.frame_82.setObjectName(u"frame_82")
+        self.frame_82.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_82.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_143 = QHBoxLayout(self.frame_82)
+        self.horizontalLayout_143.setObjectName(u"horizontalLayout_143")
+        self.indexLabel_8 = QLabel(self.frame_82)
+        self.indexLabel_8.setObjectName(u"indexLabel_8")
+        self.indexLabel_8.setFont(font5)
+        self.indexLabel_8.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.indexLabel_8.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_143.addWidget(self.indexLabel_8, 0, Qt.AlignmentFlag.AlignLeft)
+
+
+        self.verticalLayout_92.addWidget(self.frame_82)
+
+        self.frame_83 = QFrame(self.ez4Frame)
+        self.frame_83.setObjectName(u"frame_83")
+        self.frame_83.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_83.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_144 = QHBoxLayout(self.frame_83)
+        self.horizontalLayout_144.setObjectName(u"horizontalLayout_144")
+        self.horizontalLayout_144.setContentsMargins(0, 0, 0, 0)
+        self.calapplyPushButton = QPushButton(self.frame_83)
+        self.calapplyPushButton.setObjectName(u"calapplyPushButton")
+        self.calapplyPushButton.setFont(font5)
+        self.calapplyPushButton.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);	\n"
+"	background-color: rgb(16, 42, 131);\n"
+"	border-color: transparent;\n"
+"	border-style: outset;\n"
+"	border-radius: 15px;\n"
+"	border-width: 2px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	color: rgb(16, 42, 131);\n"
+"	background-color: rgb(167, 198, 229);\n"
+"	border-color: rgb(16, 42, 131);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background-color: rgb(172, 172, 172);\n"
+"}")
+
+        self.horizontalLayout_144.addWidget(self.calapplyPushButton)
+
+        self.markvershapePushButton = QPushButton(self.frame_83)
+        self.markvershapePushButton.setObjectName(u"markvershapePushButton")
+        self.markvershapePushButton.setFont(font5)
+        self.markvershapePushButton.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);	\n"
+"	background-color: rgb(16, 42, 131);\n"
+"	border-color: transparent;\n"
+"	border-style: outset;\n"
+"	border-radius: 15px;\n"
+"	border-width: 2px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	color: rgb(16, 42, 131);\n"
+"	background-color: rgb(167, 198, 229);\n"
+"	border-color: rgb(16, 42, 131);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background-color: rgb(172, 172, 172);\n"
+"}")
+
+        self.horizontalLayout_144.addWidget(self.markvershapePushButton)
+
+
+        self.verticalLayout_92.addWidget(self.frame_83)
+
+
+        self.verticalLayout_95.addWidget(self.ez4Frame)
+
+        self.frame_63 = QFrame(self.frame_65)
+        self.frame_63.setObjectName(u"frame_63")
+        self.frame_63.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_63.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_147 = QHBoxLayout(self.frame_63)
+        self.horizontalLayout_147.setObjectName(u"horizontalLayout_147")
+        self.horizontalSpacer_12 = QSpacerItem(170, 9, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_147.addItem(self.horizontalSpacer_12)
+
+        self.ezcadclosePushButton = QPushButton(self.frame_63)
+        self.ezcadclosePushButton.setObjectName(u"ezcadclosePushButton")
+        self.ezcadclosePushButton.setFont(font5)
+        self.ezcadclosePushButton.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);	\n"
+"	background-color: rgb(16, 42, 131);\n"
+"	border-color: transparent;\n"
+"	border-style: outset;\n"
+"	border-radius: 15px;\n"
+"	border-width: 2px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	color: rgb(16, 42, 131);\n"
+"	background-color: rgb(167, 198, 229);\n"
+"	border-color: rgb(16, 42, 131);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background-color: rgb(172, 172, 172);\n"
+"}")
+
+        self.horizontalLayout_147.addWidget(self.ezcadclosePushButton)
+
+        self.horizontalLayout_147.setStretch(0, 3)
+        self.horizontalLayout_147.setStretch(1, 2)
+
+        self.verticalLayout_95.addWidget(self.frame_63)
+
+
+        self.horizontalLayout_145.addWidget(self.frame_65)
+
+
+        self.verticalLayout_93.addWidget(self.frame_76)
+
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
+
+        self.horizontalLayout_127.addWidget(self.scrollArea_3)
+
+
+        self.verticalLayout_88.addWidget(self.ezcadFrame)
+
+        self.mainPages.addWidget(self.ezcadPage)
 
         self.horizontalLayout_11.addWidget(self.mainPages)
 
@@ -7536,9 +8895,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.centerMenuPages.setCurrentIndex(0)
+        self.centerMenuPages.setCurrentIndex(1)
         self.infoSubPages.setCurrentIndex(0)
-        self.mainPages.setCurrentIndex(6)
+        self.mainPages.setCurrentIndex(11)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -7575,6 +8934,8 @@ class Ui_MainWindow(object):
         self.feedLabel_2.setText(QCoreApplication.translate("MainWindow", u"Camera Offset:", None))
         self.cameraoffsetPushButton.setText(QCoreApplication.translate("MainWindow", u"ON", None))
         self.setconfigPushButton.setText(QCoreApplication.translate("MainWindow", u"CONFIG", None))
+        self.setadvancalPushButton.setText(QCoreApplication.translate("MainWindow", u"Advanced\n"
+"Calibration", None))
         self.infoLabel.setText(QCoreApplication.translate("MainWindow", u"Information", None))
         self.aboutPushButton.setText(QCoreApplication.translate("MainWindow", u"About", None))
         self.helpPushButton.setText(QCoreApplication.translate("MainWindow", u"Help", None))
@@ -7588,7 +8949,7 @@ class Ui_MainWindow(object):
         self.profilesetPushButton.setText(QCoreApplication.translate("MainWindow", u"SET", None))
         self.logoLabel.setText("")
         self.profilePushButton.setText("")
-        self.titleLabel.setText(QCoreApplication.translate("MainWindow", u"LASER SCRIBING", None))
+        self.titleLabel.setText(QCoreApplication.translate("MainWindow", u"PATTERNING MACHINE", None))
         self.notifyPushButton.setText("")
         self.minimizePushButton.setText("")
         self.restorePushButton.setText("")
@@ -7859,6 +9220,54 @@ class Ui_MainWindow(object):
         self.confapplyPushButton.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
         self.page3Label_2.setText(QCoreApplication.translate("MainWindow", u"TERMINAL", None))
         self.termsendPushButton.setText("")
+        self.page3Label_8.setText(QCoreApplication.translate("MainWindow", u"EZCAD 9-Point Calibration Studio", None))
+        self.label_110.setText(QCoreApplication.translate("MainWindow", u"Visual Orientation(Match Physical Mark)", None))
+        self.feedLabel_3.setText(QCoreApplication.translate("MainWindow", u"Image:", None))
+        self.changeimgPushButton.setText(QCoreApplication.translate("MainWindow", u"Change Image>>", None))
+        self.label_111.setText(QCoreApplication.translate("MainWindow", u"Measured Distances from Center(mm)'", None))
+        self.feedLabel_4.setText(QCoreApplication.translate("MainWindow", u"Target Half-Width(W)", None))
+        self.feedLabel_29.setText(QCoreApplication.translate("MainWindow", u"mm(Nominal \n"
+"Field=2*W)", None))
+        self.resettonominalPushButton.setText(QCoreApplication.translate("MainWindow", u"Reset to Nominal", None))
+        self.feedLabel_8.setText(QCoreApplication.translate("MainWindow", u"Pt", None))
+        self.feedLabel_7.setText(QCoreApplication.translate("MainWindow", u"X Distance(mm)", None))
+        self.feedLabel_6.setText(QCoreApplication.translate("MainWindow", u"Y Distance(mm)", None))
+        self.feedLabel_5.setText(QCoreApplication.translate("MainWindow", u"Description", None))
+        self.feedLabel_9.setText(QCoreApplication.translate("MainWindow", u"1", None))
+        self.feedLabel_10.setText(QCoreApplication.translate("MainWindow", u"Top-Left Corner", None))
+        self.feedLabel_11.setText(QCoreApplication.translate("MainWindow", u"2", None))
+        self.feedLabel_12.setText(QCoreApplication.translate("MainWindow", u"Top Center", None))
+        self.feedLabel_23.setText(QCoreApplication.translate("MainWindow", u"3", None))
+        self.feedLabel_24.setText(QCoreApplication.translate("MainWindow", u"Top-Right Corner", None))
+        self.feedLabel_13.setText(QCoreApplication.translate("MainWindow", u"4", None))
+        self.feedLabel_14.setText(QCoreApplication.translate("MainWindow", u"Left Center", None))
+        self.feedLabel_15.setText(QCoreApplication.translate("MainWindow", u"5", None))
+        self.feedLabel_16.setText(QCoreApplication.translate("MainWindow", u"Center(0,0)", None))
+        self.feedLabel_17.setText(QCoreApplication.translate("MainWindow", u"6", None))
+        self.feedLabel_18.setText(QCoreApplication.translate("MainWindow", u"Right Center", None))
+        self.feedLabel_21.setText(QCoreApplication.translate("MainWindow", u"7", None))
+        self.feedLabel_22.setText(QCoreApplication.translate("MainWindow", u"Bottom-Left Corner", None))
+        self.feedLabel_19.setText(QCoreApplication.translate("MainWindow", u"8", None))
+        self.feedLabel_20.setText(QCoreApplication.translate("MainWindow", u"Bottom Center", None))
+        self.feedLabel_27.setText(QCoreApplication.translate("MainWindow", u"9", None))
+        self.feedLabel_28.setText(QCoreApplication.translate("MainWindow", u"Bottom-Right Corner", None))
+        self.indexLabel_2.setText(QCoreApplication.translate("MainWindow", u"Laser Marking Controls", None))
+        self.indexLabel_3.setText(QCoreApplication.translate("MainWindow", u"Power(%)", None))
+        self.indexLabel_4.setText(QCoreApplication.translate("MainWindow", u"100", None))
+        self.indexLabel_5.setText(QCoreApplication.translate("MainWindow", u"Freq(kHz)", None))
+        self.indexLabel_6.setText(QCoreApplication.translate("MainWindow", u"30", None))
+        self.feedLabel_25.setText(QCoreApplication.translate("MainWindow", u"Mark Speed:", None))
+        self.feedLabel_26.setText(QCoreApplication.translate("MainWindow", u"Jump Speed:", None))
+        self.reddotPushButton.setText(QCoreApplication.translate("MainWindow", u"Red Dot Frame", None))
+        self.markcalgridPushButton.setText(QCoreApplication.translate("MainWindow", u"Mark Calibration Grid", None))
+        self.stopPushButton.setText(QCoreApplication.translate("MainWindow", u"Stop", None))
+        self.indexLabel_7.setText(QCoreApplication.translate("MainWindow", u"Apply Verification Calibration", None))
+        self.indexLabel_8.setText(QCoreApplication.translate("MainWindow", u"Status : Ready", None))
+        self.calapplyPushButton.setText(QCoreApplication.translate("MainWindow", u"Calculate Apply\n"
+" Calibration", None))
+        self.markvershapePushButton.setText(QCoreApplication.translate("MainWindow", u"Mark Verification \n"
+"Shape", None))
+        self.ezcadclosePushButton.setText(QCoreApplication.translate("MainWindow", u"Close", None))
         self.notifyLabel.setText(QCoreApplication.translate("MainWindow", u"Notification", None))
         self.notifyTextEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
@@ -7868,6 +9277,6 @@ class Ui_MainWindow(object):
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Notification Message</p></body></html>", None))
-        self.footerLabel.setText(QCoreApplication.translate("MainWindow", u"Copyright Specialize Products Pvt. Ltd.", None))
+        self.footerLabel.setText(QCoreApplication.translate("MainWindow", u"Copyright Sp\u00e9cialis\u00e9 Products Pvt. Ltd.", None))
     # retranslateUi
 
