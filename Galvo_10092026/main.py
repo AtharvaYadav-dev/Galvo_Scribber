@@ -280,11 +280,16 @@ class MainWindow(QMainWindow):
             if di1_state == 1 and self.di1_last_state == 0:
                 self.logger.info("DI1 (Pin 11) Triggered - Starting Print")
                 if str(self.galvo_mode).upper() == "ON":
-                    if hasattr(self.ui, 'printrungalvoPushButton') and self.ui.printrungalvoPushButton.isEnabled():
-                        self.printGalvoAction(self.printgalvo_widgets.printrungalvo)
+                    # Check if on print page and design is loaded
+                    if self.main_stack.currentIndex() == self.main_page_dict.get("printgalvo"):
+                        if getattr(self, 'pgm_file', None) or getattr(self, 'current_test_shape', None):
+                            if hasattr(self.ui, 'printrungalvoPushButton') and self.ui.printrungalvoPushButton.isEnabled():
+                                self.printGalvoAction(self.printgalvo_widgets.printrungalvo)
                 else:
-                    if hasattr(self.ui, 'printrunPushButton') and self.ui.printrunPushButton.isEnabled():
-                        self.printAction(self.print_widgets.printrun)
+                    if self.main_stack.currentIndex() == self.main_page_dict.get("print"):
+                        if getattr(self, 'pgm_file', None):
+                            if hasattr(self.ui, 'printrunPushButton') and self.ui.printrunPushButton.isEnabled():
+                                self.printAction(self.print_widgets.printrun)
                         
             # Rising edge DI2 (Abort)
             if di2_state == 1 and self.di2_last_state == 0:
