@@ -172,8 +172,10 @@ class HardwareConnection(BaseConnection):
             self.dll.GT_PROSYS_U3_Stop()
             
     def set_analog_do_bit(self, max_val, crt_val, freq_val, bit):
+        print(f"HARDWARE COMMAND: set_analog_do_bit() called. max_val={max_val}, crt_val={crt_val}, freq_val={freq_val}, bit={bit}")
         if self.dll and hasattr(self.dll, 'GT_PROSYS_U3_set_analog_do_bit'):
             self.dll.GT_PROSYS_U3_set_analog_do_bit(c_double(max_val), c_double(crt_val), c_double(freq_val), c_short(bit))
+            self.send_buffer()
 
     def galvo_move_xy(self, x, y, speed=None):
         speed_val = int(speed) if speed else 1000

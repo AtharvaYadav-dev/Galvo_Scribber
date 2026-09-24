@@ -2669,3 +2669,587 @@
 2026-09-21 17:57 - INFO - ==================================================
 2026-09-21 17:57 - INFO - New session close at 2026-09-21 17:57
 2026-09-21 17:57 - INFO - ==================================================
+2026-09-22 11:01 - INFO - UI load successful
+2026-09-22 11:15 - CRITICAL - Laser 1 : OFF
+2026-09-22 11:15 - CRITICAL - Laser 2 : OFF
+2026-09-22 11:15 - INFO - Stepper Lasers Shutdown
+2026-09-22 11:15 - INFO - COM connection close successfully
+2026-09-22 11:15 - INFO - Main window close successfully
+2026-09-22 11:15 - INFO - ==================================================
+2026-09-22 11:15 - INFO - New session close at 2026-09-22 11:15
+2026-09-22 11:15 - INFO - ==================================================
+2026-09-22 11:15 - INFO - UI load successful
+2026-09-22 11:15 - CRITICAL - Laser 1 : OFF
+2026-09-22 11:15 - CRITICAL - Laser 2 : OFF
+2026-09-22 11:15 - INFO - Stepper Lasers Shutdown
+2026-09-22 11:15 - INFO - COM connection close successfully
+2026-09-22 11:15 - INFO - Main window close successfully
+2026-09-22 11:15 - INFO - ==================================================
+2026-09-22 11:15 - INFO - New session close at 2026-09-22 11:15
+2026-09-22 11:15 - INFO - ==================================================
+2026-09-22 11:15 - INFO - UI load successful
+2026-09-22 11:16 - INFO - Profile : Supervisor
+2026-09-22 11:16 - CRITICAL - Laser 1 : OFF
+2026-09-22 11:16 - CRITICAL - Laser 2 : OFF
+2026-09-22 11:16 - INFO - Stepper Lasers Shutdown
+2026-09-22 11:16 - INFO - COM connection close successfully
+2026-09-22 11:16 - INFO - Main window close successfully
+2026-09-22 11:16 - INFO - ==================================================
+2026-09-22 11:16 - INFO - New session close at 2026-09-22 11:16
+2026-09-22 11:16 - INFO - ==================================================
+2026-09-22 11:16 - INFO - UI load successful
+2026-09-22 11:16 - CRITICAL - Laser 1 : OFF
+2026-09-22 11:16 - CRITICAL - Laser 2 : OFF
+2026-09-22 11:16 - INFO - Stepper Lasers Shutdown
+2026-09-22 11:16 - INFO - COM connection close successfully
+2026-09-22 11:16 - INFO - Main window close successfully
+2026-09-22 11:16 - INFO - ==================================================
+2026-09-22 11:16 - INFO - New session close at 2026-09-22 11:16
+2026-09-22 11:16 - INFO - ==================================================
+2026-09-22 11:17 - INFO - UI load successful
+2026-09-22 11:17 - CRITICAL - Laser 1 : OFF
+2026-09-22 11:17 - CRITICAL - Laser 2 : OFF
+2026-09-22 11:17 - INFO - Stepper Lasers Shutdown
+2026-09-22 11:17 - INFO - COM connection close successfully
+2026-09-22 11:17 - INFO - Main window close successfully
+2026-09-22 11:17 - INFO - ==================================================
+2026-09-22 11:17 - INFO - New session close at 2026-09-22 11:17
+2026-09-22 11:17 - INFO - ==================================================
+2026-09-22 11:17 - INFO - UI load successful
+2026-09-22 11:17 - CRITICAL - Laser 1 : OFF
+2026-09-22 11:17 - CRITICAL - Laser 2 : OFF
+2026-09-22 11:17 - INFO - Stepper Lasers Shutdown
+2026-09-22 11:17 - INFO - COM connection close successfully
+2026-09-22 11:17 - INFO - Main window close successfully
+2026-09-22 11:17 - INFO - ==================================================
+2026-09-22 11:17 - INFO - New session close at 2026-09-22 11:17
+2026-09-22 11:17 - INFO - ==================================================
+2026-09-22 11:18 - INFO - UI load successful
+2026-09-22 11:18 - INFO - Profile : Supervisor
+2026-09-22 11:20 - INFO - Galvo Laser Shutdown
+2026-09-22 11:20 - CRITICAL - Laser 1 : OFF
+2026-09-22 11:20 - CRITICAL - Laser 2 : OFF
+2026-09-22 11:20 - INFO - Stepper Lasers Shutdown
+2026-09-22 11:20 - INFO - COM connection close successfully
+2026-09-22 11:20 - INFO - Main window close successfully
+2026-09-22 11:20 - INFO - ==================================================
+2026-09-22 11:20 - INFO - New session close at 2026-09-22 11:20
+2026-09-22 11:20 - INFO - ==================================================
+2026-09-22 11:22 - INFO - UI load successful
+2026-09-22 11:22 - INFO - Profile : Supervisor
+2026-09-22 12:48 - INFO - Close event ignored.
+2026-09-22 12:48 - INFO - Galvo Laser Shutdown
+2026-09-22 12:48 - CRITICAL - Laser 1 : OFF
+2026-09-22 12:48 - CRITICAL - Laser 2 : OFF
+2026-09-22 12:48 - INFO - Stepper Lasers Shutdown
+2026-09-22 12:48 - INFO - COM connection close successfully
+2026-09-22 12:48 - INFO - Main window close successfully
+2026-09-22 12:48 - INFO - ==================================================
+2026-09-22 12:48 - INFO - New session close at 2026-09-22 12:48
+2026-09-22 12:48 - INFO - ==================================================
+2026-09-22 12:49 - INFO - UI load successful
+2026-09-22 12:49 - INFO - Profile : Supervisor
+2026-09-22 12:55 - INFO - Galvo Laser Shutdown
+2026-09-22 12:55 - CRITICAL - Laser 1 : OFF
+2026-09-22 12:55 - CRITICAL - Laser 2 : OFF
+2026-09-22 12:55 - INFO - Stepper Lasers Shutdown
+2026-09-22 12:55 - INFO - COM connection close successfully
+2026-09-22 12:55 - INFO - Main window close successfully
+2026-09-22 12:55 - INFO - ==================================================
+2026-09-22 12:55 - INFO - New session close at 2026-09-22 12:55
+2026-09-22 12:55 - INFO - ==================================================
+2026-09-22 12:55 - INFO - UI load successful
+2026-09-22 12:56 - INFO - Profile : Supervisor
+2026-09-22 12:57 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-22 12:57 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-22 12:59 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-22 12:59 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-22 13:00 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-22 13:00 - INFO - Galvo Laser Shutdown
+2026-09-22 13:00 - CRITICAL - Laser 1 : OFF
+2026-09-22 13:00 - CRITICAL - Laser 2 : OFF
+2026-09-22 13:00 - INFO - Stepper Lasers Shutdown
+2026-09-22 13:00 - INFO - COM connection close successfully
+2026-09-22 13:00 - INFO - Main window close successfully
+2026-09-22 13:00 - INFO - ==================================================
+2026-09-22 13:00 - INFO - New session close at 2026-09-22 13:00
+2026-09-22 13:00 - INFO - ==================================================
+2026-09-22 13:00 - INFO - UI load successful
+2026-09-22 13:01 - INFO - Profile : Supervisor
+2026-09-22 13:05 - INFO - Galvo Laser Shutdown
+2026-09-22 13:05 - CRITICAL - Laser 1 : OFF
+2026-09-22 13:05 - CRITICAL - Laser 2 : OFF
+2026-09-22 13:05 - INFO - Stepper Lasers Shutdown
+2026-09-22 13:05 - INFO - COM connection close successfully
+2026-09-22 13:05 - INFO - Main window close successfully
+2026-09-22 13:05 - INFO - ==================================================
+2026-09-22 13:05 - INFO - New session close at 2026-09-22 13:05
+2026-09-22 13:05 - INFO - ==================================================
+2026-09-22 13:05 - INFO - UI load successful
+2026-09-22 13:05 - INFO - Profile : Supervisor
+2026-09-22 13:10 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-22 13:10 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-22 13:11 - INFO - Galvo Laser Shutdown
+2026-09-22 13:11 - CRITICAL - Laser 1 : OFF
+2026-09-22 13:11 - CRITICAL - Laser 2 : OFF
+2026-09-22 13:11 - INFO - Stepper Lasers Shutdown
+2026-09-22 13:11 - INFO - COM connection close successfully
+2026-09-22 13:11 - INFO - Main window close successfully
+2026-09-22 13:11 - INFO - ==================================================
+2026-09-22 13:11 - INFO - New session close at 2026-09-22 13:11
+2026-09-22 13:11 - INFO - ==================================================
+2026-09-22 13:11 - INFO - UI load successful
+2026-09-22 13:11 - INFO - Profile : Supervisor
+2026-09-22 13:18 - INFO - Galvo Laser Shutdown
+2026-09-22 13:18 - CRITICAL - Laser 1 : OFF
+2026-09-22 13:18 - CRITICAL - Laser 2 : OFF
+2026-09-22 13:18 - INFO - Stepper Lasers Shutdown
+2026-09-22 13:18 - INFO - COM connection close successfully
+2026-09-22 13:18 - INFO - Main window close successfully
+2026-09-22 13:18 - INFO - ==================================================
+2026-09-22 13:18 - INFO - New session close at 2026-09-22 13:18
+2026-09-22 13:18 - INFO - ==================================================
+2026-09-22 13:22 - INFO - UI load successful
+2026-09-22 13:22 - INFO - Profile : Supervisor
+2026-09-22 16:28 - INFO - UI load successful
+2026-09-22 16:28 - INFO - Profile : Supervisor
+2026-09-22 16:28 - CRITICAL - Laser 1 : OFF
+2026-09-22 16:28 - CRITICAL - Laser 2 : OFF
+2026-09-22 16:28 - INFO - Stepper Lasers Shutdown
+2026-09-22 16:28 - INFO - COM connection close successfully
+2026-09-22 16:28 - INFO - Main window close successfully
+2026-09-22 16:28 - INFO - ==================================================
+2026-09-22 16:28 - INFO - New session close at 2026-09-22 16:28
+2026-09-22 16:28 - INFO - ==================================================
+2026-09-22 16:29 - INFO - UI load successful
+2026-09-22 16:29 - INFO - Profile : Supervisor
+2026-09-22 16:36 - INFO - Galvo Laser Shutdown
+2026-09-22 16:36 - CRITICAL - Laser 1 : OFF
+2026-09-22 16:36 - CRITICAL - Laser 2 : OFF
+2026-09-22 16:36 - INFO - Stepper Lasers Shutdown
+2026-09-22 16:36 - INFO - COM connection close successfully
+2026-09-22 16:36 - INFO - Main window close successfully
+2026-09-22 16:36 - INFO - ==================================================
+2026-09-22 16:36 - INFO - New session close at 2026-09-22 16:36
+2026-09-22 16:36 - INFO - ==================================================
+2026-09-22 16:36 - INFO - UI load successful
+2026-09-22 16:36 - INFO - Profile : Supervisor
+2026-09-22 16:57 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-22 16:57 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-22 17:00 - INFO - Galvo Laser Shutdown
+2026-09-22 17:00 - CRITICAL - Laser 1 : OFF
+2026-09-22 17:00 - CRITICAL - Laser 2 : OFF
+2026-09-22 17:00 - INFO - Stepper Lasers Shutdown
+2026-09-22 17:00 - INFO - COM connection close successfully
+2026-09-22 17:00 - INFO - Main window close successfully
+2026-09-22 17:00 - INFO - ==================================================
+2026-09-22 17:00 - INFO - New session close at 2026-09-22 17:00
+2026-09-22 17:00 - INFO - ==================================================
+2026-09-22 17:00 - INFO - UI load successful
+2026-09-22 17:00 - INFO - Profile : Supervisor
+2026-09-22 17:05 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-22 17:05 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-22 17:06 - INFO - UI load successful
+2026-09-22 17:06 - INFO - Profile : Supervisor
+2026-09-22 17:23 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-22 17:23 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-22 17:25 - INFO - Galvo Laser Shutdown
+2026-09-22 17:25 - CRITICAL - Laser 1 : OFF
+2026-09-22 17:25 - CRITICAL - Laser 2 : OFF
+2026-09-22 17:25 - INFO - Stepper Lasers Shutdown
+2026-09-22 17:25 - INFO - COM connection close successfully
+2026-09-22 17:25 - INFO - Main window close successfully
+2026-09-22 17:25 - INFO - ==================================================
+2026-09-22 17:25 - INFO - New session close at 2026-09-22 17:25
+2026-09-22 17:25 - INFO - ==================================================
+2026-09-22 17:25 - INFO - UI load successful
+2026-09-22 17:25 - INFO - Profile : Supervisor
+2026-09-22 17:28 - INFO - Galvo Laser Shutdown
+2026-09-22 17:28 - CRITICAL - Laser 1 : OFF
+2026-09-22 17:28 - CRITICAL - Laser 2 : OFF
+2026-09-22 17:28 - INFO - Stepper Lasers Shutdown
+2026-09-22 17:28 - INFO - COM connection close successfully
+2026-09-22 17:28 - INFO - Main window close successfully
+2026-09-22 17:28 - INFO - ==================================================
+2026-09-22 17:28 - INFO - New session close at 2026-09-22 17:28
+2026-09-22 17:28 - INFO - ==================================================
+2026-09-22 17:31 - INFO - UI load successful
+2026-09-22 17:31 - INFO - Profile : Supervisor
+2026-09-22 17:46 - INFO - Galvo Laser Shutdown
+2026-09-22 17:46 - CRITICAL - Laser 1 : OFF
+2026-09-22 17:46 - CRITICAL - Laser 2 : OFF
+2026-09-22 17:46 - INFO - Stepper Lasers Shutdown
+2026-09-22 17:46 - INFO - COM connection close successfully
+2026-09-22 17:46 - INFO - Main window close successfully
+2026-09-22 17:46 - INFO - ==================================================
+2026-09-22 17:46 - INFO - New session close at 2026-09-22 17:46
+2026-09-22 17:46 - INFO - ==================================================
+2026-09-22 17:50 - INFO - UI load successful
+2026-09-22 17:50 - INFO - Profile : Supervisor
+2026-09-22 17:52 - INFO - Galvo Laser Shutdown
+2026-09-22 17:52 - CRITICAL - Laser 1 : OFF
+2026-09-22 17:52 - CRITICAL - Laser 2 : OFF
+2026-09-22 17:52 - INFO - Stepper Lasers Shutdown
+2026-09-22 17:52 - INFO - COM connection close successfully
+2026-09-22 17:52 - INFO - Main window close successfully
+2026-09-22 17:52 - INFO - ==================================================
+2026-09-22 17:52 - INFO - New session close at 2026-09-22 17:52
+2026-09-22 17:52 - INFO - ==================================================
+2026-09-23 10:18 - INFO - UI load successful
+2026-09-23 10:18 - INFO - Galvo Laser Shutdown
+2026-09-23 10:18 - CRITICAL - Laser 1 : OFF
+2026-09-23 10:18 - CRITICAL - Laser 2 : OFF
+2026-09-23 10:18 - INFO - Stepper Lasers Shutdown
+2026-09-23 10:18 - INFO - COM connection close successfully
+2026-09-23 10:18 - INFO - Main window close successfully
+2026-09-23 10:18 - INFO - ==================================================
+2026-09-23 10:18 - INFO - New session close at 2026-09-23 10:18
+2026-09-23 10:18 - INFO - ==================================================
+2026-09-23 10:18 - INFO - UI load successful
+2026-09-23 10:19 - INFO - Profile : Supervisor
+2026-09-23 10:23 - INFO - Galvo Laser Shutdown
+2026-09-23 10:23 - CRITICAL - Laser 1 : OFF
+2026-09-23 10:23 - CRITICAL - Laser 2 : OFF
+2026-09-23 10:23 - INFO - Stepper Lasers Shutdown
+2026-09-23 10:23 - INFO - COM connection close successfully
+2026-09-23 10:23 - INFO - Main window close successfully
+2026-09-23 10:23 - INFO - ==================================================
+2026-09-23 10:23 - INFO - New session close at 2026-09-23 10:23
+2026-09-23 10:23 - INFO - ==================================================
+2026-09-23 10:23 - INFO - UI load successful
+2026-09-23 10:23 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:23 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:24 - INFO - Profile : Supervisor
+2026-09-23 10:29 - INFO - Galvo Laser Shutdown
+2026-09-23 10:29 - CRITICAL - Laser 1 : OFF
+2026-09-23 10:29 - CRITICAL - Laser 2 : OFF
+2026-09-23 10:29 - INFO - Stepper Lasers Shutdown
+2026-09-23 10:29 - INFO - COM connection close successfully
+2026-09-23 10:29 - INFO - Main window close successfully
+2026-09-23 10:29 - INFO - ==================================================
+2026-09-23 10:29 - INFO - New session close at 2026-09-23 10:29
+2026-09-23 10:29 - INFO - ==================================================
+2026-09-23 10:29 - INFO - UI load successful
+2026-09-23 10:29 - WARNING - Failed login attempt for user: Supervisor
+2026-09-23 10:29 - INFO - Profile : Supervisor
+2026-09-23 10:30 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:30 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:31 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:32 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:34 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:36 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:36 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/80mm_square.svg
+2026-09-23 10:36 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/80mm_square.svg
+2026-09-23 10:36 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:36 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:38 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:39 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/80mm_square.svg
+2026-09-23 10:39 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/80mm_square.svg
+2026-09-23 10:39 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:40 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:51 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 10:56 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-23 10:56 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-23 10:59 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/uwPfi-cool-women-face-decorative-art-design.dxf
+2026-09-23 10:59 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/uwPfi-cool-women-face-decorative-art-design.dxf
+2026-09-23 11:02 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-23 11:03 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-23 11:12 - INFO - File selected : D:/Users/EXPSOL/Downloads/WhatsApp-Image-2026-09-22-at-3.53.36-PM.dxf
+2026-09-23 11:12 - INFO - Parameters saved for D:/Users/EXPSOL/Downloads/WhatsApp-Image-2026-09-22-at-3.53.36-PM.dxf
+2026-09-23 11:12 - INFO - File selected : D:/Users/EXPSOL/Downloads/WhatsApp-Image-2026-09-22-at-3.53.35-PM.dxf
+2026-09-23 11:12 - INFO - Parameters saved for D:/Users/EXPSOL/Downloads/WhatsApp-Image-2026-09-22-at-3.53.35-PM.dxf
+2026-09-23 11:13 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-23 11:13 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-23 11:26 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/uwPfi-cool-women-face-decorative-art-design.dxf
+2026-09-23 11:26 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/uwPfi-cool-women-face-decorative-art-design.dxf
+2026-09-23 11:34 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/WhatsApp-Image-2026-09-22-at-3.53.36-PM.svg
+2026-09-23 11:34 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/WhatsApp-Image-2026-09-22-at-3.53.36-PM.svg
+2026-09-23 11:37 - INFO - UI load successful
+2026-09-23 11:37 - INFO - Profile : Supervisor
+2026-09-23 11:38 - INFO - Galvo Laser Shutdown
+2026-09-23 11:38 - CRITICAL - Laser 1 : OFF
+2026-09-23 11:38 - CRITICAL - Laser 2 : OFF
+2026-09-23 11:38 - INFO - Stepper Lasers Shutdown
+2026-09-23 11:38 - INFO - COM connection close successfully
+2026-09-23 11:38 - INFO - Main window close successfully
+2026-09-23 11:38 - INFO - ==================================================
+2026-09-23 11:38 - INFO - New session close at 2026-09-23 11:38
+2026-09-23 11:38 - INFO - ==================================================
+2026-09-23 11:38 - INFO - UI load successful
+2026-09-23 11:39 - INFO - Profile : Supervisor
+2026-09-23 11:41 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 11:41 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 11:51 - INFO - Galvo Laser Shutdown
+2026-09-23 11:51 - CRITICAL - Laser 1 : OFF
+2026-09-23 11:51 - CRITICAL - Laser 2 : OFF
+2026-09-23 11:51 - INFO - Stepper Lasers Shutdown
+2026-09-23 11:51 - INFO - COM connection close successfully
+2026-09-23 11:51 - INFO - Main window close successfully
+2026-09-23 11:51 - INFO - ==================================================
+2026-09-23 11:51 - INFO - New session close at 2026-09-23 11:51
+2026-09-23 11:51 - INFO - ==================================================
+2026-09-23 11:51 - INFO - UI load successful
+2026-09-23 11:52 - WARNING - Failed login attempt for user: Supervisor
+2026-09-23 11:52 - INFO - Profile : Supervisor
+2026-09-23 11:57 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/uwPfi-cool-women-face-decorative-art-design.dxf
+2026-09-23 11:57 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/uwPfi-cool-women-face-decorative-art-design.dxf
+2026-09-23 11:58 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/uwPfi-cool-women-face-decorative-art-design.dxf
+2026-09-23 12:03 - INFO - Galvo Laser Shutdown
+2026-09-23 12:03 - CRITICAL - Laser 1 : OFF
+2026-09-23 12:03 - CRITICAL - Laser 2 : OFF
+2026-09-23 12:03 - INFO - Stepper Lasers Shutdown
+2026-09-23 12:03 - INFO - COM connection close successfully
+2026-09-23 12:03 - INFO - Main window close successfully
+2026-09-23 12:03 - INFO - ==================================================
+2026-09-23 12:03 - INFO - New session close at 2026-09-23 12:03
+2026-09-23 12:03 - INFO - ==================================================
+2026-09-23 12:07 - INFO - UI load successful
+2026-09-23 12:07 - INFO - Profile : Supervisor
+2026-09-23 12:19 - INFO - Galvo Laser Shutdown
+2026-09-23 12:19 - CRITICAL - Laser 1 : OFF
+2026-09-23 12:19 - CRITICAL - Laser 2 : OFF
+2026-09-23 12:19 - INFO - Stepper Lasers Shutdown
+2026-09-23 12:19 - INFO - COM connection close successfully
+2026-09-23 12:19 - INFO - Main window close successfully
+2026-09-23 12:19 - INFO - ==================================================
+2026-09-23 12:19 - INFO - New session close at 2026-09-23 12:19
+2026-09-23 12:19 - INFO - ==================================================
+2026-09-23 12:19 - INFO - UI load successful
+2026-09-23 12:20 - INFO - Profile : Supervisor
+2026-09-23 12:20 - INFO - Galvo Laser Shutdown
+2026-09-23 12:20 - CRITICAL - Laser 1 : OFF
+2026-09-23 12:20 - CRITICAL - Laser 2 : OFF
+2026-09-23 12:20 - INFO - Stepper Lasers Shutdown
+2026-09-23 12:20 - INFO - COM connection close successfully
+2026-09-23 12:20 - INFO - Main window close successfully
+2026-09-23 12:20 - INFO - ==================================================
+2026-09-23 12:20 - INFO - New session close at 2026-09-23 12:20
+2026-09-23 12:20 - INFO - ==================================================
+2026-09-23 12:21 - INFO - UI load successful
+2026-09-23 12:21 - INFO - Profile : Supervisor
+2026-09-23 12:24 - INFO - Galvo Laser Shutdown
+2026-09-23 12:24 - CRITICAL - Laser 1 : OFF
+2026-09-23 12:24 - CRITICAL - Laser 2 : OFF
+2026-09-23 12:24 - INFO - Stepper Lasers Shutdown
+2026-09-23 12:24 - INFO - COM connection close successfully
+2026-09-23 12:24 - INFO - Main window close successfully
+2026-09-23 12:24 - INFO - ==================================================
+2026-09-23 12:24 - INFO - New session close at 2026-09-23 12:24
+2026-09-23 12:24 - INFO - ==================================================
+2026-09-23 12:30 - INFO - UI load successful
+2026-09-23 12:30 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/africakimudra.svg
+2026-09-23 12:30 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/africakimudra.svg
+2026-09-23 12:35 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/africakimudra.svg
+2026-09-23 13:05 - INFO - Galvo Laser Shutdown
+2026-09-23 13:05 - CRITICAL - Laser 1 : OFF
+2026-09-23 13:05 - CRITICAL - Laser 2 : OFF
+2026-09-23 13:05 - INFO - Stepper Lasers Shutdown
+2026-09-23 13:05 - INFO - COM connection close successfully
+2026-09-23 13:05 - INFO - Main window close successfully
+2026-09-23 13:05 - INFO - ==================================================
+2026-09-23 13:05 - INFO - New session close at 2026-09-23 13:05
+2026-09-23 13:05 - INFO - ==================================================
+2026-09-23 13:06 - INFO - UI load successful
+2026-09-23 13:07 - INFO - Profile : Supervisor
+2026-09-23 13:08 - INFO - Galvo Laser Shutdown
+2026-09-23 13:08 - CRITICAL - Laser 1 : OFF
+2026-09-23 13:08 - CRITICAL - Laser 2 : OFF
+2026-09-23 13:08 - INFO - Stepper Lasers Shutdown
+2026-09-23 13:08 - INFO - COM connection close successfully
+2026-09-23 13:08 - INFO - Main window close successfully
+2026-09-23 13:08 - INFO - ==================================================
+2026-09-23 13:08 - INFO - New session close at 2026-09-23 13:08
+2026-09-23 13:08 - INFO - ==================================================
+2026-09-23 13:11 - INFO - UI load successful
+2026-09-23 13:11 - INFO - Profile : Supervisor
+2026-09-23 13:13 - INFO - Galvo Laser Shutdown
+2026-09-23 13:13 - CRITICAL - Laser 1 : OFF
+2026-09-23 13:13 - CRITICAL - Laser 2 : OFF
+2026-09-23 13:13 - INFO - Stepper Lasers Shutdown
+2026-09-23 13:13 - INFO - COM connection close successfully
+2026-09-23 13:13 - INFO - Main window close successfully
+2026-09-23 13:13 - INFO - ==================================================
+2026-09-23 13:13 - INFO - New session close at 2026-09-23 13:13
+2026-09-23 13:13 - INFO - ==================================================
+2026-09-23 13:17 - INFO - UI load successful
+2026-09-23 13:17 - INFO - Profile : Supervisor
+2026-09-23 13:24 - INFO - Galvo Laser Shutdown
+2026-09-23 13:24 - CRITICAL - Laser 1 : OFF
+2026-09-23 13:24 - CRITICAL - Laser 2 : OFF
+2026-09-23 13:24 - INFO - Stepper Lasers Shutdown
+2026-09-23 13:24 - INFO - COM connection close successfully
+2026-09-23 13:24 - INFO - Main window close successfully
+2026-09-23 13:24 - INFO - ==================================================
+2026-09-23 13:24 - INFO - New session close at 2026-09-23 13:24
+2026-09-23 13:24 - INFO - ==================================================
+2026-09-23 14:28 - INFO - UI load successful
+2026-09-23 14:29 - INFO - Profile : Supervisor
+2026-09-23 14:31 - INFO - Galvo Laser Shutdown
+2026-09-23 14:31 - CRITICAL - Laser 1 : OFF
+2026-09-23 14:31 - CRITICAL - Laser 2 : OFF
+2026-09-23 14:31 - INFO - Stepper Lasers Shutdown
+2026-09-23 14:31 - INFO - COM connection close successfully
+2026-09-23 14:31 - INFO - Main window close successfully
+2026-09-23 14:31 - INFO - ==================================================
+2026-09-23 14:31 - INFO - New session close at 2026-09-23 14:31
+2026-09-23 14:31 - INFO - ==================================================
+2026-09-23 14:32 - INFO - UI load successful
+2026-09-23 14:32 - INFO - Profile : Supervisor
+2026-09-23 14:33 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/africakimudra.svg
+2026-09-23 14:33 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/africakimudra.svg
+2026-09-23 14:34 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/africakimudra.svg
+2026-09-23 14:34 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/africakimudra.svg
+2026-09-23 14:50 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/africakimudra.svg
+2026-09-23 14:50 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/africakimudra.svg
+2026-09-23 14:54 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/africakimudra.svg
+2026-09-23 14:55 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/africakimudra.svg
+2026-09-23 15:23 - INFO - Galvo Laser Shutdown
+2026-09-23 15:23 - CRITICAL - Laser 1 : OFF
+2026-09-23 15:23 - CRITICAL - Laser 2 : OFF
+2026-09-23 15:23 - INFO - Stepper Lasers Shutdown
+2026-09-23 15:23 - INFO - COM connection close successfully
+2026-09-23 15:23 - INFO - Main window close successfully
+2026-09-23 15:23 - INFO - ==================================================
+2026-09-23 15:23 - INFO - New session close at 2026-09-23 15:23
+2026-09-23 15:23 - INFO - ==================================================
+2026-09-23 15:24 - INFO - UI load successful
+2026-09-23 15:25 - WARNING - Failed login attempt for user: Supervisor
+2026-09-23 15:25 - INFO - Profile : Supervisor
+2026-09-23 15:33 - INFO - Galvo Laser Shutdown
+2026-09-23 15:33 - CRITICAL - Laser 1 : OFF
+2026-09-23 15:33 - CRITICAL - Laser 2 : OFF
+2026-09-23 15:33 - INFO - Stepper Lasers Shutdown
+2026-09-23 15:33 - INFO - COM connection close successfully
+2026-09-23 15:33 - INFO - Main window close successfully
+2026-09-23 15:33 - INFO - ==================================================
+2026-09-23 15:33 - INFO - New session close at 2026-09-23 15:33
+2026-09-23 15:33 - INFO - ==================================================
+2026-09-23 15:55 - INFO - UI load successful
+2026-09-23 15:56 - INFO - Galvo Laser Shutdown
+2026-09-23 15:56 - CRITICAL - Laser 1 : OFF
+2026-09-23 15:56 - CRITICAL - Laser 2 : OFF
+2026-09-23 15:56 - INFO - Stepper Lasers Shutdown
+2026-09-23 15:56 - INFO - COM connection close successfully
+2026-09-23 15:56 - INFO - Main window close successfully
+2026-09-23 15:56 - INFO - ==================================================
+2026-09-23 15:56 - INFO - New session close at 2026-09-23 15:56
+2026-09-23 15:56 - INFO - ==================================================
+2026-09-23 15:56 - INFO - UI load successful
+2026-09-23 15:56 - INFO - Profile : Supervisor
+2026-09-23 15:58 - INFO - Galvo Laser Shutdown
+2026-09-23 15:58 - CRITICAL - Laser 1 : OFF
+2026-09-23 15:58 - CRITICAL - Laser 2 : OFF
+2026-09-23 15:58 - INFO - Stepper Lasers Shutdown
+2026-09-23 15:58 - INFO - COM connection close successfully
+2026-09-23 15:58 - INFO - Main window close successfully
+2026-09-23 15:58 - INFO - ==================================================
+2026-09-23 15:58 - INFO - New session close at 2026-09-23 15:58
+2026-09-23 15:58 - INFO - ==================================================
+2026-09-23 16:05 - INFO - UI load successful
+2026-09-23 16:06 - INFO - Profile : Supervisor
+2026-09-23 16:06 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-23 16:07 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-23 16:10 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-23 16:13 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-23 16:14 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-23 16:17 - INFO - Close event ignored.
+2026-09-23 16:18 - INFO - Galvo Laser Shutdown
+2026-09-23 16:18 - CRITICAL - Laser 1 : OFF
+2026-09-23 16:18 - CRITICAL - Laser 2 : OFF
+2026-09-23 16:18 - INFO - Stepper Lasers Shutdown
+2026-09-23 16:18 - INFO - COM connection close successfully
+2026-09-23 16:18 - INFO - Main window close successfully
+2026-09-23 16:18 - INFO - ==================================================
+2026-09-23 16:18 - INFO - New session close at 2026-09-23 16:18
+2026-09-23 16:18 - INFO - ==================================================
+2026-09-23 16:26 - INFO - UI load successful
+2026-09-23 16:26 - INFO - Profile : Supervisor
+2026-09-23 16:41 - INFO - Galvo Laser Shutdown
+2026-09-23 16:41 - CRITICAL - Laser 1 : OFF
+2026-09-23 16:41 - CRITICAL - Laser 2 : OFF
+2026-09-23 16:41 - INFO - Stepper Lasers Shutdown
+2026-09-23 16:41 - INFO - COM connection close successfully
+2026-09-23 16:41 - INFO - Main window close successfully
+2026-09-23 16:41 - INFO - ==================================================
+2026-09-23 16:41 - INFO - New session close at 2026-09-23 16:41
+2026-09-23 16:41 - INFO - ==================================================
+2026-09-23 16:42 - INFO - UI load successful
+2026-09-23 16:42 - INFO - Profile : Supervisor
+2026-09-23 16:46 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/uwPfi-cool-women-face-decorative-art-design.dxf
+2026-09-23 16:46 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/uwPfi-cool-women-face-decorative-art-design.dxf
+2026-09-23 16:54 - INFO - Galvo Laser Shutdown
+2026-09-23 16:54 - CRITICAL - Laser 1 : OFF
+2026-09-23 16:54 - CRITICAL - Laser 2 : OFF
+2026-09-23 16:54 - INFO - Stepper Lasers Shutdown
+2026-09-23 16:54 - INFO - COM connection close successfully
+2026-09-23 16:54 - INFO - Main window close successfully
+2026-09-23 16:54 - INFO - ==================================================
+2026-09-23 16:54 - INFO - New session close at 2026-09-23 16:54
+2026-09-23 16:54 - INFO - ==================================================
+2026-09-23 16:54 - INFO - UI load successful
+2026-09-23 16:55 - INFO - Profile : Supervisor
+2026-09-23 16:56 - INFO - Galvo Laser Shutdown
+2026-09-23 16:56 - CRITICAL - Laser 1 : OFF
+2026-09-23 16:56 - CRITICAL - Laser 2 : OFF
+2026-09-23 16:56 - INFO - Stepper Lasers Shutdown
+2026-09-23 16:56 - INFO - COM connection close successfully
+2026-09-23 16:56 - INFO - Main window close successfully
+2026-09-23 16:56 - INFO - ==================================================
+2026-09-23 16:56 - INFO - New session close at 2026-09-23 16:56
+2026-09-23 16:56 - INFO - ==================================================
+2026-09-23 16:59 - INFO - UI load successful
+2026-09-23 16:59 - INFO - Profile : Supervisor
+2026-09-23 17:01 - INFO - Galvo Laser Shutdown
+2026-09-23 17:01 - CRITICAL - Laser 1 : OFF
+2026-09-23 17:01 - CRITICAL - Laser 2 : OFF
+2026-09-23 17:01 - INFO - Stepper Lasers Shutdown
+2026-09-23 17:01 - INFO - COM connection close successfully
+2026-09-23 17:01 - INFO - Main window close successfully
+2026-09-23 17:01 - INFO - ==================================================
+2026-09-23 17:01 - INFO - New session close at 2026-09-23 17:01
+2026-09-23 17:01 - INFO - ==================================================
+2026-09-23 17:13 - INFO - UI load successful
+2026-09-23 17:13 - INFO - Profile : Supervisor
+2026-09-23 17:17 - INFO - Galvo Laser Shutdown
+2026-09-23 17:17 - CRITICAL - Laser 1 : OFF
+2026-09-23 17:17 - CRITICAL - Laser 2 : OFF
+2026-09-23 17:17 - INFO - Stepper Lasers Shutdown
+2026-09-23 17:17 - INFO - COM connection close successfully
+2026-09-23 17:17 - INFO - Main window close successfully
+2026-09-23 17:17 - INFO - ==================================================
+2026-09-23 17:17 - INFO - New session close at 2026-09-23 17:17
+2026-09-23 17:17 - INFO - ==================================================
+2026-09-23 17:18 - INFO - UI load successful
+2026-09-23 17:18 - INFO - Profile : Supervisor
+2026-09-23 17:37 - INFO - Galvo Laser Shutdown
+2026-09-23 17:37 - CRITICAL - Laser 1 : OFF
+2026-09-23 17:37 - CRITICAL - Laser 2 : OFF
+2026-09-23 17:37 - INFO - Stepper Lasers Shutdown
+2026-09-23 17:37 - INFO - COM connection close successfully
+2026-09-23 17:37 - INFO - Main window close successfully
+2026-09-23 17:37 - INFO - ==================================================
+2026-09-23 17:37 - INFO - New session close at 2026-09-23 17:37
+2026-09-23 17:37 - INFO - ==================================================
+2026-09-23 17:37 - INFO - UI load successful
+2026-09-23 17:37 - INFO - Galvo Laser Shutdown
+2026-09-23 17:37 - CRITICAL - Laser 1 : OFF
+2026-09-23 17:37 - CRITICAL - Laser 2 : OFF
+2026-09-23 17:37 - INFO - Stepper Lasers Shutdown
+2026-09-23 17:37 - INFO - COM connection close successfully
+2026-09-23 17:37 - INFO - Main window close successfully
+2026-09-23 17:37 - INFO - ==================================================
+2026-09-23 17:37 - INFO - New session close at 2026-09-23 17:37
+2026-09-23 17:37 - INFO - ==================================================
+2026-09-23 17:39 - INFO - UI load successful
+2026-09-23 17:39 - INFO - Profile : Supervisor
+2026-09-23 17:42 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 17:42 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-23 17:49 - INFO - Galvo Laser Shutdown
+2026-09-23 17:49 - CRITICAL - Laser 1 : OFF
+2026-09-23 17:49 - CRITICAL - Laser 2 : OFF
+2026-09-23 17:49 - INFO - Stepper Lasers Shutdown
+2026-09-23 17:49 - INFO - COM connection close successfully
+2026-09-23 17:49 - INFO - Main window close successfully
+2026-09-23 17:49 - INFO - ==================================================
+2026-09-23 17:49 - INFO - New session close at 2026-09-23 17:49
+2026-09-23 17:49 - INFO - ==================================================

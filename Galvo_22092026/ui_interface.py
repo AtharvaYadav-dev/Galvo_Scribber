@@ -4715,6 +4715,9 @@ class Ui_MainWindow(object):
 
         self.galvolaserfreqHorizontalSlider = QSlider(self.frame_61)
         self.galvolaserfreqHorizontalSlider.setObjectName(u"galvolaserfreqHorizontalSlider")
+        self.galvolaserfreqHorizontalSlider.setMinimum(20)
+        self.galvolaserfreqHorizontalSlider.setMaximum(80)
+        self.galvolaserfreqHorizontalSlider.setValue(30)
         self.galvolaserfreqHorizontalSlider.setOrientation(Qt.Orientation.Horizontal)
 
         self.horizontalLayout_125.addWidget(self.galvolaserfreqHorizontalSlider)
@@ -9059,9 +9062,9 @@ class Ui_MainWindow(object):
         self.fminusgalvoPushButton.setText(QCoreApplication.translate("MainWindow", u"Z-", None))
         self.fsetgalvoPushButton.setText(QCoreApplication.translate("MainWindow", u"SET", None))
         self.label_45.setText(QCoreApplication.translate("MainWindow", u"Laser Parameters", None))
-        self.label_108.setText(QCoreApplication.translate("MainWindow", u"Laser Power :", None))
+        self.label_108.setText(QCoreApplication.translate("MainWindow", u"Laser Power (%):", None))
         self.powersetgalvoPushButton_2.setText(QCoreApplication.translate("MainWindow", u"SET", None))
-        self.label_32.setText(QCoreApplication.translate("MainWindow", u"Laser Freq :    ", None))
+        self.label_32.setText(QCoreApplication.translate("MainWindow", u"Laser Freq (kHz):", None))
         self.freqsetgalvoPushButton.setText(QCoreApplication.translate("MainWindow", u"SET", None))
         self.page2Label_2.setText(QCoreApplication.translate("MainWindow", u"PROGRAM", None))
         self.label_28.setText(QCoreApplication.translate("MainWindow", u"Design File :", None))

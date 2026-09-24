@@ -820,11 +820,44 @@ class MainWindow(QMainWindow):
         widget_list.append(self.wh.configWidget(self, QSlider, "galvolaserfreqHorizontalSlider", "valueChanged", self.laserConfGalvoAction, role="galvolaserfreq"))
         widget_list.append(self.wh.configWidget(self, QLineEdit, "laserfreqLineEdit", "returnPressed", self.laserConfGalvoAction, role="laserfreq"))
         widget_list.append(self.wh.configWidget(self, QPushButton, "powersetgalvoPushButton", "clicked", self.printGalvoAction, role="powersetgalvo"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "powersetgalvoPushButton_2", "clicked", self.printGalvoAction, role="powersetgalvo"))
         widget_list.append(self.wh.configWidget(self, QPushButton, "freqsetgalvoPushButton", "clicked", self.printGalvoAction, role="freqsetgalvo"))
         
         self.util.dedupeList(widget_list)
         self.laserconfgalvo_widgets = self.wh.createMap(*widget_list)
         
+        # Configure Laser Frequency Controls (20 kHz to 80 kHz)
+        if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
+            self.ui.galvolaserfreqHorizontalSlider.setRange(20, 80)
+            self.ui.galvolaserfreqHorizontalSlider.setSingleStep(1)
+            freq_val = self.ui.galvolaserfreqHorizontalSlider.value()
+            if freq_val < 20 or freq_val > 80:
+                freq_val = 30
+                self.ui.galvolaserfreqHorizontalSlider.setValue(freq_val)
+            if hasattr(self.ui, 'laserfreqLineEdit'):
+                self.ui.laserfreqLineEdit.setText(str(freq_val))
+                
+        if hasattr(self.ui, 'laserfreqLineEdit'):
+            self.ui.laserfreqLineEdit.setValidator(QIntValidator(20, 80, self))
+            self.ui.laserfreqLineEdit.setPlaceholderText("20-80")
+            self.ui.laserfreqLineEdit.setToolTip("Laser Frequency: 20 kHz to 80 kHz")
+            
+        if hasattr(self.ui, 'label_32'):
+            self.ui.label_32.setText("Laser Freq (kHz):")
+
+        # Configure Laser Power Controls (0% to 100%)
+        if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2'):
+            self.ui.galvolaserpowerHorizontalSlider_2.setRange(0, 100)
+            pwr_val = self.ui.galvolaserpowerHorizontalSlider_2.value()
+            if hasattr(self.ui, 'laserpowerLineEdit'):
+                self.ui.laserpowerLineEdit.setText(str(pwr_val))
+        if hasattr(self.ui, 'laserpowerLineEdit'):
+            self.ui.laserpowerLineEdit.setValidator(QIntValidator(0, 100, self))
+            self.ui.laserpowerLineEdit.setPlaceholderText("0-100")
+            self.ui.laserpowerLineEdit.setToolTip("Laser Power: 0% to 100%")
+        if hasattr(self.ui, 'label_108'):
+            self.ui.label_108.setText("Laser Power (%):")
+            
         # Ensure the laser button is enabled
         if hasattr(self.ui, 'flasergalvoPushButton'):
             self.ui.flasergalvoPushButton.setEnabled(True)
@@ -1791,6 +1824,19 @@ class MainWindow(QMainWindow):
         if min_x != float('inf'):
             self.galvo_preview_thread.update_bounds(min_x, max_x, min_y, max_y)
 
+    def _apply_galvo_laser_settings(self):
+        if not hasattr(self, 'galvo_controller') or not self.galvo_controller.is_connected:
+            return
+        if hasattr(self.galvo_controller, "connection") and hasattr(self.galvo_controller.connection, "set_analog_do_bit"):
+            try:
+                slider_percentage = float(self.ui.galvolaserpowerHorizontalSlider_2.value())
+                freq_val = float(self.ui.galvolaserfreqHorizontalSlider.value())
+                max_val = 100.0
+                self.galvo_controller.connection.set_analog_do_bit(max_val, slider_percentage, freq_val, 4)
+                self.galvo_controller.connection.set_analog_do_bit(100.0, 50.0, freq_val / 4.0, 3)
+            except Exception as e:
+                self.util.debugPrint(f"Error applying laser settings: {e}")
+
     def laserConfGalvoAction(self, widget, *args):
         action = self.wh.getRole(widget)
         self.util.debugPrint(f"laserConfGalvoAction : {action}")
@@ -1838,10 +1884,6 @@ class MainWindow(QMainWindow):
             self.update_galvo_focus_calculations()
             self.showAutoCloseMessage("Focus Set", f"Z Focus position saved at {focus_pos:.2f} mm.")
         elif action == "flasergalvoset":
-            focus_pos = self.stepper_controller.z_position
-            self.ch.addParameter("focus", "galvo_z_focus", str(focus_pos))
-            self.update_galvo_focus_calculations()
-            
             if not self.galvo_controller.is_connected:
                 self.showAutoCloseMessage("Hardware Disconnected", "Ensure hardware is connected before operating laser.")
                 return
@@ -1849,6 +1891,7 @@ class MainWindow(QMainWindow):
             current_text = widget.text().upper()
             if current_text == "ON":
                 print("UI COMMAND: Turning Laser ON (DO1 = HIGH)")
+                self._apply_galvo_laser_settings()
                 self.galvo_controller.connection.laser_on()
                 widget.setText("OFF")
                 widget.setStyleSheet("QPushButton { color: rgb(255, 255, 255); background-color: rgb(200, 0, 0); border-color: transparent; border-style: outset; border-radius: 20px; border-width: 2px; padding: 6px; }")
@@ -1883,19 +1926,31 @@ class MainWindow(QMainWindow):
         elif action == "galvolaserpower":
             val = self.ui.galvolaserpowerHorizontalSlider_2.value()
             self.ui.laserpowerLineEdit.setText(str(val))
+            if hasattr(self.ui, 'flasergalvoPushButton') and self.ui.flasergalvoPushButton.text().upper() == "OFF":
+                self._apply_galvo_laser_settings()
         elif action == "laserpower":
             try:
                 val = int(self.ui.laserpowerLineEdit.text())
+                val = max(0, min(100, val))
+                self.ui.laserpowerLineEdit.setText(str(val))
                 self.ui.galvolaserpowerHorizontalSlider_2.setValue(val)
+                if hasattr(self.ui, 'flasergalvoPushButton') and self.ui.flasergalvoPushButton.text().upper() == "OFF":
+                    self._apply_galvo_laser_settings()
             except ValueError:
                 pass
         elif action == "galvolaserfreq":
             val = self.ui.galvolaserfreqHorizontalSlider.value()
             self.ui.laserfreqLineEdit.setText(str(val))
+            if hasattr(self.ui, 'flasergalvoPushButton') and self.ui.flasergalvoPushButton.text().upper() == "OFF":
+                self._apply_galvo_laser_settings()
         elif action == "laserfreq":
             try:
                 val = int(self.ui.laserfreqLineEdit.text())
+                val = max(20, min(80, val))
+                self.ui.laserfreqLineEdit.setText(str(val))
                 self.ui.galvolaserfreqHorizontalSlider.setValue(val)
+                if hasattr(self.ui, 'flasergalvoPushButton') and self.ui.flasergalvoPushButton.text().upper() == "OFF":
+                    self._apply_galvo_laser_settings()
             except ValueError:
                 pass
 
@@ -2440,16 +2495,19 @@ class MainWindow(QMainWindow):
                 max_val = 100.0
                 bit = 0 # Default bit mapping
                 
-                # Check if hardware connection supports setting the bit directly
+                # Check if hardware connection supports setting power and frequency
                 if hasattr(self.galvo_controller, "connection") and hasattr(self.galvo_controller.connection, "set_analog_do_bit"):
-                    # The PWM pin responds to bit=0. We'll test bits 0, 1, and 2 to see which controls the Analog pin.
-                    for test_bit in [0, 1, 2]:
-                        self.galvo_controller.connection.set_analog_do_bit(max_val, slider_value, freq_val, test_bit)
+                    # Set Analog Power (Pin 35) which is converted to 8-bit by the board. We test bits 0, 1, 2.
+                    self.galvo_controller.connection.set_analog_do_bit(max_val, slider_value, freq_val, 4)
+                        
+                    # Generate PRR (Pulse Repetition Rate) on Pin 33 (PWM, bit=3)
+                    # 50% duty cycle, scale frequency by / 4.0 as per hardware requirements
+                    self.galvo_controller.connection.set_analog_do_bit(100.0, 50.0, freq_val / 4.0, 3)
                     
                     if action == "powersetgalvo":
-                        self.showAutoCloseMessage("Power Set", f"Laser power set to {slider_percentage}%")
+                        self.showAutoCloseMessage("Power Set", f"Laser power set to {slider_percentage:.0f}%")
                     elif action == "freqsetgalvo":
-                        self.showAutoCloseMessage("Frequency Set", f"Frequency set to {freq_val}kHz")
+                        self.showAutoCloseMessage("Frequency Set", f"Frequency set to {freq_val:.0f} kHz")
                 else:
                     self.showAutoCloseMessage("Error", "Hardware connection does not support setting analog power.")
             except Exception as e:
@@ -2514,6 +2572,20 @@ class MainWindow(QMainWindow):
                 loop_count = int(self.wh.invokeMethod(self.programgalvo_widgets.pgmloopcount, "get") or 1)
             except:
                 loop_count = 1
+                
+            try:
+                slider_percentage = float(self.ui.galvolaserpowerHorizontalSlider_2.value())
+                freq_val = float(self.ui.galvolaserfreqHorizontalSlider.value())
+                if hasattr(self.galvo_controller, "connection") and hasattr(self.galvo_controller.connection, "set_analog_do_bit"):
+                    # Set Analog Power (Pin 35) which is converted to 8-bit by the board. We test bits 0, 1, 2.
+                    self.galvo_controller.connection.set_analog_do_bit(100.0, slider_percentage, freq_val, 4)
+                        
+                    # Generate PRR (Pulse Repetition Rate) on Pin 33 (PWM, bit=3)
+                    # 50% duty cycle, scale frequency by / 4.0 as per hardware requirements
+                    self.galvo_controller.connection.set_analog_do_bit(100.0, 50.0, freq_val / 4.0, 3)
+                print(f"Applied Print Power: {slider_percentage}% | Freq: {freq_val}kHz")
+            except Exception as e:
+                print(f"Failed to apply print power/frequency: {e}")
                 
             self.wh.invokeMethod(widget, "disable")
             self.wh.invokeMethod(self.printgalvo_widgets.printabortgalvo, "enable")
@@ -4385,8 +4457,7 @@ class MainWindow(QMainWindow):
             pwr, freq, mark_speed, jump_speed = 100.0, 30.0, 5000, 15000
 
         if hasattr(conn, 'set_analog_do_bit'):
-            for test_bit in [0, 1, 2]:
-                conn.set_analog_do_bit(100.0, pwr, freq, test_bit)
+            conn.set_analog_do_bit(100.0, pwr, freq, 4)
             import time
             time.sleep(0.05)
 
@@ -4628,8 +4699,7 @@ class MainWindow(QMainWindow):
             pwr, freq, mark_speed, jump_speed = 100.0, 30.0, 5000, 15000
 
         if hasattr(conn, 'set_analog_do_bit'):
-            for test_bit in [0, 1, 2]:
-                conn.set_analog_do_bit(100.0, pwr, freq, test_bit)
+            conn.set_analog_do_bit(100.0, pwr, freq, 4)
             import time
             time.sleep(0.05)
 
