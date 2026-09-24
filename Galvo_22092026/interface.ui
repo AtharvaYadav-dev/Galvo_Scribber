@@ -2581,7 +2581,7 @@ QPushButton:disabled {
                 </size>
                </property>
                <property name="currentIndex">
-                <number>5</number>
+                <number>7</number>
                </property>
                <widget class="QWidget" name="jogPage">
                 <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -9075,10 +9075,10 @@ QPushButton:disabled {
                          <widget class="QWidget" name="scrollAreaWidgetContents">
                           <property name="geometry">
                            <rect>
-                            <x>0</x>
-                            <y>0</y>
+                            <x>-12</x>
+                            <y>-588</y>
                             <width>687</width>
-                            <height>929</height>
+                            <height>988</height>
                            </rect>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_64">
@@ -9214,7 +9214,7 @@ QPushButton:disabled {
                            </item>
                            <item>
                             <widget class="QWidget" name="widget_16" native="true">
-                             <layout class="QHBoxLayout" name="horizontalLayout_58" stretch="1,5,0">
+                             <layout class="QHBoxLayout" name="horizontalLayout_58" stretch="0,7,0">
                               <property name="spacing">
                                <number>9</number>
                               </property>
@@ -9259,7 +9259,7 @@ QPushButton:disabled {
                                 <property name="maximumSize">
                                  <size>
                                   <width>16777215</width>
-                                  <height>100</height>
+                                  <height>50</height>
                                  </size>
                                 </property>
                                 <property name="font">
@@ -9330,7 +9330,7 @@ QPushButton:disabled {
                               </property>
                               <item>
                                <widget class="QWidget" name="widget_18" native="true">
-                                <layout class="QHBoxLayout" name="horizontalLayout_60" stretch="3,5">
+                                <layout class="QHBoxLayout" name="horizontalLayout_60" stretch="0,5">
                                  <property name="rightMargin">
                                   <number>0</number>
                                  </property>
@@ -9375,7 +9375,7 @@ QPushButton:disabled {
                                    <property name="maximumSize">
                                     <size>
                                      <width>16777215</width>
-                                     <height>100</height>
+                                     <height>50</height>
                                     </size>
                                    </property>
                                    <property name="font">
@@ -9406,7 +9406,7 @@ QPushButton:disabled {
                               </item>
                               <item>
                                <widget class="QWidget" name="widget_19" native="true">
-                                <layout class="QHBoxLayout" name="horizontalLayout_62" stretch="3,5">
+                                <layout class="QHBoxLayout" name="horizontalLayout_62" stretch="0,5">
                                  <property name="rightMargin">
                                   <number>0</number>
                                  </property>
@@ -9451,7 +9451,7 @@ QPushButton:disabled {
                                    <property name="maximumSize">
                                     <size>
                                      <width>16777215</width>
-                                     <height>100</height>
+                                     <height>50</height>
                                     </size>
                                    </property>
                                    <property name="font">
@@ -9482,7 +9482,7 @@ QPushButton:disabled {
                               </item>
                               <item>
                                <widget class="QWidget" name="widget_24" native="true">
-                                <layout class="QHBoxLayout" name="horizontalLayout_63" stretch="3,0">
+                                <layout class="QHBoxLayout" name="horizontalLayout_63" stretch="0,5">
                                  <property name="rightMargin">
                                   <number>0</number>
                                  </property>
@@ -9527,7 +9527,7 @@ QPushButton:disabled {
                                    <property name="maximumSize">
                                     <size>
                                      <width>16777215</width>
-                                     <height>100</height>
+                                     <height>50</height>
                                     </size>
                                    </property>
                                    <property name="font">
@@ -9627,7 +9627,7 @@ QPushButton:disabled {
                                 <property name="maximumSize">
                                  <size>
                                   <width>16777215</width>
-                                  <height>100</height>
+                                  <height>50</height>
                                  </size>
                                 </property>
                                 <property name="font">
@@ -9694,7 +9694,7 @@ QPushButton:disabled {
                                 <property name="maximumSize">
                                  <size>
                                   <width>16777215</width>
-                                  <height>100</height>
+                                  <height>50</height>
                                  </size>
                                 </property>
                                 <property name="font">
@@ -9714,6 +9714,194 @@ QPushButton:disabled {
                                 </property>
                                 <property name="text">
                                  <string/>
+                                </property>
+                                <property name="alignment">
+                                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_77">
+                             <property name="frameShape">
+                              <enum>QFrame::Shape::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Shadow::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_148" stretch="0,1,0,1,0">
+                              <item alignment="Qt::AlignmentFlag::AlignLeft">
+                               <widget class="QLabel" name="label_112">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>16777215</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+}</string>
+                                </property>
+                                <property name="text">
+                                 <string>Laser Power :</string>
+                                </property>
+                                <property name="alignment">
+                                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLineEdit" name="pgmlaserpowerLineEdit">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>16777215</width>
+                                  <height>50</height>
+                                 </size>
+                                </property>
+                                <property name="font">
+                                 <font>
+                                  <pointsize>12</pointsize>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                </property>
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="alignment">
+                                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLabel" name="label_113">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>16777215</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+}</string>
+                                </property>
+                                <property name="text">
+                                 <string>Laser Frequency :    </string>
+                                </property>
+                                <property name="alignment">
+                                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLineEdit" name="pgmlaserfreqLineEdit">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>16777215</width>
+                                  <height>50</height>
+                                 </size>
+                                </property>
+                                <property name="font">
+                                 <font>
+                                  <pointsize>12</pointsize>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                </property>
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="alignment">
+                                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLabel" name="label_114">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>140</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+}</string>
+                                </property>
+                                <property name="text">
+                                 <string>kHz</string>
                                 </property>
                                 <property name="alignment">
                                  <set>Qt::AlignmentFlag::AlignCenter</set>

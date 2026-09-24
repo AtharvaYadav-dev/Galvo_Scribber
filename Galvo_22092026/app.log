@@ -3253,3 +3253,35 @@
 2026-09-23 17:49 - INFO - ==================================================
 2026-09-23 17:49 - INFO - New session close at 2026-09-23 17:49
 2026-09-23 17:49 - INFO - ==================================================
+2026-09-24 12:14 - INFO - UI load successful
+2026-09-24 12:16 - INFO - UI load successful
+2026-09-24 12:20 - INFO - UI load successful
+2026-09-24 12:21 - INFO - UI load successful
+2026-09-24 12:22 - CRITICAL - Laser 1 : OFF
+2026-09-24 12:22 - CRITICAL - Laser 2 : OFF
+2026-09-24 12:22 - INFO - Stepper Lasers Shutdown
+2026-09-24 12:22 - INFO - COM connection close successfully
+2026-09-24 12:22 - INFO - Main window close successfully
+2026-09-24 12:22 - INFO - ==================================================
+2026-09-24 12:22 - INFO - New session close at 2026-09-24 12:22
+2026-09-24 12:22 - INFO - ==================================================
+2026-09-24 12:23 - INFO - UI load successful
+2026-09-24 12:24 - CRITICAL - Laser 1 : OFF
+2026-09-24 12:24 - CRITICAL - Laser 2 : OFF
+2026-09-24 12:24 - INFO - Stepper Lasers Shutdown
+2026-09-24 12:24 - INFO - COM connection close successfully
+2026-09-24 12:24 - INFO - Main window close successfully
+2026-09-24 12:24 - INFO - ==================================================
+2026-09-24 12:24 - INFO - New session close at 2026-09-24 12:24
+2026-09-24 12:24 - INFO - ==================================================
+2026-09-24 12:24 - INFO - UI load successful
+2026-09-24 12:25 - CRITICAL - Laser 1 : OFF
+2026-09-24 12:25 - CRITICAL - Laser 2 : OFF
+2026-09-24 12:25 - INFO - Stepper Lasers Shutdown
+2026-09-24 12:25 - INFO - COM connection close successfully
+2026-09-24 12:25 - INFO - Main window close successfully
+2026-09-24 12:25 - INFO - ==================================================
+2026-09-24 12:25 - INFO - New session close at 2026-09-24 12:25
+2026-09-24 12:25 - INFO - ==================================================
+2026-09-24 12:25 - INFO - UI load successful
+2026-09-24 12:28 - INFO - UI load successful

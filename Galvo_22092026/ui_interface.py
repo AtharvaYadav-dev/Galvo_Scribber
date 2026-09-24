@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceVlIocs.ui'
+## Form generated from reading UI file 'interfaceZUdLdt.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -4715,9 +4715,6 @@ class Ui_MainWindow(object):
 
         self.galvolaserfreqHorizontalSlider = QSlider(self.frame_61)
         self.galvolaserfreqHorizontalSlider.setObjectName(u"galvolaserfreqHorizontalSlider")
-        self.galvolaserfreqHorizontalSlider.setMinimum(20)
-        self.galvolaserfreqHorizontalSlider.setMaximum(80)
-        self.galvolaserfreqHorizontalSlider.setValue(30)
         self.galvolaserfreqHorizontalSlider.setOrientation(Qt.Orientation.Horizontal)
 
         self.horizontalLayout_125.addWidget(self.galvolaserfreqHorizontalSlider)
@@ -4798,7 +4795,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 687, 929))
+        self.scrollAreaWidgetContents.setGeometry(QRect(-12, -149, 687, 988))
         self.verticalLayout_64 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_64.setObjectName(u"verticalLayout_64")
         self.widget_15 = QWidget(self.scrollAreaWidgetContents)
@@ -4890,7 +4887,7 @@ class Ui_MainWindow(object):
         self.pgmheightgalvoLineEdit.setObjectName(u"pgmheightgalvoLineEdit")
         sizePolicy6.setHeightForWidth(self.pgmheightgalvoLineEdit.sizePolicy().hasHeightForWidth())
         self.pgmheightgalvoLineEdit.setSizePolicy(sizePolicy6)
-        self.pgmheightgalvoLineEdit.setMaximumSize(QSize(16777215, 100))
+        self.pgmheightgalvoLineEdit.setMaximumSize(QSize(16777215, 50))
         self.pgmheightgalvoLineEdit.setFont(font9)
         self.pgmheightgalvoLineEdit.setStyleSheet(u"QLineEdit {\n"
 "    border: 2px solid #102a83;\n"
@@ -4913,8 +4910,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_58.addWidget(self.label_30)
 
-        self.horizontalLayout_58.setStretch(0, 1)
-        self.horizontalLayout_58.setStretch(1, 5)
+        self.horizontalLayout_58.setStretch(1, 7)
 
         self.verticalLayout_64.addWidget(self.widget_16)
 
@@ -4945,7 +4941,7 @@ class Ui_MainWindow(object):
         sizePolicy6.setHeightForWidth(self.pgmmarkspeedgalvoLineEdit.sizePolicy().hasHeightForWidth())
         self.pgmmarkspeedgalvoLineEdit.setSizePolicy(sizePolicy6)
         self.pgmmarkspeedgalvoLineEdit.setMinimumSize(QSize(0, 0))
-        self.pgmmarkspeedgalvoLineEdit.setMaximumSize(QSize(16777215, 100))
+        self.pgmmarkspeedgalvoLineEdit.setMaximumSize(QSize(16777215, 50))
         self.pgmmarkspeedgalvoLineEdit.setFont(font9)
         self.pgmmarkspeedgalvoLineEdit.setStyleSheet(u"QLineEdit {\n"
 "    border: 2px solid #102a83;\n"
@@ -4958,7 +4954,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_60.addWidget(self.pgmmarkspeedgalvoLineEdit)
 
-        self.horizontalLayout_60.setStretch(0, 3)
         self.horizontalLayout_60.setStretch(1, 5)
 
         self.horizontalLayout_66.addWidget(self.widget_18)
@@ -4983,7 +4978,7 @@ class Ui_MainWindow(object):
         sizePolicy6.setHeightForWidth(self.pgmjumpspeedLineEdit.sizePolicy().hasHeightForWidth())
         self.pgmjumpspeedLineEdit.setSizePolicy(sizePolicy6)
         self.pgmjumpspeedLineEdit.setMinimumSize(QSize(0, 0))
-        self.pgmjumpspeedLineEdit.setMaximumSize(QSize(16777215, 100))
+        self.pgmjumpspeedLineEdit.setMaximumSize(QSize(16777215, 50))
         self.pgmjumpspeedLineEdit.setFont(font9)
         self.pgmjumpspeedLineEdit.setStyleSheet(u"QLineEdit {\n"
 "    border: 2px solid #102a83;\n"
@@ -4996,7 +4991,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_62.addWidget(self.pgmjumpspeedLineEdit)
 
-        self.horizontalLayout_62.setStretch(0, 3)
         self.horizontalLayout_62.setStretch(1, 5)
 
         self.horizontalLayout_66.addWidget(self.widget_19)
@@ -5021,7 +5015,7 @@ class Ui_MainWindow(object):
         sizePolicy6.setHeightForWidth(self.pgmloopcountLineEdit.sizePolicy().hasHeightForWidth())
         self.pgmloopcountLineEdit.setSizePolicy(sizePolicy6)
         self.pgmloopcountLineEdit.setMinimumSize(QSize(0, 0))
-        self.pgmloopcountLineEdit.setMaximumSize(QSize(16777215, 100))
+        self.pgmloopcountLineEdit.setMaximumSize(QSize(16777215, 50))
         self.pgmloopcountLineEdit.setFont(font9)
         self.pgmloopcountLineEdit.setStyleSheet(u"QLineEdit {\n"
 "    border: 2px solid #102a83;\n"
@@ -5034,7 +5028,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_63.addWidget(self.pgmloopcountLineEdit)
 
-        self.horizontalLayout_63.setStretch(0, 3)
+        self.horizontalLayout_63.setStretch(1, 5)
 
         self.horizontalLayout_66.addWidget(self.widget_24)
 
@@ -5070,7 +5064,7 @@ class Ui_MainWindow(object):
         sizePolicy6.setHeightForWidth(self.pgmstartposxLineEdit.sizePolicy().hasHeightForWidth())
         self.pgmstartposxLineEdit.setSizePolicy(sizePolicy6)
         self.pgmstartposxLineEdit.setMinimumSize(QSize(0, 0))
-        self.pgmstartposxLineEdit.setMaximumSize(QSize(16777215, 100))
+        self.pgmstartposxLineEdit.setMaximumSize(QSize(16777215, 50))
         self.pgmstartposxLineEdit.setFont(font9)
         self.pgmstartposxLineEdit.setStyleSheet(u"QLineEdit {\n"
 "    border: 2px solid #102a83;\n"
@@ -5098,7 +5092,7 @@ class Ui_MainWindow(object):
         sizePolicy6.setHeightForWidth(self.pgmstartposyLineEdit.sizePolicy().hasHeightForWidth())
         self.pgmstartposyLineEdit.setSizePolicy(sizePolicy6)
         self.pgmstartposyLineEdit.setMinimumSize(QSize(0, 0))
-        self.pgmstartposyLineEdit.setMaximumSize(QSize(16777215, 100))
+        self.pgmstartposyLineEdit.setMaximumSize(QSize(16777215, 50))
         self.pgmstartposyLineEdit.setFont(font9)
         self.pgmstartposyLineEdit.setStyleSheet(u"QLineEdit {\n"
 "    border: 2px solid #102a83;\n"
@@ -5113,6 +5107,95 @@ class Ui_MainWindow(object):
 
 
         self.verticalLayout_64.addWidget(self.widget_25)
+
+        self.frame_77 = QFrame(self.scrollAreaWidgetContents)
+        self.frame_77.setObjectName(u"frame_77")
+        self.frame_77.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_77.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_148 = QHBoxLayout(self.frame_77)
+        self.horizontalLayout_148.setObjectName(u"horizontalLayout_148")
+        self.label_112 = QLabel(self.frame_77)
+        self.label_112.setObjectName(u"label_112")
+        self.label_112.setMinimumSize(QSize(0, 0))
+        self.label_112.setMaximumSize(QSize(16777215, 16777215))
+        self.label_112.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"    font-size: 16px;\n"
+"    border: none;\n"
+"}")
+        self.label_112.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_148.addWidget(self.label_112, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.pgmlaserpowerLineEdit = QLineEdit(self.frame_77)
+        self.pgmlaserpowerLineEdit.setObjectName(u"pgmlaserpowerLineEdit")
+        sizePolicy3.setHeightForWidth(self.pgmlaserpowerLineEdit.sizePolicy().hasHeightForWidth())
+        self.pgmlaserpowerLineEdit.setSizePolicy(sizePolicy3)
+        self.pgmlaserpowerLineEdit.setMinimumSize(QSize(0, 0))
+        self.pgmlaserpowerLineEdit.setMaximumSize(QSize(16777215, 50))
+        self.pgmlaserpowerLineEdit.setFont(font5)
+        self.pgmlaserpowerLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.pgmlaserpowerLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_148.addWidget(self.pgmlaserpowerLineEdit)
+
+        self.label_113 = QLabel(self.frame_77)
+        self.label_113.setObjectName(u"label_113")
+        self.label_113.setMinimumSize(QSize(0, 0))
+        self.label_113.setMaximumSize(QSize(16777215, 16777215))
+        self.label_113.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"    font-size: 16px;\n"
+"    border: none;\n"
+"}")
+        self.label_113.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_148.addWidget(self.label_113)
+
+        self.pgmlaserfreqLineEdit = QLineEdit(self.frame_77)
+        self.pgmlaserfreqLineEdit.setObjectName(u"pgmlaserfreqLineEdit")
+        sizePolicy3.setHeightForWidth(self.pgmlaserfreqLineEdit.sizePolicy().hasHeightForWidth())
+        self.pgmlaserfreqLineEdit.setSizePolicy(sizePolicy3)
+        self.pgmlaserfreqLineEdit.setMinimumSize(QSize(0, 0))
+        self.pgmlaserfreqLineEdit.setMaximumSize(QSize(16777215, 50))
+        self.pgmlaserfreqLineEdit.setFont(font5)
+        self.pgmlaserfreqLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.pgmlaserfreqLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_148.addWidget(self.pgmlaserfreqLineEdit)
+
+        self.label_114 = QLabel(self.frame_77)
+        self.label_114.setObjectName(u"label_114")
+        self.label_114.setMinimumSize(QSize(0, 0))
+        self.label_114.setMaximumSize(QSize(140, 16777215))
+        self.label_114.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"    font-size: 16px;\n"
+"    border: none;\n"
+"}")
+        self.label_114.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_148.addWidget(self.label_114)
+
+        self.horizontalLayout_148.setStretch(1, 1)
+        self.horizontalLayout_148.setStretch(3, 1)
+
+        self.verticalLayout_64.addWidget(self.frame_77)
 
         self.widget_26 = QWidget(self.scrollAreaWidgetContents)
         self.widget_26.setObjectName(u"widget_26")
@@ -8900,7 +8983,7 @@ class Ui_MainWindow(object):
 
         self.centerMenuPages.setCurrentIndex(1)
         self.infoSubPages.setCurrentIndex(0)
-        self.mainPages.setCurrentIndex(5)
+        self.mainPages.setCurrentIndex(7)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -9062,9 +9145,9 @@ class Ui_MainWindow(object):
         self.fminusgalvoPushButton.setText(QCoreApplication.translate("MainWindow", u"Z-", None))
         self.fsetgalvoPushButton.setText(QCoreApplication.translate("MainWindow", u"SET", None))
         self.label_45.setText(QCoreApplication.translate("MainWindow", u"Laser Parameters", None))
-        self.label_108.setText(QCoreApplication.translate("MainWindow", u"Laser Power (%):", None))
+        self.label_108.setText(QCoreApplication.translate("MainWindow", u"Laser Power :", None))
         self.powersetgalvoPushButton_2.setText(QCoreApplication.translate("MainWindow", u"SET", None))
-        self.label_32.setText(QCoreApplication.translate("MainWindow", u"Laser Freq (kHz):", None))
+        self.label_32.setText(QCoreApplication.translate("MainWindow", u"Laser Freq :    ", None))
         self.freqsetgalvoPushButton.setText(QCoreApplication.translate("MainWindow", u"SET", None))
         self.page2Label_2.setText(QCoreApplication.translate("MainWindow", u"PROGRAM", None))
         self.label_28.setText(QCoreApplication.translate("MainWindow", u"Design File :", None))
@@ -9083,6 +9166,11 @@ class Ui_MainWindow(object):
         self.pgmstartposxLineEdit.setText("")
         self.label_40.setText(QCoreApplication.translate("MainWindow", u"Y :", None))
         self.pgmstartposyLineEdit.setText("")
+        self.label_112.setText(QCoreApplication.translate("MainWindow", u"Laser Power :", None))
+        self.pgmlaserpowerLineEdit.setText("")
+        self.label_113.setText(QCoreApplication.translate("MainWindow", u"Laser Frequency :    ", None))
+        self.pgmlaserfreqLineEdit.setText("")
+        self.label_114.setText(QCoreApplication.translate("MainWindow", u"kHz", None))
         self.label_41.setText(QCoreApplication.translate("MainWindow", u"Enable Hatching :", None))
         self.pgmenablehatchCheckBox.setText("")
         self.label_54.setText(QCoreApplication.translate("MainWindow", u"Mark Contour :", None))

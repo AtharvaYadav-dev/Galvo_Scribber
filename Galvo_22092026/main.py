@@ -707,6 +707,8 @@ class MainWindow(QMainWindow):
         program_widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmheightLineEdit", "textChanged", self.onPgmDataChanged, role="pgmheight", arg="height", toolTip="Enter Sample Height"))
         program_widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmfeedLineEdit", "textChanged", self.onPgmDataChanged, role="pgmfeed", arg="feed", toolTip="Enter Scribing Feed"))
         program_widget_list.append(self.wh.configWidget(self, QComboBox, "pgmlaserComboBox", "currentTextChanged", self.onPgmDataChanged, role="pgmlaser", arg="laser", toolTip="Select Laser"))
+        program_widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmlaserpowerLineEdit", "textChanged", self.onPgmDataChanged, role="pgmlaserpower", arg="laserpower", toolTip="Enter Laser Power"))
+        program_widget_list.append(self.wh.configWidget(self, QLineEdit, "pgmlaserfreqLineEdit", "textChanged", self.onPgmDataChanged, role="pgmlaserfreq", arg="laserfreq", toolTip="Enter Laser Frequency"))
         program_widget_list.append(self.wh.configWidget(self, QPushButton, "pgmfilePushButton", "clicked", self.programAction, role="pgmfileset", toolTip="Browse File"))
         program_widget_list.append(self.wh.configWidget(self, QPushButton, "pgmsavePushButton", "clicked", self.programAction, role="pgmsaveset", toolTip="Save G-code"))
         # program_widget_list.append(self.wh.configWidget(self, QPushButton, "pgmstepsPushButton", "clicked", self.programAction))
@@ -716,8 +718,14 @@ class MainWindow(QMainWindow):
 
         # Restrict inputs to numbers and a single decimal point
         regex_validator = QRegularExpressionValidator(QRegularExpression(r"^\d*\.?\d*$"), self)
-        self.program_widgets.pgmheight.setValidator(regex_validator)
-        self.program_widgets.pgmfeed.setValidator(regex_validator)
+        if hasattr(self.program_widgets, "pgmheight") and self.program_widgets.pgmheight:
+            self.program_widgets.pgmheight.setValidator(regex_validator)
+        if hasattr(self.program_widgets, "pgmfeed") and self.program_widgets.pgmfeed:
+            self.program_widgets.pgmfeed.setValidator(regex_validator)
+        if hasattr(self.program_widgets, "pgmlaserpower") and self.program_widgets.pgmlaserpower:
+            self.program_widgets.pgmlaserpower.setValidator(regex_validator)
+        if hasattr(self.program_widgets, "pgmlaserfreq") and self.program_widgets.pgmlaserfreq:
+            self.program_widgets.pgmlaserfreq.setValidator(regex_validator)
 
     
     def setupPrint(self):
