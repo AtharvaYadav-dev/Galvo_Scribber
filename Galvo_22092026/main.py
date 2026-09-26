@@ -166,12 +166,12 @@ class MainWindow(QMainWindow):
         self.setupMainPages()
         self.setupInfoPages()
         self.setupSettings()
-        self.setupJog()
-        self.setupFocus()
-        self.setupOffset()
-        self.setupProgram()
-        self.setupPrint()
-        self.setupCamera()
+#         self.setupJog()
+#         self.setupFocus()
+#         self.setupOffset()
+#         self.setupProgram()
+#         self.setupPrint()
+#         self.setupCamera()
         self.setupTerminal()
         self.setupJogGalvo()
         self.setupLaserConfGalvo()
@@ -179,6 +179,7 @@ class MainWindow(QMainWindow):
         self.setupPrintGalvo()
         self.setupConfigGalvo()
         self.setupAdvancedCalibration()
+        self.setupMapMatrix()
         self.setupHeader()
         
         # widget setup calls ends here
@@ -198,14 +199,15 @@ class MainWindow(QMainWindow):
         self.initFocus()
         self.initOffset()
         self.initProgram()
-        self.initPrint()
-        self.initCamera()
+#         self.initPrint()
+#         self.initCamera()
         self.initTerminal()
         self.initJogGalvo()
         self.initLaserConfGalvo()
         self.initProgramsGalvo()
         self.initPrintGalvo()
         self.initConfigGalvo()
+        self.initMapMatrix()
         
         # widget init calls starts here
         
@@ -350,20 +352,22 @@ class MainWindow(QMainWindow):
     def applyGalvoMode(self):
         is_on = (str(self.galvo_mode).upper() == "ON")
         
-        self.wh.invokeMethod(self.left_menu_widgets.home, "hide" if is_on else "show")
-        self.wh.invokeMethod(self.left_menu_widgets.programs, "hide" if is_on else "show")
-        self.wh.invokeMethod(self.left_menu_widgets.print, "hide" if is_on else "show")
-        self.wh.invokeMethod(self.left_menu_widgets.camera, "hide" if is_on else "show")
-        self.wh.invokeMethod(self.left_menu_widgets.camerajog, "hide" if is_on else "show")
+#         self.wh.invokeMethod(self.left_menu_widgets.home, "hide" if is_on else "show")
+#         self.wh.invokeMethod(self.left_menu_widgets.programs, "hide" if is_on else "show")
+#         self.wh.invokeMethod(self.left_menu_widgets.print, "hide" if is_on else "show")
+#         self.wh.invokeMethod(self.left_menu_widgets.camera, "hide" if is_on else "show")
+#         self.wh.invokeMethod(self.left_menu_widgets.camerajog, "hide" if is_on else "show")
         
         self.wh.invokeMethod(self.left_menu_widgets.joggalvo, "show" if is_on else "hide")
-        self.wh.invokeMethod(self.left_menu_widgets.programsgalvo, "show" if is_on else "hide")
-        self.wh.invokeMethod(self.left_menu_widgets.printgalvo, "show" if is_on else "hide")
+#         self.wh.invokeMethod(self.left_menu_widgets.programsgalvo, "show" if is_on else "hide")
+#         self.wh.invokeMethod(self.left_menu_widgets.printgalvo, "show" if is_on else "hide")
         
         if is_on:
-            self.wh.invokeMethod(self.left_menu_widgets.laser, "hide")
+#             self.wh.invokeMethod(self.left_menu_widgets.laser, "hide")
+            pass
         else:
-            self.wh.invokeMethod(self.left_menu_widgets.laserconfgalvo, "hide")
+#             self.wh.invokeMethod(self.left_menu_widgets.laserconfgalvo, "hide")
+            pass
             
         self.ui.indexFrame.setVisible(not is_on)
         self.ui.machinesetFrame.setVisible(not is_on)
@@ -581,20 +585,14 @@ class MainWindow(QMainWindow):
     
     def setupLeftMenu(self):
         left_menu_widget_list = []
-        left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "homePushButton", role="home", toolTip="Jog"))
-        left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "laserPushButton", role="laser", toolTip="Laser"))
-        left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "programsPushButton", role="programs", toolTip="Program"))
-        left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "printPushButton", role="print", toolTip="Print"))
-        left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "cameraPushButton", role="camera", toolTip="Camera"))
-        left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "cameraonoffoffsetPushButton", "clicked", self.leftMenuAction, role="camerajog", toolTip="Camera Jog"))
         left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "terminalPushButton", role="terminal", toolTip="Terminal"))
         
         left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "joggalvoPushButton", role="joggalvo", toolTip="Jog Galvo"))
         left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "laserconfgalvoPushButton", role="laserconfgalvo", toolTip="Laser Galvo"))
         left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "programsgalvoPushButton", role="programsgalvo", toolTip="Program Galvo"))
         left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "printgalvoPushButton", role="printgalvo", toolTip="Print Galvo"))
+        left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "paramapmatrixPushButton", role="paramapmatrix", toolTip="Param Matrix"))
 
-        
         self.util.dedupeList(left_menu_widget_list)
         self.left_menu_widgets = self.wh.createMap(*left_menu_widget_list)
     
@@ -912,6 +910,32 @@ class MainWindow(QMainWindow):
         self.update_galvo_focus_calculations()
         self.showAutoCloseMessage("Saved", f"Object height saved as {val:.2f} mm.")
 
+    def setupMapMatrix(self):
+        widget_list = []
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "powstartLineEdit", role="powstart"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "powendLineEdit", role="powend"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "powstepsLineEdit", role="powsteps"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "freqstartLineEdit", role="freqstart"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "freqendLineEdit", role="freqend"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "freqstepsLineEdit", role="freqsteps"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "cellwidthLineEdit", role="cellwidth"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "cellheightLineEdit", role="cellheight"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "cellgapxLineEdit", role="cellgapx"))
+        widget_list.append(self.wh.configWidget(self, QLineEdit, "cellgapyLineEdit", role="cellgapy"))
+        widget_list.append(self.wh.configWidget(self, QComboBox, "cellfilltypeComboBox", role="cellfilltype"))
+        widget_list.append(self.wh.configWidget(self, QCheckBox, "celllabelaxisCheckBox", role="celllabelaxis"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "redmarkmatPushButton", "clicked", self.mapmatrixAction, role="redmarkmat"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "lasermarkmatPushButton", "clicked", self.mapmatrixAction, role="lasermarkmat"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "stopmatPushButton", "clicked", self.mapmatrixAction, role="stopmat"))
+        widget_list.append(self.wh.configWidget(self, QFrame, "mappmatrixgalvoFrame", role="mappmatrixgalvo"))
+        
+        self.util.dedupeList(widget_list)
+        self.mapmatrix_widgets = self.wh.createMap(*widget_list)
+        
+    def initMapMatrix(self):
+        pass
+        
+    
     def setupProgramsGalvo(self):
         self.current_hatch_idx = 1
         self._loading_hatch = True
@@ -1130,8 +1154,7 @@ class MainWindow(QMainWindow):
         
         # Set initial state to Operator profile
         self.wh.invokeMethod(self.left_menu_widgets.terminal, "hide")
-        self.wh.invokeMethod(self.left_menu_widgets.laser, "hide")
-        self.wh.invokeMethod(self.left_menu_widgets.laserconfgalvo, "hide")
+#         self.wh.invokeMethod(self.left_menu_widgets.laserconfgalvo, "hide")
         self.wh.invokeMethod(self.center_menu_widgets.settings, "hide")
         if hasattr(self.ui, 'testpatterngalvoFrame'):
             self.wh.invokeMethod(self.ui.testpatterngalvoFrame, "hide")
@@ -1522,8 +1545,8 @@ class MainWindow(QMainWindow):
             if user == "Operator" and password == "012345":
                 self.logger.info("Profile : Operator")
                 self.wh.invokeMethod(self.left_menu_widgets.terminal, "hide")
-                self.wh.invokeMethod(self.left_menu_widgets.laser, "hide")
-                self.wh.invokeMethod(self.left_menu_widgets.laserconfgalvo, "hide")
+#                 self.wh.invokeMethod(self.left_menu_widgets.laser, "hide")
+#                 self.wh.invokeMethod(self.left_menu_widgets.laserconfgalvo, "hide")
                 self.wh.invokeMethod(self.center_menu_widgets.settings, "hide")
                 if hasattr(self.ui, 'testpatterngalvoFrame'):
                     self.wh.invokeMethod(self.ui.testpatterngalvoFrame, "hide")
@@ -1531,8 +1554,8 @@ class MainWindow(QMainWindow):
             elif user == "Supervisor" and password == "452301":
                 self.logger.info("Profile : Supervisor")
                 self.wh.invokeMethod(self.left_menu_widgets.terminal, "show")
-                self.wh.invokeMethod(self.left_menu_widgets.laser, "hide" if str(self.galvo_mode).upper() == "ON" else "show")
-                self.wh.invokeMethod(self.left_menu_widgets.laserconfgalvo, "show" if str(self.galvo_mode).upper() == "ON" else "hide")
+#                 self.wh.invokeMethod(self.left_menu_widgets.laser, "hide" if str(self.galvo_mode).upper() == "ON" else "show")
+#                 self.wh.invokeMethod(self.left_menu_widgets.laserconfgalvo, "show" if str(self.galvo_mode).upper() == "ON" else "hide")
                 self.wh.invokeMethod(self.center_menu_widgets.settings, "show")
                 if hasattr(self.ui, 'testpatterngalvoFrame'):
                     self.wh.invokeMethod(self.ui.testpatterngalvoFrame, "show")
@@ -1541,9 +1564,9 @@ class MainWindow(QMainWindow):
             
             elif user == "Technician" and password == "543210":
                 self.logger.info("Profile : Technician")
-                self.wh.invokeMethod(self.left_menu_widgets.terminal, "show")
-                self.wh.invokeMethod(self.left_menu_widgets.laser, "hide" if str(self.galvo_mode).upper() == "ON" else "show")
-                self.wh.invokeMethod(self.left_menu_widgets.laserconfgalvo, "show" if str(self.galvo_mode).upper() == "ON" else "hide")
+                self.wh.invokeMethod(self.left_menu_widgets.terminal, "hide") # Hide for technician too? User said "only show in supervisor mode"
+#                 self.wh.invokeMethod(self.left_menu_widgets.laser, "hide" if str(self.galvo_mode).upper() == "ON" else "show")
+#                 self.wh.invokeMethod(self.left_menu_widgets.laserconfgalvo, "show" if str(self.galvo_mode).upper() == "ON" else "hide")
                 self.wh.invokeMethod(self.center_menu_widgets.settings, "show")
                 if hasattr(self.ui, 'testpatterngalvoFrame'):
                     self.wh.invokeMethod(self.ui.testpatterngalvoFrame, "show")
@@ -3395,6 +3418,16 @@ class MainWindow(QMainWindow):
 
         if action == "printinspect":
             self.runInspection()
+    def mapmatrixAction(self, widget, *args):
+        action = self.wh.getRole(widget)
+        self.logger.info(f"mapmatrixAction : {action}")
+        
+        if action == "redmarkmat":
+            pass # TODO
+        elif action == "lasermarkmat":
+            pass # TODO
+        elif action == "stopmat":
+            pass # TODO
 
         
     def terminalAction(self, widget, event=None):
@@ -3796,9 +3829,10 @@ class MainWindow(QMainWindow):
         ypos = self.ah.getAxis("Y").pos
         zpos = self.ah.getAxis("Z").pos
         
-        self.wh.invokeMethod(self.jog_widgets.xpos, "set", xpos)
-        self.wh.invokeMethod(self.jog_widgets.ypos, "set", ypos)
-        self.wh.invokeMethod(self.jog_widgets.zpos, "set", zpos)
+        if hasattr(self, 'jog_widgets'):
+            self.wh.invokeMethod(self.jog_widgets.xpos, "set", xpos)
+            self.wh.invokeMethod(self.jog_widgets.ypos, "set", ypos)
+            self.wh.invokeMethod(self.jog_widgets.zpos, "set", zpos)
         
         if hasattr(self.ui, 'xposgalvoLCDNumber'):
             self.ui.xposgalvoLCDNumber.display("0")
@@ -3808,7 +3842,8 @@ class MainWindow(QMainWindow):
     
     def focusPosDisplay(self):
         zpos = self.ah.getAxis("Z").pos
-        self.wh.invokeMethod(self.focus_widgets.focus, "set", zpos)
+        if hasattr(self, 'focus_widgets'):
+            self.wh.invokeMethod(self.focus_widgets.focus, "set", zpos)
         
         if hasattr(self.ui, 'focusgalvoLCDNumber'):
             self.ui.focusgalvoLCDNumber.display(f"{zpos:.2f}")
@@ -3818,13 +3853,14 @@ class MainWindow(QMainWindow):
         xpos = self.ah.getAxis("X").pos
         ypos = self.ah.getAxis("Y").pos
 
-        if self.zero_flag:
-            self.wh.invokeMethod(self.offset_widgets.xoffset, "set", xpos - self.xtemp)
-            self.wh.invokeMethod(self.offset_widgets.yoffset, "set", ypos - self.ytemp) 
+        if hasattr(self, 'offset_widgets'):
+            if self.zero_flag:
+                self.wh.invokeMethod(self.offset_widgets.xoffset, "set", xpos - self.xtemp)
+                self.wh.invokeMethod(self.offset_widgets.yoffset, "set", ypos - self.ytemp) 
 
-        else:
-            self.wh.invokeMethod(self.offset_widgets.xoffset, "set", xpos)
-            self.wh.invokeMethod(self.offset_widgets.yoffset, "set", ypos)
+            else:
+                self.wh.invokeMethod(self.offset_widgets.xoffset, "set", xpos)
+                self.wh.invokeMethod(self.offset_widgets.yoffset, "set", ypos)
 
     
     def canMoveZPlus(self, delta: float) -> bool:
@@ -3850,39 +3886,47 @@ class MainWindow(QMainWindow):
         self.lh.addLaser("Laser 2", 10.0, 0, 0, {"ON" : "M106 P1 S255", "OFF" : "M106 P1 S0"})
 
         # Block signals to prevent initial OFF commands from triggering on startup
-        if hasattr(self.focus_widgets, 'flaser'): self.focus_widgets.flaser.blockSignals(True)
-        if hasattr(self.offset_widgets, 'offlaser'): self.offset_widgets.offlaser.blockSignals(True)
-        if hasattr(self.program_widgets, 'pgmlaser'): self.program_widgets.pgmlaser.blockSignals(True)
+        if hasattr(self, 'focus_widgets') and hasattr(self.focus_widgets, 'flaser'): self.focus_widgets.flaser.blockSignals(True)
+        if hasattr(self, 'offset_widgets') and hasattr(self.offset_widgets, 'offlaser'): self.offset_widgets.offlaser.blockSignals(True)
+        if hasattr(self, 'program_widgets') and hasattr(self.program_widgets, 'pgmlaser'): self.program_widgets.pgmlaser.blockSignals(True)
 
         # Focus laser combo
-        self.wh.invokeMethod(self.focus_widgets.flaser, "add", self.laser_data_list)
-        self.focus_widgets.flaser.setPlaceholderText("Select Laser")
-        self.focus_widgets.flaser.setCurrentIndex(-1)
+        if hasattr(self, 'focus_widgets'):
+            self.wh.invokeMethod(self.focus_widgets.flaser, "add", self.laser_data_list)
+            if hasattr(self.focus_widgets, 'flaser'):
+                self.focus_widgets.flaser.setPlaceholderText("Select Laser")
+                self.focus_widgets.flaser.setCurrentIndex(-1)
 
         # Offset laser combo
-        self.wh.invokeMethod(self.offset_widgets.offlaser, "add", self.laser_data_list)
-        self.offset_widgets.offlaser.setPlaceholderText("Select Laser")
-        self.offset_widgets.offlaser.setCurrentIndex(-1)
+        if hasattr(self, 'offset_widgets'):
+            self.wh.invokeMethod(self.offset_widgets.offlaser, "add", self.laser_data_list)
+            if hasattr(self.offset_widgets, 'offlaser'):
+                self.offset_widgets.offlaser.setPlaceholderText("Select Laser")
+                self.offset_widgets.offlaser.setCurrentIndex(-1)
 
         # Program laser combo
-        self.wh.invokeMethod(self.program_widgets.pgmlaser, "add", self.laser_data_list)
-        self.program_widgets.pgmlaser.setPlaceholderText("Select Laser")
-        self.program_widgets.pgmlaser.setCurrentIndex(-1)
+        if hasattr(self, 'program_widgets'):
+            self.wh.invokeMethod(self.program_widgets.pgmlaser, "add", self.laser_data_list)
+            if hasattr(self.program_widgets, 'pgmlaser'):
+                self.program_widgets.pgmlaser.setPlaceholderText("Select Laser")
+                self.program_widgets.pgmlaser.setCurrentIndex(-1)
 
         # Initial button states
-        self.wh.invokeMethod(self.focus_widgets.flaser, "enable")
-        self.wh.invokeMethod(self.focus_widgets.fset, "disable")
-        self.wh.invokeMethod(self.focus_widgets.flaserset, "disable")
+        if hasattr(self, 'focus_widgets'):
+            self.wh.invokeMethod(self.focus_widgets.flaser, "enable")
+            self.wh.invokeMethod(self.focus_widgets.fset, "disable")
+            self.wh.invokeMethod(self.focus_widgets.flaserset, "disable")
 
-        self.wh.invokeMethod(self.offset_widgets.offlaser, "enable")
-        self.wh.invokeMethod(self.offset_widgets.offlaserset, "disable")
-        self.wh.invokeMethod(self.offset_widgets.offzero, "disable")
-        self.wh.invokeMethod(self.offset_widgets.offset, "disable")
+        if hasattr(self, 'offset_widgets'):
+            self.wh.invokeMethod(self.offset_widgets.offlaser, "enable")
+            self.wh.invokeMethod(self.offset_widgets.offlaserset, "disable")
+            self.wh.invokeMethod(self.offset_widgets.offzero, "disable")
+            self.wh.invokeMethod(self.offset_widgets.offset, "disable")
         
         # Unblock signals
-        if hasattr(self.focus_widgets, 'flaser'): self.focus_widgets.flaser.blockSignals(False)
-        if hasattr(self.offset_widgets, 'offlaser'): self.offset_widgets.offlaser.blockSignals(False)
-        if hasattr(self.program_widgets, 'pgmlaser'): self.program_widgets.pgmlaser.blockSignals(False)
+        if hasattr(self, 'focus_widgets') and hasattr(self.focus_widgets, 'flaser'): self.focus_widgets.flaser.blockSignals(False)
+        if hasattr(self, 'offset_widgets') and hasattr(self.offset_widgets, 'offlaser'): self.offset_widgets.offlaser.blockSignals(False)
+        if hasattr(self, 'program_widgets') and hasattr(self.program_widgets, 'pgmlaser'): self.program_widgets.pgmlaser.blockSignals(False)
     
     
     def shutdownLaser(self, name=None):
@@ -3919,7 +3963,7 @@ class MainWindow(QMainWindow):
             self.is_inspection_running = False
 
         # Re-enable camera jog buttons using roles
-        self.wh.invokeMethod(self.left_menu_widgets.camerajog, "enable")
+#         self.wh.invokeMethod(self.left_menu_widgets.camerajog, "enable")
         self.wh.invokeMethod(self.settings_widgets.cameraoffset, "enable")
 
         self.util.debugPrint(f"Resetting print state due to: {reason}")
@@ -3983,7 +4027,7 @@ class MainWindow(QMainWindow):
                 self.toggleCameraJog()
             
             # Disable Camera Jog Buttons using roles
-            self.wh.invokeMethod(self.left_menu_widgets.camerajog, "disable")
+#             self.wh.invokeMethod(self.left_menu_widgets.camerajog, "disable")
             self.wh.invokeMethod(self.settings_widgets.cameraoffset, "disable")
 
             self.is_inspection_running = True
@@ -4169,7 +4213,7 @@ class MainWindow(QMainWindow):
              self.is_inspection_running = False
 
         # Re-enable camera jog buttons using roles
-        self.wh.invokeMethod(self.left_menu_widgets.camerajog, "enable")
+#         self.wh.invokeMethod(self.left_menu_widgets.camerajog, "enable")
         self.wh.invokeMethod(self.settings_widgets.cameraoffset, "enable")
 
     def indexProgram(self):

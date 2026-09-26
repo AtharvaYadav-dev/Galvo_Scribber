@@ -4014,3 +4014,266 @@
 2026-09-26 11:28 - INFO - ==================================================
 2026-09-26 11:28 - INFO - New session close at 2026-09-26 11:28
 2026-09-26 11:28 - INFO - ==================================================
+2026-09-26 11:33 - INFO - UI load successful
+2026-09-26 12:36 - INFO - UI load successful
+2026-09-26 12:37 - INFO - UI load successful
+2026-09-26 12:40 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:40 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-26 12:40 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:40 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-26 12:40 - INFO - UI load successful
+2026-09-26 12:40 - INFO - Galvo Laser Shutdown
+2026-09-26 12:40 - CRITICAL - Laser 1 : OFF
+2026-09-26 12:40 - CRITICAL - Laser 2 : OFF
+2026-09-26 12:40 - INFO - Stepper Lasers Shutdown
+2026-09-26 12:40 - INFO - COM connection close successfully
+2026-09-26 12:40 - INFO - Main window close successfully
+2026-09-26 12:40 - INFO - ==================================================
+2026-09-26 12:40 - INFO - New session close at 2026-09-26 12:40
+2026-09-26 12:40 - INFO - ==================================================
+2026-09-26 12:43 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:43 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-26 12:43 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:43 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-26 12:43 - INFO - UI load successful
+2026-09-26 12:45 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:45 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:45 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:45 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:45 - INFO - UI load successful
+2026-09-26 12:45 - INFO - Galvo Laser Shutdown
+2026-09-26 12:45 - CRITICAL - Laser 1 : OFF
+2026-09-26 12:45 - CRITICAL - Laser 2 : OFF
+2026-09-26 12:45 - INFO - Stepper Lasers Shutdown
+2026-09-26 12:45 - INFO - COM connection close successfully
+2026-09-26 12:45 - INFO - Main window close successfully
+2026-09-26 12:45 - INFO - ==================================================
+2026-09-26 12:45 - INFO - New session close at 2026-09-26 12:45
+2026-09-26 12:45 - INFO - ==================================================
+2026-09-26 12:47 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:47 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:47 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:47 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:49 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:49 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:49 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:49 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:50 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:50 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:50 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:50 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:50 - INFO - UI load successful
+2026-09-26 12:53 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:53 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:53 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:53 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:53 - INFO - UI load successful
+2026-09-26 12:53 - INFO - Close event ignored.
+2026-09-26 12:54 - INFO - Galvo Laser Shutdown
+2026-09-26 12:54 - INFO - Stepper Lasers Shutdown
+2026-09-26 12:54 - INFO - COM connection close successfully
+2026-09-26 12:54 - INFO - Main window close successfully
+2026-09-26 12:54 - INFO - ==================================================
+2026-09-26 12:54 - INFO - New session close at 2026-09-26 12:54
+2026-09-26 12:54 - INFO - ==================================================
+2026-09-26 12:54 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:54 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:54 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:54 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:54 - INFO - UI load successful
+2026-09-26 12:55 - INFO - Galvo Laser Shutdown
+2026-09-26 12:55 - INFO - Stepper Lasers Shutdown
+2026-09-26 12:55 - INFO - COM connection close successfully
+2026-09-26 12:55 - INFO - Main window close successfully
+2026-09-26 12:55 - INFO - ==================================================
+2026-09-26 12:55 - INFO - New session close at 2026-09-26 12:55
+2026-09-26 12:55 - INFO - ==================================================
+2026-09-26 12:59 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:59 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 12:59 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:59 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 12:59 - INFO - UI load successful
+2026-09-26 13:02 - INFO - Galvo Laser Shutdown
+2026-09-26 13:02 - INFO - Stepper Lasers Shutdown
+2026-09-26 13:02 - INFO - COM connection close successfully
+2026-09-26 13:02 - INFO - Main window close successfully
+2026-09-26 13:02 - INFO - ==================================================
+2026-09-26 13:02 - INFO - New session close at 2026-09-26 13:02
+2026-09-26 13:02 - INFO - ==================================================
+2026-09-26 13:06 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:06 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:06 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:06 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:06 - INFO - UI load successful
+2026-09-26 13:06 - INFO - Galvo Laser Shutdown
+2026-09-26 13:06 - INFO - Stepper Lasers Shutdown
+2026-09-26 13:06 - INFO - COM connection close successfully
+2026-09-26 13:06 - INFO - Main window close successfully
+2026-09-26 13:06 - INFO - ==================================================
+2026-09-26 13:06 - INFO - New session close at 2026-09-26 13:06
+2026-09-26 13:06 - INFO - ==================================================
+2026-09-26 13:08 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:08 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:08 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:08 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:08 - INFO - UI load successful
+2026-09-26 13:12 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:12 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:12 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:12 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:12 - INFO - UI load successful
+2026-09-26 13:13 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:13 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:13 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:13 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:13 - INFO - UI load successful
+2026-09-26 13:14 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:14 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:14 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:14 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:14 - INFO - UI load successful
+2026-09-26 13:17 - INFO - Galvo Laser Shutdown
+2026-09-26 13:17 - INFO - Stepper Lasers Shutdown
+2026-09-26 13:17 - INFO - COM connection close successfully
+2026-09-26 13:17 - INFO - Main window close successfully
+2026-09-26 13:17 - INFO - ==================================================
+2026-09-26 13:17 - INFO - New session close at 2026-09-26 13:17
+2026-09-26 13:17 - INFO - ==================================================
+2026-09-26 13:18 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:18 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:18 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:18 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:18 - INFO - UI load successful
+2026-09-26 13:20 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:20 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:20 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:20 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:20 - INFO - UI load successful
+2026-09-26 13:21 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:21 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:21 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:21 - INFO - UI load successful
+2026-09-26 13:22 - INFO - Profile : Supervisor
+2026-09-26 13:22 - INFO - Close event ignored.
+2026-09-26 13:23 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:23 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:23 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:23 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:23 - INFO - UI load successful
+2026-09-26 13:24 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:24 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:24 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:24 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:24 - INFO - UI load successful
+2026-09-26 13:27 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:27 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:27 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:27 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:28 - INFO - UI load successful
+2026-09-26 13:29 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:29 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:29 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:29 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:29 - INFO - UI load successful
+2026-09-26 13:31 - INFO - Profile : Supervisor
+2026-09-26 13:35 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:35 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:35 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:35 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:35 - INFO - UI load successful
+2026-09-26 13:37 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:37 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:37 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:37 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:38 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:38 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:38 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:38 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:38 - INFO - UI load successful
+2026-09-26 13:39 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:39 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:39 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:39 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:39 - INFO - UI load successful
+2026-09-26 13:40 - INFO - Galvo Laser Shutdown
+2026-09-26 13:40 - CRITICAL - Laser 1 : OFF
+2026-09-26 13:40 - CRITICAL - Laser 2 : OFF
+2026-09-26 13:40 - INFO - Stepper Lasers Shutdown
+2026-09-26 13:40 - INFO - COM connection close successfully
+2026-09-26 13:40 - INFO - Main window close successfully
+2026-09-26 13:40 - INFO - ==================================================
+2026-09-26 13:40 - INFO - New session close at 2026-09-26 13:40
+2026-09-26 13:40 - INFO - ==================================================
+2026-09-26 13:41 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:41 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 13:41 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:41 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 13:41 - INFO - UI load successful
+2026-09-26 14:24 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:24 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:24 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:24 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:24 - INFO - UI load successful
+2026-09-26 14:41 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:41 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:41 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:41 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:41 - INFO - UI load successful
+2026-09-26 14:42 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:42 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:42 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:42 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:42 - INFO - UI load successful
+2026-09-26 14:42 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:42 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:42 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:42 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:43 - INFO - UI load successful
+2026-09-26 14:44 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:44 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:44 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:44 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:44 - INFO - UI load successful
+2026-09-26 14:45 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:45 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:45 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:45 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:45 - INFO - UI load successful
+2026-09-26 14:47 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:47 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:47 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:47 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:47 - INFO - UI load successful
+2026-09-26 14:48 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:48 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:48 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:48 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:48 - INFO - UI load successful
+2026-09-26 14:55 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:55 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:55 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:55 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:55 - INFO - UI load successful
+2026-09-26 14:55 - INFO - Galvo Laser Shutdown
+2026-09-26 14:55 - CRITICAL - Laser 1 : OFF
+2026-09-26 14:55 - CRITICAL - Laser 2 : OFF
+2026-09-26 14:55 - INFO - Stepper Lasers Shutdown
+2026-09-26 14:55 - INFO - COM connection close successfully
+2026-09-26 14:55 - INFO - Main window close successfully
+2026-09-26 14:55 - INFO - ==================================================
+2026-09-26 14:55 - INFO - New session close at 2026-09-26 14:55
+2026-09-26 14:55 - INFO - ==================================================
+2026-09-26 14:56 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:56 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-26 14:56 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:56 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-26 14:56 - INFO - UI load successful
+2026-09-26 15:02 - INFO - Galvo Laser Shutdown
+2026-09-26 15:02 - CRITICAL - Laser 1 : OFF
+2026-09-26 15:02 - CRITICAL - Laser 2 : OFF
+2026-09-26 15:02 - INFO - Stepper Lasers Shutdown
+2026-09-26 15:02 - INFO - COM connection close successfully
+2026-09-26 15:02 - INFO - Main window close successfully
+2026-09-26 15:02 - INFO - ==================================================
+2026-09-26 15:02 - INFO - New session close at 2026-09-26 15:02
+2026-09-26 15:02 - INFO - ==================================================
