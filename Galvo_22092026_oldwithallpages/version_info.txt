@@ -1,0 +1,34 @@
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(1,0,3,0),
+    prodvers=(1,0,3,0),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0,0)
+  ),
+  kids=[
+    StringFileInfo([
+      StringTable(  
+        '040904B0',
+        [
+          StringStruct('CompanyName', 'Spécialisé Products Private Limited'),
+          StringStruct('FileDescription', 'Laser Scribing Software'),
+          StringStruct('FileVersion', '1.0.3'),
+          StringStruct('InternalName', 'Laser_Scribing'),
+          StringStruct('OriginalFilename', 'Laser_Scribing.exe'),
+          StringStruct('ProductName', 'Patterning Machine'),
+          StringStruct('ProductVersion', '1.0.3'),
+          StringStruct('LegalCopyright', '© 2026 Spécialisé Products Private Limited'),
+          StringStruct('LegalTrademarks', ''),
+          StringStruct('Comments', 'Laser Scribing Control Software')
+        ]
+      )
+    ]),
+    VarFileInfo([
+      VarStruct('Translation', [1033, 1200])
+    ])
+  ]
+)

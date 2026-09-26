@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceEFpfDt.ui'
+## Form generated from reading UI file 'interface.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.2
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -5092,7 +5092,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(-4, -398, 828, 731))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 828, 731))
         self.verticalLayout_93 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_93.setObjectName(u"verticalLayout_93")
         self.frame_62 = QFrame(self.scrollAreaWidgetContents_3)
@@ -6419,7 +6419,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, -198, 574, 561))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 574, 561))
         self.horizontalLayout_153 = QHBoxLayout(self.scrollAreaWidgetContents_4)
         self.horizontalLayout_153.setObjectName(u"horizontalLayout_153")
         self.frame_5 = QFrame(self.scrollAreaWidgetContents_4)

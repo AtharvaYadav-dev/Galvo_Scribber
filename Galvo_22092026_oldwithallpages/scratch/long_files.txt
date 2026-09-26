@@ -1,0 +1,6 @@
+.\mfp-5w-70w-q-switch-laser-source.pdf
+.\meerk40t-main\test\test_batch_operations_comprehensive.py
+.\New\Ezcad3Development-master\environment\必读!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!.txt
+.\New\Ezcad3Development-master\environment\resources\wdata\测试微点码授权码包#0000000000032027-0000000000033026#1000#20251103#0.wdata
+.\New\Ezcad3Development-master\environment\resources\wdata1\测试微点码授权码包#0000000000032027-0000000000033026#1000#20251103#0.wdata
+.\New\meerk40t-main\test\test_batch_operations_comprehensive.py

@@ -9831,8 +9831,8 @@ QPushButton:disabled {
                       <widget class="QWidget" name="scrollAreaWidgetContents_3">
                        <property name="geometry">
                         <rect>
-                         <x>-4</x>
-                         <y>-398</y>
+                         <x>0</x>
+                         <y>0</y>
                          <width>828</width>
                          <height>731</height>
                         </rect>
@@ -12311,7 +12311,7 @@ QPushButton:disabled {
                        <property name="geometry">
                         <rect>
                          <x>0</x>
-                         <y>-198</y>
+                         <y>0</y>
                          <width>574</width>
                          <height>561</height>
                         </rect>

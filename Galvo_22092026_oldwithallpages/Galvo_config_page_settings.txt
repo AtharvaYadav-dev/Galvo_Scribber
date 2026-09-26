@@ -1,0 +1,17 @@
+The most important detail from your screenshots is that under the Aspect section, you have Galvo 2 = X selected. This means Galvo 2 controls your horizontal (left/right) movement and Galvo 1 controls your vertical (up/down) movement.
+
+Here is exactly how to test every setting on these pages using your comb design:
+
+1. Aspect Section (Screenshot 4)
+Galvo 2 = X: Currently, your design marks with the pads at the bottom. If you change this to Galvo 1 = X and click Apply, your physical mark will instantly rotate 90 degrees (the pads will be on the left or right side, and the fingers will run up and down). Put it back to Galvo 2 = X to keep the pads at the bottom.
+Offset X (10mm) / Offset Y (10mm): Your design is currently shifted 10mm off the physical center of your machine bed. Change Offset X to 0, apply, and remark. The physical mark should move exactly 10mm horizontally.
+Angle (0°): Change this to 15°, apply, and remark. Your comb design should physically mark diagonally (tilted 15 degrees). Change it back to 0° to keep it straight.
+2. Galvo 1 & Galvo 2 Adjustments (Screenshots 1 & 3)
+Galvo 2 Negate (Horizontal Mirroring): Because Galvo 2 is X, checking this box will mirror the design left-to-right. Test it: currently, the top-most finger connects to the right pad. Check Negate for Galvo 2, apply, and remark. The top-most finger will now physically connect to the left pad.
+Galvo 1 Negate (Vertical Mirroring): Because Galvo 1 is Y, checking this box will mirror the design top-to-bottom. Check it, apply, and remark. The two square pads will now mark at the top of the shape instead of the bottom.
+Scale (100.0000): Try changing the Galvo 2 Scale to 50.0000. Apply and remark. The physical mark will become horizontally "squished"—exactly half as wide as it was before, while keeping the same height.
+Barrel/Bulge, Parallelogram, Trapezoid (1.0): These correct physical lens distortion. To test if they work, change the Galvo 2 Barrel/Bulge to 1.2. Apply and remark. The straight vertical edges (the stems above the pads) should physically bow outward in a curve. Put it back to 1.0 when you are done.
+3. Go to Pos After Mark (Screenshot 2)
+Top Right (Selected): This controls where the red laser pointer rests when the machine is idle. To test it, mark your design. When the laser finishes, the red dot should shoot up to the physical Top-Right corner of your marking area.
+How to test: Change it to Galvo Center, apply, and mark again. When it finishes, the red pointer should jump exactly to the center of your lens.
+By making dramatic changes to these values (like a 15-degree angle or 50% scale), marking a test piece, and seeing the physical change, you can guarantee every function is hooked up and working perfectly! Let me know if you run into any issues testing these.

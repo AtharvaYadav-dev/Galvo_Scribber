@@ -4277,3 +4277,21 @@
 2026-09-26 15:02 - INFO - ==================================================
 2026-09-26 15:02 - INFO - New session close at 2026-09-26 15:02
 2026-09-26 15:02 - INFO - ==================================================
+2026-09-26 15:11 - INFO - UI load successful
+2026-09-26 15:13 - CRITICAL - Laser 1 : OFF
+2026-09-26 15:13 - CRITICAL - Laser 2 : OFF
+2026-09-26 15:13 - INFO - Stepper Lasers Shutdown
+2026-09-26 15:13 - INFO - COM connection close successfully
+2026-09-26 15:13 - INFO - Main window close successfully
+2026-09-26 15:13 - INFO - ==================================================
+2026-09-26 15:13 - INFO - New session close at 2026-09-26 15:13
+2026-09-26 15:13 - INFO - ==================================================
+2026-09-26 15:14 - INFO - UI load successful
+2026-09-26 15:14 - CRITICAL - Laser 1 : OFF
+2026-09-26 15:14 - CRITICAL - Laser 2 : OFF
+2026-09-26 15:14 - INFO - Stepper Lasers Shutdown
+2026-09-26 15:14 - INFO - COM connection close successfully
+2026-09-26 15:14 - INFO - Main window close successfully
+2026-09-26 15:14 - INFO - ==================================================
+2026-09-26 15:14 - INFO - New session close at 2026-09-26 15:14
+2026-09-26 15:14 - INFO - ==================================================
