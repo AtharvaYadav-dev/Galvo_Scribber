@@ -209,22 +209,27 @@ class DXFParser:
                     # is a representation of the endpoint, not an additional
                     # zero-length machining segment.
                     #
-                    # Remove that duplicate so that the REAL last vertex keeps
-                    # its bulge, which correctly describes:
-                    #
-                    #     last_real_vertex -> first_vertex
-                    #
-                    # This is especially important for small curved boxes.
-                    if (
-                        closed
-                        and len(points) >= 3
-                        and self._same_point(
-                            (points[0][0], points[0][1]),
-                            (points[-1][0], points[-1][1]),
-                            self.point_duplicate_tolerance,
-                        )
+                    # In laser scribing (similar to EZcad), we only treat a polyline 
+                    # as closed if it physically closes or if the user exported it 
+                    # with identical start and end points. If it doesn't physically 
+                    # close, we ignore the DXF closed flag to avoid stray lines 
+                    # cutting across designs like open spirals.
+                    
+                    is_physically_closed = False
+                    if len(points) >= 3 and self._same_point(
+                        (points[0][0], points[0][1]),
+                        (points[-1][0], points[-1][1]),
+                        self.point_duplicate_tolerance,
                     ):
+                        is_physically_closed = True
+
+                    if closed and is_physically_closed:
+                        # Remove the duplicate endpoint so that the REAL last vertex keeps
+                        # its bulge, which correctly describes: last_real_vertex -> first_vertex
                         points.pop()
+                    elif closed and not is_physically_closed:
+                        # Ignore the closed flag because the endpoints do not physically meet.
+                        closed = False
 
                     # CRITICAL:
                     # Do NOT append first point here.
@@ -733,6 +738,12 @@ class DXFParser:
         self.g0_feed = int(self.feed * 1.5)
         self.curve_feed = int(self.feed * 0.25)
 
+    def setPower(self, power):
+        self.power = float(power)
+
+    def setFreq(self, freq):
+        self.freq = float(freq)
+
     # ------------------------------------------------------------------
     # G-code helpers
     # ------------------------------------------------------------------
@@ -745,7 +756,11 @@ class DXFParser:
             f"G0 X{x:.6f} Y{y:.6f} Z{self.zpos:.6f} F{self.g0_feed}"
         )
         glist.append("M400")
-        glist.append("M3")
+        
+        m3_cmd = "M3"
+        # We don't append S and Q here because GRBL interprets S out of $30 (e.g. 1000).
+        # Power and frequency are properly handled via set_analog_do_bit in initPrintRun.
+        glist.append(m3_cmd)
         glist.append("G4 P250")
 
     def _append_line(self, glist, x, y):

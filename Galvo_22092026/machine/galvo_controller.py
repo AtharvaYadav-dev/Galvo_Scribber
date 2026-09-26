@@ -54,100 +54,164 @@ class GalvoController:
         laser_state = False  # Track current laser state
         total_cmds = len(send_queue) * loop_count
         
-        for loop_idx in range(loop_count):
-            for i, cmd in enumerate(send_queue):
-                current_idx = (loop_idx * len(send_queue)) + i
+        try:
+            for loop_idx in range(loop_count):
+                for i, cmd in enumerate(send_queue):
+                    current_idx = (loop_idx * len(send_queue)) + i
                 
-                if abort_check and abort_check():
-                    print("Execution aborted by user.")
-                    if laser_state:
-                        self.connection.laser_off()
-                    return False
-                    
-                if self.connection and hasattr(self.connection, 'is_physically_connected'):
-                    if not self.connection.is_physically_connected():
-                        print("Execution aborted: hardware disconnected.")
+                    if abort_check and abort_check():
+                        print("Execution aborted by user.")
                         if laser_state:
-                            try:
-                                self.connection.laser_off()
-                            except:
-                                pass
+                            self.connection.laser_off()
                         return False
-                        
-                # No processEvents here because we are running inside a QThread
                     
-                ctype = cmd.get('type')
+                    if self.connection and hasattr(self.connection, 'is_physically_connected'):
+                        if not self.connection.is_physically_connected():
+                            print("Execution aborted: hardware disconnected.")
+                            if laser_state:
+                                try:
+                                    self.connection.laser_off()
+                                except:
+                                    pass
+                            return False
+                        
+                    # No processEvents here because we are running inside a QThread
                 
-                try:
-                    if ctype == 'jump':
-                        jump_count += 1
-                        # Jump to position with laser OFF
-                        if laser_state:
-                            self.connection.laser_off()
-                            laser_state = False
+                    # --- Dynamic Live Power Update ---
+                    # Safely pull live settings from UI thread without blocking or risking USB collisions
+                    current_power = getattr(self, 'live_power', None)
+                    current_freq = getattr(self, 'live_freq', None)
+                    if current_power is not None and current_freq is not None:
+                        # Initialize tracking variables if they don't exist in local scope
+                        if not hasattr(self, '_last_applied_power'):
+                            self._last_applied_power = None
+                            self._last_applied_freq = None
                         
-                        # Apply 90 deg CCW rotation + horizontal mirror = Swap X and Y
-                        cmd_x = cmd['y']
-                        cmd_y = cmd['x']
-                        
-                        self.connection.galvo_move_xy(cmd_x, cmd_y, cmd.get('speed'))
-                        if progress_callback:
-                            progress_callback(current_idx, total_cmds, cmd['x'], cmd['y'], ctype)
-                        self.connection.wait_for_motion()
-                    
-                    elif ctype == 'mark':
-                        mark_count += 1
-                        # Move to position with laser ON
-                        if not laser_state:
-                            self.connection.laser_on()
-                            laser_state = True
-                            
-                        # Apply 90 deg CCW rotation + horizontal mirror = Swap X and Y
-                        cmd_x = cmd['y']
-                        cmd_y = cmd['x']
-                        
-                        self.connection.galvo_move_xy(cmd_x, cmd_y, cmd.get('speed'))
-                        if progress_callback:
-                            progress_callback(current_idx, total_cmds, cmd['x'], cmd['y'], ctype)
-                        self.connection.wait_for_motion()
-                        
-                    elif ctype == 'laser_on':
-                        if not laser_state:
-                            self.connection.laser_on()
-                            laser_state = True
-                        
-                    elif ctype == 'laser_off':
-                        if laser_state:
-                            self.connection.laser_off()
-                            laser_state = False
-                        
-                    elif ctype == 'delay':
-                        ms = cmd.get('ms', 0)
-                        time.sleep(ms / 1000.0)
-                        
-                    elif ctype == 'pass_change':
-                        if progress_callback:
-                            progress_callback(current_idx, total_cmds, 0, 0, f"pass_change:{cmd.get('idx', 1)}")
-                except ConnectionError as e:
-                    print(f"Execution aborted: {e}")
-                    return False
-                
-        self.connection.send_buffer()
-        flush_logs()
-        
-        end_time = time.time()
-        duration = end_time - start_time
-        summary = f"EXECUTION FINISHED: Sent {mark_count} Mark commands and {jump_count} Jump commands in {duration:.2f} seconds."
-        log_command(summary)
-        log_command("="*40 + "\n")
-        print(summary)
-        
-        print("Queue execution complete.")
-        self.connection.laser_off() # Always ensure laser is off at the end
-        flush_logs()
-        
-        return True
+                        if current_power != self._last_applied_power or current_freq != self._last_applied_freq:
+                            if hasattr(self.connection, 'set_analog_do_bit'):
+                                print(f"[DEBUG] Injecting live power update: Power={current_power}, Freq={current_freq}")
+                                # Send previous buffered commands to hardware
+                                if hasattr(self.connection, 'send_buffer'):
+                                    self.connection.send_buffer()
+                                # Force buffer empty to ensure the hardware register write is accepted safely
+                                if hasattr(self.connection, 'wait_for_motion'):
+                                    self.connection.wait_for_motion()
 
+                                if current_power <= 0:
+                                    # Hard-disable laser emission
+                                    self.connection.laser_off()
+                                    self.connection.set_analog_do_bit(255.0, 0.0, 50.0, 2)
+                                else:
+                                    # Linearly map input (1% to 100%) to the full hardware output scale (1-255)
+                                    mapped_power = (float(current_power) / 100.0) * 255.0
+                                    self.connection.set_analog_do_bit(255.0, mapped_power, 50.0, 2)
+                                
+                                if hasattr(self.connection, 'clamp_laser_freq'):
+                                    safe_freq = self.connection.clamp_laser_freq(current_freq)
+                                else:
+                                    safe_freq = float(current_freq)
+                                
+                                self.connection.set_analog_do_bit(100.0, 50.0, safe_freq / 4.0, 3)
+                            
+                                # 15-20ms stabilization delay prior to firing
+                                time.sleep(0.02)
+                            self._last_applied_power = current_power
+                            self._last_applied_freq = current_freq
+                    # ---------------------------------
+                    
+                    ctype = cmd.get('type')
+                
+                    try:
+                        if ctype == 'jump':
+                            jump_count += 1
+                            # Jump to position with laser OFF
+                            if laser_state:
+                                if hasattr(self.connection, 'send_buffer'):
+                                    self.connection.send_buffer()
+                                if hasattr(self.connection, 'wait_for_motion'):
+                                    self.connection.wait_for_motion()
+                                self.connection.laser_off()
+                                laser_state = False
+                        
+                            # Apply final corrected coordinate mapping
+                            cmd_x = cmd['y']
+                            cmd_y = cmd['x']
+                        
+                            self.connection.galvo_move_xy(cmd_x, cmd_y, cmd.get('speed'))
+                            if progress_callback:
+                                progress_callback(current_idx, total_cmds, cmd['x'], cmd['y'], ctype)
+                            self.connection.wait_for_motion()
+                    
+                        elif ctype == 'mark':
+                            mark_count += 1
+                            # Move to position with laser ON
+                            if not laser_state:
+                                if hasattr(self.connection, 'send_buffer'):
+                                    self.connection.send_buffer()
+                                if hasattr(self.connection, 'wait_for_motion'):
+                                    self.connection.wait_for_motion()
+                                self.connection.laser_on()
+                                laser_state = True
+                            
+                            # Apply final corrected coordinate mapping
+                            cmd_x = cmd['y']
+                            cmd_y = cmd['x']
+                        
+                            self.connection.galvo_move_xy(cmd_x, cmd_y, cmd.get('speed'))
+                            if progress_callback:
+                                progress_callback(current_idx, total_cmds, cmd['x'], cmd['y'], ctype)
+                            self.connection.wait_for_motion()
+                        
+                        elif ctype == 'laser_on':
+                            if not laser_state:
+                                self.connection.laser_on()
+                                laser_state = True
+                        
+                        elif ctype == 'laser_off':
+                            if laser_state:
+                                self.connection.laser_off()
+                                laser_state = False
+                        
+                        elif ctype == 'delay':
+                            ms = cmd.get('ms', 0)
+                            time.sleep(ms / 1000.0)
+                        
+                        elif ctype == 'set_params':
+                            if 'power' in cmd:
+                                self.live_power = cmd['power']
+                            if 'freq' in cmd:
+                                self.live_freq = cmd['freq']
+                        
+                        elif ctype == 'pass_change':
+                            if progress_callback:
+                                progress_callback(current_idx, total_cmds, 0, 0, f"pass_change:{cmd.get('idx', 1)}")
+                    except ConnectionError as e:
+                        print(f"Execution aborted: {e}")
+                        return False
+                
+            self.connection.send_buffer()
+            flush_logs()
+        
+            end_time = time.time()
+            duration = end_time - start_time
+            summary = f"EXECUTION FINISHED: Sent {mark_count} Mark commands and {jump_count} Jump commands in {duration:.2f} seconds."
+            log_command(summary)
+            log_command("="*40 + "\n")
+            print(summary)
+        
+            print("Queue execution complete.")
+            self.connection.laser_off() # Always ensure laser is off at the end
+            flush_logs()
+        
+            return True
+
+        finally:
+            if hasattr(self.connection, 'laser_off'):
+                self.connection.laser_off()
+            if hasattr(self.connection, 'set_analog_do_bit'):
+                self.connection.set_analog_do_bit(255.0, 0.0, 50.0, 2)
+                if hasattr(self.connection, 'send_buffer'):
+                    self.connection.send_buffer()
     def galvo_home(self):
         """Moves the galvo mirrors to the center (home) position."""
         if not self.connection:

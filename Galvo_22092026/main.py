@@ -984,6 +984,14 @@ class MainWindow(QMainWindow):
         self.printgalvo_widgets = self.wh.createMap(*widget_list)
         self.ui.redlightprePushButton.setText("START")
         
+        # Add Parameter Mapping Button to execution UI
+        self.mapping_btn = QPushButton("Power/Freq Matrix")
+        # Use simple style
+        self.mapping_btn.setStyleSheet("QPushButton { font-weight: bold; background-color: #2196F3; color: white; border-radius: 5px; padding: 10px; }")
+        if hasattr(self.ui, 'verticalLayout_71'):
+            self.ui.verticalLayout_71.addWidget(self.mapping_btn)
+        self.mapping_btn.clicked.connect(self.open_parameter_mapping)
+        
         from PySide6.QtGui import QShortcut, QKeySequence
         self.f1_shortcut = QShortcut(QKeySequence("F1"), self)
         self.f1_shortcut.activated.connect(self.handle_f1_shortcut)
@@ -1002,6 +1010,14 @@ class MainWindow(QMainWindow):
                 self.printGalvoAction(self.ui.printrungalvoPushButton)
             elif hasattr(self.ui, 'printabortgalvoPushButton') and self.ui.printabortgalvoPushButton.isEnabled():
                 self.printGalvoAction(self.ui.printabortgalvoPushButton)
+
+    def open_parameter_mapping(self):
+        try:
+            from mapping_dialog import ParameterMappingDialog
+            dlg = ParameterMappingDialog(self, self)
+            dlg.exec()
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Could not load Parameter Mapping Dialog:\n{e}")
 
     def setupConfigGalvo(self):
         from PySide6.QtWidgets import QButtonGroup
@@ -1840,8 +1856,24 @@ class MainWindow(QMainWindow):
                 slider_percentage = float(self.ui.galvolaserpowerHorizontalSlider_2.value())
                 freq_val = float(self.ui.galvolaserfreqHorizontalSlider.value())
                 max_val = 100.0
-                self.galvo_controller.connection.set_analog_do_bit(max_val, slider_percentage, freq_val, 4)
-                self.galvo_controller.connection.set_analog_do_bit(100.0, 50.0, freq_val / 4.0, 3)
+                
+                # Store live values for background thread injection
+                self.galvo_controller.live_power = slider_percentage
+                self.galvo_controller.live_freq = freq_val
+                
+                # Only write directly to hardware if NOT currently printing
+                # If printing, the background thread (execute_queue) will pick up the live values
+                is_printing = hasattr(self, 'galvo_exec_thread') and self.galvo_exec_thread and self.galvo_exec_thread.isRunning()
+                if not is_printing:
+                    # Invert the power signal in Python to compensate for the Blackpill's hardware mapping (0V = 100% power, 3.3V = 0% power)
+                    if float(slider_percentage) <= 0:
+                        if hasattr(self.galvo_controller.connection, 'laser_off'):
+                            self.galvo_controller.connection.laser_off()
+                        self.galvo_controller.connection.set_analog_do_bit(255.0, 0.0, 50.0, 2)
+                    else:
+                        mapped_power = (float(slider_percentage) / 100.0) * 255.0
+                        self.galvo_controller.connection.set_analog_do_bit(255.0, mapped_power, 50.0, 2)
+                    self.galvo_controller.connection.set_analog_do_bit(100.0, 50.0, self.galvo_controller.connection.clamp_laser_freq(freq_val) / 4.0 if hasattr(self.galvo_controller.connection, 'clamp_laser_freq') else freq_val / 4.0, 3)
             except Exception as e:
                 self.util.debugPrint(f"Error applying laser settings: {e}")
 
@@ -1934,31 +1966,27 @@ class MainWindow(QMainWindow):
         elif action == "galvolaserpower":
             val = self.ui.galvolaserpowerHorizontalSlider_2.value()
             self.ui.laserpowerLineEdit.setText(str(val))
-            if hasattr(self.ui, 'flasergalvoPushButton') and self.ui.flasergalvoPushButton.text().upper() == "OFF":
-                self._apply_galvo_laser_settings()
+            self._apply_galvo_laser_settings()
         elif action == "laserpower":
             try:
                 val = int(self.ui.laserpowerLineEdit.text())
                 val = max(0, min(100, val))
                 self.ui.laserpowerLineEdit.setText(str(val))
                 self.ui.galvolaserpowerHorizontalSlider_2.setValue(val)
-                if hasattr(self.ui, 'flasergalvoPushButton') and self.ui.flasergalvoPushButton.text().upper() == "OFF":
-                    self._apply_galvo_laser_settings()
+                self._apply_galvo_laser_settings()
             except ValueError:
                 pass
         elif action == "galvolaserfreq":
             val = self.ui.galvolaserfreqHorizontalSlider.value()
             self.ui.laserfreqLineEdit.setText(str(val))
-            if hasattr(self.ui, 'flasergalvoPushButton') and self.ui.flasergalvoPushButton.text().upper() == "OFF":
-                self._apply_galvo_laser_settings()
+            self._apply_galvo_laser_settings()
         elif action == "laserfreq":
             try:
                 val = int(self.ui.laserfreqLineEdit.text())
                 val = max(20, min(80, val))
                 self.ui.laserfreqLineEdit.setText(str(val))
                 self.ui.galvolaserfreqHorizontalSlider.setValue(val)
-                if hasattr(self.ui, 'flasergalvoPushButton') and self.ui.flasergalvoPushButton.text().upper() == "OFF":
-                    self._apply_galvo_laser_settings()
+                self._apply_galvo_laser_settings()
             except ValueError:
                 pass
 
@@ -1998,6 +2026,14 @@ class MainWindow(QMainWindow):
                             widget_ui = getattr(self.programgalvo_widgets, role, None)
                             if widget_ui:
                                 self.wh.invokeMethod(widget_ui, "set", str(val))
+                                
+                    # Also restore Power and Frequency (which are located on the main program_widgets)
+                    pwr_val = nested_params.get("Laser Power")
+                    if pwr_val is not None:
+                        self.wh.invokeMethod(self.program_widgets.pgmlaserpower, "set", str(pwr_val))
+                    freq_val = nested_params.get("Laser Frequency")
+                    if freq_val is not None:
+                        self.wh.invokeMethod(self.program_widgets.pgmlaserfreq, "set", str(freq_val))
                                 
                     enable_hatch = nested_params.get("Enable Hatch")
                     if enable_hatch is not None:
@@ -2047,6 +2083,16 @@ class MainWindow(QMainWindow):
                 galvosampleheight = 0.0
             self.update_galvo_focus_calculations()
                 
+            # Fetch Laser Power and Frequency from program page widgets
+            ui_laserpower = self.wh.invokeMethod(self.program_widgets.pgmlaserpower, "get")
+            ui_laserfreq = self.wh.invokeMethod(self.program_widgets.pgmlaserfreq, "get")
+            try:
+                self.pgm_laserpower = float(ui_laserpower) if ui_laserpower else None
+                self.pgm_laserfreq = float(ui_laserfreq) if ui_laserfreq else None
+            except ValueError:
+                self.showAutoCloseMessage("Input Error", "Please enter valid numeric values for Power and Freq.")
+                return
+
             try:
                 params = {
                     "Galvo program page parameters": {
@@ -2057,7 +2103,9 @@ class MainWindow(QMainWindow):
                         "Start Pos X": getattr(self.programgalvo_widgets, "pgmstartposx", None) and self.wh.invokeMethod(self.programgalvo_widgets.pgmstartposx, "get"),
                         "Start Pos Y": getattr(self.programgalvo_widgets, "pgmstartposy", None) and self.wh.invokeMethod(self.programgalvo_widgets.pgmstartposy, "get"),
                         "Enable Hatch": self.ui.pgmenablehatchCheckBox.isChecked(),
-                        "Mode": getattr(self.ui, 'pgmmodeCheckBox', None) and self.ui.pgmmodeCheckBox.isChecked()
+                        "Mode": getattr(self.ui, 'pgmmodeCheckBox', None) and self.ui.pgmmodeCheckBox.isChecked(),
+                        "Laser Power": getattr(self, 'pgm_laserpower', None),
+                        "Laser Frequency": getattr(self, 'pgm_laserfreq', None)
                     }
                 }
                 if self.fh.saveDxfParams(self.pgm_file, params):
@@ -2065,6 +2113,16 @@ class MainWindow(QMainWindow):
                     self.logger.info(f"Parameters saved for {self.pgm_file}")
             except Exception as e:
                 self.logger.error(f"Failed to save parameters: {e}")
+                
+            # Apply to print page sliders so they reflect immediately
+            pwr = getattr(self, 'pgm_laserpower', None)
+            if pwr is not None:
+                if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2'):
+                    self.ui.galvolaserpowerHorizontalSlider_2.setValue(int(pwr))
+            freq = getattr(self, 'pgm_laserfreq', None)
+            if freq is not None:
+                if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
+                    self.ui.galvolaserfreqHorizontalSlider.setValue(int(freq))
                 
             if self.process_galvo_file():
                 self.showMainPages("printgalvo")
@@ -2505,12 +2563,14 @@ class MainWindow(QMainWindow):
                 
                 # Check if hardware connection supports setting power and frequency
                 if hasattr(self.galvo_controller, "connection") and hasattr(self.galvo_controller.connection, "set_analog_do_bit"):
-                    # Set Analog Power (Pin 35) which is converted to 8-bit by the board. We test bits 0, 1, 2.
-                    self.galvo_controller.connection.set_analog_do_bit(max_val, slider_value, freq_val, 4)
-                        
-                    # Generate PRR (Pulse Repetition Rate) on Pin 33 (PWM, bit=3)
-                    # 50% duty cycle, scale frequency by / 4.0 as per hardware requirements
-                    self.galvo_controller.connection.set_analog_do_bit(100.0, 50.0, freq_val / 4.0, 3)
+                    # Invert the power signal in Python to compensate for the Blackpill's hardware mapping
+                    if hasattr(self.galvo_controller.connection, 'map_laser_power'):
+                        inverted_power = self.galvo_controller.connection.map_laser_power(slider_value)
+                    else:
+                        inverted_power =  100.0 - slider_value
+                    # bit=2 is Analog Power (Pin 2). bit=3 is PRR Frequency (Pin 3).
+                    self.galvo_controller.connection.set_analog_do_bit(max_val, inverted_power, 50.0, 2)
+                    self.galvo_controller.connection.set_analog_do_bit(100.0, 50.0, self.galvo_controller.connection.clamp_laser_freq(freq_val) / 4.0 if hasattr(self.galvo_controller.connection, 'clamp_laser_freq') else freq_val / 4.0, 3)
                     
                     if action == "powersetgalvo":
                         self.showAutoCloseMessage("Power Set", f"Laser power set to {slider_percentage:.0f}%")
@@ -2585,12 +2645,14 @@ class MainWindow(QMainWindow):
                 slider_percentage = float(self.ui.galvolaserpowerHorizontalSlider_2.value())
                 freq_val = float(self.ui.galvolaserfreqHorizontalSlider.value())
                 if hasattr(self.galvo_controller, "connection") and hasattr(self.galvo_controller.connection, "set_analog_do_bit"):
-                    # Set Analog Power (Pin 35) which is converted to 8-bit by the board. We test bits 0, 1, 2.
-                    self.galvo_controller.connection.set_analog_do_bit(100.0, slider_percentage, freq_val, 4)
-                        
-                    # Generate PRR (Pulse Repetition Rate) on Pin 33 (PWM, bit=3)
-                    # 50% duty cycle, scale frequency by / 4.0 as per hardware requirements
-                    self.galvo_controller.connection.set_analog_do_bit(100.0, 50.0, freq_val / 4.0, 3)
+                    # Invert the power signal in Python to compensate for the Blackpill's hardware mapping
+                    if hasattr(self.galvo_controller.connection, 'map_laser_power'):
+                        inverted_power = self.galvo_controller.connection.map_laser_power(slider_percentage)
+                    else:
+                        inverted_power =  100.0 - slider_percentage
+                    # bit=2 is Analog Power (Pin 2). bit=3 is PRR Frequency (Pin 3).
+                    self.galvo_controller.connection.set_analog_do_bit(100.0, inverted_power, 50.0, 2)
+                    self.galvo_controller.connection.set_analog_do_bit(100.0, 50.0, self.galvo_controller.connection.clamp_laser_freq(freq_val) / 4.0 if hasattr(self.galvo_controller.connection, 'clamp_laser_freq') else freq_val / 4.0, 3)
                 print(f"Applied Print Power: {slider_percentage}% | Freq: {freq_val}kHz")
             except Exception as e:
                 print(f"Failed to apply print power/frequency: {e}")
@@ -3131,6 +3193,16 @@ class MainWindow(QMainWindow):
                     if laser is not None:
                         self.wh.invokeMethod(self.program_widgets.pgmlaser, "set", laser)
                         self.pgm_laser = laser
+                        
+                    power = data.get("Laser Power") or data.get("laserpower")
+                    if power is not None:
+                        self.wh.invokeMethod(self.program_widgets.pgmlaserpower, "set", str(power))
+                        self.pgm_laserpower = float(power)
+                        
+                    freq = data.get("Laser Frequency") or data.get("laserfreq")
+                    if freq is not None:
+                        self.wh.invokeMethod(self.program_widgets.pgmlaserfreq, "set", str(freq))
+                        self.pgm_laserfreq = float(freq)
                     
                     self.showAutoCloseMessage("Parameters Fetched", "Previous parameters for this DXF have been loaded.", timeout_ms=3000)
 
@@ -3144,12 +3216,16 @@ class MainWindow(QMainWindow):
             ui_height = self.wh.invokeMethod(self.program_widgets.pgmheight, "get")
             ui_feed = self.wh.invokeMethod(self.program_widgets.pgmfeed, "get")
             ui_laser = self.wh.invokeMethod(self.program_widgets.pgmlaser, "get")
+            ui_laserpower = self.wh.invokeMethod(self.program_widgets.pgmlaserpower, "get")
+            ui_laserfreq = self.wh.invokeMethod(self.program_widgets.pgmlaserfreq, "get")
 
             try:
                 self.pgm_height = float(ui_height)
                 self.pgm_feed = float(ui_feed)
+                self.pgm_laserpower = float(ui_laserpower) if ui_laserpower else None
+                self.pgm_laserfreq = float(ui_laserfreq) if ui_laserfreq else None
             except ValueError:
-                 self.showAutoCloseMessage("Input Error", "Please enter valid numeric values for Height and Feed.")
+                 self.showAutoCloseMessage("Input Error", "Please enter valid numeric values for Height, Feed, Power, and Freq.")
                  return
 
             if not ui_laser or ui_laser.strip() == "" or ui_laser == "Select Laser":
@@ -3180,6 +3256,10 @@ class MainWindow(QMainWindow):
             dxfparser.setZvalue(zpos)
             if self.pgm_feed:
                 dxfparser.setFeedRate(self.pgm_feed)
+            if hasattr(self, 'pgm_laserpower') and self.pgm_laserpower is not None:
+                dxfparser.setPower(self.pgm_laserpower)
+            if hasattr(self, 'pgm_laserfreq') and self.pgm_laserfreq is not None:
+                dxfparser.setFreq(self.pgm_laserfreq)
 
             # Apply offsets
             if self.pgm_laser == self.offset_laser:
@@ -3221,12 +3301,29 @@ class MainWindow(QMainWindow):
                 "Program page parameters": {
                     "Sample Height": self.pgm_height,
                     "Feed": self.pgm_feed,
-                    "Selected Laser": self.pgm_laser
+                    "Selected Laser": self.pgm_laser,
+                    "Laser Power": getattr(self, 'pgm_laserpower', None),
+                    "Laser Frequency": getattr(self, 'pgm_laserfreq', None)
                 }
             }
             if self.fh.saveDxfParams(self.pgm_file, params):
                 self.util.debugPrint(f"Saved parameters for DXF: {params}")
                 self.logger.info(f"Parameters saved for {self.pgm_file}")
+
+            # Apply to print page sliders
+            pwr = getattr(self, 'pgm_laserpower', None)
+            if pwr is not None:
+                if hasattr(self.ui, 'powerHorizontalSlider'):
+                    self.ui.powerHorizontalSlider.setValue(int(pwr))
+                if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2'):
+                    self.ui.galvolaserpowerHorizontalSlider_2.setValue(int(pwr))
+                    
+            freq = getattr(self, 'pgm_laserfreq', None)
+            if freq is not None:
+                if hasattr(self.ui, 'freqHorizontalSlider'):
+                    self.ui.freqHorizontalSlider.setValue(int(freq))
+                if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
+                    self.ui.galvolaserfreqHorizontalSlider.setValue(int(freq))
 
             # Disable Inspect until printing is done
             self.wh.invokeMethod(self.print_widgets.printinspect, "disable")
@@ -3241,10 +3338,14 @@ class MainWindow(QMainWindow):
         ui_height = self.wh.invokeMethod(self.program_widgets.pgmheight, "get")
         ui_feed = self.wh.invokeMethod(self.program_widgets.pgmfeed, "get")
         ui_laser = self.wh.invokeMethod(self.program_widgets.pgmlaser, "get")
+        ui_laserpower = self.wh.invokeMethod(self.program_widgets.pgmlaserpower, "get")
+        ui_laserfreq = self.wh.invokeMethod(self.program_widgets.pgmlaserfreq, "get")
         
         try:
             float(ui_height)
             float(ui_feed)
+            if ui_laserpower: float(ui_laserpower)
+            if ui_laserfreq: float(ui_laserfreq)
         except (ValueError, TypeError):
             return
             
@@ -3672,6 +3773,18 @@ class MainWindow(QMainWindow):
              laser = self.lh.getLaser(self.pgm_laser)
              if laser and gstr in ["M3", "M5"]:
                  gcode = laser.cmd.get(cmd_dict.get(gstr))
+                 
+                 # Dynamically scale power if S parameter exists in the ON command
+                 if gstr == "M3" and hasattr(self, 'pgm_laserpower') and self.pgm_laserpower is not None:
+                     import re
+                     match = re.search(r'S(\d+)', gcode)
+                     if match:
+                         max_s = float(match.group(1))
+                         # If max_s is 0 (unlikely for an ON command), fallback to 255
+                         if max_s == 0: max_s = 255.0
+                         new_s = int(max_s * (float(self.pgm_laserpower) / 100.0))
+                         gcode = re.sub(r'S\d+', f'S{new_s}', gcode)
+                         
                  self.sendGcode(gcode)
                  return
 
@@ -4006,6 +4119,29 @@ class MainWindow(QMainWindow):
             self.initProgress()
             self.util.debugPrint(f"len : {len(self.pgm_glist)}")
             self.util.debugPrint(f"Print init : {self.pgm_index}")
+            
+            # Apply power and frequency to Galvo hardware if connected
+            if hasattr(self, 'galvo_controller') and self.galvo_controller.is_connected:
+                conn = self.galvo_controller.connection
+                if hasattr(conn, 'set_analog_do_bit'):
+                    pwr = getattr(self, 'pgm_laserpower', 100.0)
+                    if pwr is None: pwr = 100.0
+                    freq = getattr(self, 'pgm_laserfreq', 30.0)
+                    if freq is None: freq = 30.0
+                    
+                    try:
+                        if float(float(pwr)) <= 0:
+                            if hasattr(self.galvo_controller.connection, 'laser_off'):
+                                self.galvo_controller.connection.laser_off()
+                            self.galvo_controller.connection.set_analog_do_bit(255.0, 0.0, 50.0, 2)
+                        else:
+                            mapped_power = (float(float(pwr)) / 100.0) * 255.0
+                            self.galvo_controller.connection.set_analog_do_bit(255.0, mapped_power, 50.0, 2)
+                        self.galvo_controller.connection.set_analog_do_bit(100.0, 50.0, self.galvo_controller.connection.clamp_laser_freq(float(freq)) / 4.0 if hasattr(self.galvo_controller.connection, 'clamp_laser_freq') else float(freq) / 4.0, 3)
+                        self.util.debugPrint(f"Applied Galvo Power: {pwr}% | Freq: {freq}kHz via initPrintRun")
+                    except Exception as e:
+                        self.util.debugPrint(f"Failed to apply Galvo power/freq: {e}")
+                        
             self.startProgram()
             
     def resumeProgram(self):
@@ -4258,6 +4394,8 @@ class MainWindow(QMainWindow):
             if le_y:
                 le_y.setValidator(QDoubleValidator(-1000.0, 1000.0, 3, self))
                 self.cal_inputs_y.append(le_y)
+            if le_x: le_x.textChanged.connect(self.update_cal_preview)
+            if le_y: le_y.textChanged.connect(self.update_cal_preview)
 
         # Connect image cycling controls
         if hasattr(self.ui, 'changeimgPushButton'):
@@ -4342,6 +4480,9 @@ class MainWindow(QMainWindow):
             val = float(text)
             if val > 0:
                 self.cal_default_w = val
+                self.reset_cal_to_nominal()
+                if hasattr(self.ui, 'nominalfieldLabel'):
+                    self.ui.nominalfieldLabel.setText(f'Nominal Field: {2*val:.2f} x {2*val:.2f} mm')
                 # If red dot preview is running, update its bounding box dynamically
                 if self.cal_reddot_thread and getattr(self.cal_reddot_thread, 'running', False):
                     scale = 533.89
@@ -4351,12 +4492,33 @@ class MainWindow(QMainWindow):
         except ValueError:
             pass
 
+    def update_cal_preview(self):
+        if not hasattr(self, 'cal_preview'): return
+        
+        from core.calibration_generator_ui import TRANSFORMS
+        transform = TRANSFORMS[self.cal_state_idx]
+        
+        pts = [(0, 0)] * 9
+        for i in range(9):
+            x_text = self.cal_inputs_x[i].text().strip() if i < len(self.cal_inputs_x) else "0.0"
+            y_text = self.cal_inputs_y[i].text().strip() if i < len(self.cal_inputs_y) else "0.0"
+            
+            try: x = float(x_text or 0.0)
+            except ValueError: x = 0.0
+            try: y = float(y_text or 0.0)
+            except ValueError: y = 0.0
+            
+            # Undo the orientation transform for rendering since the renderer maps it back!
+            pts[i] = (x, y)
+            
+        self.cal_preview.set_measured_points(self.cal_default_w, pts)
+        
     def reset_cal_to_nominal(self):
         w = self.cal_default_w
         default_vals = [
-            (w, w), (0, w), (w, w),
-            (w, 0), (0, 0), (w, 0),
-            (w, w), (0, w), (w, w)
+            (-w, w), (0, w), (w, w),
+            (-w, 0), (0, 0), (w, 0),
+            (-w, -w), (0, -w), (w, -w)
         ]
         for i in range(9):
             if i < len(self.cal_inputs_x):
@@ -4464,20 +4626,15 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Error", "Invalid laser parameters. Using defaults.")
             pwr, freq, mark_speed, jump_speed = 100.0, 30.0, 5000, 15000
 
-        if hasattr(conn, 'set_analog_do_bit'):
-            conn.set_analog_do_bit(100.0, pwr, freq, 4)
-            import time
-            time.sleep(0.05)
+        self.galvo_controller.live_power = pwr
+        self.galvo_controller.live_freq = freq
 
         queue = []
-        # Invert the X/Y swap introduced in execute_queue so the calibration grid marks strictly 
-        # aligned with the raw physical hardware axes without the user's "print" rotation preference.
+        # Send raw coordinates; the execute_queue CCW transform now correctly aligns the screen to hardware
         def jump(x, y): 
-            x_inv = (2 * c) - x
-            queue.append({'type': 'jump', 'x': int(y), 'y': int(x_inv), 'speed': jump_speed})
+            queue.append({'type': 'jump', 'x': int(x), 'y': int(y), 'speed': jump_speed})
         def mark(x, y): 
-            x_inv = (2 * c) - x
-            queue.append({'type': 'mark', 'x': int(y), 'y': int(x_inv), 'speed': mark_speed})
+            queue.append({'type': 'mark', 'x': int(x), 'y': int(y), 'speed': mark_speed})
         
         def draw_digit(d, cx, cy):
             dw = int(1.0 * scale)
@@ -4601,6 +4758,8 @@ class MainWindow(QMainWindow):
             conn = self.galvo_controller.connection
             if hasattr(conn, 'laser_off'):
                 conn.laser_off()
+            if hasattr(conn, 'set_analog_do_bit'):
+                conn.set_analog_do_bit(255.0, 0.0, 50.0, 2)
             if hasattr(conn, 'reddot_off'):
                 conn.reddot_off()
             if hasattr(conn, 'stop'):
@@ -4610,8 +4769,8 @@ class MainWindow(QMainWindow):
             self.ui.markcalgridPushButton.setEnabled(True)
         if hasattr(self.ui, 'markvershapePushButton'):
             self.ui.markvershapePushButton.setEnabled(True)
-
-        self.set_cal_status("Status : Stopped")
+            
+        self.set_cal_status("Status : Ready")
 
     def generate_calibration(self):
         from core.calibration_generator_ui import TRANSFORMS
@@ -4645,31 +4804,39 @@ class MainWindow(QMainWindow):
             ui_idx = transform.index(galvo_idx)
             raw_x, raw_y = ui_measurements[ui_idx]
 
-            sx, sy = signs[galvo_idx]
-            meas_x = raw_x * sx if sx != 0 else 0
-            meas_y = raw_y * sy if sy != 0 else 0
-
-            galvo_measurements[galvo_idx] = (meas_x, meas_y)
+            # Use raw coordinates directly, as they now properly follow sign conventions
+            galvo_measurements[galvo_idx] = (raw_x, raw_y)
 
         scale = 533.89
 
+        W = self.cal_default_w
+        nominals = [
+            (-W, W), (0, W), (W, W),
+            (-W, 0), (0, 0), (W, 0),
+            (-W, -W), (0, -W), (W, -W)
+        ]
+        
+        import math
+        err_sum = sum(math.hypot(galvo_measurements[i][0] - nominals[i][0], galvo_measurements[i][1] - nominals[i][1]) for i in range(9))
+        avg_err = err_sum / 9.0
+
         try:
-            generate_cor_file("generated_calibration.cor", scale, self.cal_default_w, galvo_measurements)
+            generate_cor_file("staged_calibration.cor", scale, self.cal_default_w, galvo_measurements)
 
-            # Auto-load the newly generated calibration file into the active hardware connection
+            # Load into a staged calibration object for verification, keeping active machine calibration intact
             loaded_ok = False
-            if hasattr(self.galvo_controller, 'connection') and hasattr(self.galvo_controller.connection, 'calibration'):
-                self.galvo_controller.connection.calibration.load_calibration("generated_calibration.cor")
-                if self.galvo_controller.connection.calibration.is_valid:
-                    loaded_ok = True
+            from core.calibration import GalvoCalibration
+            self.stagedCalibrationTransform = GalvoCalibration("staged_calibration.cor")
+            if self.stagedCalibrationTransform.is_valid:
+                loaded_ok = True
 
-            self.set_cal_status("Status : Calibration Applied & Loaded")
-            msg = "generated_calibration.cor created successfully!"
+            self.set_cal_status(f"Status : Calibration Computed (Ready to Verify)")
+            msg = "staged_calibration.cor created successfully!"
             if loaded_ok:
-                msg += "\n\nThe new calibration has been automatically loaded into the Galvo controller.\n" \
+                msg += "\n\nThe new calibration has been temporarily staged.\n" \
                        "You can now click 'Mark Verification Shape' to verify the result."
             else:
-                msg += "\n\n(Calibration file saved. Connect hardware to apply automatically.)"
+                msg += "\n\n(Calibration file saved but failed to load.)"
             QMessageBox.information(self, "Calibration Generated", msg)
 
         except Exception as e:
@@ -4687,15 +4854,22 @@ class MainWindow(QMainWindow):
         self.stop_cal_reddot()
 
         scale = 533.89
-        hw = int(self.cal_default_w * scale)
+        W = 20.0
+        hw = int(W * scale)
         c = 32767
 
         min_x = c - hw
         max_x = c + hw
         min_y = c - hw
         max_y = c + hw
+        
+        cross_hw = int(5.0 * scale)
 
         conn = self.galvo_controller.connection
+
+        if not hasattr(self, 'stagedCalibrationTransform') or not self.stagedCalibrationTransform.is_valid:
+            QMessageBox.warning(self, "Error", "Please compute calibration values before marking verification shape.")
+            return
 
         try:
             pwr = float(self.ui.powerHorizontalSlider.value()) if hasattr(self.ui, 'powerHorizontalSlider') else 100.0
@@ -4706,93 +4880,35 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Error", "Invalid laser parameters. Using defaults.")
             pwr, freq, mark_speed, jump_speed = 100.0, 30.0, 5000, 15000
 
-        if hasattr(conn, 'set_analog_do_bit'):
-            conn.set_analog_do_bit(100.0, pwr, freq, 4)
-            import time
-            time.sleep(0.05)
+        self.galvo_controller.live_power = pwr
+        self.galvo_controller.live_freq = freq
 
         queue = []
-        # Invert the X/Y swap introduced in execute_queue so the calibration grid marks strictly 
-        # aligned with the raw physical hardware axes without the user's "print" rotation preference.
-        def jump(x, y): 
-            x_inv = (2 * c) - x
-            queue.append({'type': 'jump', 'x': int(y), 'y': int(x_inv), 'speed': jump_speed})
-        def mark(x, y): 
-            x_inv = (2 * c) - x
-            queue.append({'type': 'mark', 'x': int(y), 'y': int(x_inv), 'speed': mark_speed})
         
-        def draw_digit(d, cx, cy):
-            dw = int(1.0 * scale)
-            dh = int(2.0 * scale)
-            x0 = cx - dw
-            x1 = cx + dw
-            y0 = cy + dh
-            y1 = cy
-            y2 = cy - dh
-            if d == 1: jump(x1, y0); mark(x1, y2)
-            elif d == 2: jump(x0, y0); mark(x1, y0); mark(x1, y1); mark(x0, y1); mark(x0, y2); mark(x1, y2)
-            elif d == 3: jump(x0, y0); mark(x1, y0); mark(x1, y1); mark(x0, y1); jump(x1, y1); mark(x1, y2); mark(x0, y2)
-            elif d == 4: jump(x0, y0); mark(x0, y1); mark(x1, y1); jump(x1, y0); mark(x1, y2)
-            elif d == 5: jump(x1, y0); mark(x0, y0); mark(x0, y1); mark(x1, y1); mark(x1, y2); mark(x0, y2)
-            elif d == 6: jump(x1, y0); mark(x0, y0); mark(x0, y2); mark(x1, y2); mark(x1, y1); mark(x0, y1)
-            elif d == 7: jump(x0, y0); mark(x1, y0); mark(x1, y2)
-            elif d == 8: jump(x0, y0); mark(x1, y0); mark(x1, y2); mark(x0, y2); mark(x0, y0); jump(x0, y1); mark(x1, y1)
-            elif d == 9: jump(x1, y1); mark(x0, y1); mark(x0, y0); mark(x1, y0); mark(x1, y2); mark(x0, y2)
+        # Apply staged calibration directly before dispatching to galvo hardware
+        def jump(x, y): 
+            cx, cy = self.stagedCalibrationTransform.apply(float(x), float(y))
+            queue.append({'type': 'jump', 'x': int(cx), 'y': int(cy), 'speed': jump_speed})
+        def mark(x, y): 
+            cx, cy = self.stagedCalibrationTransform.apply(float(x), float(y))
+            queue.append({'type': 'mark', 'x': int(cx), 'y': int(cy), 'speed': mark_speed})
 
+        import math
         try:
-            ext = int(hw * 0.1)
-            # 1. Outer Square
+            # 1. Outer Square (40x40 mm)
             jump(min_x, max_y)
             mark(max_x, max_y)
             mark(max_x, min_y)
             mark(min_x, min_y)
             mark(min_x, max_y)
 
-            # 2. Vertical centerline (extended)
-            jump(c, max_y + ext)
-            mark(c, min_y - ext)
+            # 2. Vertical crosshair (-5 to +5 mm)
+            jump(c, c + cross_hw)
+            mark(c, c - cross_hw)
 
-            # 3. Horizontal centerline (extended)
-            jump(min_x - ext, c)
-            mark(max_x + ext, c)
-
-            # 4. Marker at Pt 1 (Top-Left): 2mm Square inside
-            ms = int(2.0 * scale)
-            pad = int(ms / 2)
-            jump(min_x + pad, max_y - pad)
-            mark(min_x + pad + ms, max_y - pad)
-            mark(min_x + pad + ms, max_y - pad - ms)
-            mark(min_x + pad, max_y - pad - ms)
-            mark(min_x + pad, max_y - pad)
-
-            # 5. Marker at Pt 9 (Bottom-Right): 2mm Diamond inside
-            d_cx = max_x - pad - int(ms/2)
-            d_cy = min_y + pad + int(ms/2)
-            d_r = int(ms/2)
-            jump(d_cx, d_cy + d_r)
-            mark(d_cx + d_r, d_cy)
-            mark(d_cx, d_cy - d_r)
-            mark(d_cx - d_r, d_cy)
-            mark(d_cx, d_cy + d_r)
-
-            # 6. Tick mark on horizontal line, right of center
-            tick_x = c + int(hw * 0.15)
-            tick_y_top = c + int(hw * 0.15)
-            tick_y_bot = c - int(hw * 0.15)
-            jump(tick_x, tick_y_top)
-            mark(tick_x, tick_y_bot)
-
-            # Draw Numbers 1-9 to exactly match EZCAD layout
-            dist = int(4.0 * scale)
-            draw_digit(1, min_x + dist, max_y + dist)
-            draw_digit(2, c + dist, max_y + ext + dist)
-            draw_digit(3, max_x - dist, max_y + dist)
-            draw_digit(4, min_x - ext, c + dist)
-            draw_digit(5, c - dist, c + dist)
-            draw_digit(6, max_x + ext - dist, c + dist)
-            draw_digit(7, min_x + dist, min_y - dist)
-            draw_digit(8, c + dist, min_y - ext)
-            draw_digit(9, max_x - dist, min_y - dist)
+            # 3. Horizontal crosshair (-5 to +5 mm)
+            jump(c - cross_hw, c)
+            mark(c + cross_hw, c)
 
             if hasattr(self.ui, 'markvershapePushButton'):
                 self.ui.markvershapePushButton.setEnabled(False)
@@ -4800,7 +4916,7 @@ class MainWindow(QMainWindow):
 
             if hasattr(conn, 'enable_calibration'):
                 original_cal_state = conn.enable_calibration
-                conn.enable_calibration = True
+                conn.enable_calibration = False # We already applied staged calibration
 
             success = self.galvo_controller.execute_queue(
                 queue,
@@ -4818,23 +4934,16 @@ class MainWindow(QMainWindow):
             conn.laser_off()
             conn.galvo_move_xy(c, c)
 
-            dim = int(self.cal_default_w * 2)
-            self.set_cal_status("Status : Verification Shape Marked")
+            self.set_cal_status("Status : Verification Marked")
             QMessageBox.information(
-                self, "Verification Complete",
-                f"Verification shape ({dim}x{dim} mm square) marked!\n\n"
-                "Please measure the physical square corners and sides with calipers to confirm accuracy."
+                self, "Success",
+                "Verification shape marked!\n\nPlease check the physical shape for orthogonal corners and precise dimensions."
             )
         except InterruptedError:
             self.set_cal_status("Status : Stopped")
         except Exception as e:
             self.set_cal_status("Status : Error marking verification shape")
-            QMessageBox.critical(self, "Error", f"Failed to mark verification shape: {e}")
-        finally:
-            if conn:
-                conn.laser_off()
-            if hasattr(self.ui, 'markvershapePushButton'):
-                self.ui.markvershapePushButton.setEnabled(True)
+            print(f"Error marking verification shape: {e}")
 
     def dummy_cal_action(self):
         """Backwards compatibility alias for mark_verification_shape."""

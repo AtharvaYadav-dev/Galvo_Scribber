@@ -73,25 +73,29 @@ void loop() {
   int rawADC = analogRead(PIN_ANALOG_IN);
 
   // The galvo analog output is inversely proportional to power percentage and slightly non-linear.
-  // We use an 11-point lookup table (multiMap) derived from your calibration spreadsheet.
+  // We use an 11-point lookup table (multiMap) derived from calibration.
   // We list ADC values from lowest (highest power) to highest (lowest power) for the interpolation logic.
   const int numPoints = 11;
   const int adcPoints[numPoints] = {290, 603, 921, 1247, 1586, 1938, 2307, 2680, 3090, 3537, 3971};
-  const int pwrPoints[numPoints] = {255, 230, 204, 179, 153, 128, 102, 77,  51,  26,  3};
+  
+  // Power points properly end at 0 so 0% genuinely turns off
+  const int pwrPoints[numPoints] = {255, 230, 204, 179, 153, 128, 102, 77,  51,  26,  0};
 
   int calculatedPower = 0;
   
-  if (rawADC <= adcPoints[0]) {
-    calculatedPower = pwrPoints[0]; // Cap at 100%
-  } else if (rawADC >= adcPoints[numPoints-1]) {
-    calculatedPower = 0; // Cut off completely at 0%
+  // Widen the deadbands slightly to account for DAC drift
+  if (rawADC <= adcPoints[0] + 10) {
+    calculatedPower = pwrPoints[0]; // Cap at 100% (ADC ~290)
+  } else if (rawADC >= adcPoints[numPoints-1] - 80) {
+    // If ADC is >= 3891, force to 0. This guarantees 0% slider completely turns off the laser!
+    calculatedPower = 0; 
   } else {
     // Interpolate between the points
     for (int i = 0; i < numPoints - 1; i++) {
       if (rawADC >= adcPoints[i] && rawADC <= adcPoints[i+1]) {
         long diffADC = rawADC - adcPoints[i];
         long stepADC = adcPoints[i+1] - adcPoints[i];
-        long stepPwr = pwrPoints[i+1] - pwrPoints[i]; // Note: stepPwr will be negative
+        long stepPwr = pwrPoints[i+1] - pwrPoints[i]; // stepPwr will be negative
         
         calculatedPower = pwrPoints[i] + (diffADC * stepPwr) / stepADC;
         break;
@@ -101,7 +105,7 @@ void loop() {
 
   uint8_t targetPowerByte = constrain(calculatedPower, 0, 255);
 
-  if (abs((int)targetPowerByte - (int)currentPowerByte) >= 2) {
+  if (targetPowerByte != currentPowerByte) {
     currentPowerByte = targetPowerByte;
     setLaserPowerByte(currentPowerByte);
   }

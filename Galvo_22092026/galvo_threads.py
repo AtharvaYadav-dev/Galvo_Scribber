@@ -59,6 +59,8 @@ class PreviewThread(QThread):
         speed = 2000000
         if hasattr(self.controller.connection, 'laser_off'):
             self.controller.connection.laser_off()
+        if hasattr(self.controller.connection, 'set_analog_do_bit'):
+            self.controller.connection.set_analog_do_bit(255.0, 0.0, 50.0, 2)
         if hasattr(self.controller.connection, 'reddot_on'):
             self.controller.connection.reddot_on()
             
@@ -84,12 +86,26 @@ class PreviewThread(QThread):
                 self.needs_refresh = False
                 
             if dll_obj and hasattr(dll_obj, 'GT_PROSYS_U3_galvo_move_XY'):
-                # Swap X and Y to match the 90deg CCW + mirror transform applied during marking
-                dll_obj.GT_PROSYS_U3_galvo_move_XY(int(self.min_y), int(self.min_x), speed, 0.0, 0.0, 0.0)
-                dll_obj.GT_PROSYS_U3_galvo_move_XY(int(self.min_y), int(self.max_x), speed, 0.0, 0.0, 0.0)
-                dll_obj.GT_PROSYS_U3_galvo_move_XY(int(self.max_y), int(self.max_x), speed, 0.0, 0.0, 0.0)
-                dll_obj.GT_PROSYS_U3_galvo_move_XY(int(self.max_y), int(self.min_x), speed, 0.0, 0.0, 0.0)
-                dll_obj.GT_PROSYS_U3_galvo_move_XY(int(self.min_y), int(self.min_x), speed, 0.0, 0.0, 0.0)
+                # Apply final corrected coordinate mapping
+                def move(x, y):
+                    dll_obj.GT_PROSYS_U3_galvo_move_XY(int(y), int(x), speed, 0.0, 0.0, 0.0)
+
+                c_y = int((self.min_y + self.max_y) / 2)
+                c_x = int((self.min_x + self.max_x) / 2)
+                
+                # Outer box
+                move(self.min_x, self.min_y)
+                move(self.max_x, self.min_y)
+                move(self.max_x, self.max_y)
+                move(self.min_x, self.max_y)
+                move(self.min_x, self.min_y)
+                
+                # Crosshair
+                move(self.min_x, c_y)
+                move(self.max_x, c_y)
+                move(c_x, c_y)
+                move(c_x, self.min_y)
+                move(c_x, self.max_y)
                 
                 # Wait for the hardware to finish drawing this box before sending the next one.
                 # This prevents the hardware buffer from overflowing with old boxes.

@@ -1,12 +1,14 @@
 {
     "Galvo program page parameters": {
-        "Sample Height": "2.0",
-        "Mark Speed": "100000",
-        "Jump Speed": "200000",
-        "Loop Count": "20",
+        "Sample Height": "0",
+        "Mark Speed": "1000000",
+        "Jump Speed": "2000000",
+        "Loop Count": "1",
         "Start Pos X": "0",
         "Start Pos Y": "0",
         "Enable Hatch": false,
-        "Mode": null
+        "Mode": null,
+        "Laser Power": 1.0,
+        "Laser Frequency": 60.0
     }
 }

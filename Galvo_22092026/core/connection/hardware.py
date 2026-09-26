@@ -1,6 +1,7 @@
 import ctypes
 from ctypes import c_int32, POINTER, byref, c_int, c_double, c_short, c_ushort, c_uint32
 import os
+import numpy as np
 from .base import BaseConnection
 from ..calibration import GalvoCalibration
 
@@ -170,7 +171,11 @@ class HardwareConnection(BaseConnection):
     def stop(self):
         if self.dll and hasattr(self.dll, 'GT_PROSYS_U3_Stop'):
             self.dll.GT_PROSYS_U3_Stop()
-            
+        
+    def clamp_laser_freq(self, requested_freq):
+        # MFP-30W hardware limit is strictly 30kHz to 60kHz. Out of range can trigger alarm/missing pulses.
+        return max(30.0, min(60.0, float(requested_freq)))
+
     def set_analog_do_bit(self, max_val, crt_val, freq_val, bit):
         print(f"HARDWARE COMMAND: set_analog_do_bit() called. max_val={max_val}, crt_val={crt_val}, freq_val={freq_val}, bit={bit}")
         if self.dll and hasattr(self.dll, 'GT_PROSYS_U3_set_analog_do_bit'):
