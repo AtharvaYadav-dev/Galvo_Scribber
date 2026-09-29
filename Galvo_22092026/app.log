@@ -4916,3 +4916,280 @@
 2026-09-29 12:04 - INFO - ==================================================
 2026-09-29 12:04 - INFO - New session close at 2026-09-29 12:04
 2026-09-29 12:04 - INFO - ==================================================
+2026-09-29 12:10 - INFO - UI load successful
+2026-09-29 12:11 - INFO - Galvo Laser Shutdown
+2026-09-29 12:11 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:11 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:11 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:11 - INFO - COM connection close successfully
+2026-09-29 12:11 - INFO - Main window close successfully
+2026-09-29 12:11 - INFO - ==================================================
+2026-09-29 12:11 - INFO - New session close at 2026-09-29 12:11
+2026-09-29 12:11 - INFO - ==================================================
+2026-09-29 12:12 - INFO - UI load successful
+2026-09-29 12:12 - INFO - Profile : Supervisor
+2026-09-29 12:14 - INFO - Galvo Laser Shutdown
+2026-09-29 12:14 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:14 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:14 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:14 - INFO - COM connection close successfully
+2026-09-29 12:14 - INFO - Main window close successfully
+2026-09-29 12:14 - INFO - ==================================================
+2026-09-29 12:14 - INFO - New session close at 2026-09-29 12:14
+2026-09-29 12:14 - INFO - ==================================================
+2026-09-29 12:32 - INFO - UI load successful
+2026-09-29 12:32 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:32 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:34 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:34 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:35 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:35 - INFO - Galvo Laser Shutdown
+2026-09-29 12:35 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:35 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:35 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:35 - INFO - COM connection close successfully
+2026-09-29 12:35 - INFO - Main window close successfully
+2026-09-29 12:35 - INFO - ==================================================
+2026-09-29 12:35 - INFO - New session close at 2026-09-29 12:35
+2026-09-29 12:35 - INFO - ==================================================
+2026-09-29 12:36 - INFO - UI load successful
+2026-09-29 12:36 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:36 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:36 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:37 - INFO - File selected : D:/Users/EXPSOL/Downloads/Drawing-Laser engraving of SS316 Plate/Drawing-Laser engraving of SS316 Plate/Laser engraving of ss316 plate-A side.DXF
+2026-09-29 12:37 - INFO - Parameters saved for D:/Users/EXPSOL/Downloads/Drawing-Laser engraving of SS316 Plate/Drawing-Laser engraving of SS316 Plate/Laser engraving of ss316 plate-A side.DXF
+2026-09-29 12:38 - INFO - File selected : D:/Users/EXPSOL/Downloads/Drawing-Laser engraving of SS316 Plate/Drawing-Laser engraving of SS316 Plate/Laser engraving of ss316 plate-C side.DXF
+2026-09-29 12:38 - INFO - Parameters saved for D:/Users/EXPSOL/Downloads/Drawing-Laser engraving of SS316 Plate/Drawing-Laser engraving of SS316 Plate/Laser engraving of ss316 plate-C side.DXF
+2026-09-29 12:39 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:39 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:40 - INFO - Galvo Laser Shutdown
+2026-09-29 12:40 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:40 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:40 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:40 - INFO - COM connection close successfully
+2026-09-29 12:40 - INFO - Main window close successfully
+2026-09-29 12:40 - INFO - ==================================================
+2026-09-29 12:40 - INFO - New session close at 2026-09-29 12:40
+2026-09-29 12:40 - INFO - ==================================================
+2026-09-29 12:41 - INFO - UI load successful
+2026-09-29 12:41 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:41 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:42 - INFO - UI load successful
+2026-09-29 12:42 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:42 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:43 - INFO - UI load successful
+2026-09-29 12:44 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:44 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:44 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:46 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:47 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 12:47 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 12:48 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:50 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/ide2.svg
+2026-09-29 12:50 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/ide2.svg
+2026-09-29 12:50 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 12:50 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 12:50 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 12:50 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 12:51 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 12:51 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 12:51 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 12:51 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 12:56 - INFO - Galvo Laser Shutdown
+2026-09-29 12:56 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:56 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:56 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:56 - INFO - COM connection close successfully
+2026-09-29 12:56 - INFO - Main window close successfully
+2026-09-29 12:56 - INFO - ==================================================
+2026-09-29 12:56 - INFO - New session close at 2026-09-29 12:56
+2026-09-29 12:56 - INFO - ==================================================
+2026-09-29 12:56 - INFO - UI load successful
+2026-09-29 12:56 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:57 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:57 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 12:57 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 13:01 - INFO - Galvo Laser Shutdown
+2026-09-29 13:01 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:01 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:01 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:01 - INFO - COM connection close successfully
+2026-09-29 13:01 - INFO - Main window close successfully
+2026-09-29 13:01 - INFO - ==================================================
+2026-09-29 13:01 - INFO - New session close at 2026-09-29 13:01
+2026-09-29 13:01 - INFO - ==================================================
+2026-09-29 13:01 - INFO - UI load successful
+2026-09-29 13:02 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:02 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:05 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:06 - INFO - Galvo Laser Shutdown
+2026-09-29 13:06 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:06 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:06 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:06 - INFO - COM connection close successfully
+2026-09-29 13:06 - INFO - Main window close successfully
+2026-09-29 13:06 - INFO - ==================================================
+2026-09-29 13:06 - INFO - New session close at 2026-09-29 13:06
+2026-09-29 13:06 - INFO - ==================================================
+2026-09-29 13:07 - INFO - UI load successful
+2026-09-29 13:07 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:07 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:08 - INFO - Galvo Laser Shutdown
+2026-09-29 13:08 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:08 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:08 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:08 - INFO - COM connection close successfully
+2026-09-29 13:08 - INFO - Main window close successfully
+2026-09-29 13:08 - INFO - ==================================================
+2026-09-29 13:08 - INFO - New session close at 2026-09-29 13:08
+2026-09-29 13:08 - INFO - ==================================================
+2026-09-29 13:12 - INFO - UI load successful
+2026-09-29 13:12 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:12 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:12 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:12 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:13 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:16 - INFO - Galvo Laser Shutdown
+2026-09-29 13:16 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:16 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:16 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:16 - INFO - COM connection close successfully
+2026-09-29 13:16 - INFO - Main window close successfully
+2026-09-29 13:16 - INFO - ==================================================
+2026-09-29 13:16 - INFO - New session close at 2026-09-29 13:16
+2026-09-29 13:16 - INFO - ==================================================
+2026-09-29 13:17 - INFO - UI load successful
+2026-09-29 13:17 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:17 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:24 - INFO - UI load successful
+2026-09-29 13:25 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:25 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:25 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:25 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:25 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:26 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:26 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 13:31 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:35 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:35 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:35 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:35 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:35 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 13:37 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:38 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:38 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 13:40 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:40 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:42 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:43 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:49 - INFO - Close event ignored.
+2026-09-29 13:49 - INFO - Galvo Laser Shutdown
+2026-09-29 13:49 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:49 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:49 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:49 - INFO - COM connection close successfully
+2026-09-29 13:49 - INFO - Main window close successfully
+2026-09-29 13:49 - INFO - ==================================================
+2026-09-29 13:49 - INFO - New session close at 2026-09-29 13:49
+2026-09-29 13:49 - INFO - ==================================================
+2026-09-29 13:50 - INFO - UI load successful
+2026-09-29 13:50 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:50 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:51 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:52 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:52 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:54 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 13:54 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 13:55 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:55 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:57 - INFO - Galvo Laser Shutdown
+2026-09-29 13:57 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:57 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:57 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:57 - INFO - COM connection close successfully
+2026-09-29 13:57 - INFO - Main window close successfully
+2026-09-29 13:57 - INFO - ==================================================
+2026-09-29 13:57 - INFO - New session close at 2026-09-29 13:57
+2026-09-29 13:57 - INFO - ==================================================
+2026-09-29 14:44 - INFO - UI load successful
+2026-09-29 14:44 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:44 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:44 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:45 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 14:45 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 14:47 - INFO - Galvo Laser Shutdown
+2026-09-29 14:47 - CRITICAL - Laser 1 : OFF
+2026-09-29 14:47 - CRITICAL - Laser 2 : OFF
+2026-09-29 14:47 - INFO - Stepper Lasers Shutdown
+2026-09-29 14:47 - INFO - COM connection close successfully
+2026-09-29 14:47 - INFO - Main window close successfully
+2026-09-29 14:47 - INFO - ==================================================
+2026-09-29 14:47 - INFO - New session close at 2026-09-29 14:47
+2026-09-29 14:47 - INFO - ==================================================
+2026-09-29 14:47 - INFO - UI load successful
+2026-09-29 14:48 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:48 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:52 - INFO - Galvo Laser Shutdown
+2026-09-29 14:52 - CRITICAL - Laser 1 : OFF
+2026-09-29 14:52 - CRITICAL - Laser 2 : OFF
+2026-09-29 14:52 - INFO - Stepper Lasers Shutdown
+2026-09-29 14:52 - INFO - COM connection close successfully
+2026-09-29 14:52 - INFO - Main window close successfully
+2026-09-29 14:52 - INFO - ==================================================
+2026-09-29 14:52 - INFO - New session close at 2026-09-29 14:52
+2026-09-29 14:52 - INFO - ==================================================
+2026-09-29 14:52 - INFO - UI load successful
+2026-09-29 14:52 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:52 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:55 - INFO - Galvo Laser Shutdown
+2026-09-29 14:55 - CRITICAL - Laser 1 : OFF
+2026-09-29 14:55 - CRITICAL - Laser 2 : OFF
+2026-09-29 14:55 - INFO - Stepper Lasers Shutdown
+2026-09-29 14:55 - INFO - COM connection close successfully
+2026-09-29 14:55 - INFO - Main window close successfully
+2026-09-29 14:55 - INFO - ==================================================
+2026-09-29 14:55 - INFO - New session close at 2026-09-29 14:55
+2026-09-29 14:55 - INFO - ==================================================
+2026-09-29 14:55 - INFO - UI load successful
+2026-09-29 14:56 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:56 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:02 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:02 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:03 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:05 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:05 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:05 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:08 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:11 - INFO - Galvo Laser Shutdown
+2026-09-29 15:11 - CRITICAL - Laser 1 : OFF
+2026-09-29 15:11 - CRITICAL - Laser 2 : OFF
+2026-09-29 15:11 - INFO - Stepper Lasers Shutdown
+2026-09-29 15:11 - INFO - COM connection close successfully
+2026-09-29 15:11 - INFO - Main window close successfully
+2026-09-29 15:11 - INFO - ==================================================
+2026-09-29 15:11 - INFO - New session close at 2026-09-29 15:11
+2026-09-29 15:11 - INFO - ==================================================
+2026-09-29 15:11 - INFO - UI load successful
+2026-09-29 15:11 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:11 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:13 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 15:13 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 15:17 - INFO - UI load successful
+2026-09-29 15:18 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:18 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:19 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:20 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:20 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:34 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:50 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 15:50 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 15:50 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 15:53 - INFO - Galvo Laser Shutdown
+2026-09-29 15:53 - CRITICAL - Laser 1 : OFF
+2026-09-29 15:53 - CRITICAL - Laser 2 : OFF
+2026-09-29 15:53 - INFO - Stepper Lasers Shutdown
+2026-09-29 15:53 - INFO - COM connection close successfully
+2026-09-29 15:53 - INFO - Main window close successfully
+2026-09-29 15:53 - INFO - ==================================================
+2026-09-29 15:53 - INFO - New session close at 2026-09-29 15:53
+2026-09-29 15:53 - INFO - ==================================================

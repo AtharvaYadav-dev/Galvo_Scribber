@@ -1941,6 +1941,15 @@ class MainWindow(QMainWindow):
                 
             current_text = widget.text().upper()
             if current_text == "ON":
+                try:
+                    power = float(self.ui.galvolaserpowerHorizontalSlider_2.value())
+                except:
+                    power = 0.0
+                    
+                if power <= 0.0:
+                    self.showAutoCloseMessage("Zero Power", "Cannot turn laser ON when power is set to 0%.")
+                    return
+                    
                 print("UI COMMAND: Turning Laser ON (DO1 = HIGH)")
                 self._apply_galvo_laser_settings()
                 self.galvo_controller.connection.laser_on()
@@ -4778,7 +4787,7 @@ class MainWindow(QMainWindow):
                 queue,
                 loop_count=1,
                 abort_check=lambda: self.cal_is_stopped,
-                progress_callback=lambda idx, tot, x, y, ctype: QApplication.processEvents()
+                progress_callback=self._throttled_process_events
             )
 
             if hasattr(conn, 'enable_calibration'):
@@ -4900,6 +4909,15 @@ class MainWindow(QMainWindow):
             self.set_cal_status("Status : Error generating calibration")
             QMessageBox.critical(self, "Error", f"Failed to generate calibration: {e}")
 
+    def _throttled_process_events(self, idx, tot, x, y, ctype):
+        import time
+        from PySide6.QtWidgets import QApplication
+        if not hasattr(self, '_last_cal_ui_update'):
+            self._last_cal_ui_update = 0.0
+        if time.time() - self._last_cal_ui_update > 0.05:
+            QApplication.processEvents()
+            self._last_cal_ui_update = time.time()
+
     def mark_verification_shape(self):
         from PySide6.QtWidgets import QMessageBox, QApplication
         self.cal_is_stopped = False
@@ -4979,7 +4997,7 @@ class MainWindow(QMainWindow):
                 queue,
                 loop_count=1,
                 abort_check=lambda: self.cal_is_stopped,
-                progress_callback=lambda idx, tot, x, y, ctype: QApplication.processEvents()
+                progress_callback=self._throttled_process_events
             )
 
             if hasattr(conn, 'enable_calibration'):

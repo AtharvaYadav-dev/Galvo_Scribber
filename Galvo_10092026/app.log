@@ -1586,3 +1586,34 @@
 2026-09-11 16:58 - INFO - ==================================================
 2026-09-11 16:58 - INFO - New session close at 2026-09-11 16:58
 2026-09-11 16:58 - INFO - ==================================================
+2026-09-29 13:08 - INFO - UI load successful
+2026-09-29 13:08 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:09 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:09 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:09 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:09 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:09 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:09 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:10 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:10 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:10 - INFO - Galvo Laser Shutdown
+2026-09-29 13:10 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:10 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:10 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:10 - INFO - COM connection close successfully
+2026-09-29 13:10 - INFO - Main window close successfully
+2026-09-29 13:10 - INFO - ==================================================
+2026-09-29 13:10 - INFO - New session close at 2026-09-29 13:10
+2026-09-29 13:10 - INFO - ==================================================
+2026-09-29 13:10 - INFO - UI load successful
+2026-09-29 13:11 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:11 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:11 - INFO - Galvo Laser Shutdown
+2026-09-29 13:11 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:11 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:11 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:11 - INFO - COM connection close successfully
+2026-09-29 13:11 - INFO - Main window close successfully
+2026-09-29 13:11 - INFO - ==================================================
+2026-09-29 13:11 - INFO - New session close at 2026-09-29 13:11
+2026-09-29 13:11 - INFO - ==================================================

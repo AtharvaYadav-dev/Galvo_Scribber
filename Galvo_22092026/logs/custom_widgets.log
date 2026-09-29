@@ -12044,3 +12044,1044 @@
 2026-09-29 12:04:18,666 - INFO - ==================================================
 2026-09-29 12:04:18,676 - DEBUG - Calling CoUninitialize()
 2026-09-29 12:04:18,676 - DEBUG - CoUninitialize() done.
+2026-09-29 12:10:11,680 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 12:10:11,879 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 12:10:11,927 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 12:10:11,927 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 12:10:11,929 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 12:10:11,934 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:10:11,953 - DEBUG - Release <POINTER(ITypeLib) ptr=0x182b7952530 at 182bc2b7f50>
+2026-09-29 12:10:11,953 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 12:10:11,953 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:10:11,953 - DEBUG - Release <POINTER(ITypeLib) ptr=0x182b79540b0 at 182bc755dd0>
+2026-09-29 12:10:21,032 - INFO - UI load successful
+2026-09-29 12:11:47,970 - INFO - Galvo Laser Shutdown
+2026-09-29 12:11:47,970 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:11:47,970 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:11:47,970 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:11:47,970 - INFO - COM connection close successfully
+2026-09-29 12:11:47,970 - INFO - Main window close successfully
+2026-09-29 12:11:47,970 - INFO - ==================================================
+2026-09-29 12:11:47,970 - INFO - New session close at 2026-09-29 12:11
+2026-09-29 12:11:47,970 - INFO - ==================================================
+2026-09-29 12:11:47,983 - DEBUG - Calling CoUninitialize()
+2026-09-29 12:11:47,984 - DEBUG - CoUninitialize() done.
+2026-09-29 12:12:32,060 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 12:12:32,258 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 12:12:32,303 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 12:12:32,303 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 12:12:32,309 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 12:12:32,309 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:12:32,332 - DEBUG - Release <POINTER(ITypeLib) ptr=0x16988d64390 at 1698d4a7f50>
+2026-09-29 12:12:32,332 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 12:12:32,334 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:12:32,340 - DEBUG - Release <POINTER(ITypeLib) ptr=0x16988d61fd0 at 1698d945dd0>
+2026-09-29 12:12:41,404 - INFO - UI load successful
+2026-09-29 12:12:51,414 - INFO - Profile : Supervisor
+2026-09-29 12:14:17,148 - INFO - Galvo Laser Shutdown
+2026-09-29 12:14:17,148 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:14:17,148 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:14:17,148 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:14:17,148 - INFO - COM connection close successfully
+2026-09-29 12:14:17,148 - INFO - Main window close successfully
+2026-09-29 12:14:17,148 - INFO - ==================================================
+2026-09-29 12:14:17,148 - INFO - New session close at 2026-09-29 12:14
+2026-09-29 12:14:17,148 - INFO - ==================================================
+2026-09-29 12:14:17,162 - DEBUG - Calling CoUninitialize()
+2026-09-29 12:14:17,163 - DEBUG - CoUninitialize() done.
+2026-09-29 12:32:05,583 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 12:32:05,797 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 12:32:05,844 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 12:32:05,844 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 12:32:05,861 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 12:32:05,861 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:32:05,876 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1cc91efbe70 at 1cc932f43d0>
+2026-09-29 12:32:05,876 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 12:32:05,876 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:32:05,892 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1cc91efd9f0 at 1cc9373e1d0>
+2026-09-29 12:32:14,957 - INFO - UI load successful
+2026-09-29 12:32:31,011 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:32:41,853 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:32:41,917 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 12:33:02,234 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 12:33:06,325 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 12:34:19,713 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:34:19,848 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 12:34:59,543 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:34:59,622 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 12:35:06,032 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:35:06,161 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 12:35:49,970 - INFO - Galvo Laser Shutdown
+2026-09-29 12:35:49,970 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:35:49,970 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:35:49,970 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:35:49,970 - INFO - COM connection close successfully
+2026-09-29 12:35:49,970 - INFO - Main window close successfully
+2026-09-29 12:35:49,970 - INFO - ==================================================
+2026-09-29 12:35:49,970 - INFO - New session close at 2026-09-29 12:35
+2026-09-29 12:35:49,970 - INFO - ==================================================
+2026-09-29 12:35:49,996 - DEBUG - Calling CoUninitialize()
+2026-09-29 12:35:49,996 - DEBUG - CoUninitialize() done.
+2026-09-29 12:35:55,159 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 12:35:55,352 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 12:35:55,400 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 12:35:55,400 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 12:35:55,406 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 12:35:55,407 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:35:55,428 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2a55c0bde70 at 2a560924150>
+2026-09-29 12:35:55,428 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 12:35:55,430 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:35:55,436 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2a55c0bde70 at 2a560d69f50>
+2026-09-29 12:36:04,459 - INFO - UI load successful
+2026-09-29 12:36:18,966 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:36:20,732 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:36:20,786 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 12:36:32,104 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 12:36:32,165 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 12:36:35,072 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 12:37:53,778 - INFO - File selected : D:/Users/EXPSOL/Downloads/Drawing-Laser engraving of SS316 Plate/Drawing-Laser engraving of SS316 Plate/Laser engraving of ss316 plate-A side.DXF
+2026-09-29 12:37:54,787 - INFO - Parameters saved for D:/Users/EXPSOL/Downloads/Drawing-Laser engraving of SS316 Plate/Drawing-Laser engraving of SS316 Plate/Laser engraving of ss316 plate-A side.DXF
+2026-09-29 12:37:54,813 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 12:37:54,813 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 12:37:54,813 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 12:37:54,813 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 12:37:54,813 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 12:38:16,400 - INFO - File selected : D:/Users/EXPSOL/Downloads/Drawing-Laser engraving of SS316 Plate/Drawing-Laser engraving of SS316 Plate/Laser engraving of ss316 plate-C side.DXF
+2026-09-29 12:38:17,277 - INFO - Parameters saved for D:/Users/EXPSOL/Downloads/Drawing-Laser engraving of SS316 Plate/Drawing-Laser engraving of SS316 Plate/Laser engraving of ss316 plate-C side.DXF
+2026-09-29 12:38:17,306 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 12:38:17,306 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 12:38:17,307 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 12:38:17,307 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 12:38:17,307 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 12:39:51,253 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:39:52,277 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:40:07,657 - INFO - Galvo Laser Shutdown
+2026-09-29 12:40:07,657 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:40:07,657 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:40:07,657 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:40:07,657 - INFO - COM connection close successfully
+2026-09-29 12:40:07,657 - INFO - Main window close successfully
+2026-09-29 12:40:07,657 - INFO - ==================================================
+2026-09-29 12:40:07,657 - INFO - New session close at 2026-09-29 12:40
+2026-09-29 12:40:07,657 - INFO - ==================================================
+2026-09-29 12:40:07,698 - DEBUG - Calling CoUninitialize()
+2026-09-29 12:40:07,698 - DEBUG - CoUninitialize() done.
+2026-09-29 12:41:09,294 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 12:41:09,489 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 12:41:09,535 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 12:41:09,535 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 12:41:09,550 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 12:41:09,550 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:41:09,566 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f3dfa40250 at 1f3e4237f50>
+2026-09-29 12:41:09,566 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 12:41:09,566 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:41:09,583 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f3dfa40250 at 1f3e46c5ed0>
+2026-09-29 12:41:18,675 - INFO - UI load successful
+2026-09-29 12:41:28,986 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:41:35,844 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:42:10,331 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 12:42:10,519 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 12:42:10,566 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 12:42:10,566 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 12:42:10,566 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 12:42:10,582 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:42:10,600 - DEBUG - Release <POINTER(ITypeLib) ptr=0x17df9ec2e00 at 17dfe4f7f50>
+2026-09-29 12:42:10,600 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 12:42:10,600 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:42:10,611 - DEBUG - Release <POINTER(ITypeLib) ptr=0x17df9ec25c0 at 17dfe989ed0>
+2026-09-29 12:42:19,653 - INFO - UI load successful
+2026-09-29 12:42:33,316 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:42:41,305 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Laser engraving of ss316 plate-A side.svg
+2026-09-29 12:43:47,204 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 12:43:47,421 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 12:43:47,470 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 12:43:47,470 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 12:43:47,476 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 12:43:47,477 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:43:47,499 - DEBUG - Release <POINTER(ITypeLib) ptr=0x25ee7469610 at 25eebdc7f50>
+2026-09-29 12:43:47,499 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 12:43:47,501 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:43:47,507 - DEBUG - Release <POINTER(ITypeLib) ptr=0x25ee746a110 at 25eec255ed0>
+2026-09-29 12:43:56,563 - INFO - UI load successful
+2026-09-29 12:44:18,400 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:44:20,385 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:44:27,003 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:46:37,044 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:47:52,456 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 12:47:52,784 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 12:48:14,251 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:50:32,272 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/ide2.svg
+2026-09-29 12:50:34,398 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/ide2.svg
+2026-09-29 12:50:55,962 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 12:50:56,172 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 12:50:59,139 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 12:50:59,345 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 12:51:01,640 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 12:51:18,753 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 12:51:40,637 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 12:51:40,845 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 12:56:13,251 - INFO - Galvo Laser Shutdown
+2026-09-29 12:56:13,251 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:56:13,251 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:56:13,251 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:56:13,251 - INFO - COM connection close successfully
+2026-09-29 12:56:13,251 - INFO - Main window close successfully
+2026-09-29 12:56:13,251 - INFO - ==================================================
+2026-09-29 12:56:13,251 - INFO - New session close at 2026-09-29 12:56
+2026-09-29 12:56:13,251 - INFO - ==================================================
+2026-09-29 12:56:13,288 - DEBUG - Calling CoUninitialize()
+2026-09-29 12:56:13,289 - DEBUG - CoUninitialize() done.
+2026-09-29 12:56:21,075 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 12:56:21,355 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 12:56:21,410 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 12:56:21,410 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 12:56:21,414 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 12:56:21,417 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:56:21,440 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1cc1a00ae40 at 1cc1e960150>
+2026-09-29 12:56:21,440 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 12:56:21,440 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:56:21,445 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1cc1a00ae40 at 1cc1eda5f50>
+2026-09-29 12:56:30,515 - INFO - UI load successful
+2026-09-29 12:56:49,571 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:57:01,889 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 12:57:11,249 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 12:57:28,350 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 13:01:40,108 - INFO - Galvo Laser Shutdown
+2026-09-29 13:01:40,108 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:01:40,108 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:01:40,108 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:01:40,108 - INFO - COM connection close successfully
+2026-09-29 13:01:40,108 - INFO - Main window close successfully
+2026-09-29 13:01:40,108 - INFO - ==================================================
+2026-09-29 13:01:40,108 - INFO - New session close at 2026-09-29 13:01
+2026-09-29 13:01:40,108 - INFO - ==================================================
+2026-09-29 13:01:40,129 - DEBUG - Calling CoUninitialize()
+2026-09-29 13:01:40,129 - DEBUG - CoUninitialize() done.
+2026-09-29 13:01:43,195 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 13:01:43,453 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 13:01:43,516 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 13:01:43,516 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 13:01:43,516 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 13:01:43,532 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:01:43,547 - DEBUG - Release <POINTER(ITypeLib) ptr=0x22bbe3e77f0 at 22bc2fd41d0>
+2026-09-29 13:01:43,547 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 13:01:43,547 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:01:43,563 - DEBUG - Release <POINTER(ITypeLib) ptr=0x22bbe3e9370 at 22bc3415fd0>
+2026-09-29 13:01:52,644 - INFO - UI load successful
+2026-09-29 13:02:07,993 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:02:13,915 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:05:48,293 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:06:26,514 - INFO - Galvo Laser Shutdown
+2026-09-29 13:06:26,514 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:06:26,514 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:06:26,514 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:06:26,514 - INFO - COM connection close successfully
+2026-09-29 13:06:26,514 - INFO - Main window close successfully
+2026-09-29 13:06:26,514 - INFO - ==================================================
+2026-09-29 13:06:26,514 - INFO - New session close at 2026-09-29 13:06
+2026-09-29 13:06:26,514 - INFO - ==================================================
+2026-09-29 13:06:26,549 - DEBUG - Calling CoUninitialize()
+2026-09-29 13:06:26,549 - DEBUG - CoUninitialize() done.
+2026-09-29 13:07:30,225 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 13:07:30,587 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 13:07:30,701 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 13:07:30,701 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 13:07:30,716 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 13:07:30,721 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:07:30,758 - DEBUG - Release <POINTER(ITypeLib) ptr=0x249d7cce7b0 at 249dc688050>
+2026-09-29 13:07:30,759 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 13:07:30,762 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:07:30,769 - DEBUG - Release <POINTER(ITypeLib) ptr=0x249d7ccb8f0 at 249dcac5f50>
+2026-09-29 13:07:40,343 - INFO - UI load successful
+2026-09-29 13:07:53,329 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:07:56,068 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:08:26,708 - INFO - Galvo Laser Shutdown
+2026-09-29 13:08:26,708 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:08:26,708 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:08:26,708 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:08:26,708 - INFO - COM connection close successfully
+2026-09-29 13:08:26,708 - INFO - Main window close successfully
+2026-09-29 13:08:26,708 - INFO - ==================================================
+2026-09-29 13:08:26,708 - INFO - New session close at 2026-09-29 13:08
+2026-09-29 13:08:26,708 - INFO - ==================================================
+2026-09-29 13:08:26,722 - DEBUG - Calling CoUninitialize()
+2026-09-29 13:08:26,723 - DEBUG - CoUninitialize() done.
+2026-09-29 13:11:52,575 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 13:11:52,783 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 13:11:52,834 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 13:11:52,834 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 13:11:52,844 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 13:11:52,844 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:11:52,871 - DEBUG - Release <POINTER(ITypeLib) ptr=0x154b224b6c0 at 154b6a27f50>
+2026-09-29 13:11:52,871 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 13:11:52,873 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:11:52,879 - DEBUG - Release <POINTER(ITypeLib) ptr=0x154b2249300 at 154b6ebded0>
+2026-09-29 13:12:02,010 - INFO - UI load successful
+2026-09-29 13:12:17,837 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:12:19,332 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:12:19,336 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:12:19,339 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:12:19,340 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:12:19,340 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:12:19,340 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:12:19,340 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:12:19,340 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:12:19,340 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:12:19,340 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:12:19,340 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:12:19,340 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:12:26,876 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:12:41,065 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:12:41,075 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:12:41,079 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:12:41,079 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:12:41,079 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:12:41,079 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:12:41,079 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:12:41,079 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:12:41,079 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:12:41,079 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:12:41,079 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:12:41,079 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:12:42,139 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:12:42,143 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:12:42,143 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:12:42,143 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:12:42,143 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:12:42,143 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:12:42,143 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:12:42,143 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:12:42,143 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:12:42,143 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:12:42,143 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:13:33,276 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:13:33,276 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:13:33,276 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:13:33,276 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:13:33,276 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:13:33,276 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:13:33,276 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:13:33,276 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:13:33,276 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:13:33,276 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:13:33,276 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:13:33,276 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:13:34,773 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:13:34,777 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:13:34,777 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:13:34,777 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:13:34,777 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:13:34,777 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:13:34,777 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:13:34,777 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:13:34,777 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:13:34,777 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:13:34,777 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:16:58,206 - INFO - Galvo Laser Shutdown
+2026-09-29 13:16:58,206 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:16:58,206 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:16:58,206 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:16:58,206 - INFO - COM connection close successfully
+2026-09-29 13:16:58,206 - INFO - Main window close successfully
+2026-09-29 13:16:58,206 - INFO - ==================================================
+2026-09-29 13:16:58,206 - INFO - New session close at 2026-09-29 13:16
+2026-09-29 13:16:58,206 - INFO - ==================================================
+2026-09-29 13:16:58,225 - DEBUG - Calling CoUninitialize()
+2026-09-29 13:16:58,225 - DEBUG - CoUninitialize() done.
+2026-09-29 13:17:03,217 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 13:17:03,427 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 13:17:03,460 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 13:17:03,460 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 13:17:03,475 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 13:17:03,475 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:17:03,492 - DEBUG - Release <POINTER(ITypeLib) ptr=0x23293ab7dc0 at 232982f82d0>
+2026-09-29 13:17:03,492 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 13:17:03,492 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:17:03,507 - DEBUG - Release <POINTER(ITypeLib) ptr=0x23293ab88c0 at 232987360d0>
+2026-09-29 13:17:12,563 - INFO - UI load successful
+2026-09-29 13:17:37,547 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:17:43,593 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:17:43,602 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:17:43,602 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:17:43,602 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:17:43,602 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:17:43,602 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:17:43,602 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:17:43,602 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:17:43,602 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:17:43,602 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:17:43,602 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:17:43,602 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:17:45,634 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:17:45,634 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:17:45,634 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:17:45,634 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:17:45,634 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:17:45,634 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:17:45,634 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:17:45,634 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:17:45,634 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:17:45,634 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:17:45,634 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:24:18,166 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 13:24:18,372 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 13:24:18,420 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 13:24:18,420 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 13:24:18,420 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 13:24:18,420 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:24:18,452 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f330f95b60 at 1f3352583d0>
+2026-09-29 13:24:18,452 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 13:24:18,452 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:24:18,452 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f330f95320 at 1f3356961d0>
+2026-09-29 13:24:27,529 - INFO - UI load successful
+2026-09-29 13:25:19,641 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:25:29,308 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:25:35,021 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:25:37,330 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:25:56,910 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:26:02,257 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:26:07,042 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 13:31:06,264 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:35:31,546 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:35:32,862 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:35:33,327 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:35:39,518 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:35:40,269 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 13:37:28,988 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 13:38:00,968 - INFO - mapmatrixAction : stopmat
+2026-09-29 13:38:03,611 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 13:40:18,286 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:40:20,246 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:40:20,266 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:40:20,270 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:40:20,270 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:40:20,270 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:40:20,270 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:40:20,270 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:40:20,270 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:40:20,270 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:40:20,270 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:40:20,270 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:40:20,270 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:40:21,640 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:40:21,642 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:40:21,642 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:40:21,642 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:40:21,642 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:40:21,642 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:40:21,642 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:40:21,642 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:40:21,642 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:40:21,642 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:40:21,644 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:41:18,911 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:41:18,911 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:41:18,911 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:41:18,911 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:41:18,911 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:41:18,911 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:41:18,911 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:41:18,911 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:41:18,911 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:41:18,911 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:41:18,911 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:41:30,224 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:41:30,224 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:41:30,224 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:41:30,224 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:41:30,224 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:41:30,224 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:41:30,224 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:41:30,224 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:41:30,224 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:41:30,224 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:41:30,224 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:42:22,888 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:42:22,888 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:42:22,888 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:42:22,888 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:42:22,888 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:42:22,888 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:42:22,888 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:42:22,888 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:42:22,888 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:42:22,888 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:42:22,888 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:42:22,888 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:43:46,328 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:43:46,328 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:43:46,328 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:43:46,328 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:43:46,328 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:43:46,328 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:43:46,328 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:43:46,328 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:43:46,328 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:43:46,328 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:43:46,328 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:43:46,328 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:49:48,004 - INFO - Close event ignored.
+2026-09-29 13:49:51,114 - INFO - Galvo Laser Shutdown
+2026-09-29 13:49:51,114 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:49:51,114 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:49:51,114 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:49:51,114 - INFO - COM connection close successfully
+2026-09-29 13:49:51,114 - INFO - Main window close successfully
+2026-09-29 13:49:51,114 - INFO - ==================================================
+2026-09-29 13:49:51,114 - INFO - New session close at 2026-09-29 13:49
+2026-09-29 13:49:51,114 - INFO - ==================================================
+2026-09-29 13:49:51,131 - DEBUG - Calling CoUninitialize()
+2026-09-29 13:49:51,132 - DEBUG - CoUninitialize() done.
+2026-09-29 13:49:55,988 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 13:49:56,195 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 13:49:56,242 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 13:49:56,242 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 13:49:56,242 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 13:49:56,242 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:49:56,275 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2e7b9810bc0 at 2e7be068350>
+2026-09-29 13:49:56,275 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 13:49:56,276 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 13:49:56,282 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2e7b9810380 at 2e7be4aa150>
+2026-09-29 13:50:05,384 - INFO - UI load successful
+2026-09-29 13:50:19,918 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:50:32,974 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:50:32,974 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:50:32,974 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:50:32,974 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:50:32,974 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:50:32,974 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:50:32,974 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:50:32,974 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:50:32,974 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:50:32,974 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:50:32,974 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:50:32,974 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:50:34,241 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:50:34,250 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:50:34,250 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:50:34,250 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:50:34,250 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:50:34,250 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:50:34,251 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:50:34,251 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:50:34,251 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:50:34,251 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:50:34,251 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:51:25,760 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:51:25,763 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:51:25,763 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:51:25,763 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:51:25,763 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:51:25,763 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:51:25,763 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:51:25,763 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:51:25,763 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:51:25,763 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:51:25,763 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:51:45,019 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:51:45,023 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:51:45,023 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:51:45,023 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:51:45,023 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:51:45,023 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:51:45,023 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:51:45,023 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:51:45,023 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:51:45,023 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:51:45,023 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:51:45,023 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:51:46,307 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:51:46,307 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:51:46,307 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:51:46,307 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:51:46,307 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:51:46,307 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:51:46,307 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:51:46,307 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:51:46,307 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:51:46,307 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:51:46,307 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:51:53,084 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:51:53,084 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:51:53,084 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:51:53,084 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:51:53,084 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:51:53,084 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:51:53,084 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:51:53,084 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:51:53,084 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:51:53,084 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:51:53,084 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:52:35,682 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:52:37,753 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 13:54:16,362 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 13:54:21,967 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 13:54:22,037 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:54:25,367 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:55:32,168 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:55:33,771 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 13:55:33,787 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:55:33,787 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:55:33,787 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:55:33,787 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:55:33,787 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:55:33,787 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:55:33,787 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:55:33,787 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:55:33,787 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:55:33,787 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:55:33,787 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:55:34,830 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:55:34,830 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:55:34,830 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:55:34,830 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:55:34,830 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:55:34,830 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:55:34,830 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:55:34,830 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:55:34,830 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:55:34,830 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:55:34,830 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:56:19,142 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 13:56:19,142 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 13:56:19,142 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 13:56:19,142 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 13:56:19,142 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 13:56:19,142 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 13:56:19,142 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 13:56:19,142 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 13:56:19,142 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 13:56:19,142 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 13:56:19,142 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 13:57:16,921 - INFO - Galvo Laser Shutdown
+2026-09-29 13:57:16,921 - CRITICAL - Laser 1 : OFF
+2026-09-29 13:57:16,921 - CRITICAL - Laser 2 : OFF
+2026-09-29 13:57:16,921 - INFO - Stepper Lasers Shutdown
+2026-09-29 13:57:16,921 - INFO - COM connection close successfully
+2026-09-29 13:57:16,921 - INFO - Main window close successfully
+2026-09-29 13:57:16,921 - INFO - ==================================================
+2026-09-29 13:57:16,921 - INFO - New session close at 2026-09-29 13:57
+2026-09-29 13:57:16,921 - INFO - ==================================================
+2026-09-29 13:57:16,938 - DEBUG - Calling CoUninitialize()
+2026-09-29 13:57:16,939 - DEBUG - CoUninitialize() done.
+2026-09-29 14:43:57,191 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 14:43:57,380 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 14:43:57,438 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 14:43:57,438 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 14:43:57,443 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 14:43:57,443 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 14:43:57,461 - DEBUG - Release <POINTER(ITypeLib) ptr=0x242fcaecdd0 at 24281604450>
+2026-09-29 14:43:57,461 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 14:43:57,461 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 14:43:57,476 - DEBUG - Release <POINTER(ITypeLib) ptr=0x242fcaed8d0 at 24281a26250>
+2026-09-29 14:44:06,513 - INFO - UI load successful
+2026-09-29 14:44:20,887 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:44:22,828 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:44:22,828 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:44:22,828 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:44:22,828 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:44:22,828 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:44:22,828 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:44:22,828 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:44:22,828 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:44:22,828 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:44:22,828 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:44:22,828 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:44:22,828 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:44:31,348 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:44:31,356 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:44:31,359 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:44:31,360 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:44:31,360 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:44:31,360 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:44:31,360 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:44:31,360 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:44:31,360 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:44:31,360 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:44:31,360 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:44:31,360 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:44:32,157 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:44:32,157 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:44:32,157 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:44:32,157 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:44:32,157 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:44:32,157 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:44:32,157 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:44:32,157 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:44:32,157 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:44:32,157 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:44:32,157 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:44:37,936 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:44:37,936 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:44:37,936 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:44:37,936 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:44:37,936 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:44:37,936 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:44:37,936 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:44:37,936 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:44:37,936 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:44:37,936 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:44:37,936 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:45:32,663 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 14:45:34,556 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 14:45:34,667 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:45:37,079 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:47:36,897 - INFO - Galvo Laser Shutdown
+2026-09-29 14:47:36,897 - CRITICAL - Laser 1 : OFF
+2026-09-29 14:47:36,897 - CRITICAL - Laser 2 : OFF
+2026-09-29 14:47:36,897 - INFO - Stepper Lasers Shutdown
+2026-09-29 14:47:36,897 - INFO - COM connection close successfully
+2026-09-29 14:47:36,897 - INFO - Main window close successfully
+2026-09-29 14:47:36,897 - INFO - ==================================================
+2026-09-29 14:47:36,897 - INFO - New session close at 2026-09-29 14:47
+2026-09-29 14:47:36,897 - INFO - ==================================================
+2026-09-29 14:47:36,911 - DEBUG - Calling CoUninitialize()
+2026-09-29 14:47:36,912 - DEBUG - CoUninitialize() done.
+2026-09-29 14:47:39,971 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 14:47:40,173 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 14:47:40,209 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 14:47:40,209 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 14:47:40,209 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 14:47:40,225 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 14:47:40,247 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2599b7d9cf0 at 259a0464350>
+2026-09-29 14:47:40,247 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 14:47:40,249 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 14:47:40,256 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2599b7d73b0 at 259a08a6150>
+2026-09-29 14:47:49,294 - INFO - UI load successful
+2026-09-29 14:48:05,390 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:48:15,942 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:48:15,959 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:48:15,964 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:48:15,964 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:48:15,964 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:48:15,964 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:48:15,964 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:48:15,964 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:48:15,964 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:48:15,965 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:48:15,965 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:48:15,965 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:48:17,083 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:48:17,083 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:48:17,083 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:48:17,083 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:48:17,083 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:48:17,083 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:48:17,083 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:48:17,083 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:48:17,083 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:48:17,083 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:48:17,083 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:52:08,961 - INFO - Galvo Laser Shutdown
+2026-09-29 14:52:08,961 - CRITICAL - Laser 1 : OFF
+2026-09-29 14:52:08,961 - CRITICAL - Laser 2 : OFF
+2026-09-29 14:52:08,961 - INFO - Stepper Lasers Shutdown
+2026-09-29 14:52:08,961 - INFO - COM connection close successfully
+2026-09-29 14:52:08,961 - INFO - Main window close successfully
+2026-09-29 14:52:08,961 - INFO - ==================================================
+2026-09-29 14:52:08,961 - INFO - New session close at 2026-09-29 14:52
+2026-09-29 14:52:08,961 - INFO - ==================================================
+2026-09-29 14:52:08,978 - DEBUG - Calling CoUninitialize()
+2026-09-29 14:52:08,978 - DEBUG - CoUninitialize() done.
+2026-09-29 14:52:11,976 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 14:52:12,188 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 14:52:12,234 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 14:52:12,234 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 14:52:12,240 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 14:52:12,240 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 14:52:12,262 - DEBUG - Release <POINTER(ITypeLib) ptr=0x189d2c32f20 at 189d7574450>
+2026-09-29 14:52:12,262 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 14:52:12,262 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 14:52:12,262 - DEBUG - Release <POINTER(ITypeLib) ptr=0x189d2c310e0 at 189d79ba250>
+2026-09-29 14:52:21,299 - INFO - UI load successful
+2026-09-29 14:52:33,932 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:52:42,706 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:52:42,722 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:52:42,722 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:52:42,722 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:52:42,722 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:52:42,722 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:52:42,722 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:52:42,722 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:52:42,722 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:52:42,722 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:52:42,722 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:52:42,722 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:52:43,876 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:52:43,880 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:52:43,880 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:52:43,880 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:52:43,880 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:52:43,880 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:52:43,880 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:52:43,880 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:52:43,880 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:52:43,880 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:52:43,880 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:53:23,862 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:53:23,862 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:53:23,862 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:53:23,862 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:53:23,862 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:53:23,862 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:53:23,862 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:53:23,862 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:53:23,862 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:53:23,862 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:53:23,862 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:55:37,265 - INFO - Galvo Laser Shutdown
+2026-09-29 14:55:37,265 - CRITICAL - Laser 1 : OFF
+2026-09-29 14:55:37,265 - CRITICAL - Laser 2 : OFF
+2026-09-29 14:55:37,265 - INFO - Stepper Lasers Shutdown
+2026-09-29 14:55:37,265 - INFO - COM connection close successfully
+2026-09-29 14:55:37,265 - INFO - Main window close successfully
+2026-09-29 14:55:37,265 - INFO - ==================================================
+2026-09-29 14:55:37,265 - INFO - New session close at 2026-09-29 14:55
+2026-09-29 14:55:37,265 - INFO - ==================================================
+2026-09-29 14:55:37,281 - DEBUG - Calling CoUninitialize()
+2026-09-29 14:55:37,281 - DEBUG - CoUninitialize() done.
+2026-09-29 14:55:40,492 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 14:55:40,690 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 14:55:40,721 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 14:55:40,721 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 14:55:40,737 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 14:55:40,737 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 14:55:40,753 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2352b21d370 at 2352fa34350>
+2026-09-29 14:55:40,753 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 14:55:40,753 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 14:55:40,769 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2352b21aa30 at 2352fe76150>
+2026-09-29 14:55:49,807 - INFO - UI load successful
+2026-09-29 14:56:02,366 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:56:04,508 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 14:56:04,508 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:56:04,508 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:56:04,508 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:56:04,508 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:56:04,508 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:56:04,508 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:56:04,508 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:56:04,508 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:56:04,508 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:56:04,508 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:56:04,508 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:56:05,717 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:56:05,717 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:56:05,717 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:56:05,717 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:56:05,717 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:56:05,717 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:56:05,717 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:56:05,717 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:56:05,717 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:56:05,717 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:56:05,717 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:56:06,832 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:56:06,832 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:56:06,832 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:56:06,832 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:56:06,832 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:56:06,832 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:56:06,832 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:56:06,832 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:56:06,832 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:56:06,832 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:56:06,832 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:56:56,226 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:56:56,226 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:56:56,226 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:56:56,226 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:56:56,226 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:56:56,226 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:56:56,226 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:56:56,226 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:56:56,226 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:56:56,226 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:56:56,226 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 14:58:21,760 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 14:58:21,760 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 14:58:21,760 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 14:58:21,760 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 14:58:21,760 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 14:58:21,760 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 14:58:21,760 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 14:58:21,760 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 14:58:21,760 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 14:58:21,760 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 14:58:21,760 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 15:02:47,522 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:02:55,306 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:03:16,788 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:05:05,884 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:05:41,636 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:05:43,688 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:05:43,691 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 15:05:43,691 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:05:43,691 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 15:05:43,691 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 15:05:43,691 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 15:05:43,691 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 15:05:43,691 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 15:05:43,691 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 15:05:43,691 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 15:05:43,691 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 15:05:43,691 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 15:05:44,639 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 15:05:44,639 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:05:44,639 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 15:05:44,639 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 15:05:44,639 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 15:05:44,639 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 15:05:44,639 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 15:05:44,639 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 15:05:44,639 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 15:05:44,639 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 15:05:44,639 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 15:08:19,346 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:08:19,346 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 15:08:19,346 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:08:19,346 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 15:08:19,346 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 15:08:19,346 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 15:08:19,346 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 15:08:19,346 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 15:08:19,346 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 15:08:19,346 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 15:08:19,346 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 15:08:19,346 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 15:08:20,600 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 15:08:20,604 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:08:20,604 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 15:08:20,604 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 15:08:20,604 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 15:08:20,604 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 15:08:20,604 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 15:08:20,604 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 15:08:20,604 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 15:08:20,604 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 15:08:20,604 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 15:11:25,384 - INFO - Galvo Laser Shutdown
+2026-09-29 15:11:25,384 - CRITICAL - Laser 1 : OFF
+2026-09-29 15:11:25,384 - CRITICAL - Laser 2 : OFF
+2026-09-29 15:11:25,384 - INFO - Stepper Lasers Shutdown
+2026-09-29 15:11:25,384 - INFO - COM connection close successfully
+2026-09-29 15:11:25,384 - INFO - Main window close successfully
+2026-09-29 15:11:25,384 - INFO - ==================================================
+2026-09-29 15:11:25,384 - INFO - New session close at 2026-09-29 15:11
+2026-09-29 15:11:25,384 - INFO - ==================================================
+2026-09-29 15:11:25,408 - DEBUG - Calling CoUninitialize()
+2026-09-29 15:11:25,408 - DEBUG - CoUninitialize() done.
+2026-09-29 15:11:29,294 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 15:11:29,469 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 15:11:29,517 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 15:11:29,517 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 15:11:29,517 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 15:11:29,533 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 15:11:29,554 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1ddb389c4a0 at 1ddb8224450>
+2026-09-29 15:11:29,554 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 15:11:29,556 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 15:11:29,562 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1ddb389c4a0 at 1ddb866a250>
+2026-09-29 15:11:38,622 - INFO - UI load successful
+2026-09-29 15:11:56,144 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:11:59,030 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:11:59,035 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 15:11:59,041 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:11:59,041 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 15:11:59,041 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 15:11:59,041 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 15:11:59,041 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 15:11:59,041 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 15:11:59,041 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 15:11:59,042 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 15:11:59,042 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 15:11:59,042 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 15:12:01,310 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 15:12:01,314 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:12:01,316 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 15:12:01,316 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 15:12:01,316 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 15:12:01,316 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 15:12:01,316 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 15:12:01,316 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 15:12:01,316 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 15:12:01,316 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 15:12:01,316 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 15:13:04,716 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 15:13:27,713 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 15:17:37,909 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 15:17:38,115 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 15:17:38,159 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 15:17:38,159 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 15:17:38,161 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 15:17:38,168 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 15:17:38,189 - DEBUG - Release <POINTER(ITypeLib) ptr=0x23573900e90 at 235781d44d0>
+2026-09-29 15:17:38,189 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 15:17:38,191 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 15:17:38,197 - DEBUG - Release <POINTER(ITypeLib) ptr=0x235738fe290 at 235786162d0>
+2026-09-29 15:17:46,849 - INFO - UI load successful
+2026-09-29 15:18:15,179 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:18:23,202 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:18:23,221 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 15:18:23,224 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:18:23,224 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 15:18:23,224 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 15:18:23,224 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 15:18:23,224 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 15:18:23,224 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 15:18:23,224 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 15:18:23,224 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 15:18:23,224 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 15:18:23,224 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 15:18:24,459 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 15:18:24,459 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:18:24,459 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 15:18:24,459 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 15:18:24,459 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 15:18:24,459 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 15:18:24,459 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 15:18:24,459 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 15:18:24,459 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 15:18:24,459 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 15:18:24,459 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 15:19:47,845 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-09-29 15:19:47,848 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 15:19:47,852 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:19:47,852 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 15:19:47,852 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 15:19:47,852 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 15:19:47,852 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 15:19:47,852 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 15:19:47,852 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 15:19:47,852 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 15:19:47,852 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 15:19:47,852 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 15:19:48,817 - INFO - DXF version upgrade to DXF R2000.
+2026-09-29 15:19:48,820 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:19:48,820 - INFO - creating ACAD_LAYOUT dictionary
+2026-09-29 15:19:48,820 - INFO - creating ACAD_MATERIAL dictionary
+2026-09-29 15:19:48,820 - INFO - creating ACAD_MLEADERSTYLE dictionary
+2026-09-29 15:19:48,820 - INFO - creating ACAD_MLINESTYLE dictionary
+2026-09-29 15:19:48,820 - INFO - creating ACAD_PLOTSETTINGS dictionary
+2026-09-29 15:19:48,820 - INFO - creating ACAD_PLOTSTYLENAME dictionary
+2026-09-29 15:19:48,820 - INFO - creating ACAD_SCALELIST dictionary
+2026-09-29 15:19:48,820 - INFO - creating ACAD_TABLESTYLE dictionary
+2026-09-29 15:19:48,822 - INFO - creating ACAD_VISUALSTYLE dictionary
+2026-09-29 15:20:33,245 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:20:38,213 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:34:22,040 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Main/MF device 250 micron channel.dxf
+2026-09-29 15:50:04,315 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 15:50:06,645 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 15:50:06,714 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:50:11,560 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:50:57,038 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-29 15:50:57,214 - INFO - creating ACAD_COLOR dictionary
+2026-09-29 15:53:50,642 - INFO - Galvo Laser Shutdown
+2026-09-29 15:53:50,642 - CRITICAL - Laser 1 : OFF
+2026-09-29 15:53:50,642 - CRITICAL - Laser 2 : OFF
+2026-09-29 15:53:50,642 - INFO - Stepper Lasers Shutdown
+2026-09-29 15:53:50,642 - INFO - COM connection close successfully
+2026-09-29 15:53:50,642 - INFO - Main window close successfully
+2026-09-29 15:53:50,642 - INFO - ==================================================
+2026-09-29 15:53:50,642 - INFO - New session close at 2026-09-29 15:53
+2026-09-29 15:53:50,642 - INFO - ==================================================
+2026-09-29 15:53:50,666 - DEBUG - Calling CoUninitialize()
+2026-09-29 15:53:50,666 - DEBUG - CoUninitialize() done.

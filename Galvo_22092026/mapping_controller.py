@@ -301,11 +301,18 @@ class ParameterMappingController:
         self.is_running = False
 
     def _progress_cb(self, idx, total, x, y, ctype):
+        if not hasattr(self, '_last_ui_update'):
+            self._last_ui_update = 0.0
+            
         if idx in self.cmd_to_cell:
             r, c = self.cmd_to_cell[idx]
             if self.canvas.active_cell != (r, c):
                 self.canvas.set_active_cell(r, c)
-        QApplication.processEvents()
+                
+        import time
+        if time.time() - self._last_ui_update > 0.05:
+            QApplication.processEvents()
+            self._last_ui_update = time.time()
 
     def run_preview(self):
         self._execute(is_preview=True)

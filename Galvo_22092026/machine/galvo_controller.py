@@ -54,6 +54,11 @@ class GalvoController:
         laser_state = False  # Track current laser state
         total_cmds = len(send_queue) * loop_count
         
+        current_galvo_x = 0.0
+        current_galvo_y = 0.0
+        path_start_time = time.time()
+        expected_duration = 0.0
+        
         try:
             for loop_idx in range(loop_count):
                 for i, cmd in enumerate(send_queue):
@@ -137,6 +142,7 @@ class GalvoController:
                                     self.connection.send_buffer()
                                 if hasattr(self.connection, 'wait_for_motion'):
                                     self.connection.wait_for_motion()
+                                    time.sleep(0.0015) # Laser OFF delay to allow mechanical mirror lag to catch up
                                 self.connection.laser_off()
                                 laser_state = False
                         
@@ -145,9 +151,10 @@ class GalvoController:
                             cmd_y = cmd['x']
                         
                             self.connection.galvo_move_xy(cmd_x, cmd_y, cmd.get('speed'))
+                            current_galvo_x = float(cmd_x)
+                            current_galvo_y = float(cmd_y)
                             if progress_callback:
                                 progress_callback(current_idx, total_cmds, cmd['x'], cmd['y'], ctype)
-                            self.connection.wait_for_motion()
                     
                         elif ctype == 'mark':
                             mark_count += 1
@@ -158,24 +165,51 @@ class GalvoController:
                                 if hasattr(self.connection, 'wait_for_motion'):
                                     self.connection.wait_for_motion()
                                 self.connection.laser_on()
+                                time.sleep(0.0015) # Laser ON delay to allow laser source to fully ignite before moving
                                 laser_state = True
+                                
+                                # Reset leaky bucket for new continuous path
+                                path_start_time = time.time()
+                                expected_duration = 0.0
                             
                             # Apply final corrected coordinate mapping
                             cmd_x = cmd['y']
                             cmd_y = cmd['x']
+                            
+                            import math
+                            dist = math.hypot(cmd_x - current_galvo_x, cmd_y - current_galvo_y)
+                            speed_val = float(cmd.get('speed', 1000))
+                            if speed_val > 0:
+                                expected_duration += dist / speed_val
+                                elapsed = time.time() - path_start_time
+                                # If Python is more than 50ms ahead of the hardware execution, sleep a tiny bit
+                                if (expected_duration - elapsed) > 0.050:
+                                    time.sleep(0.015)
                         
                             self.connection.galvo_move_xy(cmd_x, cmd_y, cmd.get('speed'))
+                            current_galvo_x = float(cmd_x)
+                            current_galvo_y = float(cmd_y)
+                            
                             if progress_callback:
                                 progress_callback(current_idx, total_cmds, cmd['x'], cmd['y'], ctype)
-                            self.connection.wait_for_motion()
                         
                         elif ctype == 'laser_on':
                             if not laser_state:
+                                if hasattr(self.connection, 'send_buffer'):
+                                    self.connection.send_buffer()
+                                if hasattr(self.connection, 'wait_for_motion'):
+                                    self.connection.wait_for_motion()
                                 self.connection.laser_on()
+                                time.sleep(0.0015)
                                 laser_state = True
                         
                         elif ctype == 'laser_off':
                             if laser_state:
+                                if hasattr(self.connection, 'send_buffer'):
+                                    self.connection.send_buffer()
+                                if hasattr(self.connection, 'wait_for_motion'):
+                                    self.connection.wait_for_motion()
+                                    time.sleep(0.0015)
                                 self.connection.laser_off()
                                 laser_state = False
                         
@@ -195,8 +229,11 @@ class GalvoController:
                     except ConnectionError as e:
                         print(f"Execution aborted: {e}")
                         return False
+            if hasattr(self.connection, 'send_buffer'):
+                self.connection.send_buffer()
+            if hasattr(self.connection, 'wait_for_motion'):
+                self.connection.wait_for_motion()
                 
-            self.connection.send_buffer()
             flush_logs()
         
             end_time = time.time()
