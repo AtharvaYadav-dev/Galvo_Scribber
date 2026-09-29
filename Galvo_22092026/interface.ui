@@ -2434,7 +2434,7 @@ QPushButton:disabled {
                 </size>
                </property>
                <property name="currentIndex">
-                <number>7</number>
+                <number>6</number>
                </property>
                <widget class="QWidget" name="joggalvoPage">
                 <layout class="QVBoxLayout" name="verticalLayout_102">
@@ -7367,8 +7367,8 @@ QProgressBar::chunk {
                       <widget class="QWidget" name="scrollAreaWidgetContents_2">
                        <property name="geometry">
                         <rect>
-                         <x>0</x>
-                         <y>0</y>
+                         <x>-30</x>
+                         <y>-354</y>
                          <width>613</width>
                          <height>687</height>
                         </rect>
@@ -9831,8 +9831,8 @@ QPushButton:disabled {
                       <widget class="QWidget" name="scrollAreaWidgetContents_3">
                        <property name="geometry">
                         <rect>
-                         <x>0</x>
-                         <y>0</y>
+                         <x>-228</x>
+                         <y>-398</y>
                          <width>828</width>
                          <height>731</height>
                         </rect>
@@ -12197,19 +12197,40 @@ Shape</string>
                                 <property name="frameShadow">
                                  <enum>QFrame::Shadow::Raised</enum>
                                 </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_147" stretch="3,2">
+                                <layout class="QHBoxLayout" name="horizontalLayout_19">
                                  <item>
-                                  <spacer name="horizontalSpacer_12">
-                                   <property name="orientation">
-                                    <enum>Qt::Orientation::Horizontal</enum>
+                                  <widget class="QPushButton" name="maindesignPushButton">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>12</pointsize>
+                                     <bold>true</bold>
+                                    </font>
                                    </property>
-                                   <property name="sizeHint" stdset="0">
-                                    <size>
-                                     <width>170</width>
-                                     <height>9</height>
-                                    </size>
+                                   <property name="styleSheet">
+                                    <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(16, 42, 131);
+	border-color: transparent;
+	border-style: outset;
+	border-radius: 15px;
+	border-width: 2px;
+	padding: 6px;
+}
+
+QPushButton:hover {
+	color: rgb(16, 42, 131);
+	background-color: rgb(167, 198, 229);
+	border-color: rgb(16, 42, 131);
+}
+
+QPushButton:disabled {
+	background-color: rgb(172, 172, 172);
+}</string>
                                    </property>
-                                  </spacer>
+                                   <property name="text">
+                                    <string>Apply to Main Design</string>
+                                   </property>
+                                  </widget>
                                  </item>
                                  <item>
                                   <widget class="QPushButton" name="ezcadclosePushButton">
@@ -12311,12 +12332,12 @@ QPushButton:disabled {
                        <property name="geometry">
                         <rect>
                          <x>0</x>
-                         <y>0</y>
+                         <y>-275</y>
                          <width>574</width>
-                         <height>561</height>
+                         <height>620</height>
                         </rect>
                        </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_153">
+                       <layout class="QVBoxLayout" name="verticalLayout_8">
                         <item>
                          <widget class="QFrame" name="frame_5">
                           <property name="frameShape">
@@ -13408,7 +13429,7 @@ QPushButton:disabled {
                                   </widget>
                                  </item>
                                  <item>
-                                  <widget class="QPushButton" name="stopmatPushButton">
+                                  <widget class="QPushButton" name="pausePushButton">
                                    <property name="font">
                                     <font>
                                      <pointsize>12</pointsize>
@@ -13437,7 +13458,7 @@ QPushButton:disabled {
 }</string>
                                    </property>
                                    <property name="text">
-                                    <string>Stop/Abort(Esc)</string>
+                                    <string>Pause (F3)</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -13445,6 +13466,157 @@ QPushButton:disabled {
                                </widget>
                               </item>
                              </layout>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QFrame" name="frame_3">
+                          <property name="frameShape">
+                           <enum>QFrame::Shape::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Shadow::Raised</enum>
+                          </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="4,1,4">
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QFrame" name="frame_101">
+                             <property name="frameShape">
+                              <enum>QFrame::Shape::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Shadow::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_157" stretch="0,0">
+                              <property name="leftMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>0</number>
+                              </property>
+                              <item alignment="Qt::AlignmentFlag::AlignLeft">
+                               <widget class="QLabel" name="feedLabel_42">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>12</pointsize>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QLabel {
+    color: rgb(16, 42, 131);
+    font-weight: bold;
+}</string>
+                                </property>
+                                <property name="text">
+                                 <string>Galvo Speed :</string>
+                                </property>
+                                <property name="alignment">
+                                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLineEdit" name="galvospeedLineEdit">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>16777215</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
+                                <property name="font">
+                                 <font>
+                                  <pointsize>12</pointsize>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QLineEdit {
+    border: 2px solid #102a83;
+    border-radius: 6px;       /* Optional: for rounded corners */
+    padding: 4px;             /* Optional: inner spacing */
+    color: #102a83;           /* Text color inside the line edit */
+}
+</string>
+                                </property>
+                                <property name="alignment">
+                                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <spacer name="horizontalSpacer">
+                             <property name="orientation">
+                              <enum>Qt::Orientation::Horizontal</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>40</width>
+                               <height>20</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
+                           <item>
+                            <widget class="QPushButton" name="stopmatPushButton">
+                             <property name="font">
+                              <font>
+                               <pointsize>12</pointsize>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(255, 0, 0);
+	border-color: transparent;
+	border-style: outset;
+	border-radius: 15px;
+	border-width: 2px;
+	padding: 6px;
+}
+
+QPushButton:hover {
+	color: rgb(16, 42, 131);
+	background-color: rgb(167, 198, 229);
+	border-color: rgb(16, 42, 131);
+}
+
+QPushButton:disabled {
+	background-color: rgb(172, 172, 172);
+}</string>
+                             </property>
+                             <property name="text">
+                              <string>Stop/Abort(Esc)</string>
+                             </property>
                             </widget>
                            </item>
                           </layout>

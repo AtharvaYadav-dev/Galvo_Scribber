@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interface.ui'
+## Form generated from reading UI file 'interfaceoKvXIb.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -3826,7 +3826,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 613, 687))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(-30, -354, 613, 687))
         self.verticalLayout_85 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_85.setObjectName(u"verticalLayout_85")
         self.frame_42 = QFrame(self.scrollAreaWidgetContents_2)
@@ -5092,7 +5092,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 828, 731))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(-228, -398, 828, 731))
         self.verticalLayout_93 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_93.setObjectName(u"verticalLayout_93")
         self.frame_62 = QFrame(self.scrollAreaWidgetContents_3)
@@ -6345,11 +6345,32 @@ class Ui_MainWindow(object):
         self.frame_63.setObjectName(u"frame_63")
         self.frame_63.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_63.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_147 = QHBoxLayout(self.frame_63)
-        self.horizontalLayout_147.setObjectName(u"horizontalLayout_147")
-        self.horizontalSpacer_12 = QSpacerItem(170, 9, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_19 = QHBoxLayout(self.frame_63)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.maindesignPushButton = QPushButton(self.frame_63)
+        self.maindesignPushButton.setObjectName(u"maindesignPushButton")
+        self.maindesignPushButton.setFont(font5)
+        self.maindesignPushButton.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);	\n"
+"	background-color: rgb(16, 42, 131);\n"
+"	border-color: transparent;\n"
+"	border-style: outset;\n"
+"	border-radius: 15px;\n"
+"	border-width: 2px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	color: rgb(16, 42, 131);\n"
+"	background-color: rgb(167, 198, 229);\n"
+"	border-color: rgb(16, 42, 131);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background-color: rgb(172, 172, 172);\n"
+"}")
 
-        self.horizontalLayout_147.addItem(self.horizontalSpacer_12)
+        self.horizontalLayout_19.addWidget(self.maindesignPushButton)
 
         self.ezcadclosePushButton = QPushButton(self.frame_63)
         self.ezcadclosePushButton.setObjectName(u"ezcadclosePushButton")
@@ -6374,10 +6395,8 @@ class Ui_MainWindow(object):
 "	background-color: rgb(172, 172, 172);\n"
 "}")
 
-        self.horizontalLayout_147.addWidget(self.ezcadclosePushButton)
+        self.horizontalLayout_19.addWidget(self.ezcadclosePushButton)
 
-        self.horizontalLayout_147.setStretch(0, 3)
-        self.horizontalLayout_147.setStretch(1, 2)
 
         self.verticalLayout_95.addWidget(self.frame_63)
 
@@ -6419,9 +6438,9 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 574, 561))
-        self.horizontalLayout_153 = QHBoxLayout(self.scrollAreaWidgetContents_4)
-        self.horizontalLayout_153.setObjectName(u"horizontalLayout_153")
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, -275, 574, 620))
+        self.verticalLayout_8 = QVBoxLayout(self.scrollAreaWidgetContents_4)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.frame_5 = QFrame(self.scrollAreaWidgetContents_4)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setFrameShape(QFrame.Shape.StyledPanel)
@@ -6995,10 +7014,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_22.addWidget(self.lasermarkmatPushButton)
 
-        self.stopmatPushButton = QPushButton(self.frame_4)
-        self.stopmatPushButton.setObjectName(u"stopmatPushButton")
-        self.stopmatPushButton.setFont(font5)
-        self.stopmatPushButton.setStyleSheet(u"QPushButton {\n"
+        self.pausePushButton = QPushButton(self.frame_4)
+        self.pausePushButton.setObjectName(u"pausePushButton")
+        self.pausePushButton.setFont(font5)
+        self.pausePushButton.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);	\n"
 "	background-color: rgb(16, 42, 131);\n"
 "	border-color: transparent;\n"
@@ -7018,7 +7037,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(172, 172, 172);\n"
 "}")
 
-        self.verticalLayout_22.addWidget(self.stopmatPushButton)
+        self.verticalLayout_22.addWidget(self.pausePushButton)
 
 
         self.verticalLayout_7.addWidget(self.frame_4)
@@ -7031,7 +7050,88 @@ class Ui_MainWindow(object):
         self.horizontalLayout_15.setStretch(0, 4)
         self.horizontalLayout_15.setStretch(1, 6)
 
-        self.horizontalLayout_153.addWidget(self.frame_5)
+        self.verticalLayout_8.addWidget(self.frame_5)
+
+        self.frame_3 = QFrame(self.scrollAreaWidgetContents_4)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.frame_3)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.horizontalLayout_18.setContentsMargins(0, 0, 0, 0)
+        self.frame_101 = QFrame(self.frame_3)
+        self.frame_101.setObjectName(u"frame_101")
+        self.frame_101.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_101.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_157 = QHBoxLayout(self.frame_101)
+        self.horizontalLayout_157.setObjectName(u"horizontalLayout_157")
+        self.horizontalLayout_157.setContentsMargins(0, -1, 0, -1)
+        self.feedLabel_42 = QLabel(self.frame_101)
+        self.feedLabel_42.setObjectName(u"feedLabel_42")
+        self.feedLabel_42.setFont(font5)
+        self.feedLabel_42.setStyleSheet(u"QLabel {\n"
+"    color: rgb(16, 42, 131);\n"
+"    font-weight: bold;\n"
+"}")
+        self.feedLabel_42.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_157.addWidget(self.feedLabel_42, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.galvospeedLineEdit = QLineEdit(self.frame_101)
+        self.galvospeedLineEdit.setObjectName(u"galvospeedLineEdit")
+        sizePolicy2.setHeightForWidth(self.galvospeedLineEdit.sizePolicy().hasHeightForWidth())
+        self.galvospeedLineEdit.setSizePolicy(sizePolicy2)
+        self.galvospeedLineEdit.setMinimumSize(QSize(0, 0))
+        self.galvospeedLineEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.galvospeedLineEdit.setFont(font5)
+        self.galvospeedLineEdit.setStyleSheet(u"QLineEdit {\n"
+"    border: 2px solid #102a83;\n"
+"    border-radius: 6px;       /* Optional: for rounded corners */\n"
+"    padding: 4px;             /* Optional: inner spacing */\n"
+"    color: #102a83;           /* Text color inside the line edit */\n"
+"}\n"
+"")
+        self.galvospeedLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_157.addWidget(self.galvospeedLineEdit)
+
+
+        self.horizontalLayout_18.addWidget(self.frame_101)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_18.addItem(self.horizontalSpacer)
+
+        self.stopmatPushButton = QPushButton(self.frame_3)
+        self.stopmatPushButton.setObjectName(u"stopmatPushButton")
+        self.stopmatPushButton.setFont(font5)
+        self.stopmatPushButton.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);	\n"
+"	background-color: rgb(255, 0, 0);\n"
+"	border-color: transparent;\n"
+"	border-style: outset;\n"
+"	border-radius: 15px;\n"
+"	border-width: 2px;\n"
+"	padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	color: rgb(16, 42, 131);\n"
+"	background-color: rgb(167, 198, 229);\n"
+"	border-color: rgb(16, 42, 131);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background-color: rgb(172, 172, 172);\n"
+"}")
+
+        self.horizontalLayout_18.addWidget(self.stopmatPushButton)
+
+        self.horizontalLayout_18.setStretch(0, 4)
+        self.horizontalLayout_18.setStretch(1, 1)
+        self.horizontalLayout_18.setStretch(2, 4)
+
+        self.verticalLayout_8.addWidget(self.frame_3)
 
         self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_4)
 
@@ -7156,7 +7256,7 @@ class Ui_MainWindow(object):
 
         self.centerMenuPages.setCurrentIndex(3)
         self.infoSubPages.setCurrentIndex(0)
-        self.mainPages.setCurrentIndex(7)
+        self.mainPages.setCurrentIndex(6)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -7446,6 +7546,7 @@ class Ui_MainWindow(object):
 " Calibration", None))
         self.markvershapePushButton.setText(QCoreApplication.translate("MainWindow", u"Mark Verification \n"
 "Shape", None))
+        self.maindesignPushButton.setText(QCoreApplication.translate("MainWindow", u"Apply to Main Design", None))
         self.ezcadclosePushButton.setText(QCoreApplication.translate("MainWindow", u"Close", None))
         self.page3Label_9.setText(QCoreApplication.translate("MainWindow", u"Parameter Mapping Matrix", None))
         self.label_115.setText(QCoreApplication.translate("MainWindow", u"Power(%)  - X Axis", None))
@@ -7467,6 +7568,8 @@ class Ui_MainWindow(object):
 "parameter values", None))
         self.redmarkmatPushButton.setText(QCoreApplication.translate("MainWindow", u"Red Mark(F1/Preview)", None))
         self.lasermarkmatPushButton.setText(QCoreApplication.translate("MainWindow", u"Laser Mark(F2/Execute)", None))
+        self.pausePushButton.setText(QCoreApplication.translate("MainWindow", u"Pause (F3)", None))
+        self.feedLabel_42.setText(QCoreApplication.translate("MainWindow", u"Galvo Speed :", None))
         self.stopmatPushButton.setText(QCoreApplication.translate("MainWindow", u"Stop/Abort(Esc)", None))
         self.notifyLabel.setText(QCoreApplication.translate("MainWindow", u"Notification", None))
         self.notifyTextEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
