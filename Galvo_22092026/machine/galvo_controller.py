@@ -89,6 +89,12 @@ class GalvoController:
                         
                         if current_power != self._last_applied_power or current_freq != self._last_applied_freq:
                             if hasattr(self.connection, 'set_analog_do_bit'):
+                                # Turn off laser immediately before changing parameters
+                                if laser_state:
+                                    if hasattr(self.connection, 'laser_off'):
+                                        self.connection.laser_off()
+                                    laser_state = False
+
                                 print(f"[DEBUG] Injecting live power update: Power={current_power}, Freq={current_freq}")
                                 # Send previous buffered commands to hardware
                                 if hasattr(self.connection, 'send_buffer'):
@@ -99,10 +105,8 @@ class GalvoController:
 
                                 if current_power <= 0:
                                     # Hard-disable laser emission
-                                    self.connection.laser_off()
                                     self.connection.set_analog_do_bit(255.0, 0.0, 50.0, 2)
                                 else:
-                                    # Linearly map input (1% to 100%) to the full hardware output scale (1-255)
                                     mapped_power = (float(current_power) / 100.0) * 255.0
                                     self.connection.set_analog_do_bit(255.0, mapped_power, 50.0, 2)
                                 
@@ -111,10 +115,13 @@ class GalvoController:
                                 else:
                                     safe_freq = float(current_freq)
                                 
-                                self.connection.set_analog_do_bit(100.0, 50.0, safe_freq / 4.0, 3)
+                                # Convert 20kHz - 80kHz to 10% - 90% Duty Cycle for the Blackpill
+                                freq_duty_cycle = 10.0 + ((safe_freq - 20.0) / (80.0 - 20.0)) * 80.0
+                                freq_duty_cycle = max(10.0, min(90.0, freq_duty_cycle))
+                                self.connection.set_analog_do_bit(100.0, freq_duty_cycle, 50.0, 0)
                             
-                                # 15-20ms stabilization delay prior to firing
-                                time.sleep(0.02)
+                                # 50ms stabilization delay to let the analog RC filter fully settle
+                                time.sleep(0.05)
                             self._last_applied_power = current_power
                             self._last_applied_freq = current_freq
                     # ---------------------------------

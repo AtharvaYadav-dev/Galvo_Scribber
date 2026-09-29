@@ -11015,3 +11015,1032 @@
 2026-09-26 15:14:16,981 - INFO - ==================================================
 2026-09-26 15:14:16,993 - DEBUG - Calling CoUninitialize()
 2026-09-26 15:14:16,993 - DEBUG - CoUninitialize() done.
+2026-09-26 15:42:57,598 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-26 15:42:57,936 - DEBUG - CoInitializeEx(None, 2)
+2026-09-26 15:42:58,014 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-26 15:42:58,014 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-26 15:42:58,029 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-26 15:42:58,030 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 15:42:58,062 - DEBUG - Release <POINTER(ITypeLib) ptr=0x24efac646b0 at 24e9285b750>
+2026-09-26 15:42:58,062 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-26 15:42:58,062 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 15:42:58,078 - DEBUG - Release <POINTER(ITypeLib) ptr=0x24efac63e70 at 24e92cf15d0>
+2026-09-26 15:43:07,163 - INFO - UI load successful
+2026-09-26 15:49:32,726 - INFO - Galvo Laser Shutdown
+2026-09-26 15:49:32,726 - CRITICAL - Laser 1 : OFF
+2026-09-26 15:49:32,726 - CRITICAL - Laser 2 : OFF
+2026-09-26 15:49:32,726 - INFO - Stepper Lasers Shutdown
+2026-09-26 15:49:32,726 - INFO - COM connection close successfully
+2026-09-26 15:49:32,726 - INFO - Main window close successfully
+2026-09-26 15:49:32,726 - INFO - ==================================================
+2026-09-26 15:49:32,726 - INFO - New session close at 2026-09-26 15:49
+2026-09-26 15:49:32,726 - INFO - ==================================================
+2026-09-26 15:49:32,769 - DEBUG - Calling CoUninitialize()
+2026-09-26 15:49:32,769 - DEBUG - CoUninitialize() done.
+2026-09-26 15:50:45,550 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-26 15:50:45,764 - DEBUG - CoInitializeEx(None, 2)
+2026-09-26 15:50:45,833 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-26 15:50:45,833 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-26 15:50:45,843 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-26 15:50:45,843 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 15:50:45,864 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1900a945610 at 190221696d0>
+2026-09-26 15:50:45,864 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-26 15:50:45,864 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 15:50:45,864 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1900a945350 at 1902257f4d0>
+2026-09-26 15:50:45,958 - DEBUG - Calling CoUninitialize()
+2026-09-26 15:50:45,958 - DEBUG - CoUninitialize() done.
+2026-09-26 15:51:33,411 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-26 15:51:33,601 - DEBUG - CoInitializeEx(None, 2)
+2026-09-26 15:51:33,633 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-26 15:51:33,633 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-26 15:51:33,648 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-26 15:51:33,648 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 15:51:33,664 - DEBUG - Release <POINTER(ITypeLib) ptr=0x20488eea5c0 at 2048d63b6d0>
+2026-09-26 15:51:33,664 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-26 15:51:33,664 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 15:51:33,680 - DEBUG - Release <POINTER(ITypeLib) ptr=0x20488eea5c0 at 2048dad9550>
+2026-09-26 15:51:42,799 - INFO - UI load successful
+2026-09-26 15:52:29,678 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:52:33,657 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:52:35,138 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:52:41,704 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:54:06,984 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:54:10,195 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:54:19,159 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:54:20,845 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:54:21,458 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:54:27,486 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:54:44,303 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:54:51,001 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:54:52,134 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 15:55:14,466 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-26 15:55:14,715 - DEBUG - CoInitializeEx(None, 2)
+2026-09-26 15:55:14,782 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-26 15:55:14,782 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-26 15:55:14,782 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-26 15:55:14,799 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 15:55:14,816 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f500df2fc0 at 1f507c6acd0>
+2026-09-26 15:55:14,816 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-26 15:55:14,816 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 15:55:14,865 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f500df4e00 at 1f50811cb50>
+2026-09-26 15:55:14,915 - DEBUG - Calling CoUninitialize()
+2026-09-26 15:55:14,915 - DEBUG - CoUninitialize() done.
+2026-09-26 15:55:22,401 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:55:32,868 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:55:34,030 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 15:56:34,653 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:56:39,596 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:56:40,929 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 15:56:52,489 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 15:59:12,886 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:59:20,486 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:59:21,829 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:06:48,643 - INFO - Galvo Laser Shutdown
+2026-09-26 16:06:48,643 - CRITICAL - Laser 1 : OFF
+2026-09-26 16:06:48,643 - CRITICAL - Laser 2 : OFF
+2026-09-26 16:06:48,643 - INFO - Stepper Lasers Shutdown
+2026-09-26 16:06:48,643 - INFO - COM connection close successfully
+2026-09-26 16:06:48,643 - INFO - Main window close successfully
+2026-09-26 16:06:48,643 - INFO - ==================================================
+2026-09-26 16:06:48,643 - INFO - New session close at 2026-09-26 16:06
+2026-09-26 16:06:48,643 - INFO - ==================================================
+2026-09-26 16:06:48,663 - DEBUG - Calling CoUninitialize()
+2026-09-26 16:06:48,663 - DEBUG - CoUninitialize() done.
+2026-09-26 16:06:51,685 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-26 16:06:51,908 - DEBUG - CoInitializeEx(None, 2)
+2026-09-26 16:06:51,958 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-26 16:06:51,958 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-26 16:06:51,958 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-26 16:06:51,970 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 16:06:51,989 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f2aebd9f50 at 1f2b361b6d0>
+2026-09-26 16:06:51,989 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-26 16:06:51,989 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 16:06:51,989 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f2aebd8ed0 at 1f2b3ab9550>
+2026-09-26 16:07:01,079 - INFO - UI load successful
+2026-09-26 16:07:49,282 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:08:37,377 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:08:38,745 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:08:51,077 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:08:51,657 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:09:42,892 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:09:44,032 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:09:51,931 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:09:54,924 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:10:57,061 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:11:15,777 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:11:41,313 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:15:38,172 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:15:59,188 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:16:02,198 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:18:21,392 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:20:06,112 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:20:16,541 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:20:17,239 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:20:23,113 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:20:23,845 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:20:31,120 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:20:31,944 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:20:57,054 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:20:57,647 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:21:27,103 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:21:27,696 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:21:31,140 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:21:38,141 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:21:38,828 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:21:56,419 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:21:57,018 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:22:12,926 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:22:13,744 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:22:33,244 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:22:34,410 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:22:48,970 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:22:49,894 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:27:03,839 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:27:43,924 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:27:53,183 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:27:54,288 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:29:02,754 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:29:25,866 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:29:32,670 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:29:34,742 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:35:13,879 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:35:29,333 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:35:30,306 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:40:23,342 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:41:13,861 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:46:11,658 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:46:16,067 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:46:18,465 - INFO - Galvo Laser Shutdown
+2026-09-26 16:46:18,465 - CRITICAL - Laser 1 : OFF
+2026-09-26 16:46:18,465 - CRITICAL - Laser 2 : OFF
+2026-09-26 16:46:18,465 - INFO - Stepper Lasers Shutdown
+2026-09-26 16:46:18,465 - INFO - COM connection close successfully
+2026-09-26 16:46:18,465 - INFO - Main window close successfully
+2026-09-26 16:46:18,465 - INFO - ==================================================
+2026-09-26 16:46:18,465 - INFO - New session close at 2026-09-26 16:46
+2026-09-26 16:46:18,465 - INFO - ==================================================
+2026-09-26 16:46:18,495 - DEBUG - Calling CoUninitialize()
+2026-09-26 16:46:18,495 - DEBUG - CoUninitialize() done.
+2026-09-26 16:50:00,635 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-26 16:50:00,843 - DEBUG - CoInitializeEx(None, 2)
+2026-09-26 16:50:00,895 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-26 16:50:00,895 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-26 16:50:00,895 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-26 16:50:00,895 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 16:50:00,927 - DEBUG - Release <POINTER(ITypeLib) ptr=0x13f47492990 at 13f4b72b6d0>
+2026-09-26 16:50:00,927 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-26 16:50:00,927 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 16:50:00,927 - DEBUG - Release <POINTER(ITypeLib) ptr=0x13f47490050 at 13f4bbc9550>
+2026-09-26 16:50:09,967 - INFO - UI load successful
+2026-09-26 16:51:33,415 - INFO - Galvo Laser Shutdown
+2026-09-26 16:51:33,415 - CRITICAL - Laser 1 : OFF
+2026-09-26 16:51:33,415 - CRITICAL - Laser 2 : OFF
+2026-09-26 16:51:33,415 - INFO - Stepper Lasers Shutdown
+2026-09-26 16:51:33,415 - INFO - COM connection close successfully
+2026-09-26 16:51:33,415 - INFO - Main window close successfully
+2026-09-26 16:51:33,415 - INFO - ==================================================
+2026-09-26 16:51:33,415 - INFO - New session close at 2026-09-26 16:51
+2026-09-26 16:51:33,415 - INFO - ==================================================
+2026-09-26 16:51:33,429 - DEBUG - Calling CoUninitialize()
+2026-09-26 16:51:33,429 - DEBUG - CoUninitialize() done.
+2026-09-26 16:54:59,172 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-26 16:54:59,379 - DEBUG - CoInitializeEx(None, 2)
+2026-09-26 16:54:59,435 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-26 16:54:59,435 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-26 16:54:59,440 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-26 16:54:59,440 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 16:54:59,466 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2153c684df0 at 21541167650>
+2026-09-26 16:54:59,466 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-26 16:54:59,468 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 16:54:59,474 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2153c6845b0 at 215416094d0>
+2026-09-26 16:55:08,512 - INFO - UI load successful
+2026-09-26 16:55:46,349 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:55:49,663 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:55:55,074 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:55:56,095 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:55:59,028 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:01,336 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:03,076 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:08,503 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:10,275 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:11,625 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:12,831 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:14,072 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:15,257 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:16,308 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:17,533 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:18,724 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:19,898 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:20,836 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:21,582 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:22,648 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:23,911 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:25,096 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:25,687 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:25,923 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:26,100 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:26,280 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:26,456 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:26,640 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:26,927 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:27,116 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:27,338 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:27,505 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:27,717 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:27,897 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:28,072 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:28,287 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:28,470 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:28,684 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:28,871 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:29,045 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:29,257 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:29,470 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:29,646 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:29,849 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:30,045 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:30,238 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:30,403 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:30,594 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:30,914 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56:45,587 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:58:24,820 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:58:30,327 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:58:48,368 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:58:48,544 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:59:31,941 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:59:36,398 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:59:38,081 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:59:38,938 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:59:42,121 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:06:34,537 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:06:34,734 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:06:44,060 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:06:53,661 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:06:55,575 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:06:58,462 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:07:05,683 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:07:12,268 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:07:13,617 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:09:41,042 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:09:50,605 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:09:54,183 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:12:32,521 - INFO - Galvo Laser Shutdown
+2026-09-26 17:12:32,524 - CRITICAL - Laser 1 : OFF
+2026-09-26 17:12:32,524 - CRITICAL - Laser 2 : OFF
+2026-09-26 17:12:32,524 - INFO - Stepper Lasers Shutdown
+2026-09-26 17:12:32,524 - INFO - COM connection close successfully
+2026-09-26 17:12:32,524 - INFO - Main window close successfully
+2026-09-26 17:12:32,524 - INFO - ==================================================
+2026-09-26 17:12:32,524 - INFO - New session close at 2026-09-26 17:12
+2026-09-26 17:12:32,524 - INFO - ==================================================
+2026-09-26 17:12:32,570 - DEBUG - Calling CoUninitialize()
+2026-09-26 17:12:32,571 - DEBUG - CoUninitialize() done.
+2026-09-26 17:22:33,172 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-26 17:22:33,380 - DEBUG - CoInitializeEx(None, 2)
+2026-09-26 17:22:33,428 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-26 17:22:33,428 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-26 17:22:33,428 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-26 17:22:33,428 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 17:22:33,455 - DEBUG - Release <POINTER(ITypeLib) ptr=0x21ac7cccb90 at 21acc523850>
+2026-09-26 17:22:33,459 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-26 17:22:33,459 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 17:22:33,459 - DEBUG - Release <POINTER(ITypeLib) ptr=0x21ac7cccb90 at 21acc9bd6d0>
+2026-09-26 17:22:42,531 - INFO - UI load successful
+2026-09-26 17:23:13,595 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:23:16,950 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:23:19,444 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:23:20,076 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:23:58,150 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:23:59,250 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:41:30,995 - INFO - Galvo Laser Shutdown
+2026-09-26 17:41:31,007 - CRITICAL - Laser 1 : OFF
+2026-09-26 17:41:31,008 - CRITICAL - Laser 2 : OFF
+2026-09-26 17:41:31,008 - INFO - Stepper Lasers Shutdown
+2026-09-26 17:41:31,008 - INFO - COM connection close successfully
+2026-09-26 17:41:31,008 - INFO - Main window close successfully
+2026-09-26 17:41:31,009 - INFO - ==================================================
+2026-09-26 17:41:31,009 - INFO - New session close at 2026-09-26 17:41
+2026-09-26 17:41:31,009 - INFO - ==================================================
+2026-09-26 17:41:31,038 - DEBUG - Calling CoUninitialize()
+2026-09-26 17:41:31,038 - DEBUG - CoUninitialize() done.
+2026-09-26 17:41:36,085 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-26 17:41:36,378 - DEBUG - CoInitializeEx(None, 2)
+2026-09-26 17:41:36,439 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-26 17:41:36,439 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-26 17:41:36,452 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-26 17:41:36,452 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 17:41:36,480 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f75d66e280 at 1f761dd3750>
+2026-09-26 17:41:36,480 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-26 17:41:36,483 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 17:41:36,492 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f75d66c180 at 1f7622715d0>
+2026-09-26 17:41:45,607 - INFO - UI load successful
+2026-09-26 17:42:45,415 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:42:54,591 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:42:55,640 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:45:45,542 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:46:04,348 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:46:05,076 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:47:06,622 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:47:07,295 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:53:55,232 - INFO - Galvo Laser Shutdown
+2026-09-26 17:53:55,232 - CRITICAL - Laser 1 : OFF
+2026-09-26 17:53:55,232 - CRITICAL - Laser 2 : OFF
+2026-09-26 17:53:55,232 - INFO - Stepper Lasers Shutdown
+2026-09-26 17:53:55,232 - INFO - COM connection close successfully
+2026-09-26 17:53:55,232 - INFO - Main window close successfully
+2026-09-26 17:53:55,232 - INFO - ==================================================
+2026-09-26 17:53:55,232 - INFO - New session close at 2026-09-26 17:53
+2026-09-26 17:53:55,232 - INFO - ==================================================
+2026-09-26 17:53:55,268 - DEBUG - Calling CoUninitialize()
+2026-09-26 17:53:55,268 - DEBUG - CoUninitialize() done.
+2026-09-26 17:53:59,408 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-26 17:53:59,616 - DEBUG - CoInitializeEx(None, 2)
+2026-09-26 17:53:59,665 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-26 17:53:59,665 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-26 17:53:59,669 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-26 17:53:59,669 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 17:53:59,695 - DEBUG - Release <POINTER(ITypeLib) ptr=0x25cff4579a0 at 25c83c237d0>
+2026-09-26 17:53:59,695 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-26 17:53:59,695 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-26 17:53:59,703 - DEBUG - Release <POINTER(ITypeLib) ptr=0x25cff459520 at 25c840c1650>
+2026-09-26 17:54:08,751 - INFO - UI load successful
+2026-09-26 17:54:35,210 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:54:54,265 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:54:54,719 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:58:36,342 - INFO - Galvo Laser Shutdown
+2026-09-26 17:58:36,342 - CRITICAL - Laser 1 : OFF
+2026-09-26 17:58:36,342 - CRITICAL - Laser 2 : OFF
+2026-09-26 17:58:36,342 - INFO - Stepper Lasers Shutdown
+2026-09-26 17:58:36,342 - INFO - COM connection close successfully
+2026-09-26 17:58:36,342 - INFO - Main window close successfully
+2026-09-26 17:58:36,342 - INFO - ==================================================
+2026-09-26 17:58:36,342 - INFO - New session close at 2026-09-26 17:58
+2026-09-26 17:58:36,342 - INFO - ==================================================
+2026-09-26 17:58:36,369 - DEBUG - Calling CoUninitialize()
+2026-09-26 17:58:36,369 - DEBUG - CoUninitialize() done.
+2026-09-28 10:19:44,524 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 10:19:45,231 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 10:19:45,679 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 10:19:45,679 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 10:19:45,710 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 10:19:45,715 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 10:19:45,766 - DEBUG - Release <POINTER(ITypeLib) ptr=0x21b539baf80 at 21b57afb750>
+2026-09-28 10:19:45,766 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 10:19:45,769 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 10:19:45,789 - DEBUG - Release <POINTER(ITypeLib) ptr=0x21b539bd600 at 21b57f915d0>
+2026-09-28 10:19:54,990 - INFO - UI load successful
+2026-09-28 10:20:05,624 - INFO - Profile : Supervisor
+2026-09-28 10:33:13,154 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 10:33:19,019 - INFO - mapmatrixAction : stopmat
+2026-09-28 11:30:55,298 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-28 11:30:55,298 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-28 11:30:57,228 - INFO - Galvo Laser Shutdown
+2026-09-28 11:30:57,241 - CRITICAL - Laser 1 : OFF
+2026-09-28 11:30:57,244 - CRITICAL - Laser 2 : OFF
+2026-09-28 11:30:57,244 - INFO - Stepper Lasers Shutdown
+2026-09-28 11:30:57,244 - INFO - COM connection close successfully
+2026-09-28 11:30:57,244 - INFO - Main window close successfully
+2026-09-28 11:30:57,246 - INFO - ==================================================
+2026-09-28 11:30:57,246 - INFO - New session close at 2026-09-28 11:30
+2026-09-28 11:30:57,246 - INFO - ==================================================
+2026-09-28 11:30:57,304 - DEBUG - Calling CoUninitialize()
+2026-09-28 11:30:57,305 - DEBUG - CoUninitialize() done.
+2026-09-28 11:53:51,517 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 11:53:53,310 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 11:53:53,623 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 11:53:53,623 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 11:53:53,668 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 11:53:53,668 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 11:53:53,720 - DEBUG - Release <POINTER(ITypeLib) ptr=0x186e4f57920 at 186e920b750>
+2026-09-28 11:53:53,720 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 11:53:53,722 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 11:53:53,740 - DEBUG - Release <POINTER(ITypeLib) ptr=0x186e4f56320 at 186e96a15d0>
+2026-09-28 11:54:02,681 - INFO - UI load successful
+2026-09-28 12:30:23,308 - INFO - Galvo Laser Shutdown
+2026-09-28 12:30:23,314 - CRITICAL - Laser 1 : OFF
+2026-09-28 12:30:23,316 - CRITICAL - Laser 2 : OFF
+2026-09-28 12:30:23,316 - INFO - Stepper Lasers Shutdown
+2026-09-28 12:30:23,316 - INFO - COM connection close successfully
+2026-09-28 12:30:23,316 - INFO - Main window close successfully
+2026-09-28 12:30:23,318 - INFO - ==================================================
+2026-09-28 12:30:23,318 - INFO - New session close at 2026-09-28 12:30
+2026-09-28 12:30:23,318 - INFO - ==================================================
+2026-09-28 12:30:23,356 - DEBUG - Calling CoUninitialize()
+2026-09-28 12:30:23,357 - DEBUG - CoUninitialize() done.
+2026-09-28 12:32:09,838 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 12:32:10,952 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 12:32:11,173 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 12:32:11,173 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 12:32:11,189 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 12:32:11,189 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 12:32:11,221 - DEBUG - Release <POINTER(ITypeLib) ptr=0x20c5f77ea60 at 20c63ff7750>
+2026-09-28 12:32:11,221 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 12:32:11,221 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 12:32:11,237 - DEBUG - Release <POINTER(ITypeLib) ptr=0x20c5f77d460 at 20c644915d0>
+2026-09-28 12:32:20,436 - INFO - UI load successful
+2026-09-28 12:43:15,502 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:48:49,989 - INFO - Galvo Laser Shutdown
+2026-09-28 12:48:49,993 - CRITICAL - Laser 1 : OFF
+2026-09-28 12:48:49,993 - CRITICAL - Laser 2 : OFF
+2026-09-28 12:48:49,993 - INFO - Stepper Lasers Shutdown
+2026-09-28 12:48:49,993 - INFO - COM connection close successfully
+2026-09-28 12:48:49,993 - INFO - Main window close successfully
+2026-09-28 12:48:49,993 - INFO - ==================================================
+2026-09-28 12:48:49,993 - INFO - New session close at 2026-09-28 12:48
+2026-09-28 12:48:49,993 - INFO - ==================================================
+2026-09-28 12:48:50,008 - DEBUG - Calling CoUninitialize()
+2026-09-28 12:48:50,008 - DEBUG - CoUninitialize() done.
+2026-09-28 12:49:03,177 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 12:49:03,374 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 12:49:03,420 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 12:49:03,420 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 12:49:03,426 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 12:49:03,426 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 12:49:03,448 - DEBUG - Release <POINTER(ITypeLib) ptr=0x222a59cb870 at 222aa19f950>
+2026-09-28 12:49:03,448 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 12:49:03,450 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 12:49:03,456 - DEBUG - Release <POINTER(ITypeLib) ptr=0x222a59cb2f0 at 222aa6357d0>
+2026-09-28 12:49:12,501 - INFO - UI load successful
+2026-09-28 12:49:26,874 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:49:41,888 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:51:05,096 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:51:18,879 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:52:40,353 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:54:07,264 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/80mm_square.svg
+2026-09-28 12:54:12,967 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:54:16,010 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:55:58,060 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-28 12:56:00,456 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-28 12:56:00,521 - INFO - creating ACAD_COLOR dictionary
+2026-09-28 12:56:06,172 - INFO - creating ACAD_COLOR dictionary
+2026-09-28 12:58:50,582 - INFO - Galvo Laser Shutdown
+2026-09-28 12:58:50,582 - CRITICAL - Laser 1 : OFF
+2026-09-28 12:58:50,582 - CRITICAL - Laser 2 : OFF
+2026-09-28 12:58:50,582 - INFO - Stepper Lasers Shutdown
+2026-09-28 12:58:50,582 - INFO - COM connection close successfully
+2026-09-28 12:58:50,582 - INFO - Main window close successfully
+2026-09-28 12:58:50,582 - INFO - ==================================================
+2026-09-28 12:58:50,582 - INFO - New session close at 2026-09-28 12:58
+2026-09-28 12:58:50,582 - INFO - ==================================================
+2026-09-28 12:58:50,609 - DEBUG - Calling CoUninitialize()
+2026-09-28 12:58:50,609 - DEBUG - CoUninitialize() done.
+2026-09-28 13:16:25,662 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 13:16:25,896 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 13:16:25,944 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 13:16:25,944 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 13:16:25,944 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 13:16:25,944 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 13:16:25,974 - DEBUG - Release <POINTER(ITypeLib) ptr=0x212d00adbe0 at 212d4a0f9d0>
+2026-09-28 13:16:25,974 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 13:16:25,974 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 13:16:25,974 - DEBUG - Release <POINTER(ITypeLib) ptr=0x212d00ae9a0 at 212d4ea5850>
+2026-09-28 13:16:35,061 - INFO - UI load successful
+2026-09-28 13:17:35,574 - INFO - Galvo Laser Shutdown
+2026-09-28 13:17:35,574 - CRITICAL - Laser 1 : OFF
+2026-09-28 13:17:35,574 - CRITICAL - Laser 2 : OFF
+2026-09-28 13:17:35,574 - INFO - Stepper Lasers Shutdown
+2026-09-28 13:17:35,574 - INFO - COM connection close successfully
+2026-09-28 13:17:35,574 - INFO - Main window close successfully
+2026-09-28 13:17:35,574 - INFO - ==================================================
+2026-09-28 13:17:35,574 - INFO - New session close at 2026-09-28 13:17
+2026-09-28 13:17:35,574 - INFO - ==================================================
+2026-09-28 13:17:35,590 - DEBUG - Calling CoUninitialize()
+2026-09-28 13:17:35,591 - DEBUG - CoUninitialize() done.
+2026-09-28 13:18:34,095 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 13:18:34,299 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 13:18:34,364 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 13:18:34,364 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 13:18:34,369 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 13:18:34,369 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 13:18:34,397 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1e9b160bd60 at 1e9b57b7950>
+2026-09-28 13:18:34,397 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 13:18:34,397 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 13:18:34,409 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1e9b160cb20 at 1e9b5c457d0>
+2026-09-28 13:18:43,474 - INFO - UI load successful
+2026-09-28 13:28:06,080 - INFO - Galvo Laser Shutdown
+2026-09-28 13:28:06,083 - CRITICAL - Laser 1 : OFF
+2026-09-28 13:28:06,083 - CRITICAL - Laser 2 : OFF
+2026-09-28 13:28:06,083 - INFO - Stepper Lasers Shutdown
+2026-09-28 13:28:06,083 - INFO - COM connection close successfully
+2026-09-28 13:28:06,083 - INFO - Main window close successfully
+2026-09-28 13:28:06,088 - INFO - ==================================================
+2026-09-28 13:28:06,088 - INFO - New session close at 2026-09-28 13:28
+2026-09-28 13:28:06,088 - INFO - ==================================================
+2026-09-28 13:28:06,127 - DEBUG - Calling CoUninitialize()
+2026-09-28 13:28:06,128 - DEBUG - CoUninitialize() done.
+2026-09-28 13:31:50,384 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 13:31:50,594 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 13:31:50,637 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 13:31:50,637 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 13:31:50,646 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 13:31:50,647 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 13:31:50,669 - DEBUG - Release <POINTER(ITypeLib) ptr=0x19521952c90 at 195261b79d0>
+2026-09-28 13:31:50,669 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 13:31:50,671 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 13:31:50,677 - DEBUG - Release <POINTER(ITypeLib) ptr=0x19521952c90 at 19526645850>
+2026-09-28 13:31:59,348 - INFO - UI load successful
+2026-09-28 13:34:45,269 - INFO - Galvo Laser Shutdown
+2026-09-28 13:34:45,269 - CRITICAL - Laser 1 : OFF
+2026-09-28 13:34:45,269 - CRITICAL - Laser 2 : OFF
+2026-09-28 13:34:45,269 - INFO - Stepper Lasers Shutdown
+2026-09-28 13:34:45,269 - INFO - COM connection close successfully
+2026-09-28 13:34:45,269 - INFO - Main window close successfully
+2026-09-28 13:34:45,269 - INFO - ==================================================
+2026-09-28 13:34:45,269 - INFO - New session close at 2026-09-28 13:34
+2026-09-28 13:34:45,269 - INFO - ==================================================
+2026-09-28 13:34:45,288 - DEBUG - Calling CoUninitialize()
+2026-09-28 13:34:45,288 - DEBUG - CoUninitialize() done.
+2026-09-28 13:37:41,025 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 13:37:41,232 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 13:37:41,278 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 13:37:41,278 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 13:37:41,278 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 13:37:41,278 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 13:37:41,294 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2497f4c7060 at 24903b53950>
+2026-09-28 13:37:41,294 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 13:37:41,310 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 13:37:41,310 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2497f4c6ae0 at 24903fe57d0>
+2026-09-28 13:37:49,951 - INFO - UI load successful
+2026-09-28 14:26:50,031 - INFO - Galvo Laser Shutdown
+2026-09-28 14:26:50,031 - CRITICAL - Laser 1 : OFF
+2026-09-28 14:26:50,031 - CRITICAL - Laser 2 : OFF
+2026-09-28 14:26:50,031 - INFO - Stepper Lasers Shutdown
+2026-09-28 14:26:50,031 - INFO - COM connection close successfully
+2026-09-28 14:26:50,031 - INFO - Main window close successfully
+2026-09-28 14:26:50,031 - INFO - ==================================================
+2026-09-28 14:26:50,031 - INFO - New session close at 2026-09-28 14:26
+2026-09-28 14:26:50,031 - INFO - ==================================================
+2026-09-28 14:26:50,074 - DEBUG - Calling CoUninitialize()
+2026-09-28 14:26:50,074 - DEBUG - CoUninitialize() done.
+2026-09-28 14:26:55,348 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 14:26:55,554 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 14:26:55,601 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 14:26:55,601 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 14:26:55,608 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 14:26:55,610 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 14:26:55,630 - DEBUG - Release <POINTER(ITypeLib) ptr=0x265175e0d60 at 2651bf33950>
+2026-09-28 14:26:55,630 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 14:26:55,632 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 14:26:55,640 - DEBUG - Release <POINTER(ITypeLib) ptr=0x265175def20 at 2651c3c57d0>
+2026-09-28 14:27:04,704 - INFO - UI load successful
+2026-09-28 15:09:13,290 - INFO - Galvo Laser Shutdown
+2026-09-28 15:09:13,294 - CRITICAL - Laser 1 : OFF
+2026-09-28 15:09:13,294 - CRITICAL - Laser 2 : OFF
+2026-09-28 15:09:13,294 - INFO - Stepper Lasers Shutdown
+2026-09-28 15:09:13,294 - INFO - COM connection close successfully
+2026-09-28 15:09:13,294 - INFO - Main window close successfully
+2026-09-28 15:09:13,294 - INFO - ==================================================
+2026-09-28 15:09:13,294 - INFO - New session close at 2026-09-28 15:09
+2026-09-28 15:09:13,294 - INFO - ==================================================
+2026-09-28 15:09:13,346 - DEBUG - Calling CoUninitialize()
+2026-09-28 15:09:13,347 - DEBUG - CoUninitialize() done.
+2026-09-28 15:33:48,926 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 15:33:49,280 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 15:33:49,356 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 15:33:49,356 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 15:33:49,372 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 15:33:49,372 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 15:33:49,388 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1ac9553c4e0 at 1ac99f07b50>
+2026-09-28 15:33:49,388 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 15:33:49,404 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 15:33:49,409 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1ac95539620 at 1ac9a3a59d0>
+2026-09-28 15:33:58,373 - INFO - UI load successful
+2026-09-28 15:34:04,302 - INFO - Galvo Laser Shutdown
+2026-09-28 15:34:04,302 - CRITICAL - Laser 1 : OFF
+2026-09-28 15:34:04,302 - CRITICAL - Laser 2 : OFF
+2026-09-28 15:34:04,302 - INFO - Stepper Lasers Shutdown
+2026-09-28 15:34:04,302 - INFO - COM connection close successfully
+2026-09-28 15:34:04,302 - INFO - Main window close successfully
+2026-09-28 15:34:04,302 - INFO - ==================================================
+2026-09-28 15:34:04,302 - INFO - New session close at 2026-09-28 15:34
+2026-09-28 15:34:04,302 - INFO - ==================================================
+2026-09-28 15:34:04,321 - DEBUG - Calling CoUninitialize()
+2026-09-28 15:34:04,321 - DEBUG - CoUninitialize() done.
+2026-09-28 15:35:51,979 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 15:35:52,181 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 15:35:52,217 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 15:35:52,217 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 15:35:52,217 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 15:35:52,233 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 15:35:52,254 - DEBUG - Release <POINTER(ITypeLib) ptr=0x255eaf03a90 at 255ef713ad0>
+2026-09-28 15:35:52,254 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 15:35:52,256 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 15:35:52,262 - DEBUG - Release <POINTER(ITypeLib) ptr=0x255eaf03a90 at 255efba5950>
+2026-09-28 15:36:01,296 - INFO - UI load successful
+2026-09-28 15:38:24,238 - INFO - Galvo Laser Shutdown
+2026-09-28 15:38:24,238 - CRITICAL - Laser 1 : OFF
+2026-09-28 15:38:24,238 - CRITICAL - Laser 2 : OFF
+2026-09-28 15:38:24,238 - INFO - Stepper Lasers Shutdown
+2026-09-28 15:38:24,238 - INFO - COM connection close successfully
+2026-09-28 15:38:24,238 - INFO - Main window close successfully
+2026-09-28 15:38:24,238 - INFO - ==================================================
+2026-09-28 15:38:24,238 - INFO - New session close at 2026-09-28 15:38
+2026-09-28 15:38:24,238 - INFO - ==================================================
+2026-09-28 15:38:24,247 - DEBUG - Calling CoUninitialize()
+2026-09-28 15:38:24,247 - DEBUG - CoUninitialize() done.
+2026-09-28 15:49:06,243 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 15:49:06,466 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 15:49:06,512 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 15:49:06,512 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 15:49:06,528 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 15:49:06,528 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 15:49:06,544 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1def23a9910 at 1def6bc3ad0>
+2026-09-28 15:49:06,544 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 15:49:06,544 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 15:49:06,559 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1def23a90d0 at 1def7055950>
+2026-09-28 15:49:15,633 - INFO - UI load successful
+2026-09-28 15:50:22,464 - INFO - Close event ignored.
+2026-09-28 16:00:57,558 - INFO - Galvo Laser Shutdown
+2026-09-28 16:00:57,609 - CRITICAL - Laser 1 : OFF
+2026-09-28 16:00:57,609 - CRITICAL - Laser 2 : OFF
+2026-09-28 16:00:57,609 - INFO - Stepper Lasers Shutdown
+2026-09-28 16:00:57,617 - INFO - COM connection close successfully
+2026-09-28 16:00:57,617 - INFO - Main window close successfully
+2026-09-28 16:00:57,618 - INFO - ==================================================
+2026-09-28 16:00:57,619 - INFO - New session close at 2026-09-28 16:00
+2026-09-28 16:00:57,619 - INFO - ==================================================
+2026-09-28 16:00:57,637 - DEBUG - Calling CoUninitialize()
+2026-09-28 16:00:57,637 - DEBUG - CoUninitialize() done.
+2026-09-28 16:04:06,213 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 16:04:06,588 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 16:04:06,683 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 16:04:06,683 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 16:04:06,689 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 16:04:06,689 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 16:04:06,726 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1835e5729b0 at 18362ef7cd0>
+2026-09-28 16:04:06,726 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 16:04:06,726 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 16:04:06,735 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1835e5729b0 at 18363399b50>
+2026-09-28 16:04:16,171 - INFO - UI load successful
+2026-09-28 16:08:19,936 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 16:08:26,352 - INFO - mapmatrixAction : stopmat
+2026-09-28 16:08:27,781 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 16:09:11,799 - INFO - mapmatrixAction : stopmat
+2026-09-28 16:09:12,387 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 16:09:39,577 - INFO - mapmatrixAction : stopmat
+2026-09-28 16:09:43,118 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 16:10:11,258 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:11:33,187 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:12:57,456 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:12:57,974 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:17:41,417 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:17:53,734 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:17:55,220 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:20:28,940 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:20:50,310 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:20:50,319 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:20:56,857 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:21:11,934 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:21:12,563 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:21:16,806 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:21:21,489 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:40:07,666 - INFO - Galvo Laser Shutdown
+2026-09-28 17:40:07,674 - CRITICAL - Laser 1 : OFF
+2026-09-28 17:40:07,674 - CRITICAL - Laser 2 : OFF
+2026-09-28 17:40:07,674 - INFO - Stepper Lasers Shutdown
+2026-09-28 17:40:07,675 - INFO - COM connection close successfully
+2026-09-28 17:40:07,675 - INFO - Main window close successfully
+2026-09-28 17:40:07,676 - INFO - ==================================================
+2026-09-28 17:40:07,676 - INFO - New session close at 2026-09-28 17:40
+2026-09-28 17:40:07,676 - INFO - ==================================================
+2026-09-28 17:40:07,715 - DEBUG - Calling CoUninitialize()
+2026-09-28 17:40:07,716 - DEBUG - CoUninitialize() done.
+2026-09-28 17:40:15,456 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-28 17:40:15,799 - DEBUG - CoInitializeEx(None, 2)
+2026-09-28 17:40:15,878 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-28 17:40:15,878 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-28 17:40:15,878 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-28 17:40:15,878 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 17:40:15,914 - DEBUG - Release <POINTER(ITypeLib) ptr=0x25ab3d205a0 at 25ab84b7a50>
+2026-09-28 17:40:15,914 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-28 17:40:15,914 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-28 17:40:15,926 - DEBUG - Release <POINTER(ITypeLib) ptr=0x25ab3d1e1e0 at 25ab89458d0>
+2026-09-28 17:40:25,198 - INFO - UI load successful
+2026-09-28 17:41:06,261 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:41:14,885 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:41:17,110 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:41:26,990 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:41:27,538 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:41:33,572 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:41:36,107 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:41:37,526 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:53:24,258 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:53:57,648 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:53:58,186 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 10:20:19,820 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 10:20:20,535 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 10:20:20,868 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 10:20:20,868 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 10:20:20,900 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 10:20:20,900 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 10:20:20,963 - DEBUG - Release <POINTER(ITypeLib) ptr=0x22e47e0eaa0 at 22e4c2639d0>
+2026-09-29 10:20:20,963 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 10:20:20,963 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 10:20:20,979 - DEBUG - Release <POINTER(ITypeLib) ptr=0x22e47e0cc60 at 22e4c6f5850>
+2026-09-29 10:20:30,317 - INFO - UI load successful
+2026-09-29 10:20:47,183 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/80mm_square.svg
+2026-09-29 10:20:55,955 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 10:21:28,846 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 10:22:00,919 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 10:22:01,133 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 10:22:11,219 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 10:22:11,437 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 10:22:16,907 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 10:22:17,016 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 10:22:18,439 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 10:22:18,546 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 10:22:28,074 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 10:22:28,282 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 10:22:31,349 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 10:22:31,563 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 10:25:27,517 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 10:25:35,129 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:25:35,684 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 10:25:43,414 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:25:48,150 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 10:25:50,866 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:25:54,907 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 10:40:05,319 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 10:40:09,745 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:40:22,236 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:40:28,297 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 10:40:46,934 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:40:53,429 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 10:41:01,881 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:41:06,672 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 10:55:41,786 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 10:56:59,843 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:01:14,717 - INFO - Galvo Laser Shutdown
+2026-09-29 11:01:14,717 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:01:14,717 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:01:14,717 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:01:14,717 - INFO - COM connection close successfully
+2026-09-29 11:01:14,717 - INFO - Main window close successfully
+2026-09-29 11:01:14,717 - INFO - ==================================================
+2026-09-29 11:01:14,717 - INFO - New session close at 2026-09-29 11:01
+2026-09-29 11:01:14,717 - INFO - ==================================================
+2026-09-29 11:01:14,751 - DEBUG - Calling CoUninitialize()
+2026-09-29 11:01:14,751 - DEBUG - CoUninitialize() done.
+2026-09-29 11:06:05,239 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 11:06:06,941 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 11:06:07,238 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 11:06:07,240 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 11:06:07,278 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 11:06:07,281 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:06:07,329 - DEBUG - Release <POINTER(ITypeLib) ptr=0x267134690c0 at 267178379d0>
+2026-09-29 11:06:07,329 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 11:06:07,333 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:06:07,348 - DEBUG - Release <POINTER(ITypeLib) ptr=0x267134664c0 at 26717cc5850>
+2026-09-29 11:06:16,586 - INFO - UI load successful
+2026-09-29 11:06:29,343 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:06:32,917 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:06:44,804 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 11:07:06,141 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 11:07:08,768 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:07:08,876 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:07:12,505 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:07:29,310 - INFO - Galvo Laser Shutdown
+2026-09-29 11:07:29,310 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:07:29,310 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:07:29,310 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:07:29,310 - INFO - COM connection close successfully
+2026-09-29 11:07:29,310 - INFO - Main window close successfully
+2026-09-29 11:07:29,310 - INFO - ==================================================
+2026-09-29 11:07:29,310 - INFO - New session close at 2026-09-29 11:07
+2026-09-29 11:07:29,310 - INFO - ==================================================
+2026-09-29 11:07:29,314 - DEBUG - Calling CoUninitialize()
+2026-09-29 11:07:29,314 - DEBUG - CoUninitialize() done.
+2026-09-29 11:10:14,580 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 11:10:14,778 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 11:10:14,817 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 11:10:14,832 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 11:10:14,832 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 11:10:14,832 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:10:14,849 - DEBUG - Release <POINTER(ITypeLib) ptr=0x289ff89cfb0 at 28985f77b50>
+2026-09-29 11:10:14,849 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 11:10:14,849 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:10:14,864 - DEBUG - Release <POINTER(ITypeLib) ptr=0x289ff89f370 at 289864159d0>
+2026-09-29 11:10:23,913 - INFO - UI load successful
+2026-09-29 11:10:33,693 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-29 11:10:35,534 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-29 11:12:20,200 - INFO - Galvo Laser Shutdown
+2026-09-29 11:12:20,201 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:12:20,201 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:12:20,202 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:12:20,202 - INFO - COM connection close successfully
+2026-09-29 11:12:20,202 - INFO - Main window close successfully
+2026-09-29 11:12:20,202 - INFO - ==================================================
+2026-09-29 11:12:20,202 - INFO - New session close at 2026-09-29 11:12
+2026-09-29 11:12:20,202 - INFO - ==================================================
+2026-09-29 11:12:20,208 - DEBUG - Calling CoUninitialize()
+2026-09-29 11:12:20,208 - DEBUG - CoUninitialize() done.
+2026-09-29 11:17:00,844 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 11:17:01,041 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 11:17:01,096 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 11:17:01,096 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 11:17:01,096 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 11:17:01,096 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:17:01,125 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1efd6ce8c70 at 1efdb707bd0>
+2026-09-29 11:17:01,125 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 11:17:01,127 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:17:01,134 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1efd6ce8c70 at 1efdbba5a50>
+2026-09-29 11:17:10,207 - INFO - UI load successful
+2026-09-29 11:17:24,051 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:17:51,393 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:18:56,972 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:19:48,411 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:20:02,761 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:20:22,315 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:21:44,760 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:22:03,994 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:23:15,374 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:24:24,708 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:25:17,959 - INFO - Galvo Laser Shutdown
+2026-09-29 11:25:17,959 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:25:17,959 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:25:17,959 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:25:17,959 - INFO - COM connection close successfully
+2026-09-29 11:25:17,959 - INFO - Main window close successfully
+2026-09-29 11:25:17,959 - INFO - ==================================================
+2026-09-29 11:25:17,959 - INFO - New session close at 2026-09-29 11:25
+2026-09-29 11:25:17,959 - INFO - ==================================================
+2026-09-29 11:25:17,975 - DEBUG - Calling CoUninitialize()
+2026-09-29 11:25:17,975 - DEBUG - CoUninitialize() done.
+2026-09-29 11:31:16,645 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 11:31:16,987 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 11:31:17,034 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 11:31:17,034 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 11:31:17,034 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 11:31:17,034 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:31:17,065 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1ff86de6ec0 at 1ff87fd7dd0>
+2026-09-29 11:31:17,065 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 11:31:17,065 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:31:17,065 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1ff86de42c0 at 1ff88475c50>
+2026-09-29 11:31:25,756 - INFO - UI load successful
+2026-09-29 11:31:33,243 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-29 11:31:35,056 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-29 11:31:43,079 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 11:31:54,487 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 11:31:54,593 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31:54,703 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:31:54,922 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31:55,140 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:31:55,249 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31:55,358 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:31:55,577 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31:55,689 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:31:55,906 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31:56,016 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:31:56,235 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31:56,345 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:33:47,129 - INFO - Galvo Laser Shutdown
+2026-09-29 11:33:47,129 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:33:47,129 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:33:47,129 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:33:47,129 - INFO - COM connection close successfully
+2026-09-29 11:33:47,129 - INFO - Main window close successfully
+2026-09-29 11:33:47,129 - INFO - ==================================================
+2026-09-29 11:33:47,129 - INFO - New session close at 2026-09-29 11:33
+2026-09-29 11:33:47,129 - INFO - ==================================================
+2026-09-29 11:33:47,131 - DEBUG - Calling CoUninitialize()
+2026-09-29 11:33:47,131 - DEBUG - CoUninitialize() done.
+2026-09-29 11:33:50,796 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 11:33:50,990 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 11:33:51,042 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 11:33:51,042 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 11:33:51,042 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 11:33:51,049 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:33:51,066 - DEBUG - Release <POINTER(ITypeLib) ptr=0x22b21c77710 at 22b265f7e50>
+2026-09-29 11:33:51,066 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 11:33:51,066 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:33:51,066 - DEBUG - Release <POINTER(ITypeLib) ptr=0x22b21c77f50 at 22b26ae7f50>
+2026-09-29 11:34:00,125 - INFO - UI load successful
+2026-09-29 11:34:08,824 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:34:12,871 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:34:14,252 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 11:34:29,706 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 11:34:32,766 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:34:32,876 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:35:08,376 - INFO - Galvo Laser Shutdown
+2026-09-29 11:35:08,376 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:35:08,376 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:35:08,376 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:35:08,376 - INFO - COM connection close successfully
+2026-09-29 11:35:08,376 - INFO - Main window close successfully
+2026-09-29 11:35:08,376 - INFO - ==================================================
+2026-09-29 11:35:08,376 - INFO - New session close at 2026-09-29 11:35
+2026-09-29 11:35:08,376 - INFO - ==================================================
+2026-09-29 11:35:08,396 - DEBUG - Calling CoUninitialize()
+2026-09-29 11:35:08,397 - DEBUG - CoUninitialize() done.
+2026-09-29 11:35:14,479 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 11:35:14,691 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 11:35:14,739 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 11:35:14,739 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 11:35:14,742 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 11:35:14,742 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:35:14,767 - DEBUG - Release <POINTER(ITypeLib) ptr=0x20744fc75c0 at 207498c7e50>
+2026-09-29 11:35:14,767 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 11:35:14,769 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:35:14,774 - DEBUG - Release <POINTER(ITypeLib) ptr=0x20744fc6ac0 at 20749db7f50>
+2026-09-29 11:35:23,837 - INFO - UI load successful
+2026-09-29 11:35:37,078 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:35:40,461 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:35:41,452 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 11:35:58,626 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 11:35:58,626 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:35:58,737 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:35:58,952 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:35:59,064 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:36:11,549 - INFO - Galvo Laser Shutdown
+2026-09-29 11:36:11,549 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:36:11,549 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:36:11,549 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:36:11,549 - INFO - COM connection close successfully
+2026-09-29 11:36:11,549 - INFO - Main window close successfully
+2026-09-29 11:36:11,549 - INFO - ==================================================
+2026-09-29 11:36:11,549 - INFO - New session close at 2026-09-29 11:36
+2026-09-29 11:36:11,549 - INFO - ==================================================
+2026-09-29 11:36:11,562 - DEBUG - Calling CoUninitialize()
+2026-09-29 11:36:11,562 - DEBUG - CoUninitialize() done.
+2026-09-29 11:37:14,422 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 11:37:14,613 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 11:37:14,646 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 11:37:14,646 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 11:37:14,662 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 11:37:14,662 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:37:14,688 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1b7c2a67670 at 1b7c7297e50>
+2026-09-29 11:37:14,688 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 11:37:14,690 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:37:14,696 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1b7c2a69cf0 at 1b7c7787f50>
+2026-09-29 11:37:23,755 - INFO - UI load successful
+2026-09-29 11:40:32,133 - INFO - Galvo Laser Shutdown
+2026-09-29 11:40:32,133 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:40:32,133 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:40:32,133 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:40:32,133 - INFO - COM connection close successfully
+2026-09-29 11:40:32,133 - INFO - Main window close successfully
+2026-09-29 11:40:32,133 - INFO - ==================================================
+2026-09-29 11:40:32,133 - INFO - New session close at 2026-09-29 11:40
+2026-09-29 11:40:32,133 - INFO - ==================================================
+2026-09-29 11:40:32,150 - DEBUG - Calling CoUninitialize()
+2026-09-29 11:40:32,150 - DEBUG - CoUninitialize() done.
+2026-09-29 11:40:50,108 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 11:40:50,282 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 11:40:50,343 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 11:40:50,343 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 11:40:50,345 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 11:40:50,345 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:40:50,361 - DEBUG - Release <POINTER(ITypeLib) ptr=0x283e3f368e0 at 283e8737e50>
+2026-09-29 11:40:50,361 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 11:40:50,361 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 11:40:50,377 - DEBUG - Release <POINTER(ITypeLib) ptr=0x283e3f37120 at 283e8c27f50>
+2026-09-29 11:40:59,453 - INFO - UI load successful
+2026-09-29 11:41:33,525 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 11:42:00,914 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42:04,101 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 11:42:08,862 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42:17,611 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42:18,092 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 11:42:24,499 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42:29,465 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 11:42:35,773 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42:55,785 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42:56,347 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 11:43:14,657 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:43:16,768 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 11:57:26,871 - INFO - Profile : Supervisor
+2026-09-29 12:02:32,596 - INFO - Galvo Laser Shutdown
+2026-09-29 12:02:32,596 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:02:32,596 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:02:32,596 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:02:32,596 - INFO - COM connection close successfully
+2026-09-29 12:02:32,596 - INFO - Main window close successfully
+2026-09-29 12:02:32,612 - INFO - ==================================================
+2026-09-29 12:02:32,612 - INFO - New session close at 2026-09-29 12:02
+2026-09-29 12:02:32,612 - INFO - ==================================================
+2026-09-29 12:02:32,644 - DEBUG - Calling CoUninitialize()
+2026-09-29 12:02:32,646 - DEBUG - CoUninitialize() done.
+2026-09-29 12:02:41,565 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-09-29 12:02:42,515 - DEBUG - CoInitializeEx(None, 2)
+2026-09-29 12:02:42,722 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-29 12:02:42,722 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-09-29 12:02:42,753 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-09-29 12:02:42,759 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:02:42,801 - DEBUG - Release <POINTER(ITypeLib) ptr=0x191a64fb1c0 at 191aaea7e50>
+2026-09-29 12:02:42,801 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-09-29 12:02:42,803 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-09-29 12:02:42,817 - DEBUG - Release <POINTER(ITypeLib) ptr=0x191a64f9900 at 191ab397f50>
+2026-09-29 12:02:52,145 - INFO - UI load successful
+2026-09-29 12:03:06,703 - INFO - Profile : Supervisor
+2026-09-29 12:04:18,664 - INFO - Galvo Laser Shutdown
+2026-09-29 12:04:18,664 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:04:18,666 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:04:18,666 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:04:18,666 - INFO - COM connection close successfully
+2026-09-29 12:04:18,666 - INFO - Main window close successfully
+2026-09-29 12:04:18,666 - INFO - ==================================================
+2026-09-29 12:04:18,666 - INFO - New session close at 2026-09-29 12:04
+2026-09-29 12:04:18,666 - INFO - ==================================================
+2026-09-29 12:04:18,676 - DEBUG - Calling CoUninitialize()
+2026-09-29 12:04:18,676 - DEBUG - CoUninitialize() done.

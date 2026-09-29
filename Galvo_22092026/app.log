@@ -4295,3 +4295,624 @@
 2026-09-26 15:14 - INFO - ==================================================
 2026-09-26 15:14 - INFO - New session close at 2026-09-26 15:14
 2026-09-26 15:14 - INFO - ==================================================
+2026-09-26 15:43 - INFO - UI load successful
+2026-09-26 15:49 - INFO - Galvo Laser Shutdown
+2026-09-26 15:49 - CRITICAL - Laser 1 : OFF
+2026-09-26 15:49 - CRITICAL - Laser 2 : OFF
+2026-09-26 15:49 - INFO - Stepper Lasers Shutdown
+2026-09-26 15:49 - INFO - COM connection close successfully
+2026-09-26 15:49 - INFO - Main window close successfully
+2026-09-26 15:49 - INFO - ==================================================
+2026-09-26 15:49 - INFO - New session close at 2026-09-26 15:49
+2026-09-26 15:49 - INFO - ==================================================
+2026-09-26 15:51 - INFO - UI load successful
+2026-09-26 15:52 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:52 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:52 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:52 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:54 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:54 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:54 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:54 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:54 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:54 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:54 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:54 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:54 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 15:55 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:55 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:55 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 15:56 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:56 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 15:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 15:59 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 15:59 - INFO - mapmatrixAction : stopmat
+2026-09-26 15:59 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:06 - INFO - Galvo Laser Shutdown
+2026-09-26 16:06 - CRITICAL - Laser 1 : OFF
+2026-09-26 16:06 - CRITICAL - Laser 2 : OFF
+2026-09-26 16:06 - INFO - Stepper Lasers Shutdown
+2026-09-26 16:06 - INFO - COM connection close successfully
+2026-09-26 16:06 - INFO - Main window close successfully
+2026-09-26 16:06 - INFO - ==================================================
+2026-09-26 16:06 - INFO - New session close at 2026-09-26 16:06
+2026-09-26 16:06 - INFO - ==================================================
+2026-09-26 16:07 - INFO - UI load successful
+2026-09-26 16:07 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:08 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:08 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:08 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:08 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:09 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:09 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:09 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:09 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:10 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:11 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:11 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:15 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:15 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:16 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:18 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:20 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:20 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:20 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:20 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:20 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:20 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:20 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:20 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:20 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:21 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:21 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:21 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:21 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:21 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:21 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:21 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:22 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:22 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:22 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:22 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:22 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:22 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:27 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:27 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:27 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:27 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:29 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:29 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:29 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:29 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:35 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:35 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:35 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:40 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:41 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:46 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:46 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:46 - INFO - Galvo Laser Shutdown
+2026-09-26 16:46 - CRITICAL - Laser 1 : OFF
+2026-09-26 16:46 - CRITICAL - Laser 2 : OFF
+2026-09-26 16:46 - INFO - Stepper Lasers Shutdown
+2026-09-26 16:46 - INFO - COM connection close successfully
+2026-09-26 16:46 - INFO - Main window close successfully
+2026-09-26 16:46 - INFO - ==================================================
+2026-09-26 16:46 - INFO - New session close at 2026-09-26 16:46
+2026-09-26 16:46 - INFO - ==================================================
+2026-09-26 16:50 - INFO - UI load successful
+2026-09-26 16:51 - INFO - Galvo Laser Shutdown
+2026-09-26 16:51 - CRITICAL - Laser 1 : OFF
+2026-09-26 16:51 - CRITICAL - Laser 2 : OFF
+2026-09-26 16:51 - INFO - Stepper Lasers Shutdown
+2026-09-26 16:51 - INFO - COM connection close successfully
+2026-09-26 16:51 - INFO - Main window close successfully
+2026-09-26 16:51 - INFO - ==================================================
+2026-09-26 16:51 - INFO - New session close at 2026-09-26 16:51
+2026-09-26 16:51 - INFO - ==================================================
+2026-09-26 16:55 - INFO - UI load successful
+2026-09-26 16:55 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:55 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:55 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:55 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:55 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:56 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:58 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:58 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:58 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:58 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:59 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:59 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 16:59 - INFO - mapmatrixAction : stopmat
+2026-09-26 16:59 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 16:59 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:06 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:06 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:06 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:06 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:06 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:06 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:07 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:07 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:07 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:09 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:09 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:09 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:12 - INFO - Galvo Laser Shutdown
+2026-09-26 17:12 - CRITICAL - Laser 1 : OFF
+2026-09-26 17:12 - CRITICAL - Laser 2 : OFF
+2026-09-26 17:12 - INFO - Stepper Lasers Shutdown
+2026-09-26 17:12 - INFO - COM connection close successfully
+2026-09-26 17:12 - INFO - Main window close successfully
+2026-09-26 17:12 - INFO - ==================================================
+2026-09-26 17:12 - INFO - New session close at 2026-09-26 17:12
+2026-09-26 17:12 - INFO - ==================================================
+2026-09-26 17:22 - INFO - UI load successful
+2026-09-26 17:23 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:23 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:23 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:23 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:23 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:23 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:41 - INFO - Galvo Laser Shutdown
+2026-09-26 17:41 - CRITICAL - Laser 1 : OFF
+2026-09-26 17:41 - CRITICAL - Laser 2 : OFF
+2026-09-26 17:41 - INFO - Stepper Lasers Shutdown
+2026-09-26 17:41 - INFO - COM connection close successfully
+2026-09-26 17:41 - INFO - Main window close successfully
+2026-09-26 17:41 - INFO - ==================================================
+2026-09-26 17:41 - INFO - New session close at 2026-09-26 17:41
+2026-09-26 17:41 - INFO - ==================================================
+2026-09-26 17:41 - INFO - UI load successful
+2026-09-26 17:42 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:42 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:42 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:45 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:46 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:46 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:47 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:47 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:53 - INFO - Galvo Laser Shutdown
+2026-09-26 17:53 - CRITICAL - Laser 1 : OFF
+2026-09-26 17:53 - CRITICAL - Laser 2 : OFF
+2026-09-26 17:53 - INFO - Stepper Lasers Shutdown
+2026-09-26 17:53 - INFO - COM connection close successfully
+2026-09-26 17:53 - INFO - Main window close successfully
+2026-09-26 17:53 - INFO - ==================================================
+2026-09-26 17:53 - INFO - New session close at 2026-09-26 17:53
+2026-09-26 17:53 - INFO - ==================================================
+2026-09-26 17:54 - INFO - UI load successful
+2026-09-26 17:54 - INFO - mapmatrixAction : redmarkmat
+2026-09-26 17:54 - INFO - mapmatrixAction : stopmat
+2026-09-26 17:54 - INFO - mapmatrixAction : lasermarkmat
+2026-09-26 17:58 - INFO - Galvo Laser Shutdown
+2026-09-26 17:58 - CRITICAL - Laser 1 : OFF
+2026-09-26 17:58 - CRITICAL - Laser 2 : OFF
+2026-09-26 17:58 - INFO - Stepper Lasers Shutdown
+2026-09-26 17:58 - INFO - COM connection close successfully
+2026-09-26 17:58 - INFO - Main window close successfully
+2026-09-26 17:58 - INFO - ==================================================
+2026-09-26 17:58 - INFO - New session close at 2026-09-26 17:58
+2026-09-26 17:58 - INFO - ==================================================
+2026-09-28 10:19 - INFO - UI load successful
+2026-09-28 10:20 - INFO - Profile : Supervisor
+2026-09-28 10:33 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 10:33 - INFO - mapmatrixAction : stopmat
+2026-09-28 11:30 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-28 11:30 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-28 11:30 - INFO - Galvo Laser Shutdown
+2026-09-28 11:30 - CRITICAL - Laser 1 : OFF
+2026-09-28 11:30 - CRITICAL - Laser 2 : OFF
+2026-09-28 11:30 - INFO - Stepper Lasers Shutdown
+2026-09-28 11:30 - INFO - COM connection close successfully
+2026-09-28 11:30 - INFO - Main window close successfully
+2026-09-28 11:30 - INFO - ==================================================
+2026-09-28 11:30 - INFO - New session close at 2026-09-28 11:30
+2026-09-28 11:30 - INFO - ==================================================
+2026-09-28 11:54 - INFO - UI load successful
+2026-09-28 12:30 - INFO - Galvo Laser Shutdown
+2026-09-28 12:30 - CRITICAL - Laser 1 : OFF
+2026-09-28 12:30 - CRITICAL - Laser 2 : OFF
+2026-09-28 12:30 - INFO - Stepper Lasers Shutdown
+2026-09-28 12:30 - INFO - COM connection close successfully
+2026-09-28 12:30 - INFO - Main window close successfully
+2026-09-28 12:30 - INFO - ==================================================
+2026-09-28 12:30 - INFO - New session close at 2026-09-28 12:30
+2026-09-28 12:30 - INFO - ==================================================
+2026-09-28 12:32 - INFO - UI load successful
+2026-09-28 12:43 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:48 - INFO - Galvo Laser Shutdown
+2026-09-28 12:48 - CRITICAL - Laser 1 : OFF
+2026-09-28 12:48 - CRITICAL - Laser 2 : OFF
+2026-09-28 12:48 - INFO - Stepper Lasers Shutdown
+2026-09-28 12:48 - INFO - COM connection close successfully
+2026-09-28 12:48 - INFO - Main window close successfully
+2026-09-28 12:48 - INFO - ==================================================
+2026-09-28 12:48 - INFO - New session close at 2026-09-28 12:48
+2026-09-28 12:48 - INFO - ==================================================
+2026-09-28 12:49 - INFO - UI load successful
+2026-09-28 12:49 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:49 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:51 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:51 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:52 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:54 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/80mm_square.svg
+2026-09-28 12:54 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:54 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-28 12:55 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-28 12:56 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/Files/Difficult/nReDT-bird-floral-flying-wall-decor-home-decoration.dxf
+2026-09-28 12:58 - INFO - Galvo Laser Shutdown
+2026-09-28 12:58 - CRITICAL - Laser 1 : OFF
+2026-09-28 12:58 - CRITICAL - Laser 2 : OFF
+2026-09-28 12:58 - INFO - Stepper Lasers Shutdown
+2026-09-28 12:58 - INFO - COM connection close successfully
+2026-09-28 12:58 - INFO - Main window close successfully
+2026-09-28 12:58 - INFO - ==================================================
+2026-09-28 12:58 - INFO - New session close at 2026-09-28 12:58
+2026-09-28 12:58 - INFO - ==================================================
+2026-09-28 13:16 - INFO - UI load successful
+2026-09-28 13:17 - INFO - Galvo Laser Shutdown
+2026-09-28 13:17 - CRITICAL - Laser 1 : OFF
+2026-09-28 13:17 - CRITICAL - Laser 2 : OFF
+2026-09-28 13:17 - INFO - Stepper Lasers Shutdown
+2026-09-28 13:17 - INFO - COM connection close successfully
+2026-09-28 13:17 - INFO - Main window close successfully
+2026-09-28 13:17 - INFO - ==================================================
+2026-09-28 13:17 - INFO - New session close at 2026-09-28 13:17
+2026-09-28 13:17 - INFO - ==================================================
+2026-09-28 13:18 - INFO - UI load successful
+2026-09-28 13:28 - INFO - Galvo Laser Shutdown
+2026-09-28 13:28 - CRITICAL - Laser 1 : OFF
+2026-09-28 13:28 - CRITICAL - Laser 2 : OFF
+2026-09-28 13:28 - INFO - Stepper Lasers Shutdown
+2026-09-28 13:28 - INFO - COM connection close successfully
+2026-09-28 13:28 - INFO - Main window close successfully
+2026-09-28 13:28 - INFO - ==================================================
+2026-09-28 13:28 - INFO - New session close at 2026-09-28 13:28
+2026-09-28 13:28 - INFO - ==================================================
+2026-09-28 13:31 - INFO - UI load successful
+2026-09-28 13:34 - INFO - Galvo Laser Shutdown
+2026-09-28 13:34 - CRITICAL - Laser 1 : OFF
+2026-09-28 13:34 - CRITICAL - Laser 2 : OFF
+2026-09-28 13:34 - INFO - Stepper Lasers Shutdown
+2026-09-28 13:34 - INFO - COM connection close successfully
+2026-09-28 13:34 - INFO - Main window close successfully
+2026-09-28 13:34 - INFO - ==================================================
+2026-09-28 13:34 - INFO - New session close at 2026-09-28 13:34
+2026-09-28 13:34 - INFO - ==================================================
+2026-09-28 13:37 - INFO - UI load successful
+2026-09-28 14:26 - INFO - Galvo Laser Shutdown
+2026-09-28 14:26 - CRITICAL - Laser 1 : OFF
+2026-09-28 14:26 - CRITICAL - Laser 2 : OFF
+2026-09-28 14:26 - INFO - Stepper Lasers Shutdown
+2026-09-28 14:26 - INFO - COM connection close successfully
+2026-09-28 14:26 - INFO - Main window close successfully
+2026-09-28 14:26 - INFO - ==================================================
+2026-09-28 14:26 - INFO - New session close at 2026-09-28 14:26
+2026-09-28 14:26 - INFO - ==================================================
+2026-09-28 14:27 - INFO - UI load successful
+2026-09-28 15:09 - INFO - Galvo Laser Shutdown
+2026-09-28 15:09 - CRITICAL - Laser 1 : OFF
+2026-09-28 15:09 - CRITICAL - Laser 2 : OFF
+2026-09-28 15:09 - INFO - Stepper Lasers Shutdown
+2026-09-28 15:09 - INFO - COM connection close successfully
+2026-09-28 15:09 - INFO - Main window close successfully
+2026-09-28 15:09 - INFO - ==================================================
+2026-09-28 15:09 - INFO - New session close at 2026-09-28 15:09
+2026-09-28 15:09 - INFO - ==================================================
+2026-09-28 15:33 - INFO - UI load successful
+2026-09-28 15:34 - INFO - Galvo Laser Shutdown
+2026-09-28 15:34 - CRITICAL - Laser 1 : OFF
+2026-09-28 15:34 - CRITICAL - Laser 2 : OFF
+2026-09-28 15:34 - INFO - Stepper Lasers Shutdown
+2026-09-28 15:34 - INFO - COM connection close successfully
+2026-09-28 15:34 - INFO - Main window close successfully
+2026-09-28 15:34 - INFO - ==================================================
+2026-09-28 15:34 - INFO - New session close at 2026-09-28 15:34
+2026-09-28 15:34 - INFO - ==================================================
+2026-09-28 15:36 - INFO - UI load successful
+2026-09-28 15:38 - INFO - Galvo Laser Shutdown
+2026-09-28 15:38 - CRITICAL - Laser 1 : OFF
+2026-09-28 15:38 - CRITICAL - Laser 2 : OFF
+2026-09-28 15:38 - INFO - Stepper Lasers Shutdown
+2026-09-28 15:38 - INFO - COM connection close successfully
+2026-09-28 15:38 - INFO - Main window close successfully
+2026-09-28 15:38 - INFO - ==================================================
+2026-09-28 15:38 - INFO - New session close at 2026-09-28 15:38
+2026-09-28 15:38 - INFO - ==================================================
+2026-09-28 15:49 - INFO - UI load successful
+2026-09-28 15:50 - INFO - Close event ignored.
+2026-09-28 16:00 - INFO - Galvo Laser Shutdown
+2026-09-28 16:00 - CRITICAL - Laser 1 : OFF
+2026-09-28 16:00 - CRITICAL - Laser 2 : OFF
+2026-09-28 16:00 - INFO - Stepper Lasers Shutdown
+2026-09-28 16:00 - INFO - COM connection close successfully
+2026-09-28 16:00 - INFO - Main window close successfully
+2026-09-28 16:00 - INFO - ==================================================
+2026-09-28 16:00 - INFO - New session close at 2026-09-28 16:00
+2026-09-28 16:00 - INFO - ==================================================
+2026-09-28 16:04 - INFO - UI load successful
+2026-09-28 16:08 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 16:08 - INFO - mapmatrixAction : stopmat
+2026-09-28 16:08 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 16:09 - INFO - mapmatrixAction : stopmat
+2026-09-28 16:09 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 16:09 - INFO - mapmatrixAction : stopmat
+2026-09-28 16:09 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 16:10 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:11 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:12 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:12 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:17 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:17 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:17 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:20 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:20 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:20 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:20 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:21 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:21 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:21 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:21 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:40 - INFO - Galvo Laser Shutdown
+2026-09-28 17:40 - CRITICAL - Laser 1 : OFF
+2026-09-28 17:40 - CRITICAL - Laser 2 : OFF
+2026-09-28 17:40 - INFO - Stepper Lasers Shutdown
+2026-09-28 17:40 - INFO - COM connection close successfully
+2026-09-28 17:40 - INFO - Main window close successfully
+2026-09-28 17:40 - INFO - ==================================================
+2026-09-28 17:40 - INFO - New session close at 2026-09-28 17:40
+2026-09-28 17:40 - INFO - ==================================================
+2026-09-28 17:40 - INFO - UI load successful
+2026-09-28 17:41 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:41 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:41 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:41 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:41 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:41 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:41 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:41 - INFO - mapmatrixAction : lasermarkmat
+2026-09-28 17:53 - INFO - mapmatrixAction : redmarkmat
+2026-09-28 17:53 - INFO - mapmatrixAction : stopmat
+2026-09-28 17:53 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 10:20 - INFO - UI load successful
+2026-09-29 10:20 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/80mm_square.svg
+2026-09-29 10:20 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 10:21 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 10:22 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 10:25 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 10:25 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:25 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 10:25 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:25 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 10:25 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:25 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 10:40 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 10:40 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:40 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:40 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 10:40 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:40 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 10:41 - INFO - mapmatrixAction : stopmat
+2026-09-29 10:41 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 10:55 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 10:56 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:01 - INFO - Galvo Laser Shutdown
+2026-09-29 11:01 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:01 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:01 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:01 - INFO - COM connection close successfully
+2026-09-29 11:01 - INFO - Main window close successfully
+2026-09-29 11:01 - INFO - ==================================================
+2026-09-29 11:01 - INFO - New session close at 2026-09-29 11:01
+2026-09-29 11:01 - INFO - ==================================================
+2026-09-29 11:06 - INFO - UI load successful
+2026-09-29 11:06 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:06 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:06 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 11:07 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 11:07 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:07 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:07 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:07 - INFO - Galvo Laser Shutdown
+2026-09-29 11:07 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:07 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:07 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:07 - INFO - COM connection close successfully
+2026-09-29 11:07 - INFO - Main window close successfully
+2026-09-29 11:07 - INFO - ==================================================
+2026-09-29 11:07 - INFO - New session close at 2026-09-29 11:07
+2026-09-29 11:07 - INFO - ==================================================
+2026-09-29 11:10 - INFO - UI load successful
+2026-09-29 11:10 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-29 11:10 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-29 11:12 - INFO - Galvo Laser Shutdown
+2026-09-29 11:12 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:12 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:12 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:12 - INFO - COM connection close successfully
+2026-09-29 11:12 - INFO - Main window close successfully
+2026-09-29 11:12 - INFO - ==================================================
+2026-09-29 11:12 - INFO - New session close at 2026-09-29 11:12
+2026-09-29 11:12 - INFO - ==================================================
+2026-09-29 11:17 - INFO - UI load successful
+2026-09-29 11:17 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:17 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:18 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:19 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:20 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:20 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:21 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:22 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:23 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:24 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:25 - INFO - Galvo Laser Shutdown
+2026-09-29 11:25 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:25 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:25 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:25 - INFO - COM connection close successfully
+2026-09-29 11:25 - INFO - Main window close successfully
+2026-09-29 11:25 - INFO - ==================================================
+2026-09-29 11:25 - INFO - New session close at 2026-09-29 11:25
+2026-09-29 11:25 - INFO - ==================================================
+2026-09-29 11:31 - INFO - UI load successful
+2026-09-29 11:31 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-29 11:31 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/40mm_square.svg
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:31 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:33 - INFO - Galvo Laser Shutdown
+2026-09-29 11:33 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:33 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:33 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:33 - INFO - COM connection close successfully
+2026-09-29 11:33 - INFO - Main window close successfully
+2026-09-29 11:33 - INFO - ==================================================
+2026-09-29 11:33 - INFO - New session close at 2026-09-29 11:33
+2026-09-29 11:33 - INFO - ==================================================
+2026-09-29 11:34 - INFO - UI load successful
+2026-09-29 11:34 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:34 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:34 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 11:34 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 11:34 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:34 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:35 - INFO - Galvo Laser Shutdown
+2026-09-29 11:35 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:35 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:35 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:35 - INFO - COM connection close successfully
+2026-09-29 11:35 - INFO - Main window close successfully
+2026-09-29 11:35 - INFO - ==================================================
+2026-09-29 11:35 - INFO - New session close at 2026-09-29 11:35
+2026-09-29 11:35 - INFO - ==================================================
+2026-09-29 11:35 - INFO - UI load successful
+2026-09-29 11:35 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:35 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/svg_files/B1.svg
+2026-09-29 11:35 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-09-29 11:35 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-09-29 11:35 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:35 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:35 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-09-29 11:35 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-09-29 11:36 - INFO - Galvo Laser Shutdown
+2026-09-29 11:36 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:36 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:36 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:36 - INFO - COM connection close successfully
+2026-09-29 11:36 - INFO - Main window close successfully
+2026-09-29 11:36 - INFO - ==================================================
+2026-09-29 11:36 - INFO - New session close at 2026-09-29 11:36
+2026-09-29 11:36 - INFO - ==================================================
+2026-09-29 11:37 - INFO - UI load successful
+2026-09-29 11:40 - INFO - Galvo Laser Shutdown
+2026-09-29 11:40 - CRITICAL - Laser 1 : OFF
+2026-09-29 11:40 - CRITICAL - Laser 2 : OFF
+2026-09-29 11:40 - INFO - Stepper Lasers Shutdown
+2026-09-29 11:40 - INFO - COM connection close successfully
+2026-09-29 11:40 - INFO - Main window close successfully
+2026-09-29 11:40 - INFO - ==================================================
+2026-09-29 11:40 - INFO - New session close at 2026-09-29 11:40
+2026-09-29 11:40 - INFO - ==================================================
+2026-09-29 11:40 - INFO - UI load successful
+2026-09-29 11:41 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 11:42 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 11:42 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 11:42 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 11:42 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:42 - INFO - mapmatrixAction : redmarkmat
+2026-09-29 11:43 - INFO - mapmatrixAction : stopmat
+2026-09-29 11:43 - INFO - mapmatrixAction : lasermarkmat
+2026-09-29 11:57 - INFO - Profile : Supervisor
+2026-09-29 12:02 - INFO - Galvo Laser Shutdown
+2026-09-29 12:02 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:02 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:02 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:02 - INFO - COM connection close successfully
+2026-09-29 12:02 - INFO - Main window close successfully
+2026-09-29 12:02 - INFO - ==================================================
+2026-09-29 12:02 - INFO - New session close at 2026-09-29 12:02
+2026-09-29 12:02 - INFO - ==================================================
+2026-09-29 12:02 - INFO - UI load successful
+2026-09-29 12:03 - INFO - Profile : Supervisor
+2026-09-29 12:04 - INFO - Galvo Laser Shutdown
+2026-09-29 12:04 - CRITICAL - Laser 1 : OFF
+2026-09-29 12:04 - CRITICAL - Laser 2 : OFF
+2026-09-29 12:04 - INFO - Stepper Lasers Shutdown
+2026-09-29 12:04 - INFO - COM connection close successfully
+2026-09-29 12:04 - INFO - Main window close successfully
+2026-09-29 12:04 - INFO - ==================================================
+2026-09-29 12:04 - INFO - New session close at 2026-09-29 12:04
+2026-09-29 12:04 - INFO - ==================================================

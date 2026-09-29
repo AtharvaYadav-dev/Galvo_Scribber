@@ -304,16 +304,15 @@ class MainWindow(QMainWindow):
                         
                     # Trigger the print logic
                     if str(self.galvo_mode).upper() == "ON":
-                        # Check if on print page and design is loaded
-                        if self.main_stack.currentIndex() == self.main_page_dict.get("printgalvo"):
-                            if getattr(self, 'pgm_file', None) or getattr(self, 'current_test_shape', None):
-                                if hasattr(self.ui, 'printrungalvoPushButton') and self.ui.printrungalvoPushButton.isEnabled():
-                                    self.printGalvoAction(self.printgalvo_widgets.printrungalvo)
+                        if getattr(self, 'pgm_file', None) or getattr(self, 'current_test_shape', None):
+                            if hasattr(self.ui, 'printrungalvoPushButton') and self.ui.printrungalvoPushButton.isEnabled():
+                                self.showMainPages("printgalvo")
+                                self.printGalvoAction(self.printgalvo_widgets.printrungalvo)
                     else:
-                        if self.main_stack.currentIndex() == self.main_page_dict.get("print"):
-                            if getattr(self, 'pgm_file', None):
-                                if hasattr(self.ui, 'printrunPushButton') and self.ui.printrunPushButton.isEnabled():
-                                    self.printAction(self.print_widgets.printrun)
+                        if getattr(self, 'pgm_file', None):
+                            if hasattr(self.ui, 'printrunPushButton') and self.ui.printrunPushButton.isEnabled():
+                                self.showMainPages("print")
+                                self.printAction(self.print_widgets.printrun)
                 else: # Released (24V)
                     msg = ">> Hardware Trigger: DI1 (Start) Not Pressed!"
                     self.logger.info(msg)
@@ -933,8 +932,8 @@ class MainWindow(QMainWindow):
         self.mapmatrix_widgets = self.wh.createMap(*widget_list)
         
     def initMapMatrix(self):
-        pass
-        
+        from mapping_controller import ParameterMappingController
+        self.mapping_controller = ParameterMappingController(self)
     
     def setupProgramsGalvo(self):
         self.current_hatch_idx = 1
@@ -1008,14 +1007,7 @@ class MainWindow(QMainWindow):
         self.printgalvo_widgets = self.wh.createMap(*widget_list)
         self.ui.redlightprePushButton.setText("START")
         
-        # Add Parameter Mapping Button to execution UI
-        self.mapping_btn = QPushButton("Power/Freq Matrix")
-        # Use simple style
-        self.mapping_btn.setStyleSheet("QPushButton { font-weight: bold; background-color: #2196F3; color: white; border-radius: 5px; padding: 10px; }")
-        if hasattr(self.ui, 'verticalLayout_71'):
-            self.ui.verticalLayout_71.addWidget(self.mapping_btn)
-        self.mapping_btn.clicked.connect(self.open_parameter_mapping)
-        
+
         from PySide6.QtGui import QShortcut, QKeySequence
         self.f1_shortcut = QShortcut(QKeySequence("F1"), self)
         self.f1_shortcut.activated.connect(self.handle_f1_shortcut)
@@ -1035,13 +1027,6 @@ class MainWindow(QMainWindow):
             elif hasattr(self.ui, 'printabortgalvoPushButton') and self.ui.printabortgalvoPushButton.isEnabled():
                 self.printGalvoAction(self.ui.printabortgalvoPushButton)
 
-    def open_parameter_mapping(self):
-        try:
-            from mapping_dialog import ParameterMappingDialog
-            dlg = ParameterMappingDialog(self, self)
-            dlg.exec()
-        except Exception as e:
-            QMessageBox.critical(self, "Error", f"Could not load Parameter Mapping Dialog:\n{e}")
 
     def setupConfigGalvo(self):
         from PySide6.QtWidgets import QButtonGroup
@@ -1161,18 +1146,14 @@ class MainWindow(QMainWindow):
         
     def initMainPages(self):
         self.main_page_dict = {}
-        self.main_page_dict["jog"] = 0
-        self.main_page_dict["laser"] = 1
-        self.main_page_dict["program"] = 2
-        self.main_page_dict["print"] = 3
-        self.main_page_dict["camera"] = 4
-        self.main_page_dict["joggalvo"] = 5
-        self.main_page_dict["laserconfgalvo"] = 6
-        self.main_page_dict["programsgalvo"] = 7
-        self.main_page_dict["printgalvo"] = 8
-        self.main_page_dict["configgalvo"] = 9
-        self.main_page_dict["terminal"] = 10
-        self.main_page_dict["ezcad"] = 11
+        self.main_page_dict["joggalvo"] = 0
+        self.main_page_dict["laserconfgalvo"] = 1
+        self.main_page_dict["programsgalvo"] = 2
+        self.main_page_dict["printgalvo"] = 3
+        self.main_page_dict["configgalvo"] = 4
+        self.main_page_dict["terminal"] = 5
+        self.main_page_dict["ezcad"] = 6
+        self.main_page_dict["parametermatrix"] = 7
 
     
     def initInfoPages(self):
@@ -1896,7 +1877,14 @@ class MainWindow(QMainWindow):
                     else:
                         mapped_power = (float(slider_percentage) / 100.0) * 255.0
                         self.galvo_controller.connection.set_analog_do_bit(255.0, mapped_power, 50.0, 2)
-                    self.galvo_controller.connection.set_analog_do_bit(100.0, 50.0, self.galvo_controller.connection.clamp_laser_freq(freq_val) / 4.0 if hasattr(self.galvo_controller.connection, 'clamp_laser_freq') else freq_val / 4.0, 3)
+                    if hasattr(self.galvo_controller.connection, 'clamp_laser_freq'):
+                        freq_val = self.galvo_controller.connection.clamp_laser_freq(freq_val)
+                    
+                    # Convert 20kHz - 80kHz to 10% - 90% Duty Cycle for the Blackpill
+                    freq_duty_cycle = 10.0 + ((freq_val - 20.0) / (80.0 - 20.0)) * 80.0
+                    freq_duty_cycle = max(10.0, min(90.0, freq_duty_cycle))
+                    
+                    self.galvo_controller.connection.set_analog_do_bit(100.0, freq_duty_cycle, 50.0, 0)
             except Exception as e:
                 self.util.debugPrint(f"Error applying laser settings: {e}")
 
@@ -2050,13 +2038,19 @@ class MainWindow(QMainWindow):
                             if widget_ui:
                                 self.wh.invokeMethod(widget_ui, "set", str(val))
                                 
-                    # Also restore Power and Frequency (which are located on the main program_widgets)
+                    # Also restore Power and Frequency from Laser Conf widgets
                     pwr_val = nested_params.get("Laser Power")
                     if pwr_val is not None:
-                        self.wh.invokeMethod(self.program_widgets.pgmlaserpower, "set", str(pwr_val))
+                        if hasattr(self.ui, 'laserpowerLineEdit'):
+                            self.ui.laserpowerLineEdit.setText(str(pwr_val))
+                        if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2'):
+                            self.ui.galvolaserpowerHorizontalSlider_2.setValue(int(float(pwr_val)))
                     freq_val = nested_params.get("Laser Frequency")
                     if freq_val is not None:
-                        self.wh.invokeMethod(self.program_widgets.pgmlaserfreq, "set", str(freq_val))
+                        if hasattr(self.ui, 'laserfreqLineEdit'):
+                            self.ui.laserfreqLineEdit.setText(str(freq_val))
+                        if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
+                            self.ui.galvolaserfreqHorizontalSlider.setValue(int(float(freq_val)))
                                 
                     enable_hatch = nested_params.get("Enable Hatch")
                     if enable_hatch is not None:
@@ -2106,9 +2100,9 @@ class MainWindow(QMainWindow):
                 galvosampleheight = 0.0
             self.update_galvo_focus_calculations()
                 
-            # Fetch Laser Power and Frequency from program page widgets
-            ui_laserpower = self.wh.invokeMethod(self.program_widgets.pgmlaserpower, "get")
-            ui_laserfreq = self.wh.invokeMethod(self.program_widgets.pgmlaserfreq, "get")
+            # Fetch Laser Power and Frequency from Design page widgets
+            ui_laserpower = self.ui.pgmlaserpowerLineEdit.text() if hasattr(self.ui, 'pgmlaserpowerLineEdit') else None
+            ui_laserfreq = self.ui.pgmlaserfreqLineEdit.text() if hasattr(self.ui, 'pgmlaserfreqLineEdit') else None
             try:
                 self.pgm_laserpower = float(ui_laserpower) if ui_laserpower else None
                 self.pgm_laserfreq = float(ui_laserfreq) if ui_laserfreq else None
@@ -2702,6 +2696,9 @@ class MainWindow(QMainWindow):
             if hasattr(self, "galvo_exec_thread") and self.galvo_exec_thread.isRunning():
                 self.wh.invokeMethod(widget, "disable")
                 self.galvo_exec_thread.abort()
+                
+            if self.galvo_controller.connection and hasattr(self.galvo_controller.connection, 'stop'):
+                self.galvo_controller.connection.stop()
                 
             self.showMainPages("programsgalvo")
             
@@ -3377,6 +3374,19 @@ class MainWindow(QMainWindow):
             
         # If we pass all validation checks, enable the Save button
         self.wh.invokeMethod(self.program_widgets.pgmsaveset, "enable")
+        
+        # Sync with print page sliders for Galvo mode
+        try:
+            if ui_laserpower:
+                pwr = float(ui_laserpower)
+                if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2'):
+                    self.ui.galvolaserpowerHorizontalSlider_2.setValue(int(pwr))
+            if ui_laserfreq:
+                freq = float(ui_laserfreq)
+                if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
+                    self.ui.galvolaserfreqHorizontalSlider.setValue(int(freq))
+        except ValueError:
+            pass
 
                 
     def printAction(self, widget, *args):
@@ -3422,12 +3432,15 @@ class MainWindow(QMainWindow):
         action = self.wh.getRole(widget)
         self.logger.info(f"mapmatrixAction : {action}")
         
+        if not hasattr(self, 'mapping_controller'):
+            return
+
         if action == "redmarkmat":
-            pass # TODO
+            self.mapping_controller.run_preview()
         elif action == "lasermarkmat":
-            pass # TODO
+            self.mapping_controller.run_mark()
         elif action == "stopmat":
-            pass # TODO
+            self.mapping_controller.abort()
 
         
     def terminalAction(self, widget, event=None):
@@ -3494,7 +3507,7 @@ class MainWindow(QMainWindow):
             btn.click()
         
         else:
-            self.wh.invokeMethod(self.main_stack, "set", arg)
+            self.main_stack.setCurrentIndex(arg)
             
         self.util.debugPrint(f"index : {arg}")
         self.util.debugPrint(f"arg : {arg}")

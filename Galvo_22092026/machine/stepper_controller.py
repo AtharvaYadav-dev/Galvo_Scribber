@@ -15,7 +15,7 @@ class StepperController:
         pulses = self.connection.get_axis_position('Z')
         return -pulses / self.steps_per_mm
 
-    def move_axis(self, axis, position_mm, speed=1000):
+    def move_axis(self, axis, position_mm, speed=1500):
         """
         Moves a stepper motor axis (e.g., Z-axis for focus, or XY table).
         Position is given in millimeters.
@@ -99,25 +99,40 @@ class StepperController:
         
     def home_z(self, app_instance=None):
         """
-        Custom Homing Sequence:
-        Moves Z-axis downwards (Z-) in small increments until the limit switch is triggered (status == 1).
+        Custom Homing Sequence (S-Wave):
+        Commands a single long smooth movement towards the home position.
+        Polls the limit switch and stops/resets immediately when hit.
         """
         import time
         if not self.connection or not getattr(self.connection, 'is_initialized', False):
             print("Cannot home axis, system not initialized.")
             return False
             
-        print("Starting Z-Axis Homing Sequence...")
-        step_mm = 0.5  # Move 0.5mm at a time
-        speed = 4000   # Fast movement for small steps
-        max_dist_mm = 200.0 # Maximum travel distance to prevent infinite loops (200mm)
+        print("Starting Smooth Z-Axis Homing Sequence (S-Wave)...")
+        speed = 1000 # Reduced speed for a safer, gentler homing movement
+        max_dist_mm = 200.0 # Maximum travel distance
         
-        steps = int(max_dist_mm / step_mm)
+        # Start a single smooth move downwards
+        self.move_z_relative(-max_dist_mm, speed, ignore_limits=True)
         
-        for _ in range(steps):
+        timeout = time.time() + (max_dist_mm / (speed / self.steps_per_mm)) + 5.0
+        
+        while time.time() < timeout:
             status = self.connection.get_home_status('Z')
             if status == 0:
                 print("Limit Switch Triggered! Homing successful.")
+                
+                # Hardware typically auto-stops on limit switch, but we issue a Reset to clear the buffer/alarms
+                if hasattr(self.connection, 'dll') and hasattr(self.connection.dll, 'GT_PROSYS_U3_ResetAxis'):
+                    from ctypes import c_short
+                    self.connection.dll.GT_PROSYS_U3_ResetAxis(c_short(2))
+                    
+                # Reset the internal wait timer so the next move doesn't get blocked
+                self.next_ready_time = 0.0
+                
+                # Allow it to stop physically
+                time.sleep(0.5)
+
                 # Move slightly away from the switch (backoff UPWARD)
                 self.move_z_relative(1.0, speed=10000, ignore_limits=True)
                 time.sleep(0.5)
@@ -127,15 +142,12 @@ class StepperController:
                     self.connection.set_axis_position('Z', 0)
                 return True
                 
-            # Move DOWNWARD 
-            self.move_z_relative(-step_mm, speed, ignore_limits=True)
-            
-            # Wait for step to physically complete 
-            time.sleep(0.1)
-            
             # Keep UI responsive
             if app_instance:
                 app_instance.processEvents()
+            
+            time.sleep(0.05)
                 
-        print("Homing failed: Reached max distance without hitting switch.")
+        print("Homing failed: Reached max time without hitting switch.")
+        self.next_ready_time = 0.0
         return False

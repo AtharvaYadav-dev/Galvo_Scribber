@@ -10,9 +10,32 @@ const int PIN_MO          = PA2; // DB25 Pin 18 (Master Oscillator / MO)
 const int PIN_BOOSTER     = PB9;  // DB25 Pin 19 (Booster / Emission)
 const int PIN_RED_DOT_OUT = PA4;  // Red Dot Laser Control Pin
 
+// New Frequency Translation Pins
+const int PIN_FREQ_IN     = PB10; // Connect to Galvo J2 Pin 33 (50Hz PWM signal, 5V Tolerant)
+const int PIN_PRR_OUT     = PA8;  // Connect to Laser Pin 20 (Hardware PRR 20-80kHz)
+
 const int ADC_OFF_THRESHOLD = 50; 
 uint8_t currentPowerByte = 0;
 bool laserIsFiring = false;
+
+volatile unsigned long freqRiseTime = 0;
+volatile unsigned long freqFallTime = 0;
+volatile unsigned long freqHighTime = 0;
+volatile unsigned long freqTotalPeriod = 0;
+HardwareTimer *prrTimer;
+
+void freqInISR() {
+  unsigned long now = micros();
+  if (digitalRead(PIN_FREQ_IN) == HIGH) {
+    if (freqFallTime > 0) {
+      freqTotalPeriod = now - freqRiseTime;
+    }
+    freqRiseTime = now;
+  } else {
+    freqHighTime = now - freqRiseTime;
+    freqFallTime = now;
+  }
+}
 
 // Write 8-bit power data and pulse Latch (PB8)
 void setLaserPowerByte(uint8_t powerByte) {
@@ -38,10 +61,16 @@ unsigned long lastActivityTime = 0;
 bool moIsOn = false;
 
 void setup() {
+  // Set ADC to 12-bit (0-4095) to match the calibration lookup table!
+  analogReadResolution(12);
+  
   // Inputs
   pinMode(PIN_ANALOG_IN, INPUT_ANALOG);
   pinMode(PIN_GALVO_D0_IN, INPUT);
   pinMode(PIN_GALVO_D2_IN, INPUT);
+  pinMode(PIN_FREQ_IN, INPUT_PULLDOWN);
+  
+  attachInterrupt(digitalPinToInterrupt(PIN_FREQ_IN), freqInISR, CHANGE);
 
   // Laser Outputs
   for (int i = 0; i < 8; i++) {
@@ -51,9 +80,17 @@ void setup() {
   pinMode(PIN_LATCH, OUTPUT);
   pinMode(PIN_MO, OUTPUT);
   pinMode(PIN_BOOSTER, OUTPUT);
+  pinMode(PIN_PRR_OUT, OUTPUT);
 
   // Red Dot Output
   pinMode(PIN_RED_DOT_OUT, OUTPUT);
+
+  // Setup Hardware PWM on PA8 for Laser PRR
+  prrTimer = new HardwareTimer(TIM1);
+  prrTimer->setMode(1, TIMER_OUTPUT_COMPARE_PWM1, PIN_PRR_OUT);
+  prrTimer->setOverflow(50000, HERTZ_FORMAT); // Default 50kHz
+  prrTimer->setCaptureCompare(1, 50, PERCENT_COMPARE_FORMAT); // 50% duty cycle
+  prrTimer->resume();
 
   // Initial States
   digitalWrite(PIN_LATCH, LOW);
@@ -136,11 +173,40 @@ void loop() {
       lastActivityTime = millis();
     }
     
-    // Keep MO on for 20ms after firing stops (keep-alive)
-    // This prevents the MO from turning on/off thousands of times a second during hatching
-    if (moIsOn && (millis() - lastActivityTime > 20)) {
+    // Keep MO on for 5ms after firing stops, matching manual diagram precisely
+    if (moIsOn && (millis() - lastActivityTime >= 5)) {
       digitalWrite(PIN_MO, LOW);
       moIsOn = false;
     }
   }
+
+  // --- 4. Dynamic Frequency Control (Galvo Pin 33 -> PB10 -> PA8) ---
+  // The Galvo is sending a PWM signal where duty cycle represents 20kHz - 80kHz
+  long currentHigh = freqHighTime;
+  long currentPeriod = freqTotalPeriod;
+  
+  if (currentPeriod > 0) {
+    float dutyRatio = (float)currentHigh / (float)currentPeriod;
+    
+    // The Galvo board outputs an INVERTED signal (Active Low).
+    // So if Python sent 90% duty cycle, we measure 10% high time here.
+    float actualDuty = 1.0 - dutyRatio; 
+    
+    // 10% duty = 0.1 -> 20kHz
+    // 90% duty = 0.9 -> 80kHz
+    if (actualDuty >= 0.05 && actualDuty <= 0.95) {
+      long targetFreq = 20000 + ((actualDuty - 0.1) / (0.9 - 0.1)) * (80000 - 20000);
+      targetFreq = constrain(targetFreq, 20000, 80000);
+      
+      // Only update hardware timer if changed by > 500Hz to prevent jitter
+      static long lastTargetFreq = 0;
+      if (abs(targetFreq - lastTargetFreq) > 500) {
+        prrTimer->setOverflow(targetFreq, HERTZ_FORMAT);
+        prrTimer->setCaptureCompare(1, 50, PERCENT_COMPARE_FORMAT);
+        lastTargetFreq = targetFreq;
+      }
+    }
+  }
 }
+
+

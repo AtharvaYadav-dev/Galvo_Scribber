@@ -15,13 +15,15 @@ class GridPreviewCanvas(QWidget):
         self.grid_data = [] # List of dicts with r, c, rect, power, freq
         self.active_cell = None
         self.field_size = 110.0 # default
+        self.show_labels = False
         
     def set_field_size(self, size):
         self.field_size = size
         self.update()
 
-    def update_grid(self, grid_data):
+    def update_grid(self, grid_data, show_labels=False):
         self.grid_data = grid_data
+        self.show_labels = show_labels
         self.update()
 
     def set_active_cell(self, r, c):
@@ -31,7 +33,7 @@ class GridPreviewCanvas(QWidget):
     def paintEvent(self, event):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
-        painter.fillRect(self.rect(), Qt.black)
+        painter.fillRect(self.rect(), QColor(25, 25, 30))
         
         if not self.grid_data:
             return
@@ -41,53 +43,70 @@ class GridPreviewCanvas(QWidget):
         min_x = min((d['rect'].left() for d in self.grid_data), default=0)
         min_y = min((d['rect'].top() for d in self.grid_data), default=0)
         
-        # Consider the field size as the max bounds to scale
         cx = (max_x + min_x) / 2
         cy = (max_y + min_y) / 2
         
-        # scale based on field size
-        scale_x = self.width() / (self.field_size * 1.1)
-        scale_y = self.height() / (self.field_size * 1.1)
+        # Add some padding to scale if labels are active so they don't clip
+        padding_factor = 1.3 if self.show_labels else 1.1
+        scale_x = self.width() / (self.field_size * padding_factor)
+        scale_y = self.height() / (self.field_size * padding_factor)
         scale = min(scale_x, scale_y)
 
-        # Field bounding box (centered on grid center)
         offset_x = self.width() / 2 - (cx * scale)
         offset_y = self.height() / 2 - (cy * scale)
         
-        # Draw field boundary
         field_rect = QRectF(self.width()/2 - (self.field_size/2)*scale, 
                             self.height()/2 - (self.field_size/2)*scale,
                             self.field_size*scale, self.field_size*scale)
-        painter.setPen(QPen(Qt.green, 2, Qt.DashLine))
+                            
+        painter.setPen(QPen(QColor(50, 200, 50, 150), 2, Qt.DashLine))
         painter.setBrush(Qt.NoBrush)
-        painter.drawRect(field_rect)
+        painter.drawRoundedRect(field_rect, 5, 5)
         
-        # Draw "Field Limit" text
-        painter.setPen(Qt.green)
+        painter.setPen(QColor(50, 200, 50, 150))
         painter.drawText(field_rect.bottomLeft() + QPointF(5, -5), f"Field Limit ({self.field_size}x{self.field_size} mm)")
 
         if max_x == 0 or max_y == 0:
             return
 
+        max_r = max((d['r'] for d in self.grid_data), default=0)
+        
         for cell in self.grid_data:
             r = cell['r']
             c = cell['c']
             rect = cell['rect']
             power = cell['power']
+            freq = cell['freq']
             
             sr = QRectF(offset_x + rect.x() * scale, offset_y + rect.y() * scale,
                         rect.width() * scale, rect.height() * scale)
 
             if self.active_cell == (r, c):
-                painter.setPen(QPen(Qt.red, 2))
-                painter.setBrush(QBrush(Qt.yellow, Qt.SolidPattern))
+                painter.setPen(QPen(Qt.yellow, 2))
+                painter.setBrush(QBrush(QColor(255, 100, 0, 200), Qt.SolidPattern))
             else:
                 intensity = int(255 * (power / 100.0))
-                color = QColor(255, 0, 0, intensity)
-                painter.setPen(QPen(Qt.white, 1))
+                # Add a bit of blue/green based on freq to make it look cooler
+                b = int(100 * (freq / 100.0))
+                color = QColor(255, b, b, max(30, intensity))
+                painter.setPen(QPen(QColor(200, 200, 200, 150), 1))
                 painter.setBrush(QBrush(color, Qt.SolidPattern))
             
-            painter.drawRect(sr)
+            painter.drawRoundedRect(sr, 3, 3)
+            
+            if self.show_labels:
+                painter.setPen(QColor(200, 200, 220))
+                font = painter.font()
+                font.setPointSize(8)
+                painter.setFont(font)
+                
+                # Draw Y axis label on the first column
+                if c == 0:
+                    painter.drawText(QRectF(sr.left() - 40, sr.top(), 35, sr.height()), Qt.AlignRight | Qt.AlignVCenter, f"{freq:.1f}")
+                
+                # Draw X axis label on the last row
+                if r == max_r:
+                    painter.drawText(QRectF(sr.left(), sr.bottom() + 5, sr.width(), 20), Qt.AlignCenter, f"{power:.1f}")
 
 class ParameterMappingDialog(QDialog):
     def __init__(self, main_window, parent=None):

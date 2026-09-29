@@ -4,9 +4,11 @@
         "Mark Speed": "100000",
         "Jump Speed": "200000",
         "Loop Count": "1",
-        "Start Pos X": "0",
-        "Start Pos Y": "10",
+        "Start Pos X": "5",
+        "Start Pos Y": "15",
         "Enable Hatch": true,
-        "Mode": null
+        "Mode": null,
+        "Laser Power": null,
+        "Laser Frequency": null
     }
 }

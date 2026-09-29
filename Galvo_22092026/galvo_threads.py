@@ -100,12 +100,12 @@ class PreviewThread(QThread):
                 move(self.min_x, self.max_y)
                 move(self.min_x, self.min_y)
                 
-                # Crosshair
-                move(self.min_x, c_y)
-                move(self.max_x, c_y)
-                move(c_x, c_y)
-                move(c_x, self.min_y)
-                move(c_x, self.max_y)
+                # Crosshair (Removed as per user request to only show border)
+                # move(self.min_x, c_y)
+                # move(self.max_x, c_y)
+                # move(c_x, c_y)
+                # move(c_x, self.min_y)
+                # move(c_x, self.max_y)
                 
                 # Wait for the hardware to finish drawing this box before sending the next one.
                 # This prevents the hardware buffer from overflowing with old boxes.

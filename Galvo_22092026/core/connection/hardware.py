@@ -173,8 +173,8 @@ class HardwareConnection(BaseConnection):
             self.dll.GT_PROSYS_U3_Stop()
         
     def clamp_laser_freq(self, requested_freq):
-        # MFP-30W hardware limit is strictly 30kHz to 60kHz. Out of range can trigger alarm/missing pulses.
-        return max(30.0, min(60.0, float(requested_freq)))
+        # Allow 20kHz to 80kHz for MFP-5W-70W Q-Switch laser source
+        return max(20.0, min(80.0, float(requested_freq)))
 
     def set_analog_do_bit(self, max_val, crt_val, freq_val, bit):
         print(f"HARDWARE COMMAND: set_analog_do_bit() called. max_val={max_val}, crt_val={crt_val}, freq_val={freq_val}, bit={bit}")
