@@ -11,12 +11,12 @@ try:
     # Monkey-patch buffer to drastically increase curve smoothness
     _original_buffer = shapely.geometry.base.BaseGeometry.buffer
     def _high_res_buffer(self, distance, quad_segs=16, **kwargs):
-        # Prevent faceted circles by forcing a high quad_segs count (128 = 512 points per circle)
+        # Prevent faceted circles by forcing a high quad_segs count (64 = 256 points per circle)
         if 'resolution' in kwargs:
             res = kwargs.pop('resolution')
-            qs = max(128, res)
+            qs = max(64, res)
         else:
-            qs = max(128, quad_segs)
+            qs = max(64, quad_segs)
         return _original_buffer(self, distance, quad_segs=qs, **kwargs)
     shapely.geometry.base.BaseGeometry.buffer = _high_res_buffer
 except ImportError:
@@ -412,10 +412,21 @@ class GerberParser:
                 polylines.append(list(geom.coords))
                     
         try:
-            union_geom = shapely.ops.unary_union(geometries)
+            # Fix topology issues (near-collinear points, self-intersections) before unioning
+            from shapely.validation import make_valid
+            clean_geoms = []
+            for geom in geometries:
+                try:
+                    clean = make_valid(geom)
+                    if not clean.is_empty:
+                        clean_geoms.append(clean)
+                except:
+                    clean_geoms.append(geom.buffer(0))
+            
+            union_geom = shapely.ops.unary_union(clean_geoms)
             extract_bounds(union_geom)
         except Exception as e:
-            if self.debug: print(f"[Gerber] Shapely union failed: {e}")
+            if getattr(self, 'debug', False): print(f"[Gerber] Shapely union failed: {e}")
             for geom in geometries:
                 extract_bounds(geom)
                 
