@@ -531,6 +531,23 @@ class GerberParser:
         polylines = self._extract_polylines_from_geometries(geometries)
         optimized_polylines = self._optimize_polylines(polylines)
 
+        def resample_path(path, max_dist=0.1):
+            if not path: return []
+            resampled = [path[0]]
+            for i in range(1, len(path)):
+                p1 = resampled[-1]
+                p2 = path[i]
+                dx = p2[0] - p1[0]
+                dy = p2[1] - p1[1]
+                dist = math.hypot(dx, dy)
+                if dist > max_dist:
+                    num_steps = int(math.ceil(dist / max_dist))
+                    for step in range(1, num_steps):
+                        t = step / num_steps
+                        resampled.append((round(p1[0] + dx * t, 6), round(p1[1] + dy * t, 6)))
+                resampled.append(p2)
+            return resampled
+
         all_paths_mm = []
         for pts in optimized_polylines:
             if not pts: continue
@@ -540,6 +557,7 @@ class GerberParser:
                 path_mm.append((round(self.shiftX(pt[0]), 6), round(self.shiftY(pt[1]), 6)))
                 
             if path_mm:
+                path_mm = resample_path(path_mm, max_dist=resolution)
                 all_paths_mm.append(path_mm)
                 
         if not all_paths_mm:
