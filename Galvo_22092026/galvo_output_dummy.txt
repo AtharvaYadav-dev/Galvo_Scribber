@@ -1,4 +1,0 @@
-; Galvo Command Execution Queue
-; Total Commands: 0
-; Field Size: 100mm
-

@@ -211,7 +211,8 @@ class GalvoController:
                             
                             speed_val = float(cmd.get('speed') or 1000)
                             if speed_val > 0:
-                                expected_duration += cmd.get('dist_mm', 0.0) / speed_val
+                                real_speed_mms = speed_val / 600.0
+                                expected_duration += cmd.get('dist_mm', 0.0) / real_speed_mms
                                 elapsed = time.time() - path_start_time
                                 # If Python is more than 500ms ahead of the hardware execution, sleep a tiny bit
                                 if (expected_duration - elapsed) > 0.500:
