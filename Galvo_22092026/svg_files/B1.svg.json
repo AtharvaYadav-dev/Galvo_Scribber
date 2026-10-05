@@ -8,7 +8,7 @@
         "Start Pos Y": "15",
         "Enable Hatch": true,
         "Mode": null,
-        "Laser Power": null,
-        "Laser Frequency": null
+        "Laser Power": 10.0,
+        "Laser Frequency": 80.0
     }
 }

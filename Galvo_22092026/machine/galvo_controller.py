@@ -47,6 +47,9 @@ class GalvoController:
         
         print(f"Executing queue for {loop_count} loops...")
         
+        if hasattr(self.connection, 'laser_off'):
+            self.connection.laser_off()
+        
         start_time = time.time()
         mark_count = 0
         jump_count = 0
@@ -58,6 +61,36 @@ class GalvoController:
         current_galvo_y = 0.0
         path_start_time = time.time()
         expected_duration = 0.0
+        
+        # Pre-calculate distances and apply calibration
+        import math
+        original_cal_state = False
+        if hasattr(self.connection, 'enable_calibration'):
+            original_cal_state = self.connection.enable_calibration
+            self.connection.enable_calibration = False
+
+        precalc_x = 0.0
+        precalc_y = 0.0
+        for cmd in send_queue:
+            ctype = cmd.get('type')
+            if ctype in ('mark', 'jump'):
+                raw_x = float(cmd['y'])
+                raw_y = float(cmd['x'])
+                
+                if original_cal_state and hasattr(self.connection, 'calibration'):
+                    cal_x, cal_y = self.connection.calibration.apply(raw_x, raw_y)
+                else:
+                    cal_x, cal_y = raw_x, raw_y
+                    
+                cmd['cal_x'] = cal_x
+                cmd['cal_y'] = cal_y
+                
+                if ctype == 'mark':
+                    dist_bits = math.hypot(cal_x - precalc_x, cal_y - precalc_y)
+                    cmd['dist_mm'] = dist_bits / 600.0
+                    
+                precalc_x = cal_x
+                precalc_y = cal_y
         
         try:
             for loop_idx in range(loop_count):
@@ -101,9 +134,6 @@ class GalvoController:
                                     laser_state = False
 
                                 print(f"[DEBUG] Injecting live power update: Power={current_power}, Freq={current_freq}")
-                                # Send previous buffered commands to hardware
-                                if hasattr(self.connection, 'send_buffer'):
-                                    self.connection.send_buffer()
                                 # Force buffer empty to ensure the hardware register write is accepted safely
                                 if hasattr(self.connection, 'wait_for_motion'):
                                     self.connection.wait_for_motion()
@@ -142,13 +172,16 @@ class GalvoController:
                                     self.connection.send_buffer()
                                 if hasattr(self.connection, 'wait_for_motion'):
                                     self.connection.wait_for_motion()
-                                    time.sleep(0.0015) # Laser OFF delay to allow mechanical mirror lag to catch up
+                                    # End delay (Wait at end of mark before turning off)
+                                    time.sleep(0.001) 
                                 self.connection.laser_off()
+                                # Laser OFF Delay (Wait for laser to fully extinguish before jumping)
+                                time.sleep(0.002)
                                 laser_state = False
                         
                             # Apply final corrected coordinate mapping
-                            cmd_x = cmd['y']
-                            cmd_y = cmd['x']
+                            cmd_x = cmd['cal_x']
+                            cmd_y = cmd['cal_y']
                         
                             self.connection.galvo_move_xy(cmd_x, cmd_y, cmd.get('speed'))
                             current_galvo_x = float(cmd_x)
@@ -173,20 +206,18 @@ class GalvoController:
                                 expected_duration = 0.0
                             
                             # Apply final corrected coordinate mapping
-                            cmd_x = cmd['y']
-                            cmd_y = cmd['x']
+                            cmd_x = cmd['cal_x']
+                            cmd_y = cmd['cal_y']
                             
-                            import math
-                            dist = math.hypot(cmd_x - current_galvo_x, cmd_y - current_galvo_y)
-                            speed_val = float(cmd.get('speed', 1000))
+                            speed_val = float(cmd.get('speed') or 1000)
                             if speed_val > 0:
-                                expected_duration += dist / speed_val
+                                expected_duration += cmd.get('dist_mm', 0.0) / speed_val
                                 elapsed = time.time() - path_start_time
-                                # If Python is more than 50ms ahead of the hardware execution, sleep a tiny bit
-                                if (expected_duration - elapsed) > 0.050:
-                                    time.sleep(0.015)
+                                # If Python is more than 500ms ahead of the hardware execution, sleep a tiny bit
+                                if (expected_duration - elapsed) > 0.500:
+                                    time.sleep(0.005)
                         
-                            self.connection.galvo_move_xy(cmd_x, cmd_y, cmd.get('speed'))
+                            self.connection.galvo_move_xy(cmd_x, cmd_y, cmd.get('speed') or 1000)
                             current_galvo_x = float(cmd_x)
                             current_galvo_y = float(cmd_y)
                             
@@ -202,6 +233,12 @@ class GalvoController:
                                 self.connection.laser_on()
                                 time.sleep(0.0015)
                                 laser_state = True
+                                
+                        elif ctype == 'flush':
+                            if hasattr(self.connection, 'send_buffer'):
+                                self.connection.send_buffer()
+                            if hasattr(self.connection, 'wait_for_motion'):
+                                self.connection.wait_for_motion()
                         
                         elif ctype == 'laser_off':
                             if laser_state:
@@ -209,8 +246,9 @@ class GalvoController:
                                     self.connection.send_buffer()
                                 if hasattr(self.connection, 'wait_for_motion'):
                                     self.connection.wait_for_motion()
-                                    time.sleep(0.0015)
+                                    time.sleep(0.001)
                                 self.connection.laser_off()
+                                time.sleep(0.002)
                                 laser_state = False
                         
                         elif ctype == 'delay':
@@ -245,6 +283,7 @@ class GalvoController:
         
             print("Queue execution complete.")
             self.connection.laser_off() # Always ensure laser is off at the end
+            time.sleep(0.005) # Final delay to ensure laser is off before any subsequent home commands
             flush_logs()
         
             return True
@@ -254,8 +293,12 @@ class GalvoController:
                 self.connection.laser_off()
             if hasattr(self.connection, 'set_analog_do_bit'):
                 self.connection.set_analog_do_bit(255.0, 0.0, 50.0, 2)
-                if hasattr(self.connection, 'send_buffer'):
-                    self.connection.send_buffer()
+            if hasattr(self.connection, 'enable_calibration'):
+                self.connection.enable_calibration = original_cal_state
+                    
+            # CRITICAL FIX: Reset tracking variables so the next print ALWAYS sets the correct power!
+            self._last_applied_power = None
+            self._last_applied_freq = None
     def galvo_home(self):
         """Moves the galvo mirrors to the center (home) position."""
         if not self.connection:

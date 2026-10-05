@@ -33,7 +33,7 @@ class GalvoPreviewWidget(QGraphicsView):
             self.scene.setSceneRect(-half_field, -half_field, field_size, field_size)
             
             self.mark_pen = QPen(QColor(255, 0, 0)) # Red for marking (Laser ON)
-            self.mark_pen.setWidthF(0.2)
+            self.mark_pen.setWidthF(0) # 0 means cosmetic pen (1 pixel wide regardless of zoom)
             
             self.jump_pen = QPen(QColor(150, 150, 150, 150)) # Gray dashed for jumps (Laser OFF)
             self.jump_pen.setStyle(Qt.DashLine)

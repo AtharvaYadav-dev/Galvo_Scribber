@@ -204,9 +204,7 @@ class HardwareConnection(BaseConnection):
             while self.dll.GT_PROSYS_U3_galvo_run_status() == 1:
                 if hasattr(self.dll, 'IsConnected') and self.dll.IsConnected() == 0:
                     raise ConnectionError("Galvo hardware disconnected during motion")
-                # Use pass instead of time.sleep(0.001) to prevent severe throttling 
-                # when Windows enters sleep mode and drops the system timer resolution.
-                pass
+                time.sleep(0.0001)
 
     def axis_move(self, axis, position, speed, is_relative=False):
         if self.dll and hasattr(self.dll, 'GT_PROSYS_U3_axis_move'):

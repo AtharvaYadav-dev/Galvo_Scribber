@@ -284,12 +284,20 @@ class MotionPlanner:
         if current_path:
             paths.append(current_path)
             
-        # Filter out non-motion paths for TSP
-        motion_paths = [p for p in paths if any(cmd['type'] in ('jump', 'mark') for cmd in p)]
-        static_paths = [p for p in paths if p not in motion_paths]
+        motion_paths = []
+        static_paths = []
+        for p in paths:
+            if any(cmd['type'] in ('jump', 'mark') for cmd in p):
+                motion_paths.append(p)
+            else:
+                static_paths.append(p)
         
         if len(motion_paths) < 2:
             return # nothing to optimize
+            
+        # Bypass O(N^2) path optimization for extremely large files
+        if len(motion_paths) > 5000:
+            return
             
         import math
         def dist(p1, p2):

@@ -330,7 +330,9 @@ class MainWindow(QMainWindow):
                         self.terminal_widgets.termresponse.append(msg)
                         
                     # Trigger the abort logic
-                    if str(self.galvo_mode).upper() == "ON":
+                    if hasattr(self, 'mapping_controller') and (getattr(self.mapping_controller, 'is_running', False) or getattr(self.mapping_controller, 'preview_active', False)):
+                        self.mapping_controller.abort()
+                    elif str(self.galvo_mode).upper() == "ON":
                         if hasattr(self.ui, 'printabortgalvoPushButton') and self.ui.printabortgalvoPushButton.isEnabled():
                             self.printGalvoAction(self.printgalvo_widgets.printabortgalvo)
                     else:
@@ -871,6 +873,7 @@ class MainWindow(QMainWindow):
             self.ui.freddotlasergalvoPushButton.setEnabled(True)
             
         if hasattr(self.ui, 'galvoobjheightLineEdit'):
+            self.ui.galvoobjheightLineEdit.setValidator(QDoubleValidator(-1000.0, 1000.0, 3, self))
             self.ui.galvoobjheightLineEdit.returnPressed.connect(self.save_galvoobjheight_to_config)
 
     def update_galvo_focus_calculations(self):
@@ -930,6 +933,18 @@ class MainWindow(QMainWindow):
         
         self.util.dedupeList(widget_list)
         self.mapmatrix_widgets = self.wh.createMap(*widget_list)
+        
+        # Apply input validations
+        double_validator = QDoubleValidator(-10000.0, 10000.0, 3, self)
+        int_validator = QIntValidator(-10000, 10000, self)
+        
+        for field in ["powstart", "powend", "powsteps", "freqstart", "freqend", "freqsteps"]:
+            if hasattr(self.mapmatrix_widgets, field) and getattr(self.mapmatrix_widgets, field):
+                getattr(self.mapmatrix_widgets, field).setValidator(int_validator)
+                
+        for field in ["cellwidth", "cellheight", "cellgapx", "cellgapy"]:
+            if hasattr(self.mapmatrix_widgets, field) and getattr(self.mapmatrix_widgets, field):
+                getattr(self.mapmatrix_widgets, field).setValidator(double_validator)
         
     def initMapMatrix(self):
         from mapping_controller import ParameterMappingController
@@ -997,6 +1012,21 @@ class MainWindow(QMainWindow):
         self.programsGalvoAction(self.ui.pgmenablehatchCheckBox)
         self._load_hatch_profiles_from_config()
         self.load_hatch_profile(1)
+        
+        # Apply input validations
+        double_validator = QDoubleValidator(-10000.0, 10000.0, 4, self)
+        int_validator = QIntValidator(-10000, 1000000, self)
+        
+        double_fields = ["pgmheightgalvo", "pgmstartposx", "pgmstartposy", "pgmangle", "pgmlinespace", "pgmedgeoff", "pgmstartoff", "pgmendoff", "pgmlinered", "pgmloopdist", "pgmautorotangl"]
+        int_fields = ["pgmmarkspeedgalvo", "pgmjumpspeed", "pgmloopcount", "pgmcount", "pgmnumloops"]
+        
+        for field in double_fields:
+            if hasattr(self.programgalvo_widgets, field) and getattr(self.programgalvo_widgets, field):
+                getattr(self.programgalvo_widgets, field).setValidator(double_validator)
+                
+        for field in int_fields:
+            if hasattr(self.programgalvo_widgets, field) and getattr(self.programgalvo_widgets, field):
+                getattr(self.programgalvo_widgets, field).setValidator(int_validator)
 
     def setupPrintGalvo(self):
         widget_list = []
@@ -1091,6 +1121,18 @@ class MainWindow(QMainWindow):
 
         self.util.dedupeList(widget_list)
         self.configgalvo_widgets = self.wh.createMap(*widget_list)
+
+        # Apply input validations
+        double_validator = QDoubleValidator(-10000.0, 10000.0, 4, self)
+        
+        double_fields = ["fieldsizeconf", "offxconf", "offyconf", "angleconf", 
+                         "confscalegalvo1", "confbargalvo1", "confpargalvo1", "conftrapgalvo1",
+                         "confscalegalvo2", "confbargalvo2", "confpargalvo2", "conftrapgalvo2",
+                         "confxmark", "confymark"]
+                         
+        for field in double_fields:
+            if hasattr(self.configgalvo_widgets, field) and getattr(self.configgalvo_widgets, field):
+                getattr(self.configgalvo_widgets, field).setValidator(double_validator)
 
     def setupHeader(self): 
         self.wh.configWidget(self, QPushButton, "menuPushButton", role="menu", toolTip="Menu")
@@ -1784,16 +1826,21 @@ class MainWindow(QMainWindow):
             self.pgm_file = None
             
         try:
-            jump_speed = int(self.wh.invokeMethod(self.programgalvo_widgets.pgmjumpspeed, "get") or 2000000)
-            mark_speed = int(self.wh.invokeMethod(self.programgalvo_widgets.pgmmarkspeedgalvo, "get") or 1000000)
+            raw_jump = float(self.wh.invokeMethod(self.programgalvo_widgets.pgmjumpspeed, "get") or 2000)
+            raw_mark = float(self.wh.invokeMethod(self.programgalvo_widgets.pgmmarkspeedgalvo, "get") or 1000)
         except:
-            jump_speed = 2000000
-            mark_speed = 1000000
+            raw_jump = 2000.0
+            raw_mark = 1000.0
             
         import math
         
         size_mm = min(100.0, self.galvo_config.field_size if self.galvo_config else 100.0)
         half_size = size_mm / 2.0
+        
+        # Calculate galvo_units_per_mm to convert mm/s to bits/sec (EZCAD style)
+        galvo_units_per_mm = 65535.0 / (self.galvo_config.field_size if self.galvo_config else 100.0)
+        jump_speed = int(raw_jump * galvo_units_per_mm)
+        mark_speed = int(raw_mark * galvo_units_per_mm)
 
         def _add_jump(x, y):
             if self.galvo_config:
@@ -2015,7 +2062,7 @@ class MainWindow(QMainWindow):
         self.util.debugPrint(f"programsGalvoAction : {action}")
         
         if action == "pgmfilegalvo":
-            self.pgm_file, _ = QFileDialog.getOpenFileName(self, "Select File", "", "Supported Files (*.svg *.dxf);;SVG Files (*.svg);;DXF Files (*.dxf)")
+            self.pgm_file, _ = QFileDialog.getOpenFileName(self, "Select File", "", "Supported Files (*.svg *.dxf *.bmp *.jpg *.png);;SVG Files (*.svg);;DXF Files (*.dxf);;Image Files (*.bmp *.jpg *.png)")
             if self.pgm_file:
                 self.wh.invokeMethod(self.programgalvo_widgets.pgmfilegalvotext, "set", os.path.basename(self.pgm_file))
                 self.logger.info(f"File selected : {self.pgm_file}")
@@ -2337,9 +2384,33 @@ class MainWindow(QMainWindow):
         filepath = getattr(self, 'pgm_file', None)
         if not filepath: return False
         
+        # Check if a .cor file is loaded and provides a native scale
+        calib_scale = None
+        if hasattr(self, 'galvo_controller') and hasattr(self.galvo_controller, 'connection'):
+            if hasattr(self.galvo_controller.connection, 'calibration'):
+                calib = self.galvo_controller.connection.calibration
+                if calib.is_valid and calib.scale is not None:
+                    calib_scale = calib.scale
+        
+        if calib_scale:
+            galvo_units_per_mm = calib_scale
+            lens_size = 65535 / calib_scale
+            self.galvo_config.field_size = lens_size
+        else:
+            galvo_units_per_mm = 65535 / self.galvo_config.field_size
+            lens_size = self.galvo_config.field_size
+
         try:
-            jump_speed = int(self.wh.invokeMethod(self.programgalvo_widgets.pgmjumpspeed, "get") or 2000000)
-            mark_speed = int(self.wh.invokeMethod(self.programgalvo_widgets.pgmmarkspeedgalvo, "get") or 1000000)
+            raw_jump = float(self.wh.invokeMethod(self.programgalvo_widgets.pgmjumpspeed, "get") or 2000.0)
+            raw_mark = float(self.wh.invokeMethod(self.programgalvo_widgets.pgmmarkspeedgalvo, "get") or 1000.0)
+            
+            # Auto-correct legacy raw bit speeds to standard mm/s speeds
+            if raw_jump > 50000: raw_jump = 2000.0
+            if raw_mark > 50000: raw_mark = 1000.0
+            
+            # Convert UI mm/s into galvo bits/s for the hardware (EZCAD equivalent)
+            jump_speed = int(raw_jump * galvo_units_per_mm)
+            mark_speed = int(raw_mark * galvo_units_per_mm)
             
             try:
                 start_x_str = self.wh.invokeMethod(self.programgalvo_widgets.pgmstartposx, "get")
@@ -2355,6 +2426,10 @@ class MainWindow(QMainWindow):
             from dxf import DXFParser
             parser = DXFParser(filepath)
             polygons = parser.parse_to_polygons(field_size=self.galvo_config.field_size)
+        elif filepath.lower().endswith(('.bmp', '.jpg', '.jpeg', '.png')):
+            from core.image_parser import ImageParser
+            parser = ImageParser(field_size=self.galvo_config.field_size)
+            polygons = parser.parse_to_polygons(filepath)
         else:
             parser = SVGParser(field_size=self.galvo_config.field_size)
             polygons = parser.parse_to_polygons(filepath)
@@ -2376,7 +2451,6 @@ class MainWindow(QMainWindow):
             
         w = max_x - min_x
         h = max_y - min_y
-        lens_size = self.galvo_config.field_size
         
         if w > lens_size or h > lens_size:
             self.showCustomPopup("Design Too Large", f"Design size ({w:.1f}x{h:.1f}mm) is larger than lens area ({lens_size}x{lens_size}mm).", buttons=QMessageBox.Ok)
@@ -2395,21 +2469,6 @@ class MainWindow(QMainWindow):
         shift_y = start_y - design_center_y
 
         self.planner.clear()
-        # Check if a .cor file is loaded and provides a native scale
-        calib_scale = None
-        if hasattr(self, 'galvo_controller') and hasattr(self.galvo_controller, 'connection'):
-            if hasattr(self.galvo_controller.connection, 'calibration'):
-                calib = self.galvo_controller.connection.calibration
-                if calib.is_valid and calib.scale is not None:
-                    calib_scale = calib.scale
-        
-        if calib_scale:
-            galvo_units_per_mm = calib_scale
-            # Update lens_size for preview/bounds math to match the physical lens
-            lens_size = 65535 / calib_scale
-            self.galvo_config.field_size = lens_size
-        else:
-            galvo_units_per_mm = 65535 / self.galvo_config.field_size
         
         is_hatch = self.ui.pgmenablehatchCheckBox.isChecked()
         mark_contour = getattr(self.ui, 'pgmmarkcontourCheckBox', None) and self.ui.pgmmarkcontourCheckBox.isChecked()
@@ -2421,35 +2480,54 @@ class MainWindow(QMainWindow):
         hatch_configs = []
         if is_hatch:
             self.save_current_hatch_profile()
+            
+            def build_cfg(p):
+                return {
+                    'enable': True,
+                    'follow_edge': p.get("follow_edge", False),
+                    'all_calc': p.get("all_calc", False),
+                    'cross_hatch': p.get("cross_hatch", False),
+                    'type': p.get("type", "Bidirectional"),
+                    'angle': float(p.get("angle", "0.0") or 0.0),
+                    'pen_no': 0,
+                    'count': int(p.get("count", "1") or 1),
+                    'line_space': float(p.get("line_space", "0.05") or 0.05),
+                    'avg_distribute': p.get("avg_dist", False),
+                    'edge_offset': float(p.get("edge_off", "0.0") or 0.0),
+                    'start_offset': float(p.get("start_off", "0.0") or 0.0),
+                    'end_offset': float(p.get("end_off", "0.0") or 0.0),
+                    'line_reduction': float(p.get("line_red", "0.0") or 0.0),
+                    'num_loops': int(p.get("num_loops", "0") or 0),
+                    'loop_distance': float(p.get("loop_dist", "0.05") or 0.05),
+                    'auto_rotate': p.get("auto_rot", False),
+                    'rotate_angle': float(p.get("rot_angle", "10.0") or 10.0),
+                    'hatch_idx': k
+                }
+            
             for k, p in self.hatch_profiles.items():
                 if not p.get("enable", False):
                     continue
                 try:
-                    cfg = {
-                        'enable': True,
-                        'follow_edge': p.get("follow_edge", False),
-                        'all_calc': p.get("all_calc", False),
-                        'cross_hatch': p.get("cross_hatch", False),
-                        'type': p.get("type", "Bidirectional"),
-                        'angle': float(p.get("angle", "0.0") or 0.0),
-                        'pen_no': 0,
-                        'count': int(p.get("count", "1") or 1),
-                        'line_space': float(p.get("line_space", "0.05") or 0.05),
-                        'avg_distribute': p.get("avg_dist", False),
-                        'edge_offset': float(p.get("edge_off", "0.0") or 0.0),
-                        'start_offset': float(p.get("start_off", "0.0") or 0.0),
-                        'end_offset': float(p.get("end_off", "0.0") or 0.0),
-                        'line_reduction': float(p.get("line_red", "0.0") or 0.0),
-                        'num_loops': int(p.get("num_loops", "0") or 0),
-                        'loop_distance': float(p.get("loop_dist", "0.05") or 0.05),
-                        'auto_rotate': p.get("auto_rot", False),
-                        'rotate_angle': float(p.get("rot_angle", "10.0") or 10.0),
-                        'hatch_idx': k
-                    }
-                    hatch_configs.append(cfg)
+                    hatch_configs.append(build_cfg(p))
                 except Exception as e:
                     self.util.debugPrint(f"Hatch config {k} error: {e}")
                     pass
+                    
+            if not hatch_configs:
+                # If hatch is globally enabled but no profiles are enabled, force profile 1
+                if 1 not in self.hatch_profiles:
+                    self.hatch_profiles[1] = {"enable": True}
+                else:
+                    self.hatch_profiles[1]["enable"] = True
+                
+                k = 1
+                try:
+                    hatch_configs.append(build_cfg(self.hatch_profiles[1]))
+                    # Also update UI if it's the currently selected profile
+                    if getattr(self, 'current_hatch_idx', 1) == 1:
+                        self.ui.pgmenableCheckBox.setChecked(True)
+                except Exception as e:
+                    self.util.debugPrint(f"Hatch config {k} fallback error: {e}")
                 
         all_polys_galvo = []
         seen_polys = set()
@@ -2670,6 +2748,11 @@ class MainWindow(QMainWindow):
             try:
                 slider_percentage = float(self.ui.galvolaserpowerHorizontalSlider_2.value())
                 freq_val = float(self.ui.galvolaserfreqHorizontalSlider.value())
+                
+                # Fix: Update the controller's live power/freq tracking so ExecutionThread uses these values
+                self.galvo_controller.live_power = slider_percentage
+                self.galvo_controller.live_freq = freq_val
+                
                 if hasattr(self.galvo_controller, "connection") and hasattr(self.galvo_controller.connection, "set_analog_do_bit"):
                     # Invert the power signal in Python to compensate for the Blackpill's hardware mapping
                     if hasattr(self.galvo_controller.connection, 'map_laser_power'):
@@ -4519,6 +4602,9 @@ class MainWindow(QMainWindow):
         if hasattr(self.ui, 'calapplyPushButton'):
             self.ui.calapplyPushButton.clicked.connect(self.generate_calibration)
 
+        if hasattr(self.ui, 'maindesignPushButton'):
+            self.ui.maindesignPushButton.clicked.connect(self.apply_calibration_to_main_design)
+
         if hasattr(self.ui, 'markvershapePushButton'):
             self.ui.markvershapePushButton.clicked.connect(self.mark_verification_shape)
 
@@ -4684,32 +4770,48 @@ class MainWindow(QMainWindow):
         conn = self.galvo_controller.connection
 
         try:
-            pwr = float(self.ui.powerHorizontalSlider.value()) if hasattr(self.ui, 'powerHorizontalSlider') else 100.0
-            freq = float(self.ui.freqHorizontalSlider.value()) if hasattr(self.ui, 'freqHorizontalSlider') else 30.0
-            mark_speed = int(self.ui.markspeedLineEdit.text()) if hasattr(self.ui, 'markspeedLineEdit') and self.ui.markspeedLineEdit.text() else 5000
-            jump_speed = int(self.ui.jumpspeedLineEdit.text()) if hasattr(self.ui, 'jumpspeedLineEdit') and self.ui.jumpspeedLineEdit.text() else 15000
+            pwr = float(self.ui.galvolaserpowerHorizontalSlider_2.value()) if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2') else 100.0
+            freq = float(self.ui.galvolaserfreqHorizontalSlider.value()) if hasattr(self.ui, 'galvolaserfreqHorizontalSlider') else 30.0
+            
+            field_size = self.galvo_config.field_size if hasattr(self, 'galvo_config') and self.galvo_config else 110.0
+            galvo_units_per_mm = 65535.0 / field_size
+
+            # Force slow printing for calibration to ensure clear, deep marks
+            raw_mark = 20.0  # 20 mm/s is extremely slow and guarantees a perfect dark burn
+            raw_jump = 200.0
+            
+            mark_speed = int(raw_mark * galvo_units_per_mm)
+            jump_speed = int(raw_jump * galvo_units_per_mm)
         except ValueError:
             QMessageBox.warning(self, "Error", "Invalid laser parameters. Using defaults.")
-            pwr, freq, mark_speed, jump_speed = 100.0, 30.0, 5000, 15000
+            pwr, freq, mark_speed, jump_speed = 100.0, 30.0, int(1000 * (65535.0/110.0)), int(2000 * (65535.0/110.0))
 
         self.galvo_controller.live_power = pwr
         self.galvo_controller.live_freq = freq
 
         queue = []
-        # Send raw coordinates; the execute_queue CCW transform now correctly aligns the screen to hardware
+        
         def jump(x, y): 
+            # execute_queue does cmd_x = cmd['y'] and cmd_y = cmd['x'].
+            # Then galvo_move_xy(cmd_x, cmd_y) physically maps its first argument to Physical Y, and second to Physical X.
+            # So Physical Y = cmd_x = cmd['y']. Physical X = cmd_y = cmd['x'].
+            # To get Physical X = x and Physical Y = y, we simply set cmd['x'] = x and cmd['y'] = y.
             queue.append({'type': 'jump', 'x': int(x), 'y': int(y), 'speed': jump_speed})
+            queue.append({'type': 'delay', 'ms': 5})
+            
         def mark(x, y): 
             queue.append({'type': 'mark', 'x': int(x), 'y': int(y), 'speed': mark_speed})
+            queue.append({'type': 'flush'}) # Push command directly to hardware to prevent motion timeouts
+            queue.append({'type': 'delay', 'ms': 2})
         
-        def draw_digit(d, cx, cy):
-            dw = int(1.0 * scale)
-            dh = int(2.0 * scale)
-            x0 = cx - dw
-            x1 = cx + dw
-            y0 = cy + dh
-            y1 = cy
-            y2 = cy - dh
+        def draw_digit(d, x0, y0):
+            # x0, y0 is top-left of the digit. +Y is UP.
+            # Make digits large and readable (2.5mm width, 5.0mm height)
+            dw = int(2.5 * galvo_units_per_mm)
+            dh = int(5.0 * galvo_units_per_mm)
+            x1 = x0 + dw
+            y1 = int(y0 - dh / 2.0)
+            y2 = y0 - dh
             if d == 1: jump(x1, y0); mark(x1, y2)
             elif d == 2: jump(x0, y0); mark(x1, y0); mark(x1, y1); mark(x0, y1); mark(x0, y2); mark(x1, y2)
             elif d == 3: jump(x0, y0); mark(x1, y0); mark(x1, y1); mark(x0, y1); jump(x1, y1); mark(x1, y2); mark(x0, y2)
@@ -4721,59 +4823,90 @@ class MainWindow(QMainWindow):
             elif d == 9: jump(x1, y1); mark(x0, y1); mark(x0, y0); mark(x1, y0); mark(x1, y2); mark(x0, y2)
 
         try:
-            ext = int(hw * 0.1)
-            # 1. Outer Square
+            # Procedurally generate the exact calibration grid to match the 50x50 target 
+            W_mm = self.cal_default_w  # Target Half-Width from UI (e.g. 25.0)
+            # To get a 50x50 square, W_mm is 25.0. 
+            hw = int(W_mm * galvo_units_per_mm)
+            
+            min_x, max_x = c - hw, c + hw
+            min_y, max_y = c - hw, c + hw
+            
+            # Outer square
             jump(min_x, max_y)
             mark(max_x, max_y)
             mark(max_x, min_y)
             mark(min_x, min_y)
             mark(min_x, max_y)
-
-            # 2. Vertical centerline (extended)
+            
+            # Extended crosshairs (10% extension past the square)
+            ext = int(hw * 0.1)
+            
+            # Vertical line
             jump(c, max_y + ext)
             mark(c, min_y - ext)
-
-            # 3. Horizontal centerline (extended)
+            
+            # Horizontal line
             jump(min_x - ext, c)
             mark(max_x + ext, c)
-
-            # 4. Marker at Pt 1 (Top-Left): 2mm Square inside
-            ms = int(2.0 * scale)
-            pad = int(ms / 2)
-            jump(min_x + pad, max_y - pad)
-            mark(min_x + pad + ms, max_y - pad)
-            mark(min_x + pad + ms, max_y - pad - ms)
-            mark(min_x + pad, max_y - pad - ms)
-            mark(min_x + pad, max_y - pad)
-
-            # 5. Marker at Pt 9 (Bottom-Right): 2mm Diamond inside
-            d_cx = max_x - pad - int(ms/2)
-            d_cy = min_y + pad + int(ms/2)
+            
+            # Small square inside Top-Left (Point 1)
+            ms = int(2.0 * galvo_units_per_mm)
+            o = int(ms / 1.5)
+            sq_x = min_x + o
+            sq_y = max_y - o
+            jump(sq_x, sq_y)
+            mark(sq_x + ms, sq_y)
+            mark(sq_x + ms, sq_y - ms)
+            mark(sq_x, sq_y - ms)
+            mark(sq_x, sq_y)
+            
+            # Small diamond inside Bottom-Right (Point 9)
+            d_cx = max_x - o - int(ms/2)
+            d_cy = min_y + o + int(ms/2)
             d_r = int(ms/2)
             jump(d_cx, d_cy + d_r)
             mark(d_cx + d_r, d_cy)
             mark(d_cx, d_cy - d_r)
             mark(d_cx - d_r, d_cy)
             mark(d_cx, d_cy + d_r)
-
-            # 6. Tick mark on horizontal line, right of center
+            
+            # Tick mark just to the right of the central vertical line, intersecting the horizontal axis
             tick_x = c + int(hw * 0.15)
-            tick_y_top = c + int(hw * 0.15)
-            tick_y_bot = c - int(hw * 0.15)
-            jump(tick_x, tick_y_top)
-            mark(tick_x, tick_y_bot)
-
-            # Draw Numbers 1-9 to exactly match EZCAD layout
-            dist = int(4.0 * scale)
-            draw_digit(1, min_x + dist, max_y + dist)
-            draw_digit(2, c + dist, max_y + ext + dist)
-            draw_digit(3, max_x - dist, max_y + dist)
-            draw_digit(4, min_x - ext, c + dist)
-            draw_digit(5, c - dist, c + dist)
-            draw_digit(6, max_x + ext - dist, c + dist)
-            draw_digit(7, min_x + dist, min_y - dist)
-            draw_digit(8, c + dist, min_y - ext)
-            draw_digit(9, max_x - dist, min_y - dist)
+            jump(tick_x, c + int(hw * 0.15))
+            mark(tick_x, c - int(hw * 0.15))
+            
+            # Draw digital numbers 1-9
+            pd = int(2.0 * galvo_units_per_mm)
+            dh_half = int(2.5 * galvo_units_per_mm) # half of 5.0 height
+            dw = int(2.5 * galvo_units_per_mm)
+            dh = int(5.0 * galvo_units_per_mm)
+            
+            # '1' at the top-left outer corner. (above and to the left)
+            draw_digit(1, min_x - dw - pd, max_y + dh + pd)
+            
+            # '2' directly above the top center intersection.
+            draw_digit(2, c - int(dw/2), max_y + dh + pd)
+            
+            # '3' at the top-right outer corner.
+            draw_digit(3, max_x + pd, max_y + dh + pd)
+            
+            # '4' to the left of the center-left intersection.
+            draw_digit(4, min_x - dw - pd, c + dh_half)
+            
+            # '5' immediately to the top-right of the central crosshair intersection.
+            draw_digit(5, c + pd, c + dh + pd)
+            
+            # '6' to the right of the center-right intersection.
+            draw_digit(6, max_x + pd, c + dh_half)
+            
+            # '7' directly below the bottom-left outer corner.
+            draw_digit(7, min_x - dw - pd, min_y - pd)
+            
+            # '8' directly below the bottom center intersection.
+            draw_digit(8, c - int(dw/2), min_y - pd)
+            
+            # '9' directly below the bottom-right outer corner.
+            draw_digit(9, max_x + pd, min_y - pd)
 
             if hasattr(self.ui, 'markcalgridPushButton'):
                 self.ui.markcalgridPushButton.setEnabled(False)
@@ -4857,23 +4990,28 @@ class MainWindow(QMainWindow):
                 QMessageBox.warning(self, "Error", f"Invalid numeric input at Point {i+1}.")
                 return
 
-        transform = TRANSFORMS[self.cal_state_idx]
+        # The hardware natively swaps X and Y. Our jump/mark routines cancel this by sending x: x, y: y
+        # which results in cmd_x = y, cmd_y = x inside execute_queue. 
+        # When calibration is applied, it takes cmd_x and cmd_y as input.
+        # This means the .cor file grid is queried at (y, x).
+        # To make the .cor file corrections map properly to the logical (x, y) space, we must build it 
+        # using a Y=X reflection (TRANSFORMS[7]) and swap the X and Y error components.
+        transform_swap = [8, 5, 2, 7, 4, 1, 6, 3, 0]
         galvo_measurements = [None] * 9
 
-        signs = [
-            (-1, 1),  (0, 1),  (1, 1),
-            (-1, 0),  (0, 0),  (1, 0),
-            (-1, -1), (0, -1), (1, -1)
-        ]
-
         for galvo_idx in range(9):
-            ui_idx = transform.index(galvo_idx)
+            ui_idx = transform_swap[galvo_idx]
             raw_x, raw_y = ui_measurements[ui_idx]
 
-            # Use raw coordinates directly, as they now properly follow sign conventions
-            galvo_measurements[galvo_idx] = (raw_x, raw_y)
+            # Since the .cor file's X output is added to cmd_x (Physical Y), it needs the User's Y measurement.
+            # Since the .cor file's Y output is added to cmd_y (Physical X), it needs the User's X measurement.
+            galvo_measurements[galvo_idx] = (raw_y, raw_x)
 
-        scale = 533.89
+        try:
+            field_size = self.galvo_config.field_size if hasattr(self, 'galvo_config') and self.galvo_config else 110.0
+            scale = 65535.0 / field_size
+        except:
+            scale = 595.772
 
         W = self.cal_default_w
         nominals = [
@@ -4909,6 +5047,47 @@ class MainWindow(QMainWindow):
             self.set_cal_status("Status : Error generating calibration")
             QMessageBox.critical(self, "Error", f"Failed to generate calibration: {e}")
 
+    def apply_calibration_to_main_design(self):
+        import shutil
+        from PySide6.QtWidgets import QMessageBox, QFileDialog
+        
+        if hasattr(self, 'stagedCalibrationTransform') and self.stagedCalibrationTransform and self.stagedCalibrationTransform.is_valid:
+            try:
+                # Prompt user for save location
+                target_cor, _ = QFileDialog.getSaveFileName(self, "Save Calibration File", "new_calibration.cor", "Cor Files (*.cor)")
+                if not target_cor:
+                    return # User cancelled
+
+                # Copy the staged calibration to the user's chosen target file
+                shutil.copyfile("staged_calibration.cor", target_cor)
+                
+                # Also overwrite the permanent application default so it persists across restarts
+                import os
+                root_cor_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "newest100mm.cor")
+                shutil.copyfile("staged_calibration.cor", root_cor_path)
+                
+                # Load it into the active galvo controller
+                if hasattr(self.galvo_controller, 'connection') and hasattr(self.galvo_controller.connection, 'calibration'):
+                    self.galvo_controller.connection.calibration.load_calibration(target_cor)
+                    self.galvo_controller.connection.enable_calibration = True
+                    
+                    if self.galvo_controller.connection.calibration.is_valid:
+                        self.set_cal_status("Status : Applied to Main Design")
+                        
+                        # Automatically mark verification shape
+                        self.mark_verification_shape()
+                        
+                        QMessageBox.information(self, "Success", "Calibration successfully applied and loaded into the hardware.")
+                    else:
+                        QMessageBox.warning(self, "Error", "Failed to load the staged calibration into the hardware.")
+                else:
+                    QMessageBox.warning(self, "Error", "Hardware connection or calibration module not found.")
+            except Exception as e:
+                self.set_cal_status("Status : Error applying to main design")
+                QMessageBox.critical(self, "Error", f"Failed to apply calibration: {e}")
+        else:
+            QMessageBox.warning(self, "Warning", "No valid calibration staged. Please 'Calculate & Apply Calibration' first.")
+
     def _throttled_process_events(self, idx, tot, x, y, ctype):
         import time
         from PySide6.QtWidgets import QApplication
@@ -4928,9 +5107,14 @@ class MainWindow(QMainWindow):
 
         self.stop_cal_reddot()
 
-        scale = 533.89
-        W = 20.0
-        hw = int(W * scale)
+        try:
+            field_size = self.galvo_config.field_size if hasattr(self, 'galvo_config') and self.galvo_config else 110.0
+            galvo_units_per_mm = 65535.0 / field_size
+        except:
+            galvo_units_per_mm = 595.77
+
+        W_mm = self.cal_default_w
+        hw = int(W_mm * galvo_units_per_mm)
         c = 32767
 
         min_x = c - hw
@@ -4938,7 +5122,7 @@ class MainWindow(QMainWindow):
         min_y = c - hw
         max_y = c + hw
         
-        cross_hw = int(5.0 * scale)
+        cross_hw = int(hw * 0.1)
 
         conn = self.galvo_controller.connection
 
@@ -4947,10 +5131,18 @@ class MainWindow(QMainWindow):
             return
 
         try:
-            pwr = float(self.ui.powerHorizontalSlider.value()) if hasattr(self.ui, 'powerHorizontalSlider') else 100.0
-            freq = float(self.ui.freqHorizontalSlider.value()) if hasattr(self.ui, 'freqHorizontalSlider') else 30.0
-            mark_speed = int(self.ui.markspeedLineEdit.text()) if hasattr(self.ui, 'markspeedLineEdit') and self.ui.markspeedLineEdit.text() else 5000
-            jump_speed = int(self.ui.jumpspeedLineEdit.text()) if hasattr(self.ui, 'jumpspeedLineEdit') and self.ui.jumpspeedLineEdit.text() else 15000
+            pwr = float(self.ui.galvolaserpowerHorizontalSlider_2.value()) if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2') else 100.0
+            freq = float(self.ui.galvolaserfreqHorizontalSlider.value()) if hasattr(self.ui, 'galvolaserfreqHorizontalSlider') else 30.0
+            
+            field_size = self.galvo_config.field_size if hasattr(self, 'galvo_config') and self.galvo_config else 110.0
+            galvo_units_per_mm = 65535.0 / field_size
+
+            # Force slow printing for calibration to ensure clear, deep marks
+            raw_mark = 20.0  # 20 mm/s is extremely slow and guarantees a perfect dark burn
+            raw_jump = 200.0
+            
+            mark_speed = int(raw_mark * galvo_units_per_mm)
+            jump_speed = int(raw_jump * galvo_units_per_mm)
         except ValueError:
             QMessageBox.warning(self, "Error", "Invalid laser parameters. Using defaults.")
             pwr, freq, mark_speed, jump_speed = 100.0, 30.0, 5000, 15000
@@ -4963,14 +5155,17 @@ class MainWindow(QMainWindow):
         # Apply staged calibration directly before dispatching to galvo hardware
         def jump(x, y): 
             cx, cy = self.stagedCalibrationTransform.apply(float(x), float(y))
+            # Same fix: appending {x: x, y: y} maps to Physical X = x, Physical Y = y
             queue.append({'type': 'jump', 'x': int(cx), 'y': int(cy), 'speed': jump_speed})
         def mark(x, y): 
             cx, cy = self.stagedCalibrationTransform.apply(float(x), float(y))
             queue.append({'type': 'mark', 'x': int(cx), 'y': int(cy), 'speed': mark_speed})
+            queue.append({'type': 'flush'})
+            queue.append({'type': 'delay', 'ms': 2})
 
         import math
         try:
-            # 1. Outer Square (40x40 mm)
+            # 1. Outer Square (50x50 mm, or whatever Target Half-Width * 2 is)
             jump(min_x, max_y)
             mark(max_x, max_y)
             mark(max_x, min_y)

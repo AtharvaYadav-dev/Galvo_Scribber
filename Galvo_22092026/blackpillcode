@@ -53,6 +53,8 @@ void turnLaserOff() {
   digitalWrite(PIN_BOOSTER, LOW); // 1. Cut high-power booster emission first
   delayMicroseconds(20);
   digitalWrite(PIN_MO, LOW);      // 2. Shut off Master Oscillator seed
+  prrTimer->setCaptureCompare(1, 0, PERCENT_COMPARE_FORMAT); // Force PRR output LOW
+  prrTimer->pause();              // 3. Stop PRR signal
   laserIsFiring = false;
   // moIsOn state will be handled in loop
 }
@@ -89,8 +91,8 @@ void setup() {
   prrTimer = new HardwareTimer(TIM1);
   prrTimer->setMode(1, TIMER_OUTPUT_COMPARE_PWM1, PIN_PRR_OUT);
   prrTimer->setOverflow(50000, HERTZ_FORMAT); // Default 50kHz
-  prrTimer->setCaptureCompare(1, 50, PERCENT_COMPARE_FORMAT); // 50% duty cycle
-  prrTimer->resume();
+  prrTimer->setCaptureCompare(1, 0, PERCENT_COMPARE_FORMAT); // Start at 0% (LOW)
+  prrTimer->pause(); // Start PAUSED until MO goes HIGH
 
   // Initial States
   digitalWrite(PIN_LATCH, LOW);
@@ -107,44 +109,62 @@ void loop() {
   digitalWrite(PIN_RED_DOT_OUT, redDotTrigger ? HIGH : LOW);
 
   // --- 2. Dynamic Power Control ---
-  int rawADC = analogRead(PIN_ANALOG_IN);
+  // The Galvo card outputs a 50Hz PWM signal on this pin instead of a flat DC voltage.
+  // We use a software low-pass filter by averaging the PWM signal over 40ms (exactly 2 full periods at 50Hz).
+  static unsigned long lastAdcTime = 0;
+  static long adcSum = 0;
+  static int adcCount = 0;
+  static int rawADC = 0;
 
-  // The galvo analog output is inversely proportional to power percentage and slightly non-linear.
-  // We use an 11-point lookup table (multiMap) derived from calibration.
-  // We list ADC values from lowest (highest power) to highest (lowest power) for the interpolation logic.
-  const int numPoints = 11;
-  const int adcPoints[numPoints] = {290, 603, 921, 1247, 1586, 1938, 2307, 2680, 3090, 3537, 3971};
-  
-  // Power points properly end at 0 so 0% genuinely turns off
-  const int pwrPoints[numPoints] = {255, 230, 204, 179, 153, 128, 102, 77,  51,  26,  0};
-
-  int calculatedPower = 0;
-  
-  // Widen the deadbands slightly to account for DAC drift
-  if (rawADC <= adcPoints[0] + 10) {
-    calculatedPower = pwrPoints[0]; // Cap at 100% (ADC ~290)
-  } else if (rawADC >= adcPoints[numPoints-1] - 80) {
-    // If ADC is >= 3891, force to 0. This guarantees 0% slider completely turns off the laser!
-    calculatedPower = 0; 
-  } else {
-    // Interpolate between the points
-    for (int i = 0; i < numPoints - 1; i++) {
-      if (rawADC >= adcPoints[i] && rawADC <= adcPoints[i+1]) {
-        long diffADC = rawADC - adcPoints[i];
-        long stepADC = adcPoints[i+1] - adcPoints[i];
-        long stepPwr = pwrPoints[i+1] - pwrPoints[i]; // stepPwr will be negative
-        
-        calculatedPower = pwrPoints[i] + (diffADC * stepPwr) / stepADC;
-        break;
-      }
-    }
+  unsigned long currentMicros = micros();
+  if (currentMicros - lastAdcTime >= 500) { // Sample every 500us (0.5ms)
+    adcSum += analogRead(PIN_ANALOG_IN);
+    adcCount++;
+    lastAdcTime = currentMicros;
   }
 
-  uint8_t targetPowerByte = constrain(calculatedPower, 0, 255);
+  if (adcCount >= 80) { // 80 samples * 0.5ms = 40ms
+    rawADC = adcSum / adcCount;
+    adcSum = 0;
+    adcCount = 0;
 
-  if (targetPowerByte != currentPowerByte) {
-    currentPowerByte = targetPowerByte;
-    setLaserPowerByte(currentPowerByte);
+    // The galvo analog output is inversely proportional to power percentage and slightly non-linear.
+    // We use an 11-point lookup table (multiMap) derived from calibration.
+    // We list ADC values from lowest (highest power) to highest (lowest power) for the interpolation logic.
+    const int numPoints = 11;
+    const int adcPoints[numPoints] = {290, 603, 921, 1247, 1586, 1938, 2307, 2680, 3090, 3537, 3971};
+    
+    // Power points properly end at 0 so 0% genuinely turns off
+    const int pwrPoints[numPoints] = {255, 230, 204, 179, 153, 128, 102, 77,  51,  26,  0};
+
+    int calculatedPower = 0;
+    
+    // Widen the deadbands slightly to account for DAC drift
+    if (rawADC <= adcPoints[0] + 10) {
+      calculatedPower = pwrPoints[0]; // Cap at 100% (ADC ~290)
+    } else if (rawADC >= adcPoints[numPoints-1] - 80) {
+      // If ADC is >= 3891, force to 0. This guarantees 0% slider completely turns off the laser!
+      calculatedPower = 0; 
+    } else {
+      // Interpolate between the points
+      for (int i = 0; i < numPoints - 1; i++) {
+        if (rawADC >= adcPoints[i] && rawADC <= adcPoints[i+1]) {
+          long diffADC = rawADC - adcPoints[i];
+          long stepADC = adcPoints[i+1] - adcPoints[i];
+          long stepPwr = pwrPoints[i+1] - pwrPoints[i]; // stepPwr will be negative
+          
+          calculatedPower = pwrPoints[i] + (diffADC * stepPwr) / stepADC;
+          break;
+        }
+      }
+    }
+
+    uint8_t targetPowerByte = constrain(calculatedPower, 0, 255);
+
+    if (targetPowerByte != currentPowerByte) {
+      currentPowerByte = targetPowerByte;
+      setLaserPowerByte(currentPowerByte);
+    }
   }
 
   // --- 3. Main Laser Sequential Firing Logic ---
@@ -154,6 +174,9 @@ void loop() {
     // If MO is not on, turn it on and wait 5ms as per Maxphotonics manual
     if (!moIsOn) {
       digitalWrite(PIN_MO, HIGH);
+      prrTimer->setCaptureCompare(1, 50, PERCENT_COMPARE_FORMAT); // 50% duty cycle
+      prrTimer->refresh(); // Reset PRR timer counter to align first pulse
+      prrTimer->resume();  // Start PRR (Pin 20) synchronously with Pin 18
       moIsOn = true;
       delay(5); // 5ms stabilization delay before booster can turn on
     }
@@ -176,6 +199,8 @@ void loop() {
     // Keep MO on for 5ms after firing stops, matching manual diagram precisely
     if (moIsOn && (millis() - lastActivityTime >= 5)) {
       digitalWrite(PIN_MO, LOW);
+      prrTimer->setCaptureCompare(1, 0, PERCENT_COMPARE_FORMAT); // Force PRR output LOW
+      prrTimer->pause();   // Stop PRR (Pin 20) synchronously with Pin 18
       moIsOn = false;
     }
   }
@@ -202,7 +227,10 @@ void loop() {
       static long lastTargetFreq = 0;
       if (abs(targetFreq - lastTargetFreq) > 500) {
         prrTimer->setOverflow(targetFreq, HERTZ_FORMAT);
-        prrTimer->setCaptureCompare(1, 50, PERCENT_COMPARE_FORMAT);
+        // Only force to 50% if laser is actually supposed to be on
+        if (moIsOn) {
+          prrTimer->setCaptureCompare(1, 50, PERCENT_COMPARE_FORMAT);
+        }
         lastTargetFreq = targetFreq;
       }
     }

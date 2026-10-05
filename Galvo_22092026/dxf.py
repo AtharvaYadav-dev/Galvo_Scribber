@@ -680,25 +680,29 @@ class DXFParser:
             return []
             
         try:
-            from shapely.geometry import LineString
-            from shapely.ops import linemerge
+            # Fast contiguous path merge (O(N)) since paths are already sorted by _optimize_layer
+            merged_paths = []
+            current_path = []
             
-            lines = []
             for path in all_paths_mm:
-                if len(path) >= 2:
-                    lines.append(LineString(path))
+                if not path:
+                    continue
+                    
+                if not current_path:
+                    current_path = list(path)
+                else:
+                    # Check if the end of current_path matches the start of the new path
+                    if abs(current_path[-1][0] - path[0][0]) < 1e-4 and abs(current_path[-1][1] - path[0][1]) < 1e-4:
+                        current_path.extend(path[1:])
+                    else:
+                        merged_paths.append(current_path)
+                        current_path = list(path)
+                        
+            if current_path:
+                merged_paths.append(current_path)
             
-            if lines:
-                merged = linemerge(lines)
-                merged_paths = []
-                if merged.geom_type == 'MultiLineString':
-                    for line in merged.geoms:
-                        merged_paths.append(list(line.coords))
-                elif merged.geom_type == 'LineString':
-                    merged_paths.append(list(merged.coords))
-                
-                # Update all_paths_mm with the merged continuous lines
-                all_paths_mm = merged_paths
+            # Update all_paths_mm with the merged continuous lines
+            all_paths_mm = merged_paths
         except Exception as e:
             if self.debug:
                 print(f"Error merging DXF paths: {e}")
@@ -965,10 +969,17 @@ class DXFParser:
         """
         if not items:
             return []
+            
+        # Bypass optimization for huge layers to prevent UI freezing (O(N^2) or slow KD-Tree rebuilds)
+        if len(items) > 10000:
+            return list(items)
 
         try:
             from scipy.spatial import cKDTree
         except ImportError:
+            # Fallback is O(N^2), so we strictly limit it
+            if len(items) > 1500:
+                return list(items)
             return self._optimize_layer_fallback(items)
 
         entities_dict = {i: entity for i, entity in enumerate(items)}
