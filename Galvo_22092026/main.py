@@ -2062,7 +2062,7 @@ class MainWindow(QMainWindow):
         self.util.debugPrint(f"programsGalvoAction : {action}")
         
         if action == "pgmfilegalvo":
-            self.pgm_file, _ = QFileDialog.getOpenFileName(self, "Select File", "", "Supported Files (*.svg *.dxf *.bmp *.jpg *.png);;SVG Files (*.svg);;DXF Files (*.dxf);;Image Files (*.bmp *.jpg *.png)")
+            self.pgm_file, _ = QFileDialog.getOpenFileName(self, "Select File", "", "Supported Files (*.svg *.dxf *.bmp *.jpg *.png *.gbr *.gtl *.gbl *.gto *.gbo *.gts *.gbs *.gml *.gtp *.gbp *.drl *.txt);;SVG Files (*.svg);;DXF Files (*.dxf);;Image Files (*.bmp *.jpg *.png);;Gerber Files (*.gbr *.gtl *.gbl *.gto *.gbo *.gts *.gbs *.gml *.gtp *.gbp *.drl *.txt)")
             if self.pgm_file:
                 self.wh.invokeMethod(self.programgalvo_widgets.pgmfilegalvotext, "set", os.path.basename(self.pgm_file))
                 self.logger.info(f"File selected : {self.pgm_file}")
@@ -2430,6 +2430,10 @@ class MainWindow(QMainWindow):
             from core.image_parser import ImageParser
             parser = ImageParser(field_size=self.galvo_config.field_size)
             polygons = parser.parse_to_polygons(filepath)
+        elif filepath.lower().endswith(('.gbr', '.gtl', '.gbl', '.gto', '.gbo', '.gts', '.gbs', '.gml', '.gtp', '.gbp', '.drl', '.txt')):
+            from gerber_parser import GerberParser
+            parser = GerberParser(filepath)
+            polygons = parser.parse_to_polygons(field_size=self.galvo_config.field_size)
         else:
             parser = SVGParser(field_size=self.galvo_config.field_size)
             polygons = parser.parse_to_polygons(filepath)
