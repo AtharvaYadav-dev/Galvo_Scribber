@@ -16,3 +16,17 @@
 [13:26:28] EXECUTION FINISHED: Sent 44811 Mark commands and 58 Jump commands in 48.59 seconds.
 [13:26:28] ========================================
 
+[13:36:26] 
+========================================
+[13:36:26] EXECUTION BATCH START (Loops: 1)
+[13:36:26] ========================================
+[13:36:51] EXECUTION FINISHED: Sent 22600 Mark commands and 58 Jump commands in 24.93 seconds.
+[13:36:51] ========================================
+
+[13:41:38] 
+========================================
+[13:41:38] EXECUTION BATCH START (Loops: 1)
+[13:41:38] ========================================
+[14:01:43] EXECUTION FINISHED: Sent 127258 Mark commands and 104716 Jump commands in 1204.98 seconds.
+[14:01:43] ========================================
+
