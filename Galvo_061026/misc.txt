@@ -1,0 +1,2067 @@
+
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+position : ['X:0.00', 'Y:0.00', 'Z:5.00']
+Received : X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000
+response : X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000
+Queue : G28
+Gcode : G28
+ACK : ['X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000']
+code = G28
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00']
+index
+Received : ok P15 B2
+response : ok P15 B2
+position : ['X:0.00', 'Y:0.00', 'Z:5.00']
+Received : X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000
+response : X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00']
+index
+Received : ok P15 B3
+response : ok P15 B3
+index
+len : 43 | index : 0
+Gcode : G90
+
+Gcode : M114
+
+Queue : G90
+Gcode : G90
+ACK : []
+code = G90
+Received : ok P15 B3
+response : ok P15 B3
+position : ['X:0.00', 'Y:0.00', 'Z:5.00']
+Received : X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000
+response : X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00']
+index
+len : 43 | index : 1
+Gcode : G1 X10.0 F1000
+
+Gcode : M114
+
+Received : ok P15 B3
+response : ok P15 B3
+Queue : G1 X10.0 F1000
+Gcode : G1 X10.0 F1000
+ACK : []
+code = G1
+Received : ok P14 B3
+response : ok P14 B3
+position : ['X:10.00', 'Y:0.00', 'Z:5.00']
+Received : X:10.00 Y:0.00 Z:5.00 Count X:8000 Y:0 Z:32000
+response : X:10.00 Y:0.00 Z:5.00 Count X:8000 Y:0 Z:32000
+Queue : M114
+Gcode : M114
+ACK : ['X:10.00 Y:0.00 Z:5.00 Count X:8000 Y:0 Z:32000']
+code = M114
+pos : ['X:10.00', 'Y:0.00', 'Z:5.00']
+index
+len : 43 | index : 2
+Gcode : G1 Y10.0 F1000
+
+Gcode : M114
+
+Received : ok P14 B3
+response : ok P14 B3
+Queue : G1 Y10.0 F1000
+Gcode : G1 Y10.0 F1000
+ACK : []
+code = G1
+Received : ok P13 B3
+response : ok P13 B3
+position : ['X:10.00', 'Y:10.00', 'Z:5.00']
+Received : X:10.00 Y:10.00 Z:5.00 Count X:8000 Y:8000 Z:32000
+response : X:10.00 Y:10.00 Z:5.00 Count X:8000 Y:8000 Z:32000
+Queue : M114
+Gcode : M114
+ACK : ['X:10.00 Y:10.00 Z:5.00 Count X:8000 Y:8000 Z:32000']
+code = M114
+pos : ['X:10.00', 'Y:10.00', 'Z:5.00']
+index
+len : 43 | index : 3
+Gcode : M106 P1 S0
+
+Gcode : M114
+
+Received : ok P13 B3
+response : ok P13 B3
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P13 B3
+response : ok P13 B3
+position : ['X:10.00', 'Y:10.00', 'Z:5.00']
+Received : X:10.00 Y:10.00 Z:5.00 Count X:8000 Y:8000 Z:32000
+response : X:10.00 Y:10.00 Z:5.00 Count X:8000 Y:8000 Z:32000
+Queue : M114
+Gcode : M114
+ACK : ['X:10.00 Y:10.00 Z:5.00 Count X:8000 Y:8000 Z:32000']
+code = M114
+pos : ['X:10.00', 'Y:10.00', 'Z:5.00']
+index
+len : 43 | index : 4
+Gcode : M106 P1 S0
+
+Gcode : M114
+
+Received : ok P13 B3
+response : ok P13 B3
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P13 B3
+response : ok P13 B3
+position : ['X:10.00', 'Y:10.00', 'Z:5.00']
+Received : X:10.00 Y:10.00 Z:5.00 Count X:8000 Y:8000 Z:32000
+response : X:10.00 Y:10.00 Z:5.00 Count X:8000 Y:8000 Z:32000
+Queue : M114
+Gcode : M114
+ACK : ['X:10.00 Y:10.00 Z:5.00 Count X:8000 Y:8000 Z:32000']
+code = M114
+pos : ['X:10.00', 'Y:10.00', 'Z:5.00']
+index
+len : 43 | index : 5
+Gcode : G0 X60.000 Y60.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P13 B3
+response : ok P13 B3
+Queue : G0 X60.000 Y60.000 Z6.500 F1000
+Gcode : G0 X60.000 Y60.000 Z6.500 F1000
+ACK : []
+code = G0
+Received : ok P12 B3
+response : ok P12 B3
+position : ['X:60.00', 'Y:60.00', 'Z:6.50']
+Received : X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600
+response : X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600']
+code = M114
+pos : ['X:60.00', 'Y:60.00', 'Z:6.50']
+index
+len : 43 | index : 6
+Gcode : M106 P1 S255
+
+Gcode : M114
+
+Received : ok P12 B3
+response : ok P12 B3
+Queue : M106 P1 S255
+Gcode : M106 P1 S255
+ACK : []
+code = M106
+Received : ok P12 B3
+response : ok P12 B3
+position : ['X:60.00', 'Y:60.00', 'Z:6.50']
+Received : X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600
+response : X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600']
+code = M114
+pos : ['X:60.00', 'Y:60.00', 'Z:6.50']
+index
+len : 43 | index : 7
+Gcode : G1 X110.000 Y60.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P12 B3
+response : ok P12 B3
+Queue : G1 X110.000 Y60.000 Z6.500 F1000
+Gcode : G1 X110.000 Y60.000 Z6.500 F1000
+ACK : []
+code = G1
+Received : ok P11 B3
+response : ok P11 B3
+position : ['X:110.00', 'Y:60.00', 'Z:6.50']
+Received : X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600
+response : X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600']
+code = M114
+pos : ['X:110.00', 'Y:60.00', 'Z:6.50']
+index
+len : 43 | index : 8
+Gcode : M106 P1 S0
+
+Gcode : M114
+
+Received : ok P11 B3
+response : ok P11 B3
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P11 B3
+response : ok P11 B3
+position : ['X:110.00', 'Y:60.00', 'Z:6.50']
+Received : X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600
+response : X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600']
+code = M114
+pos : ['X:110.00', 'Y:60.00', 'Z:6.50']
+index
+len : 43 | index : 9
+Gcode : G0 X110.000 Y60.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P11 B3
+response : ok P11 B3
+Queue : G0 X110.000 Y60.000 Z6.500 F1000
+Gcode : G0 X110.000 Y60.000 Z6.500 F1000
+ACK : []
+code = G0
+Received : ok P11 B3
+response : ok P11 B3
+position : ['X:110.00', 'Y:60.00', 'Z:6.50']
+Received : X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600
+response : X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600']
+code = M114
+pos : ['X:110.00', 'Y:60.00', 'Z:6.50']
+index
+len : 43 | index : 10
+Gcode : M106 P1 S255
+
+Gcode : M114
+
+Received : ok P11 B3
+response : ok P11 B3
+Queue : M106 P1 S255
+Gcode : M106 P1 S255
+ACK : []
+code = M106
+Received : ok P11 B3
+response : ok P11 B3
+position : ['X:110.00', 'Y:60.00', 'Z:6.50']
+Received : X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600
+response : X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:110.00 Y:60.00 Z:6.50 Count X:88000 Y:48000 Z:41600']
+code = M114
+pos : ['X:110.00', 'Y:60.00', 'Z:6.50']
+index
+len : 43 | index : 11
+Gcode : G1 X110.000 Y110.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P11 B3
+response : ok P11 B3
+Queue : G1 X110.000 Y110.000 Z6.500 F1000
+Gcode : G1 X110.000 Y110.000 Z6.500 F1000
+ACK : []
+code = G1
+Received : ok P10 B3
+response : ok P10 B3
+position : ['X:110.00', 'Y:110.00', 'Z:6.50']
+Received : X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600
+response : X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600']
+code = M114
+pos : ['X:110.00', 'Y:110.00', 'Z:6.50']
+index
+len : 43 | index : 12
+Gcode : M106 P1 S0
+
+Gcode : M114
+
+Received : ok P10 B3
+response : ok P10 B3
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P10 B3
+response : ok P10 B3
+position : ['X:110.00', 'Y:110.00', 'Z:6.50']
+Received : X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600
+response : X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600']
+code = M114
+pos : ['X:110.00', 'Y:110.00', 'Z:6.50']
+index
+len : 43 | index : 13
+Gcode : G0 X110.000 Y110.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P10 B3
+response : ok P10 B3
+Queue : G0 X110.000 Y110.000 Z6.500 F1000
+Gcode : G0 X110.000 Y110.000 Z6.500 F1000
+ACK : []
+code = G0
+Received : ok P10 B3
+response : ok P10 B3
+position : ['X:110.00', 'Y:110.00', 'Z:6.50']
+Received : X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600
+response : X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600']
+code = M114
+pos : ['X:110.00', 'Y:110.00', 'Z:6.50']
+index
+len : 43 | index : 14
+Gcode : M106 P1 S255
+
+Gcode : M114
+
+Received : ok P10 B3
+response : ok P10 B3
+Queue : M106 P1 S255
+Gcode : M106 P1 S255
+ACK : []
+code = M106
+Received : ok P10 B3
+response : ok P10 B3
+position : ['X:110.00', 'Y:110.00', 'Z:6.50']
+Received : X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600
+response : X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:110.00 Y:110.00 Z:6.50 Count X:88000 Y:88000 Z:41600']
+code = M114
+pos : ['X:110.00', 'Y:110.00', 'Z:6.50']
+index
+len : 43 | index : 15
+Gcode : G1 X60.000 Y110.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P10 B3
+response : ok P10 B3
+Queue : G1 X60.000 Y110.000 Z6.500 F1000
+Gcode : G1 X60.000 Y110.000 Z6.500 F1000
+ACK : []
+code = G1
+Received : ok P9 B3
+response : ok P9 B3
+position : ['X:60.00', 'Y:110.00', 'Z:6.50']
+Received : X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600
+response : X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600']
+code = M114
+pos : ['X:60.00', 'Y:110.00', 'Z:6.50']
+index
+len : 43 | index : 16
+Gcode : M106 P1 S0
+
+Gcode : M114
+
+Received : ok P9 B3
+response : ok P9 B3
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P9 B3
+response : ok P9 B3
+position : ['X:60.00', 'Y:110.00', 'Z:6.50']
+Received : X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600
+response : X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600']
+code = M114
+pos : ['X:60.00', 'Y:110.00', 'Z:6.50']
+index
+len : 43 | index : 17
+Gcode : G0 X60.000 Y110.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P9 B3
+response : ok P9 B3
+Queue : G0 X60.000 Y110.000 Z6.500 F1000
+Gcode : G0 X60.000 Y110.000 Z6.500 F1000
+ACK : []
+code = G0
+Received : ok P9 B3
+response : ok P9 B3
+position : ['X:60.00', 'Y:110.00', 'Z:6.50']
+Received : X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600
+response : X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600']
+code = M114
+pos : ['X:60.00', 'Y:110.00', 'Z:6.50']
+index
+len : 43 | index : 18
+Gcode : M106 P1 S255
+
+Gcode : M114
+
+Received : ok P9 B3
+response : ok P9 B3
+Queue : M106 P1 S255
+Gcode : M106 P1 S255
+ACK : []
+code = M106
+Received : ok P9 B3
+response : ok P9 B3
+position : ['X:60.00', 'Y:110.00', 'Z:6.50']
+Received : X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600
+response : X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:60.00 Y:110.00 Z:6.50 Count X:48000 Y:88000 Z:41600']
+code = M114
+pos : ['X:60.00', 'Y:110.00', 'Z:6.50']
+index
+len : 43 | index : 19
+Gcode : G1 X60.000 Y60.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P9 B3
+response : ok P9 B3
+Queue : G1 X60.000 Y60.000 Z6.500 F1000
+Gcode : G1 X60.000 Y60.000 Z6.500 F1000
+ACK : []
+code = G1
+Received : ok P8 B3
+response : ok P8 B3
+position : ['X:60.00', 'Y:60.00', 'Z:6.50']
+Received : X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600
+response : X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600']
+code = M114
+pos : ['X:60.00', 'Y:60.00', 'Z:6.50']
+index
+len : 43 | index : 20
+Gcode : M106 P1 S0
+
+Gcode : M114
+
+Received : ok P8 B3
+response : ok P8 B3
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P8 B3
+response : ok P8 B3
+position : ['X:60.00', 'Y:60.00', 'Z:6.50']
+Received : X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600
+response : X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:60.00 Y:60.00 Z:6.50 Count X:48000 Y:48000 Z:41600']
+code = M114
+pos : ['X:60.00', 'Y:60.00', 'Z:6.50']
+index
+len : 43 | index : 21
+Gcode : G0 X69.000 Y61.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P8 B3
+response : ok P8 B3
+Queue : G0 X69.000 Y61.000 Z6.500 F1000
+Gcode : G0 X69.000 Y61.000 Z6.500 F1000
+ACK : []
+code = G0
+Received : ok P7 B3
+response : ok P7 B3
+position : ['X:69.00', 'Y:61.00', 'Z:6.50']
+Received : X:69.00 Y:61.00 Z:6.50 Count X:55200 Y:48800 Z:41600
+response : X:69.00 Y:61.00 Z:6.50 Count X:55200 Y:48800 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:69.00 Y:61.00 Z:6.50 Count X:55200 Y:48800 Z:41600']
+code = M114
+pos : ['X:69.00', 'Y:61.00', 'Z:6.50']
+index
+len : 43 | index : 22
+Gcode : M106 P1 S255
+
+Gcode : M114
+
+Received : ok P7 B3
+response : ok P7 B3
+Queue : M106 P1 S255
+Gcode : M106 P1 S255
+ACK : []
+code = M106
+Received : ok P7 B3
+response : ok P7 B3
+position : ['X:69.00', 'Y:61.00', 'Z:6.50']
+Received : X:69.00 Y:61.00 Z:6.50 Count X:55200 Y:48800 Z:41600
+response : X:69.00 Y:61.00 Z:6.50 Count X:55200 Y:48800 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:69.00 Y:61.00 Z:6.50 Count X:55200 Y:48800 Z:41600']
+code = M114
+pos : ['X:69.00', 'Y:61.00', 'Z:6.50']
+index
+len : 43 | index : 23
+Gcode : G1 X69.000 Y109.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P7 B3
+response : ok P7 B3
+Queue : G1 X69.000 Y109.000 Z6.500 F1000
+Gcode : G1 X69.000 Y109.000 Z6.500 F1000
+ACK : []
+code = G1
+Received : ok P6 B3
+response : ok P6 B3
+position : ['X:69.00', 'Y:109.00', 'Z:6.50']
+Received : X:69.00 Y:109.00 Z:6.50 Count X:55200 Y:87200 Z:41600
+response : X:69.00 Y:109.00 Z:6.50 Count X:55200 Y:87200 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:69.00 Y:109.00 Z:6.50 Count X:55200 Y:87200 Z:41600']
+code = M114
+pos : ['X:69.00', 'Y:109.00', 'Z:6.50']
+index
+len : 43 | index : 24
+Gcode : M106 P1 S0
+
+Gcode : M114
+
+Received : ok P6 B3
+response : ok P6 B3
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P6 B3
+response : ok P6 B3
+position : ['X:69.00', 'Y:109.00', 'Z:6.50']
+Received : X:69.00 Y:109.00 Z:6.50 Count X:55200 Y:87200 Z:41600
+response : X:69.00 Y:109.00 Z:6.50 Count X:55200 Y:87200 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:69.00 Y:109.00 Z:6.50 Count X:55200 Y:87200 Z:41600']
+code = M114
+pos : ['X:69.00', 'Y:109.00', 'Z:6.50']
+index
+len : 43 | index : 25
+Gcode : G0 X77.000 Y61.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P6 B3
+response : ok P6 B3
+Queue : G0 X77.000 Y61.000 Z6.500 F1000
+Gcode : G0 X77.000 Y61.000 Z6.500 F1000
+ACK : []
+code = G0
+Received : ok P5 B3
+response : ok P5 B3
+position : ['X:77.00', 'Y:61.00', 'Z:6.50']
+Received : X:77.00 Y:61.00 Z:6.50 Count X:61600 Y:48800 Z:41600
+response : X:77.00 Y:61.00 Z:6.50 Count X:61600 Y:48800 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:77.00 Y:61.00 Z:6.50 Count X:61600 Y:48800 Z:41600']
+code = M114
+pos : ['X:77.00', 'Y:61.00', 'Z:6.50']
+index
+len : 43 | index : 26
+Gcode : M106 P1 S255
+
+Gcode : M114
+
+Received : ok P5 B3
+response : ok P5 B3
+Queue : M106 P1 S255
+Gcode : M106 P1 S255
+ACK : []
+code = M106
+Received : ok P5 B3
+response : ok P5 B3
+position : ['X:77.00', 'Y:61.00', 'Z:6.50']
+Received : X:77.00 Y:61.00 Z:6.50 Count X:61600 Y:48800 Z:41600
+response : X:77.00 Y:61.00 Z:6.50 Count X:61600 Y:48800 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:77.00 Y:61.00 Z:6.50 Count X:61600 Y:48800 Z:41600']
+code = M114
+pos : ['X:77.00', 'Y:61.00', 'Z:6.50']
+index
+len : 43 | index : 27
+Gcode : G1 X77.000 Y109.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P5 B3
+response : ok P5 B3
+Queue : G1 X77.000 Y109.000 Z6.500 F1000
+Gcode : G1 X77.000 Y109.000 Z6.500 F1000
+ACK : []
+code = G1
+Received : ok P4 B3
+response : ok P4 B3
+position : ['X:77.00', 'Y:109.00', 'Z:6.50']
+Received : X:77.00 Y:109.00 Z:6.50 Count X:61600 Y:87200 Z:41600
+response : X:77.00 Y:109.00 Z:6.50 Count X:61600 Y:87200 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:77.00 Y:109.00 Z:6.50 Count X:61600 Y:87200 Z:41600']
+code = M114
+pos : ['X:77.00', 'Y:109.00', 'Z:6.50']
+index
+len : 43 | index : 28
+Gcode : M106 P1 S0
+
+Gcode : M114
+
+Received : ok P4 B3
+response : ok P4 B3
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P4 B3
+response : ok P4 B3
+position : ['X:77.00', 'Y:109.00', 'Z:6.50']
+Received : X:77.00 Y:109.00 Z:6.50 Count X:61600 Y:87200 Z:41600
+response : X:77.00 Y:109.00 Z:6.50 Count X:61600 Y:87200 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:77.00 Y:109.00 Z:6.50 Count X:61600 Y:87200 Z:41600']
+code = M114
+pos : ['X:77.00', 'Y:109.00', 'Z:6.50']
+index
+len : 43 | index : 29
+Gcode : G0 X85.000 Y61.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P4 B3
+response : ok P4 B3
+Queue : G0 X85.000 Y61.000 Z6.500 F1000
+Gcode : G0 X85.000 Y61.000 Z6.500 F1000
+ACK : []
+code = G0
+Received : ok P3 B3
+response : ok P3 B3
+position : ['X:85.00', 'Y:61.00', 'Z:6.50']
+Received : X:85.00 Y:61.00 Z:6.50 Count X:68000 Y:48800 Z:41600
+response : X:85.00 Y:61.00 Z:6.50 Count X:68000 Y:48800 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:85.00 Y:61.00 Z:6.50 Count X:68000 Y:48800 Z:41600']
+code = M114
+pos : ['X:85.00', 'Y:61.00', 'Z:6.50']
+index
+len : 43 | index : 30
+Gcode : M106 P1 S255
+
+Gcode : M114
+
+Received : ok P3 B3
+response : ok P3 B3
+Queue : M106 P1 S255
+Gcode : M106 P1 S255
+ACK : []
+code = M106
+Received : ok P3 B3
+response : ok P3 B3
+position : ['X:85.00', 'Y:61.00', 'Z:6.50']
+Received : X:85.00 Y:61.00 Z:6.50 Count X:68000 Y:48800 Z:41600
+response : X:85.00 Y:61.00 Z:6.50 Count X:68000 Y:48800 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:85.00 Y:61.00 Z:6.50 Count X:68000 Y:48800 Z:41600']
+code = M114
+pos : ['X:85.00', 'Y:61.00', 'Z:6.50']
+index
+len : 43 | index : 31
+Gcode : G1 X85.000 Y109.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P3 B3
+response : ok P3 B3
+Queue : G1 X85.000 Y109.000 Z6.500 F1000
+Gcode : G1 X85.000 Y109.000 Z6.500 F1000
+ACK : []
+code = G1
+Received : ok P2 B3
+response : ok P2 B3
+position : ['X:85.00', 'Y:109.00', 'Z:6.50']
+Received : X:85.00 Y:109.00 Z:6.50 Count X:68000 Y:87200 Z:41600
+response : X:85.00 Y:109.00 Z:6.50 Count X:68000 Y:87200 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:85.00 Y:109.00 Z:6.50 Count X:68000 Y:87200 Z:41600']
+code = M114
+pos : ['X:85.00', 'Y:109.00', 'Z:6.50']
+index
+len : 43 | index : 32
+Gcode : M106 P1 S0
+
+Gcode : M114
+
+Received : ok P2 B3
+response : ok P2 B3
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P2 B3
+response : ok P2 B3
+position : ['X:85.00', 'Y:109.00', 'Z:6.50']
+Received : X:85.00 Y:109.00 Z:6.50 Count X:68000 Y:87200 Z:41600
+response : X:85.00 Y:109.00 Z:6.50 Count X:68000 Y:87200 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:85.00 Y:109.00 Z:6.50 Count X:68000 Y:87200 Z:41600']
+code = M114
+pos : ['X:85.00', 'Y:109.00', 'Z:6.50']
+index
+len : 43 | index : 33
+Gcode : G0 X93.000 Y61.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P2 B3
+response : ok P2 B3
+Queue : G0 X93.000 Y61.000 Z6.500 F1000
+Gcode : G0 X93.000 Y61.000 Z6.500 F1000
+ACK : []
+code = G0
+Received : ok P1 B3
+response : ok P1 B3
+position : ['X:93.00', 'Y:61.00', 'Z:6.50']
+Received : X:93.00 Y:61.00 Z:6.50 Count X:74400 Y:48800 Z:41600
+response : X:93.00 Y:61.00 Z:6.50 Count X:74400 Y:48800 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:93.00 Y:61.00 Z:6.50 Count X:74400 Y:48800 Z:41600']
+code = M114
+pos : ['X:93.00', 'Y:61.00', 'Z:6.50']
+index
+len : 43 | index : 34
+Gcode : M106 P1 S255
+
+Gcode : M114
+
+Received : ok P1 B3
+response : ok P1 B3
+Queue : M106 P1 S255
+Gcode : M106 P1 S255
+ACK : []
+code = M106
+Received : ok P1 B3
+response : ok P1 B3
+position : ['X:93.00', 'Y:61.00', 'Z:6.50']
+Received : X:93.00 Y:61.00 Z:6.50 Count X:74400 Y:48800 Z:41600
+response : X:93.00 Y:61.00 Z:6.50 Count X:74400 Y:48800 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:93.00 Y:61.00 Z:6.50 Count X:74400 Y:48800 Z:41600']
+code = M114
+pos : ['X:93.00', 'Y:61.00', 'Z:6.50']
+index
+len : 43 | index : 35
+Gcode : G1 X93.000 Y109.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P1 B3
+response : ok P1 B3
+Queue : G1 X93.000 Y109.000 Z6.500 F1000
+Gcode : G1 X93.000 Y109.000 Z6.500 F1000
+ACK : []
+code = G1
+Received : ok P0 B3
+response : ok P0 B3
+position : ['X:93.00', 'Y:109.00', 'Z:6.50']
+Received : X:93.00 Y:109.00 Z:6.50 Count X:74400 Y:87200 Z:41600
+response : X:93.00 Y:109.00 Z:6.50 Count X:74400 Y:87200 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:93.00 Y:109.00 Z:6.50 Count X:74400 Y:87200 Z:41600']
+code = M114
+pos : ['X:93.00', 'Y:109.00', 'Z:6.50']
+index
+len : 43 | index : 36
+Gcode : M106 P1 S0
+
+Gcode : M114
+
+Received : ok P0 B3
+response : ok P0 B3
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P0 B3
+response : ok P0 B3
+position : ['X:93.00', 'Y:109.00', 'Z:6.50']
+Received : X:93.00 Y:109.00 Z:6.50 Count X:74400 Y:87200 Z:41600
+response : X:93.00 Y:109.00 Z:6.50 Count X:74400 Y:87200 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:93.00 Y:109.00 Z:6.50 Count X:74400 Y:87200 Z:41600']
+code = M114
+pos : ['X:93.00', 'Y:109.00', 'Z:6.50']
+index
+len : 43 | index : 37
+Gcode : G0 X101.000 Y61.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P0 B3
+response : ok P0 B3
+Queue : G0 X101.000 Y61.000 Z6.500 F1000
+Gcode : G0 X101.000 Y61.000 Z6.500 F1000
+ACK : []
+code = G0
+Received : ok P0 B2
+response : ok P0 B2
+position : ['X:101.00', 'Y:61.00', 'Z:6.50']
+Received : X:101.00 Y:61.00 Z:6.50 Count X:80800 Y:48800 Z:41600
+response : X:101.00 Y:61.00 Z:6.50 Count X:80800 Y:48800 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:101.00 Y:61.00 Z:6.50 Count X:80800 Y:48800 Z:41600']
+code = M114
+pos : ['X:101.00', 'Y:61.00', 'Z:6.50']
+index
+len : 43 | index : 38
+Gcode : M106 P1 S255
+
+Gcode : M114
+
+Received : ok P0 B3
+response : ok P0 B3
+Queue : M106 P1 S255
+Gcode : M106 P1 S255
+ACK : []
+code = M106
+Received : ok P0 B3
+response : ok P0 B3
+position : ['X:101.00', 'Y:61.00', 'Z:6.50']
+Received : X:101.00 Y:61.00 Z:6.50 Count X:80800 Y:48800 Z:41600
+response : X:101.00 Y:61.00 Z:6.50 Count X:80800 Y:48800 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:101.00 Y:61.00 Z:6.50 Count X:80800 Y:48800 Z:41600']
+code = M114
+pos : ['X:101.00', 'Y:61.00', 'Z:6.50']
+index
+len : 43 | index : 39
+Gcode : G1 X101.000 Y109.000 Z6.500 F1000
+
+Gcode : M114
+
+Received : ok P0 B3
+response : ok P0 B3
+Queue : G1 X101.000 Y109.000 Z6.500 F1000
+Gcode : G1 X101.000 Y109.000 Z6.500 F1000
+ACK : []
+code = G1
+Received : ok P0 B2
+response : ok P0 B2
+position : ['X:101.00', 'Y:109.00', 'Z:6.50']
+Received : X:101.00 Y:109.00 Z:6.50 Count X:80800 Y:87200 Z:41600
+response : X:101.00 Y:109.00 Z:6.50 Count X:80800 Y:87200 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:101.00 Y:109.00 Z:6.50 Count X:80800 Y:87200 Z:41600']
+code = M114
+pos : ['X:101.00', 'Y:109.00', 'Z:6.50']
+index
+len : 43 | index : 40
+Gcode : M106 P1 S0
+
+Gcode : M114
+
+Received : ok P0 B3
+response : ok P0 B3
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P0 B3
+response : ok P0 B3
+position : ['X:101.00', 'Y:109.00', 'Z:6.50']
+Received : X:101.00 Y:109.00 Z:6.50 Count X:80800 Y:87200 Z:41600
+response : X:101.00 Y:109.00 Z:6.50 Count X:80800 Y:87200 Z:41600
+Queue : M114
+Gcode : M114
+ACK : ['X:101.00 Y:109.00 Z:6.50 Count X:80800 Y:87200 Z:41600']
+code = M114
+pos : ['X:101.00', 'Y:109.00', 'Z:6.50']
+index
+len : 43 | index : 41
+Gcode : G28
+
+Gcode : M114
+
+Received : ok P0 B3
+response : ok P0 B3
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+position : ['X:0.00', 'Y:0.00', 'Z:5.00']
+Received : X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000
+response : X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000
+Queue : G28
+Gcode : G28
+ACK : ['X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000']
+code = G28
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00']
+index
+len : 43 | index : 42
+Received : ok P15 B2
+response : ok P15 B2
+position : ['X:0.00', 'Y:0.00', 'Z:5.00']
+Received : X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000
+response : X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 Count X:0 Y:0 Z:32000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00']
+index
+Received : ok P15 B3
+response : ok P15 B3
+
+
+****************************************************************************
+
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+response : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+index : 6
+Gcode : G0 X7.000 Y10.000 Z7.900 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+response : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G0 X7.000 Y10.000 Z7.900 F500
+Gcode : G0 X7.000 Y10.000 Z7.900 F500
+ACK : []
+code = G0
+Received : ok P14 B1
+response : ok P14 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B2
+response : ok P15 B2
+position : ['X:7.00', 'Y:10.00', 'Z:7.90', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:7.90 E:0.00 Count X:5600 Y:8000 Z:25280
+response : X:7.00 Y:10.00 Z:7.90 E:0.00 Count X:5600 Y:8000 Z:25280
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:7.90 E:0.00 Count X:5600 Y:8000 Z:25280']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:7.90', 'E:0.00']
+Received : ok P15 B3
+response : ok P15 B3
+index : 0
+Gcode : G28
+
+Gcode : G4 S1
+Received : Active Extruder: 0
+
+response : Active Extruder: 0
+Gcode : M114
+
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : Active Extruder: 0
+response : Active Extruder: 0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : G28
+Gcode : G28
+ACK : ['Active Extruder: 0', 'Active Extruder: 0', 'X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = G28
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 1
+Gcode : G90
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 2
+Gcode : G0 X7.0 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Attempted to call beginFrame() within a still active frame; ignored
+Cannot make QOpenGLContext current in a different thread
+PS D:\Sakshi\Works\Scribing_Machine\ScribingV3_UI5> python -u "d:\Sakshi\Works\Scribing_Machine\ScribingV3_UI5\main.py"
+C:\Program Files\Python313\Lib\site-packages\Custom_Widgets\Widgets.py:10: UserWarning: Deprecated imports. For more information, refer to the documentation at: https://github.com/KhamisiKibet/QT-PyQt-PySide-Custom-Widgets
+  warnings.warn(
+C:\Program Files\Python313\Lib\site-packages\Custom_Widgets\JSonStyles\__init__.py:842: RuntimeWarning: Failed to disconnect (None) from signal "clicked()".
+  button.clicked.disconnect()
+index : 0
+arg : 0
+arg : 0
+UI is loaded
+wobj : flaserComboBox
+laser combo : flaserComboBox
+wobj : offlaserComboBox
+laser combo : offlaserComboBox
+xindex : 7.0
+yindex : 10.0
+feed : 1000
+laser handler : {'Laser 1': Laser(name='Laser 1', focus=10.0, xpos=30.0, ypos=5.0, cmd={'ON': 'M106 P0 S255', 'OFF': 'M106 P0 S0'}), 'Laser 2': Laser(name='Laser 2', focus=10.1, xpos=0, ypos=0, cmd={'ON': 'M106 P1 S255', 'OFF': 'M106 P1 S0'})}
+Com : com, Port : ['COM1', 'COM17'], Baud : ['9600', '57600', '115200', '250000']
+action : Auto
+OK clicked
+Serial communication autostarted
+status : True
+connect btn : Disconnect | refresh btn : False
+Gcode : G28
+
+Gcode : M114
+
+Received : Active Extruder: 0
+response : Active Extruder: 0
+Received : echo:busy: processing
+response : echo:busy: processing
+pgm : pgmfilePushButton
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : Active Extruder: 0
+response : Active Extruder: 0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : G28
+Gcode : G28
+ACK : ['Active Extruder: 0', 'Active Extruder: 0', 'X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = G28
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : ok P15 B2
+response : ok P15 B2
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : ok P15 B3
+response : ok P15 B3
+pgm : pgmheightPushButton
+Sample Height : 2.2 mm
+pgm : pgmfeedPushButton
+Feedrate : 500.0 mm/min
+pgm : pgmlaserPushButton
+sample height : Laser 2
+pgm : pgmsavePushButton
+DXF File : C:/Users/exp/Desktop/FTO_P1_scribing_5x5cm.dxf
+Sample Height : 2.2 mm
+Laser Focus : 10.1 mm
+Z Travel : 7.8999999999999995 mm
+Selected LASER : Laser 2
+gcode : ['G28', 'G90', 'G0 X7.0 F500', 'G0 Y10.0 F500', 'M5', 'M5', 'G0 X7.000 Y10.000 Z7.900 F500', 'M3', 'G1 X57.000 Y10.000 Z7.900 F500', 'M5', 'G0 X57.000 Y10.000 Z7.900 F500', 'M3', 'G1 X57.000 Y60.000 Z7.900 F500', 'M5', 'G0 X57.000 Y60.000 Z7.900 F500', 'M3', 'G1 X7.000 Y60.000 Z7.900 F500', 'M5', 'G0 X7.000 Y60.000 Z7.900 F500', 'M3', 'G1 X7.000 Y10.000 Z7.900 F500', 'M5', 'G0 X16.000 Y11.000 Z7.900 F500', 'M3', 'G1 X16.000 Y59.000 Z7.900 F500', 'M5', 'G0 X24.000 Y11.000 Z7.900 F500', 'M3', 'G1 X24.000 Y59.000 Z7.900 F500', 'M5', 'G0 X32.000 Y11.000 Z7.900 F500', 'M3', 'G1 X32.000 Y59.000 Z7.900 F500', 'M5', 'G0 X40.000 Y11.000 Z7.900 F500', 'M3', 'G1 X40.000 Y59.000 Z7.900 F500', 'M5', 'G0 X48.000 Y11.000 Z7.900 F500', 'M3', 'G1 X48.000 Y59.000 Z7.900 F500', 'M5', 'G28 X Y']
+index : 3
+arg : 3
+len : 43
+Print init : {self.pgm_index}
+Gcode : G28
+
+Gcode : G4 S1
+
+Received : Active Extruder: 0
+response : Active Extruder: 0
+Gcode : M114
+
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : Active Extruder: 0
+response : Active Extruder: 0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : G28
+Gcode : G28
+ACK : ['Active Extruder: 0', 'Active Extruder: 0', 'X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = G28
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 1
+Gcode : G90
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 2
+Gcode : G0 X7.0 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G90
+Gcode : G90
+ACK : []
+code = G90
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 3
+Gcode : G0 Y10.0 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G0 X7.0 F500
+Gcode : G0 X7.0 F500
+ACK : []
+code = G0
+Received : ok P14 B1
+response : ok P14 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000
+response : X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G0 Y10.0 F500
+Gcode : G0 Y10.0 F500
+ACK : []
+code = G0
+Received : ok P14 B1
+response : ok P14 B1
+Received : echo:busy: processing
+response : echo:busy: processing
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B2
+response : ok P15 B2
+position : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+response : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : ok P15 B3
+response : ok P15 B3
+Print resume : 0
+Gcode : G28
+
+Gcode : G4 S1
+
+Received : Active Extruder: 0
+Gcode : M114
+response : Active Extruder: 0
+
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : Active Extruder: 0
+response : Active Extruder: 0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : G28
+Gcode : G28
+ACK : ['Active Extruder: 0', 'Active Extruder: 0', 'X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = G28
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 1
+Gcode : G90
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 2
+Gcode : G0 X7.0 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G90
+Gcode : G90
+ACK : []
+code = G90
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 3
+Gcode : G0 Y10.0 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G0 X7.0 F500
+Gcode : G0 X7.0 F500
+ACK : []
+code = G0
+Received : ok P14 B1
+response : ok P14 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000
+response : X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 4
+Gcode : M106 P1 S0
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G0 Y10.0 F500
+Gcode : G0 Y10.0 F500
+ACK : []
+code = G0
+Received : ok P14 B1
+response : ok P14 B1
+Received : echo:busy: processing
+response : echo:busy: processing
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+response : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+index : 5
+Gcode : M106 P1 S0
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+response : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : ok P15 B0
+response : ok P15 B0
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B2
+response : ok P15 B2
+position : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+response : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : ok P15 B3
+response : ok P15 B3
+Print resume : 0
+Gcode : G28
+
+Gcode : G4 S1
+
+Received : Active Extruder: 0
+response : Active Extruder: 0
+Gcode : M114
+
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : Active Extruder: 0
+response : Active Extruder: 0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : G28
+Gcode : G28
+ACK : ['Active Extruder: 0', 'Active Extruder: 0', 'X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = G28
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 1
+Gcode : G90
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 2
+Gcode : G0 X7.0 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G90
+Gcode : G90
+ACK : []
+code = G90
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 3
+Gcode : G0 Y10.0 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G0 X7.0 F500
+Gcode : G0 X7.0 F500
+ACK : []
+code = G0
+Received : ok P14 B1
+response : ok P14 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000
+response : X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 4
+Gcode : M106 P1 S0
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G0 Y10.0 F500
+Gcode : G0 Y10.0 F500
+ACK : []
+code = G0
+Received : ok P14 B1
+response : ok P14 B1
+Received : echo:busy: processing
+response : echo:busy: processing
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+response : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+index : 5
+Gcode : M106 P1 S0
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+response : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+index : 6
+Gcode : G0 X7.000 Y10.000 Z7.900 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+response : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+index : 7
+Gcode : M106 P1 S255
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G0 X7.000 Y10.000 Z7.900 F500
+Gcode : G0 X7.000 Y10.000 Z7.900 F500
+ACK : []
+code = G0
+Received : ok P14 B1
+response : ok P14 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:10.00', 'Z:7.90', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:7.90 E:0.00 Count X:5600 Y:8000 Z:25280
+response : X:7.00 Y:10.00 Z:7.90 E:0.00 Count X:5600 Y:8000 Z:25280
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:7.90 E:0.00 Count X:5600 Y:8000 Z:25280']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:7.90', 'E:0.00']
+index : 8
+Gcode : G1 X57.000 Y10.000 Z7.900 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : M106 P1 S255
+Gcode : M106 P1 S255
+ACK : []
+code = M106
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:10.00', 'Z:7.90', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:7.90 E:0.00 Count X:5600 Y:8000 Z:25280
+response : X:7.00 Y:10.00 Z:7.90 E:0.00 Count X:5600 Y:8000 Z:25280
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:7.90 E:0.00 Count X:5600 Y:8000 Z:25280']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:7.90', 'E:0.00']
+index : 9
+Gcode : M106 P1 S0
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G1 X57.000 Y10.000 Z7.900 F500
+Gcode : G1 X57.000 Y10.000 Z7.900 F500
+ACK : []
+code = G1
+Received : ok P14 B1
+response : ok P14 B1
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:57.00', 'Y:10.00', 'Z:7.90', 'E:0.00']
+Received : X:57.00 Y:10.00 Z:7.90 E:0.00 Count X:45600 Y:8000 Z:25280
+response : X:57.00 Y:10.00 Z:7.90 E:0.00 Count X:45600 Y:8000 Z:25280
+Queue : M114
+Gcode : M114
+ACK : ['X:57.00 Y:10.00 Z:7.90 E:0.00 Count X:45600 Y:8000 Z:25280']
+code = M114
+pos : ['X:57.00', 'Y:10.00', 'Z:7.90', 'E:0.00']
+Received : ok P15 B0
+response : ok P15 B0
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B2
+response : ok P15 B2
+position : ['X:57.00', 'Y:10.00', 'Z:7.90', 'E:0.00']
+Received : X:57.00 Y:10.00 Z:7.90 E:0.00 Count X:45600 Y:8000 Z:25280
+response : X:57.00 Y:10.00 Z:7.90 E:0.00 Count X:45600 Y:8000 Z:25280
+Queue : M114
+Gcode : M114
+ACK : ['X:57.00 Y:10.00 Z:7.90 E:0.00 Count X:45600 Y:8000 Z:25280']
+code = M114
+pos : ['X:57.00', 'Y:10.00', 'Z:7.90', 'E:0.00']
+Received : ok P15 B3
+response : ok P15 B3
+Print resume : 0
+Gcode : G28
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : Active Extruder: 0
+response : Active Extruder: 0
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : echo:busy: processing
+response : echo:busy: processing
+Received : Active Extruder: 0
+response : Active Extruder: 0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : G28
+Gcode : G28
+ACK : ['Active Extruder: 0', 'Active Extruder: 0', 'X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = G28
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 1
+Gcode : G90
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 2
+Gcode : G0 X7.0 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G90
+Gcode : G90
+ACK : []
+code = G90
+Received : ok P15 B1
+response : ok P15 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+response : X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:0.00 Y:0.00 Z:5.00 E:0.00 Count X:0 Y:0 Z:16000']
+code = M114
+pos : ['X:0.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 3
+Gcode : G0 Y10.0 F500
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G0 X7.0 F500
+Gcode : G0 X7.0 F500
+ACK : []
+code = G0
+Received : ok P14 B1
+response : ok P14 B1
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000
+response : X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:0.00 Z:5.00 E:0.00 Count X:5600 Y:0 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:0.00', 'Z:5.00', 'E:0.00']
+index : 4
+Gcode : M106 P1 S0
+
+Gcode : G4 S1
+
+Gcode : M114
+
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G0 Y10.0 F500
+Gcode : G0 Y10.0 F500
+ACK : []
+code = G0
+Received : ok P14 B1
+response : ok P14 B1
+Gcode : M106 P0 S0
+
+Gcode : M106 P1 S0
+
+Received : echo:busy: processing
+response : echo:busy: processing
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+response : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : ok P15 B0
+response : ok P15 B0
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P15 B0
+response : ok P15 B0
+Queue : G4 S1
+Gcode : G4 S1
+ACK : []
+code = G4
+Received : ok P15 B0
+response : ok P15 B0
+position : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+response : X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000
+Queue : M114
+Gcode : M114
+ACK : ['X:7.00 Y:10.00 Z:5.00 E:0.00 Count X:5600 Y:8000 Z:16000']
+code = M114
+pos : ['X:7.00', 'Y:10.00', 'Z:5.00', 'E:0.00']
+Received : ok P15 B1
+response : ok P15 B1
+Queue : M106 P0 S0
+Gcode : M106 P0 S0
+ACK : []
+code = M106
+Received : ok P15 B2
+response : ok P15 B2
+Queue : M106 P1 S0
+Gcode : M106 P1 S0
+ACK : []
+code = M106
+Received : ok P15 B3
+response : ok P15 B3
+
+
+
+(0.0, 0.0, 0.0, 7.0, 0.0, 0.0, False), 
+(7.0, 0.0, 0.0, 7.0, 10.0, 0.0, False), 
+(7.0, 10.0, 0.0, 7.0, 10.0, 6.9, False), 
+(7.0, 10.0, 6.9, 57.0, 10.0, 6.9, False), 
+(57.0, 10.0, 6.9, 57.0, 60.0, 6.9, False), 
+(57.0, 60.0, 6.9, 7.0, 60.0, 6.9, False), 
+(7.0, 60.0, 6.9, 7.0, 10.0, 6.9, False), 
+(7.0, 10.0, 6.9, 16.0, 11.0, 6.9, False), 
+(16.0, 11.0, 6.9, 16.0, 59.0, 6.9, False), 
+(16.0, 59.0, 6.9, 24.0, 11.0, 6.9, False), 
+(24.0, 11.0, 6.9, 24.0, 59.0, 6.9, False), 
+(24.0, 59.0, 6.9, 32.0, 11.0, 6.9, False), 
+(32.0, 11.0, 6.9, 32.0, 59.0, 6.9, False), 
+(32.0, 59.0, 6.9, 40.0, 11.0, 6.9, False), 
+(40.0, 11.0, 6.9, 40.0, 59.0, 6.9, False), 
+(40.0, 59.0, 6.9, 48.0, 11.0, 6.9, False), 
+(48.0, 11.0, 6.9, 48.0, 59.0, 6.9, False)
+
+'G0 X7.0 F500', 
+'G0 Y10.0 F500', 
+'G0 X7.000 Y10.000 Z6.900 F500', 
+'G1 X57.000 Y10.000 Z6.900 F500', 
+'G0 X57.000 Y10.000 Z6.900 F500', 
+'G1 X57.000 Y60.000 Z6.900 F500', 
+'G0 X57.000 Y60.000 Z6.900 F500', 
+'G1 X7.000 Y60.000 Z6.900 F500', 
+'G0 X7.000 Y60.000 Z6.900 F500', 
+'G1 X7.000 Y10.000 Z6.900 F500', 
+'G0 X16.000 Y11.000 Z6.900 F500', 
+'G1 X16.000 Y59.000 Z6.900 F500', 
+'G0 X24.000 Y11.000 Z6.900 F500', 
+'G1 X24.000 Y59.000 Z6.900 F500', 
+'G0 X32.000 Y11.000 Z6.900 F500', 
+'G1 X32.000 Y59.000 Z6.900 F500', 
+'G0 X40.000 Y11.000 Z6.900 F500', 
+'G1 X40.000 Y59.000 Z6.900 F500', 
+'G0 X48.000 Y11.000 Z6.900 F500', 
+'G1 X48.000 Y59.000 Z6.900 F500'

@@ -1,0 +1,50 @@
+# Gerber X3 Test File - Corretto
+%TF.FileFunction,Copper,L1,Top*%
+%TF.FilePolarity,Positive*%
+%FSLAX24Y24*%
+%MOMM*%
+
+# Definizioni aperture
+%ADD10C,1.5*%
+%ADD11R,1.0X2.0*%
+%ADD12O,1.2X0.8*%
+
+# Definizione Macro Esagonale
+%AMHEXAGON*
+5,1,6,$1,0,0,0*
+%
+
+# Apertura che usa la macro
+%ADD14HEXAGON,2.0*%
+
+# Inizio disegno
+G04 Disegno layer*
+
+D10*
+X100000Y100000D03*
+
+D11*
+%TA.AperFunction,ComponentPad*%
+%TO.C,R1*%
+%TO.CVal,10K*%
+X200000Y150000D03*
+
+D12*
+%TA.AperFunction,ViaPad*%
+X300000Y200000D03*
+
+# Traccia
+D10*
+X100000Y100000D02*
+X200000Y150000D01*
+
+# Regione
+G36*
+X0Y0D02*
+X50000Y0D01*
+X50000Y50000D01*
+X0Y50000D01*
+X0Y0D01*
+G37*
+
+M02*
