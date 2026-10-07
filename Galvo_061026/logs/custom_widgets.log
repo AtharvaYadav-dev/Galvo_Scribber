@@ -16018,3 +16018,1909 @@
 2026-10-06 12:21:15,856 - INFO - ==================================================
 2026-10-06 12:21:15,868 - DEBUG - Calling CoUninitialize()
 2026-10-06 12:21:15,868 - DEBUG - CoUninitialize() done.
+2026-10-06 12:51:53,561 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 12:51:54,100 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 12:51:54,171 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 12:51:54,171 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-10-06 12:51:54,182 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 12:51:54,185 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 12:51:54,211 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253174a1010 at 25330760cd0>
+2026-10-06 12:51:54,212 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 12:51:54,213 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 12:51:54,223 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253174a1dd0 at 253307d2ad0>
+2026-10-06 12:52:03,188 - INFO - UI load successful
+2026-10-06 12:54:43,031 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 12:54:43,031 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 12:55:00,831 - INFO - Galvo Laser Shutdown
+2026-10-06 12:55:00,831 - CRITICAL - Laser 1 : OFF
+2026-10-06 12:55:00,831 - CRITICAL - Laser 2 : OFF
+2026-10-06 12:55:00,831 - INFO - Stepper Lasers Shutdown
+2026-10-06 12:55:00,831 - INFO - COM connection close successfully
+2026-10-06 12:55:00,831 - INFO - Main window close successfully
+2026-10-06 12:55:00,831 - INFO - ==================================================
+2026-10-06 12:55:00,831 - INFO - New session close at 2026-10-06 12:55
+2026-10-06 12:55:00,831 - INFO - ==================================================
+2026-10-06 12:55:00,858 - DEBUG - Calling CoUninitialize()
+2026-10-06 12:55:00,859 - DEBUG - CoUninitialize() done.
+2026-10-06 12:59:12,559 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 12:59:12,929 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 12:59:13,021 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 12:59:13,021 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-10-06 12:59:13,033 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 12:59:13,036 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 12:59:13,060 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2973bf5cf20 at 297408a96d0>
+2026-10-06 12:59:13,060 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 12:59:13,060 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 12:59:13,077 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2973bf5b3a0 at 2974095b4d0>
+2026-10-06 12:59:13,913 - INFO - UI load successful
+2026-10-06 13:00:06,746 - CRITICAL - Laser 1 : OFF
+2026-10-06 13:00:06,746 - CRITICAL - Laser 2 : OFF
+2026-10-06 13:00:06,746 - INFO - Stepper Lasers Shutdown
+2026-10-06 13:00:06,746 - INFO - COM connection close successfully
+2026-10-06 13:00:06,747 - INFO - Main window close successfully
+2026-10-06 13:00:06,747 - INFO - ==================================================
+2026-10-06 13:00:06,747 - INFO - New session close at 2026-10-06 13:00
+2026-10-06 13:00:06,747 - INFO - ==================================================
+2026-10-06 13:00:06,774 - DEBUG - Calling CoUninitialize()
+2026-10-06 13:00:06,774 - DEBUG - CoUninitialize() done.
+2026-10-06 13:00:10,597 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 13:00:10,935 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 13:00:11,024 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 13:00:11,024 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-10-06 13:00:11,034 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 13:00:11,037 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 13:00:11,057 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f346bb4b10 at 1f34b5796d0>
+2026-10-06 13:00:11,068 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 13:00:11,068 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 13:00:11,076 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f346bb2a10 at 1f34b6274d0>
+2026-10-06 13:00:19,841 - INFO - UI load successful
+2026-10-06 13:05:30,706 - INFO - Galvo Laser Shutdown
+2026-10-06 13:05:30,716 - CRITICAL - Laser 1 : OFF
+2026-10-06 13:05:30,717 - CRITICAL - Laser 2 : OFF
+2026-10-06 13:05:30,717 - INFO - Stepper Lasers Shutdown
+2026-10-06 13:05:30,718 - INFO - COM connection close successfully
+2026-10-06 13:05:30,718 - INFO - Main window close successfully
+2026-10-06 13:05:30,720 - INFO - ==================================================
+2026-10-06 13:05:30,720 - INFO - New session close at 2026-10-06 13:05
+2026-10-06 13:05:30,720 - INFO - ==================================================
+2026-10-06 13:05:30,774 - DEBUG - Calling CoUninitialize()
+2026-10-06 13:05:30,775 - DEBUG - CoUninitialize() done.
+2026-10-06 13:21:18,025 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 13:21:19,467 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 13:21:19,582 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\Python\\Python312\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 13:21:19,583 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\Python\Python312\site-packages\comtypes\gen'
+2026-10-06 13:21:19,603 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 13:21:19,606 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 13:21:19,659 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f09cd67620 at 1f0b48a98d0>
+2026-10-06 13:21:19,659 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 13:21:19,659 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 13:21:19,679 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f09cd67360 at 1f0b495b6d0>
+2026-10-06 13:21:29,140 - INFO - UI load successful
+2026-10-06 13:27:02,694 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_061026/svg_files/Files/Difficult/testbitimage.bmp
+2026-10-06 13:27:17,801 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/svg_files/Files/Difficult/testbitimage.bmp
+2026-10-06 13:32:50,892 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_061026/svg_files/Files/Difficult/testbmp2.bmp
+2026-10-06 13:32:51,777 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/svg_files/Files/Difficult/testbmp2.bmp
+2026-10-06 14:18:20,587 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-06 14:18:28,319 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-06 14:19:18,339 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-06 14:19:28,295 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-06 14:19:50,020 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:50,126 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:50,660 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:50,815 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:51,024 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:51,231 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:52,083 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:52,448 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:52,866 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:53,079 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:53,287 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:53,444 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:54,079 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:54,184 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:54,393 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:54,655 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:54,866 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:54,971 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:55,286 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:55,393 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:55,600 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:55,808 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:56,070 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:56,175 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:56,383 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:56,488 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:57,589 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:57,801 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:58,011 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:58,328 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:58,546 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:58,765 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:58,876 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:58,986 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:19:59,093 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 14:19:59,203 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 14:20:05,514 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-06 14:27:44,734 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-06 14:57:46,097 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 14:57:57,393 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 14:57:58,102 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 14:58:22,694 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 14:58:26,799 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 14:58:40,795 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 14:58:59,304 - INFO - mapmatrixAction : lasermarkmat
+2026-10-06 15:00:29,299 - INFO - mapmatrixAction : stopmat
+2026-10-06 15:03:42,585 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:04:16,514 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:04:16,928 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:04:25,864 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:04:26,762 - INFO - mapmatrixAction : lasermarkmat
+2026-10-06 15:13:02,428 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_061026/100microns test.svg
+2026-10-06 15:13:11,516 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/100microns test.svg
+2026-10-06 15:13:55,058 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:13:55,165 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:13:55,848 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:13:55,953 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:13:56,164 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:13:56,268 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:13:59,887 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:13:59,992 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:00,201 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:00,307 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:00,517 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:00,623 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:01,523 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:01,630 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:01,840 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:02,046 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:02,257 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:02,728 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:02,943 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:03,259 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:03,470 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:03,573 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:03,678 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:03,783 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:04,044 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:04,150 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:04,359 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:04,569 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:04,779 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:04,886 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:04,993 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:05,099 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:05,567 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:05,673 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:05,883 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:05,990 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:06,203 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:06,307 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:06,463 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:06,568 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:06,778 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:06,890 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:07,062 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 15:14:07,172 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 15:14:10,601 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/100microns test.svg
+2026-10-06 15:55:16,584 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:55:34,787 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:55:36,388 - INFO - mapmatrixAction : lasermarkmat
+2026-10-06 15:55:41,920 - INFO - mapmatrixAction : stopmat
+2026-10-06 15:55:45,235 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:55:51,386 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:55:52,699 - INFO - mapmatrixAction : lasermarkmat
+2026-10-06 15:55:59,003 - INFO - mapmatrixAction : stopmat
+2026-10-06 15:55:59,038 - INFO - mapmatrixAction : stopmat
+2026-10-06 15:55:59,290 - INFO - mapmatrixAction : stopmat
+2026-10-06 15:56:07,696 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:56:08,824 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:56:10,048 - INFO - mapmatrixAction : lasermarkmat
+2026-10-06 15:57:56,231 - INFO - mapmatrixAction : stopmat
+2026-10-06 15:58:18,487 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:58:34,749 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 15:58:35,980 - INFO - mapmatrixAction : lasermarkmat
+2026-10-06 16:13:03,632 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:13:05,885 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:13:07,355 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:13:07,671 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:13:07,877 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:13:08,104 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:13:09,358 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 16:13:15,271 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 16:17:10,944 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 16:17:44,117 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 16:17:44,355 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 16:17:44,397 - INFO - Could not import comtypes.gen, trying to create it.
+2026-10-06 16:17:44,397 - INFO - Created comtypes.gen directory: 'D:\Atharva\Galvo_Scribber\Galvo_061026\.venv\Lib\site-packages\comtypes\gen'
+2026-10-06 16:17:44,397 - INFO - Writing __init__.py file: 'D:\Atharva\Galvo_Scribber\Galvo_061026\.venv\Lib\site-packages\comtypes\gen\__init__.py'
+2026-10-06 16:17:44,407 - INFO - Using writeable comtypes cache directory: 'D:\Atharva\Galvo_Scribber\Galvo_061026\.venv\Lib\site-packages\comtypes\gen'
+2026-10-06 16:17:44,414 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 16:17:44,417 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:17:44,418 - INFO - Could not import comtypes.gen._78530B68_61F9_11D2_8CAD_00A024580902_0_1_0: No module named 'comtypes.gen._78530B68_61F9_11D2_8CAD_00A024580902_0_1_0'
+2026-10-06 16:17:44,419 - INFO - # Generating comtypes.gen._78530B68_61F9_11D2_8CAD_00A024580902_0_1_0
+2026-10-06 16:17:44,420 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532ea91b50>
+2026-10-06 16:17:44,420 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532e9d9e80>
+2026-10-06 16:17:44,421 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532e9da440>
+2026-10-06 16:17:44,421 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532e9d9d10>
+2026-10-06 16:17:44,421 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ea91250>
+2026-10-06 16:17:44,421 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ea91550>
+2026-10-06 16:17:44,421 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532eb5c5d0>
+2026-10-06 16:17:44,421 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eb03bb0>
+2026-10-06 16:17:44,421 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eb03700>
+2026-10-06 16:17:44,421 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682bd8 at 2532eb03570>
+2026-10-06 16:17:44,421 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ead78c0>
+2026-10-06 16:17:44,422 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d90 at 2532eaef790>
+2026-10-06 16:17:44,422 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eaf28a0>
+2026-10-06 16:17:44,422 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eac7b50>
+2026-10-06 16:17:44,422 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682e40 at 2532eac7750>
+2026-10-06 16:17:44,422 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eac7850>
+2026-10-06 16:17:44,422 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682de8 at 2532eac7950>
+2026-10-06 16:17:44,422 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eafe5f0>
+2026-10-06 16:17:44,422 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eafe270>
+2026-10-06 16:17:44,422 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ef0 at 2532eaf2d50>
+2026-10-06 16:17:44,422 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eaf2c60>
+2026-10-06 16:17:44,422 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682e98 at 2532eaf28a0>
+2026-10-06 16:17:44,423 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682de8 at 2532eafe270>
+2026-10-06 16:17:44,423 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682e98 at 2532eafe270>
+2026-10-06 16:17:44,423 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682de8 at 2532eb9ca10>
+2026-10-06 16:17:44,423 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682e98 at 2532e781e50>
+2026-10-06 16:17:44,423 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eaef130>
+2026-10-06 16:17:44,423 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eaeee00>
+2026-10-06 16:17:44,423 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d90 at 2532eb49250>
+2026-10-06 16:17:44,423 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d90 at 2532e781c10>
+2026-10-06 16:17:44,423 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eb7aaf0>
+2026-10-06 16:17:44,423 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eb7ad00>
+2026-10-06 16:17:44,424 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eb7b330>
+2026-10-06 16:17:44,424 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682fa0 at 2532eb55ef0>
+2026-10-06 16:17:44,424 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532e781910>
+2026-10-06 16:17:44,424 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682f48 at 2532eb56030>
+2026-10-06 16:17:44,424 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682f48 at 2532eba0e60>
+2026-10-06 16:17:44,424 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ce0 at 2532eba1010>
+2026-10-06 16:17:44,425 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ce0 at 2532eba1910>
+2026-10-06 16:17:44,425 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ce0 at 2532eba1d90>
+2026-10-06 16:17:44,425 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532eba1d00>
+2026-10-06 16:17:44,425 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532eba1d00>
+2026-10-06 16:17:44,426 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba24e0>
+2026-10-06 16:17:44,426 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba1d00>
+2026-10-06 16:17:44,426 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eb56170>
+2026-10-06 16:17:44,426 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683050 at 2532eba1d90>
+2026-10-06 16:17:44,426 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba1490>
+2026-10-06 16:17:44,426 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eb7adb0>
+2026-10-06 16:17:44,426 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ff8 at 2532eba1010>
+2026-10-06 16:17:44,426 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba4b00>
+2026-10-06 16:17:44,426 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba49d0>
+2026-10-06 16:17:44,426 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba48a0>
+2026-10-06 16:17:44,427 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682f48 at 2532eba0950>
+2026-10-06 16:17:44,427 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba0cb0>
+2026-10-06 16:17:44,427 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba0a70>
+2026-10-06 16:17:44,427 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba1520>
+2026-10-06 16:17:44,427 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682f48 at 2532eba09e0>
+2026-10-06 16:17:44,427 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba0a70>
+2026-10-06 16:17:44,427 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0830>
+2026-10-06 16:17:44,427 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6830a8 at 2532eba0560>
+2026-10-06 16:17:44,428 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0ef0>
+2026-10-06 16:17:44,428 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683100 at 2532eba05f0>
+2026-10-06 16:17:44,428 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eba0a70>
+2026-10-06 16:17:44,428 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eba0a70>
+2026-10-06 16:17:44,428 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eba0a70>
+2026-10-06 16:17:44,428 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eba0a70>
+2026-10-06 16:17:44,428 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eabbed0>
+2026-10-06 16:17:44,428 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eabb890>
+2026-10-06 16:17:44,428 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ce0 at 2532eabb9d0>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eba16d0>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba0e60>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0b90>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba1a30>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba17f0>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba20f0>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2060>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6832b8 at 2532eba1eb0>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2210>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba22a0>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba1d00>
+2026-10-06 16:17:44,429 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba23c0>
+2026-10-06 16:17:44,430 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683208 at 2532eba1d00>
+2026-10-06 16:17:44,430 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba20f0>
+2026-10-06 16:17:44,430 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba2330>
+2026-10-06 16:17:44,430 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba2330>
+2026-10-06 16:17:44,430 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba1fd0>
+2026-10-06 16:17:44,430 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba1eb0>
+2026-10-06 16:17:44,430 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba1d00>
+2026-10-06 16:17:44,430 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba1fd0>
+2026-10-06 16:17:44,430 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba27b0>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2960>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2840>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6833c0 at 2532eba27b0>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6833c0 at 2532eba2840>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6833c0 at 2532eba2840>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eba2840>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2600>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba24e0>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683368 at 2532eba17f0>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683208 at 2532eba1f40>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683260 at 2532eba1130>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba1880>
+2026-10-06 16:17:44,431 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683208 at 2532eba1640>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683208 at 2532eba2330>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba2330>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6831b0 at 2532eba08c0>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0680>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683158 at 2532eba05f0>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba20f0>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2060>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683470 at 2532eba2330>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683470 at 2532eba20f0>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba1130>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba05f0>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683418 at 2532eba0680>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ead78c0>
+2026-10-06 16:17:44,432 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c88 at 2532ead7a10>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ce0 at 2532eba0680>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba0950>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d90 at 2532eba0680>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682de8 at 2532eba0950>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682e40 at 2532eba0680>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682e98 at 2532eba0950>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ef0 at 2532eba0680>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682f48 at 2532eba0950>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682fa0 at 2532eba0680>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ff8 at 2532eba0950>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683050 at 2532eba0680>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6830a8 at 2532eba0950>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683100 at 2532eba0680>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683158 at 2532eba0950>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6831b0 at 2532eba0680>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683208 at 2532eba0950>
+2026-10-06 16:17:44,433 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683260 at 2532eba0680>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6832b8 at 2532eba0950>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683310 at 2532eba0680>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683368 at 2532eba0950>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6833c0 at 2532eba0680>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683418 at 2532eba0950>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683470 at 2532eba0680>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba0b90>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0680>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6834c8 at 2532eba0950>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683050 at 2532eba1370>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba0a70>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba23c0>
+2026-10-06 16:17:44,434 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2570>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba1880>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0a70>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683578 at 2532eba1370>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba2720>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba1370>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6835d0 at 2532eba0a70>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683520 at 2532eba0680>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683578 at 2532eba0950>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6835d0 at 2532eba0680>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba27b0>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2c30>
+2026-10-06 16:17:44,435 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2c30>
+2026-10-06 16:17:44,436 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2c30>
+2026-10-06 16:17:44,436 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2c30>
+2026-10-06 16:17:44,436 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2cc0>
+2026-10-06 16:17:44,436 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2d50>
+2026-10-06 16:17:44,436 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba23c0>
+2026-10-06 16:17:44,436 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba24e0>
+2026-10-06 16:17:44,436 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683680 at 2532eba0830>
+2026-10-06 16:17:44,436 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba24e0>
+2026-10-06 16:17:44,436 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683578 at 2532eba0830>
+2026-10-06 16:17:44,436 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba1880>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2de0>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2de0>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2de0>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2de0>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba2600>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0830>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6836d8 at 2532eba24e0>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba2840>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba24e0>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683730 at 2532eba0830>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6835d0 at 2532eba24e0>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0680>
+2026-10-06 16:17:44,437 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683628 at 2532eba0950>
+2026-10-06 16:17:44,438 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683680 at 2532eba0680>
+2026-10-06 16:17:44,438 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6836d8 at 2532eba0950>
+2026-10-06 16:17:44,438 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683730 at 2532eba0680>
+2026-10-06 16:17:44,438 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2d50>
+2026-10-06 16:17:44,438 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba30b0>
+2026-10-06 16:17:44,438 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682f48 at 2532eba2ba0>
+2026-10-06 16:17:44,438 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba30b0>
+2026-10-06 16:17:44,438 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682f48 at 2532eba27b0>
+2026-10-06 16:17:44,438 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba30b0>
+2026-10-06 16:17:44,438 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682f48 at 2532eba29f0>
+2026-10-06 16:17:44,438 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba0dd0>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba3140>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba2690>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2a80>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6837e0 at 2532eba1eb0>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2a80>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683578 at 2532eba1eb0>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6836d8 at 2532eba2a80>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683730 at 2532eba1eb0>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0680>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683788 at 2532eba0950>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6837e0 at 2532eba0680>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ff8 at 2532eba2840>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6837e0 at 2532eba2f00>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba2840>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0680>
+2026-10-06 16:17:44,439 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683838 at 2532eba0950>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba27b0>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba29f0>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6838e8 at 2532eba2690>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba29f0>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6835d0 at 2532eba2690>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683890 at 2532eba0680>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6838e8 at 2532eba0950>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba2cc0>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba27b0>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683998 at 2532eba2d50>
+2026-10-06 16:17:44,440 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d38 at 2532eba27b0>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6835d0 at 2532eba2d50>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fd48 at 2532ebf0320>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba3b60>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba3920>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683a48 at 2532eba3890>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba20f0>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2d50>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6839f0 at 2532eba27b0>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683940 at 2532eba0680>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683998 at 2532eba0950>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6839f0 at 2532eba0680>
+2026-10-06 16:17:44,441 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683a48 at 2532eba0950>
+2026-10-06 16:17:44,442 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ce0 at 2532eba3b60>
+2026-10-06 16:17:44,442 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682ce0 at 2532ebf0050>
+2026-10-06 16:17:44,442 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf1910>
+2026-10-06 16:17:44,442 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683cb0 at 2532ebf1880>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf1d90>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683d60 at 2532ebf2180>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683d60 at 2532ebf2330>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683d60 at 2532ebf2210>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683d60 at 2532ebf20f0>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683d60 at 2532ebf2060>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf1c70>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf1a30>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683d08 at 2532ebf1910>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683d08 at 2532ebf19a0>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6831b0 at 2532ebf11c0>
+2026-10-06 16:17:44,443 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf0f80>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf2cc0>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf2e70>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf2f90>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf2f00>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf31d0>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf3140>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf3650>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf3530>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683ec0 at 2532ebf35c0>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf31d0>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf3020>
+2026-10-06 16:17:44,444 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e68 at 2532ebf3140>
+2026-10-06 16:17:44,445 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683ec0 at 2532ebf3140>
+2026-10-06 16:17:44,445 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf3140>
+2026-10-06 16:17:44,445 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf3e30>
+2026-10-06 16:17:44,445 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683f18 at 2532ebf3ec0>
+2026-10-06 16:17:44,445 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf35c0>
+2026-10-06 16:17:44,445 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf31d0>
+2026-10-06 16:17:44,445 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683f18 at 2532ebf3410>
+2026-10-06 16:17:44,445 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf3410>
+2026-10-06 16:17:44,445 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf27b0>
+2026-10-06 16:17:44,445 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf2330>
+2026-10-06 16:17:44,445 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf20f0>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683db8 at 2532ebf2330>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf1c70>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf15b0>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683db8 at 2532ebf16d0>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf2600>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683ba8 at 2532ebf2060>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf2210>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf15b0>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683f70 at 2532ebf1c70>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683ba8 at 2532ebf1c70>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c58 at 2532ebf0ef0>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf0cb0>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf0c20>
+2026-10-06 16:17:44,446 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf0f80>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf2450>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683fc8 at 2532ebf20f0>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf16d0>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf11c0>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683fc8 at 2532ebf1010>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf0f80>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf17f0>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf0cb0>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf0cb0>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf17f0>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf17f0>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf0710>
+2026-10-06 16:17:44,447 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf0440>
+2026-10-06 16:17:44,448 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf1370>
+2026-10-06 16:17:44,448 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf0d40>
+2026-10-06 16:17:44,448 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf0a70>
+2026-10-06 16:17:44,448 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf1880>
+2026-10-06 16:17:44,448 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683d60 at 2532ebf0b00>
+2026-10-06 16:17:44,448 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683ba8 at 2532ebf0320>
+2026-10-06 16:17:44,448 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf0290>
+2026-10-06 16:17:44,448 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683b50 at 2532ebf0050>
+2026-10-06 16:17:44,448 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683b50 at 2532eba3ec0>
+2026-10-06 16:17:44,448 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532eba3da0>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684020 at 2532ebf09e0>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf0c20>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684020 at 2532ebf0a70>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf17f0>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532ebf17f0>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683b50 at 2532ebf0a70>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532ebf0050>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba3890>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684020 at 2532eba3ec0>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6830a8 at 2532eba3920>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba30b0>
+2026-10-06 16:17:44,449 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba3380>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683af8 at 2532eba2de0>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eba3c80>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba30b0>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2de0>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684078 at 2532eba3380>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683418 at 2532eba2de0>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683aa0 at 2532eba0680>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683af8 at 2532eba0950>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683b50 at 2532eba0680>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683ba8 at 2532eba0950>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532eba0680>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c58 at 2532eba0950>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683cb0 at 2532eba0680>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683d08 at 2532eba0950>
+2026-10-06 16:17:44,450 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683d60 at 2532eba0680>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683db8 at 2532eba0950>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e10 at 2532eba0680>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683e68 at 2532eba0950>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683ec0 at 2532eba0680>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683f18 at 2532eba0950>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683f70 at 2532eba0680>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683fc8 at 2532eba0950>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684020 at 2532eba0680>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684078 at 2532eba0950>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683af8 at 2532eba3530>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf17f0>
+2026-10-06 16:17:44,451 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf0ef0>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf11c0>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf19a0>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf2210>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf1370>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf17f0>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684180 at 2532ebf0440>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba39b0>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba3530>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684128 at 2532eba3f50>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683418 at 2532eba3530>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6840d0 at 2532eba0680>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684128 at 2532eba0950>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684180 at 2532eba0680>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532eba30b0>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0680>
+2026-10-06 16:17:44,452 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6841d8 at 2532eba0950>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532ebf0680>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba3920>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684288 at 2532eba39b0>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684230 at 2532eba0680>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684288 at 2532eba0950>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6830a8 at 2532ebf0680>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6842e0 at 2532eba0680>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682d90 at 2532ebf1880>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683418 at 2532ebf1370>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0680>
+2026-10-06 16:17:44,453 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684338 at 2532eba0950>
+2026-10-06 16:17:44,454 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532ebf1fd0>
+2026-10-06 16:17:44,454 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf1fd0>
+2026-10-06 16:17:44,454 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf2a80>
+2026-10-06 16:17:44,454 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf2a80>
+2026-10-06 16:17:44,455 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ef88050>
+2026-10-06 16:17:44,455 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d682c30 at 2532ebf3f50>
+2026-10-06 16:17:44,455 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf3380>
+2026-10-06 16:17:44,455 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf3020>
+2026-10-06 16:17:44,455 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684498 at 2532ebf3410>
+2026-10-06 16:17:44,455 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684498 at 2532ebf3e30>
+2026-10-06 16:17:44,455 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf3380>
+2026-10-06 16:17:44,455 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf3140>
+2026-10-06 16:17:44,455 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6844f0 at 2532ebf30b0>
+2026-10-06 16:17:44,455 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf2c30>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf1490>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684440 at 2532ebf2570>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf0050>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf08c0>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6843e8 at 2532ebf17f0>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684390 at 2532eba0680>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6843e8 at 2532eba0950>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684440 at 2532eba0680>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684498 at 2532eba0950>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6844f0 at 2532eba0680>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684440 at 2532ebf0ef0>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0680>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684548 at 2532eba0950>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf1910>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,456 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6845a0 at 2532eba0680>
+2026-10-06 16:17:44,457 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532ebf2c30>
+2026-10-06 16:17:44,457 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf15b0>
+2026-10-06 16:17:44,457 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684758 at 2532ebf2450>
+2026-10-06 16:17:44,457 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6846a8 at 2532ebf1c70>
+2026-10-06 16:17:44,457 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf0950>
+2026-10-06 16:17:44,457 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684650 at 2532ebf1010>
+2026-10-06 16:17:44,458 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0680>
+2026-10-06 16:17:44,458 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6845f8 at 2532eba0950>
+2026-10-06 16:17:44,458 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684650 at 2532eba0680>
+2026-10-06 16:17:44,458 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684700 at 2532eba0950>
+2026-10-06 16:17:44,458 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684758 at 2532ebf2690>
+2026-10-06 16:17:44,458 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684860 at 2532ebf2450>
+2026-10-06 16:17:44,458 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf2e70>
+2026-10-06 16:17:44,458 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684808 at 2532ebf1d90>
+2026-10-06 16:17:44,458 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,458 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6847b0 at 2532eba0680>
+2026-10-06 16:17:44,458 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684808 at 2532eba0950>
+2026-10-06 16:17:44,459 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684758 at 2532ebf2b10>
+2026-10-06 16:17:44,459 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d73108 at 2532ebf2690>
+2026-10-06 16:17:44,459 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf2cc0>
+2026-10-06 16:17:44,459 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684910 at 2532ebf2600>
+2026-10-06 16:17:44,459 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,459 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d6848b8 at 2532eba0680>
+2026-10-06 16:17:44,459 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684910 at 2532eba0950>
+2026-10-06 16:17:44,459 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d683c00 at 2532ebf2f00>
+2026-10-06 16:17:44,459 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0950>
+2026-10-06 16:17:44,459 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d73168 at 2532eba0680>
+2026-10-06 16:17:44,460 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d684758 at 2532ebf2c30>
+2026-10-06 16:17:44,460 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d71e68 at 2532ebf3bf0>
+2026-10-06 16:17:44,460 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf2a80>
+2026-10-06 16:17:44,460 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d73588 at 2532ebf2b10>
+2026-10-06 16:17:44,460 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0680>
+2026-10-06 16:17:44,460 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d73468 at 2532eba0950>
+2026-10-06 16:17:44,460 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d73588 at 2532eba0680>
+2026-10-06 16:17:44,469 - DEBUG - filename: "C:\Windows\System32\qedit.dll": tlib_mtime: 1775023328.4100602
+2026-10-06 16:17:44,469 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba3da0>
+2026-10-06 16:17:44,470 - INFO - # Generating comtypes.gen.DexterLib
+2026-10-06 16:17:44,470 - DEBUG - GetModule(TLIBATTR(GUID={00020430-0000-0000-C000-000000000046}, Version=2.0, LCID=0, FLags=0x8))
+2026-10-06 16:17:44,470 - INFO - Could not import comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0: No module named 'comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0'
+2026-10-06 16:17:44,471 - INFO - # Generating comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0
+2026-10-06 16:17:44,471 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba27b0>
+2026-10-06 16:17:44,471 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,471 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eba35c0>
+2026-10-06 16:17:44,471 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba0dd0>
+2026-10-06 16:17:44,471 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,471 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fdf8 at 2532eba3380>
+2026-10-06 16:17:44,472 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba32f0>
+2026-10-06 16:17:44,472 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,472 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fd48 at 2532eba35c0>
+2026-10-06 16:17:44,472 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eba1370>
+2026-10-06 16:17:44,472 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,472 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba3380>
+2026-10-06 16:17:44,472 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eba2450>
+2026-10-06 16:17:44,472 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532eba2180>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fdf8 at 2532eba2180>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fd48 at 2532eba2180>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba2c30>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532eba35c0>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fe50 at 2532eba1400>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba2c30>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fe50 at 2532eba3380>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fea8 at 2532eba35c0>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80ff00 at 2532eba3380>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,473 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80ff58 at 2532eba35c0>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80ffb0 at 2532eba3380>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810008 at 2532eba35c0>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810060 at 2532eba3380>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8100b8 at 2532eba35c0>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810110 at 2532eba3380>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810168 at 2532eba35c0>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8101c0 at 2532eba3380>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810218 at 2532eba35c0>
+2026-10-06 16:17:44,474 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810270 at 2532eba3380>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8102c8 at 2532eba35c0>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810320 at 2532eba3380>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810378 at 2532eba35c0>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8103d0 at 2532eba3380>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810428 at 2532eba35c0>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810480 at 2532eba3380>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,475 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8104d8 at 2532eba35c0>
+2026-10-06 16:17:44,476 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,476 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810530 at 2532eba3380>
+2026-10-06 16:17:44,476 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,476 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810588 at 2532eba35c0>
+2026-10-06 16:17:44,476 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,476 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8105e0 at 2532eba3380>
+2026-10-06 16:17:44,476 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,476 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810638 at 2532eba35c0>
+2026-10-06 16:17:44,476 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,476 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810690 at 2532eba3380>
+2026-10-06 16:17:44,477 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810320 at 2532eba0950>
+2026-10-06 16:17:44,477 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8106e8 at 2532ebf3ad0>
+2026-10-06 16:17:44,477 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8106e8 at 2532eba2060>
+2026-10-06 16:17:44,477 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810320 at 2532eba1250>
+2026-10-06 16:17:44,477 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810320 at 2532eba0440>
+2026-10-06 16:17:44,477 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba11c0>
+2026-10-06 16:17:44,477 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,477 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8106e8 at 2532eba35c0>
+2026-10-06 16:17:44,479 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532eba0b00>
+2026-10-06 16:17:44,479 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,479 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810740 at 2532eba3380>
+2026-10-06 16:17:44,479 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810740 at 2532eba0320>
+2026-10-06 16:17:44,479 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,479 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810798 at 2532eba35c0>
+2026-10-06 16:17:44,479 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810740 at 2532eba0f80>
+2026-10-06 16:17:44,480 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532eba04d0>
+2026-10-06 16:17:44,480 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba0f80>
+2026-10-06 16:17:44,480 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810848 at 2532eba11c0>
+2026-10-06 16:17:44,480 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8106e8 at 2532eba0f80>
+2026-10-06 16:17:44,480 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,480 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8107f0 at 2532eba3380>
+2026-10-06 16:17:44,480 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810320 at 2532ebf2690>
+2026-10-06 16:17:44,480 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810320 at 2532ebf0950>
+2026-10-06 16:17:44,480 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810110 at 2532ebf0950>
+2026-10-06 16:17:44,481 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810168 at 2532ebf0950>
+2026-10-06 16:17:44,481 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810060 at 2532eba0200>
+2026-10-06 16:17:44,481 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8100b8 at 2532ebf2330>
+2026-10-06 16:17:44,481 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810110 at 2532eba0950>
+2026-10-06 16:17:44,481 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810168 at 2532ebf3ad0>
+2026-10-06 16:17:44,481 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810320 at 2532ebf0950>
+2026-10-06 16:17:44,481 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810320 at 2532ebf2de0>
+2026-10-06 16:17:44,482 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810320 at 2532ebf0950>
+2026-10-06 16:17:44,482 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532eba0f80>
+2026-10-06 16:17:44,482 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,482 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8108a0 at 2532eba35c0>
+2026-10-06 16:17:44,482 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810320 at 2532eba03b0>
+2026-10-06 16:17:44,482 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810320 at 2532eba03b0>
+2026-10-06 16:17:44,482 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810110 at 2532eba03b0>
+2026-10-06 16:17:44,482 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810168 at 2532eba03b0>
+2026-10-06 16:17:44,482 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810060 at 2532ebf2330>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8100b8 at 2532ebf2960>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810110 at 2532ebf0950>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810168 at 2532ebf2960>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532eba04d0>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8108f8 at 2532eba3380>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8108f8 at 2532eba0f80>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810950 at 2532eba35c0>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8108f8 at 2532eba2060>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8108a0 at 2532eba07a0>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d8109a8 at 2532eba3380>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba3380>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810a00 at 2532eba35c0>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,483 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810a58 at 2532eba3380>
+2026-10-06 16:17:44,484 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810848 at 2532eba35c0>
+2026-10-06 16:17:44,484 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810848 at 2532eba2060>
+2026-10-06 16:17:44,484 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba35c0>
+2026-10-06 16:17:44,484 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d810ab0 at 2532eba3380>
+2026-10-06 16:17:44,485 - DEBUG - filename: "C:\Windows\System32\stdole2.tlb": tlib_mtime: 1711956124.7159297
+2026-10-06 16:17:44,485 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba07a0>
+2026-10-06 16:17:44,485 - INFO - # Generating comtypes.gen.stdole
+2026-10-06 16:17:44,519 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba0b00>
+2026-10-06 16:17:44,519 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d8940 at 2532eba04d0>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba1eb0>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf2210>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf17f0>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf30b0>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba3800>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba3b60>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba1010>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba1130>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf1e20>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf1c70>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf1880>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2d50>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2720>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba0830>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba3c80>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2f00>
+2026-10-06 16:17:44,596 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba39b0>
+2026-10-06 16:17:44,597 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf0f80>
+2026-10-06 16:17:44,597 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eabafd0>
+2026-10-06 16:17:44,597 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf2600>
+2026-10-06 16:17:44,597 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eba2690>
+2026-10-06 16:17:44,597 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532ebf1d90>
+2026-10-06 16:17:44,597 - DEBUG - Release <POINTER(ITypeLib) ptr=0x253299a1750 at 2532eb02da0>
+2026-10-06 16:17:44,597 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 16:17:44,599 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:17:44,599 - INFO - Could not import comtypes.gen._56A868B0_0AD4_11CE_B03A_0020AF0BA770_0_1_0: No module named 'comtypes.gen._56A868B0_0AD4_11CE_B03A_0020AF0BA770_0_1_0'
+2026-10-06 16:17:44,600 - INFO - # Generating comtypes.gen._56A868B0_0AD4_11CE_B03A_0020AF0BA770_0_1_0
+2026-10-06 16:17:44,600 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba04d0>
+2026-10-06 16:17:44,600 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532eba0170>
+2026-10-06 16:17:44,600 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532eba2600>
+2026-10-06 16:17:44,600 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d2a8 at 2532eba2f00>
+2026-10-06 16:17:44,600 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba0170>
+2026-10-06 16:17:44,600 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d250 at 2532eba04d0>
+2026-10-06 16:17:44,601 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532eba3530>
+2026-10-06 16:17:44,601 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d358 at 2532eba2de0>
+2026-10-06 16:17:44,601 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba04d0>
+2026-10-06 16:17:44,601 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d300 at 2532eba0170>
+2026-10-06 16:17:44,601 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532eba3ec0>
+2026-10-06 16:17:44,601 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532ebf2e70>
+2026-10-06 16:17:44,601 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532ebf2e70>
+2026-10-06 16:17:44,601 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532eba1010>
+2026-10-06 16:17:44,601 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532eba3da0>
+2026-10-06 16:17:44,601 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532eba1250>
+2026-10-06 16:17:44,601 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d408 at 2532eba2a80>
+2026-10-06 16:17:44,602 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba0170>
+2026-10-06 16:17:44,602 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d3b0 at 2532eba04d0>
+2026-10-06 16:17:44,602 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532eba0b00>
+2026-10-06 16:17:44,602 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532eba09e0>
+2026-10-06 16:17:44,602 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d408 at 2532eba2a80>
+2026-10-06 16:17:44,602 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba04d0>
+2026-10-06 16:17:44,602 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d460 at 2532eba0170>
+2026-10-06 16:17:44,602 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532eba3800>
+2026-10-06 16:17:44,602 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d510 at 2532eba09e0>
+2026-10-06 16:17:44,602 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba0170>
+2026-10-06 16:17:44,602 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d4b8 at 2532eba04d0>
+2026-10-06 16:17:44,603 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532eba1250>
+2026-10-06 16:17:44,603 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d5c0 at 2532eba03b0>
+2026-10-06 16:17:44,603 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba04d0>
+2026-10-06 16:17:44,603 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d568 at 2532eba0170>
+2026-10-06 16:17:44,603 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532ebf1010>
+2026-10-06 16:17:44,603 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532ebf0f80>
+2026-10-06 16:17:44,604 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532ebf16d0>
+2026-10-06 16:17:44,604 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532ebf1e20>
+2026-10-06 16:17:44,604 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532ebf2ba0>
+2026-10-06 16:17:44,604 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532ebf1880>
+2026-10-06 16:17:44,604 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d1f8 at 2532ebf1c70>
+2026-10-06 16:17:44,605 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532eba1130>
+2026-10-06 16:17:44,605 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d670 at 2532eba3ec0>
+2026-10-06 16:17:44,605 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba0170>
+2026-10-06 16:17:44,605 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d618 at 2532eba04d0>
+2026-10-06 16:17:44,606 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532ebf16d0>
+2026-10-06 16:17:44,606 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d720 at 2532eba1eb0>
+2026-10-06 16:17:44,606 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba04d0>
+2026-10-06 16:17:44,606 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d6c8 at 2532eba0170>
+2026-10-06 16:17:44,606 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d720 at 2532ebf1eb0>
+2026-10-06 16:17:44,606 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba0170>
+2026-10-06 16:17:44,606 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d778 at 2532eba04d0>
+2026-10-06 16:17:44,606 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf1eb0>
+2026-10-06 16:17:44,606 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba04d0>
+2026-10-06 16:17:44,606 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d7d0 at 2532eba0170>
+2026-10-06 16:17:44,606 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d7d0 at 2532ebf0950>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532ebf2de0>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d7d0 at 2532ebf1490>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fcf0 at 2532ebf11c0>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fc98 at 2532ebf1eb0>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba0170>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d71748 at 2532eba04d0>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d300 at 2532ebf1d90>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d3b0 at 2532ebf2450>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d4b8 at 2532ebf1d90>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d568 at 2532ebf2450>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d6c8 at 2532ebf1d90>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d67d618 at 2532ebf2450>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba04d0>
+2026-10-06 16:17:44,607 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d71bc8 at 2532eba0170>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532ebf17f0>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d71028 at 2532ebf1d90>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba0170>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d71448 at 2532eba04d0>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532ebf0050>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d71808 at 2532ebf1880>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba04d0>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d71268 at 2532eba0170>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532ebf19a0>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d715c8 at 2532ebf30b0>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba0170>
+2026-10-06 16:17:44,608 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d71f28 at 2532eba04d0>
+2026-10-06 16:17:44,609 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532ebf35c0>
+2026-10-06 16:17:44,609 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d718c8 at 2532ebf1370>
+2026-10-06 16:17:44,609 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba04d0>
+2026-10-06 16:17:44,609 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d71568 at 2532eba0170>
+2026-10-06 16:17:44,610 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2532d80fda0 at 2532ebf2f00>
+2026-10-06 16:17:44,610 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d71ce8 at 2532ebf0d40>
+2026-10-06 16:17:44,610 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba0170>
+2026-10-06 16:17:44,610 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x25316d71c88 at 2532eba04d0>
+2026-10-06 16:17:44,613 - DEBUG - filename: "C:\Windows\System32\quartz.dll": tlib_mtime: 1790143394.1121151
+2026-10-06 16:17:44,613 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532eba1130>
+2026-10-06 16:17:44,613 - INFO - # Generating comtypes.gen.QuartzTypeLib
+2026-10-06 16:17:44,613 - DEBUG - GetModule(TLIBATTR(GUID={00020430-0000-0000-C000-000000000046}, Version=2.0, LCID=0, FLags=0x8))
+2026-10-06 16:17:44,651 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532ebf0950>
+2026-10-06 16:17:44,652 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2532d6d83c0 at 2532effbf50>
+2026-10-06 16:17:44,672 - DEBUG - Calling CoUninitialize()
+2026-10-06 16:17:44,672 - DEBUG - CoUninitialize() done.
+2026-10-06 16:18:32,604 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 16:18:54,711 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 16:18:54,973 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 16:18:55,017 - INFO - Imported existing <module 'comtypes.gen' from 'D:\\Atharva\\Galvo_Scribber\\Galvo_061026\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 16:18:55,017 - INFO - Using writeable comtypes cache directory: 'D:\Atharva\Galvo_Scribber\Galvo_061026\.venv\Lib\site-packages\comtypes\gen'
+2026-10-06 16:18:55,023 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 16:18:55,024 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:18:55,050 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f7a940f050 at 1f7ae602da0>
+2026-10-06 16:18:55,050 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 16:18:55,051 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:18:55,062 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1f7a940f050 at 1f7ae602da0>
+2026-10-06 16:18:59,317 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 16:19:05,492 - INFO - UI load successful
+2026-10-06 16:19:18,647 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 16:19:18,875 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 16:19:18,875 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 16:19:25,772 - INFO - Galvo Laser Shutdown
+2026-10-06 16:19:25,806 - CRITICAL - Laser 1 : OFF
+2026-10-06 16:19:25,806 - CRITICAL - Laser 2 : OFF
+2026-10-06 16:19:25,806 - INFO - Stepper Lasers Shutdown
+2026-10-06 16:19:25,806 - INFO - COM connection close successfully
+2026-10-06 16:19:25,806 - INFO - Main window close successfully
+2026-10-06 16:19:25,806 - INFO - ==================================================
+2026-10-06 16:19:25,806 - INFO - New session close at 2026-10-06 16:19
+2026-10-06 16:19:25,806 - INFO - ==================================================
+2026-10-06 16:19:25,977 - DEBUG - Calling CoUninitialize()
+2026-10-06 16:19:25,977 - DEBUG - CoUninitialize() done.
+2026-10-06 16:27:04,562 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 16:27:05,627 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 16:27:05,798 - INFO - Could not import comtypes.gen, trying to create it.
+2026-10-06 16:27:05,799 - INFO - Created comtypes.gen directory: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen'
+2026-10-06 16:27:05,800 - INFO - Writing __init__.py file: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen\__init__.py'
+2026-10-06 16:27:05,819 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen'
+2026-10-06 16:27:05,843 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 16:27:05,850 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:27:05,852 - INFO - Could not import comtypes.gen._78530B68_61F9_11D2_8CAD_00A024580902_0_1_0: No module named 'comtypes.gen._78530B68_61F9_11D2_8CAD_00A024580902_0_1_0'
+2026-10-06 16:27:05,855 - INFO - # Generating comtypes.gen._78530B68_61F9_11D2_8CAD_00A024580902_0_1_0
+2026-10-06 16:27:05,859 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c3e5b50>
+2026-10-06 16:27:05,859 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c326160>
+2026-10-06 16:27:05,860 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c326720>
+2026-10-06 16:27:05,860 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c325ff0>
+2026-10-06 16:27:05,860 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c3e5250>
+2026-10-06 16:27:05,860 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c3e5550>
+2026-10-06 16:27:05,860 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c4a0730>
+2026-10-06 16:27:05,860 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c45f700>
+2026-10-06 16:27:05,860 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c45f250>
+2026-10-06 16:27:05,860 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d028 at 2393c45f0c0>
+2026-10-06 16:27:05,861 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c42fa10>
+2026-10-06 16:27:05,861 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d1e0 at 2393c43f790>
+2026-10-06 16:27:05,862 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4464e0>
+2026-10-06 16:27:05,862 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c510050>
+2026-10-06 16:27:05,862 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d290 at 2393c417b50>
+2026-10-06 16:27:05,862 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c417c50>
+2026-10-06 16:27:05,862 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d238 at 2393c417d50>
+2026-10-06 16:27:05,863 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c44ea50>
+2026-10-06 16:27:05,863 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c44e6d0>
+2026-10-06 16:27:05,863 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d340 at 2393c446990>
+2026-10-06 16:27:05,863 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4468a0>
+2026-10-06 16:27:05,863 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d2e8 at 2393c4464e0>
+2026-10-06 16:27:05,863 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d238 at 2393c44e6d0>
+2026-10-06 16:27:05,863 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d2e8 at 2393c44e6d0>
+2026-10-06 16:27:05,864 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d238 at 2393c4e2f70>
+2026-10-06 16:27:05,864 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d2e8 at 2393c4fc650>
+2026-10-06 16:27:05,864 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c43f130>
+2026-10-06 16:27:05,864 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c43ee00>
+2026-10-06 16:27:05,864 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d1e0 at 2393c4a5250>
+2026-10-06 16:27:05,865 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d1e0 at 2393c4fc650>
+2026-10-06 16:27:05,865 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4ca8e0>
+2026-10-06 16:27:05,865 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4caaf0>
+2026-10-06 16:27:05,866 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4cb120>
+2026-10-06 16:27:05,866 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d3f0 at 2393c4d98b0>
+2026-10-06 16:27:05,867 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4fc410>
+2026-10-06 16:27:05,867 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d398 at 2393c4d9810>
+2026-10-06 16:27:05,867 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d398 at 2393c4c1d00>
+2026-10-06 16:27:05,868 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d130 at 2393c4c1eb0>
+2026-10-06 16:27:05,868 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d130 at 2393c4c27b0>
+2026-10-06 16:27:05,869 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d130 at 2393c4c2c30>
+2026-10-06 16:27:05,869 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c4c2ba0>
+2026-10-06 16:27:05,869 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c4c2ba0>
+2026-10-06 16:27:05,871 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3380>
+2026-10-06 16:27:05,871 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c2ba0>
+2026-10-06 16:27:05,871 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4d9270>
+2026-10-06 16:27:05,872 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d4a0 at 2393c4c2c30>
+2026-10-06 16:27:05,872 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c2330>
+2026-10-06 16:27:05,872 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4caba0>
+2026-10-06 16:27:05,872 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d448 at 2393c4c1eb0>
+2026-10-06 16:27:05,872 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4f0e90>
+2026-10-06 16:27:05,872 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4f0d60>
+2026-10-06 16:27:05,872 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4f0c30>
+2026-10-06 16:27:05,872 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d398 at 2393c4c17f0>
+2026-10-06 16:27:05,873 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c1b50>
+2026-10-06 16:27:05,873 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c1910>
+2026-10-06 16:27:05,873 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c23c0>
+2026-10-06 16:27:05,874 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d398 at 2393c4c1880>
+2026-10-06 16:27:05,874 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c1910>
+2026-10-06 16:27:05,874 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c16d0>
+2026-10-06 16:27:05,875 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d4f8 at 2393c4c1400>
+2026-10-06 16:27:05,875 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1d90>
+2026-10-06 16:27:05,875 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d550 at 2393c4c1490>
+2026-10-06 16:27:05,875 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4c1910>
+2026-10-06 16:27:05,875 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4c1910>
+2026-10-06 16:27:05,876 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4c1910>
+2026-10-06 16:27:05,876 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4c1910>
+2026-10-06 16:27:05,876 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c40fc50>
+2026-10-06 16:27:05,876 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c40f610>
+2026-10-06 16:27:05,876 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d130 at 2393c40f750>
+2026-10-06 16:27:05,877 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4c2570>
+2026-10-06 16:27:05,877 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c1d00>
+2026-10-06 16:27:05,877 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1a30>
+2026-10-06 16:27:05,878 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c28d0>
+2026-10-06 16:27:05,878 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c2690>
+2026-10-06 16:27:05,878 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c2f90>
+2026-10-06 16:27:05,878 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c2f00>
+2026-10-06 16:27:05,878 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d708 at 2393c4c2d50>
+2026-10-06 16:27:05,879 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c30b0>
+2026-10-06 16:27:05,879 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3140>
+2026-10-06 16:27:05,879 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c2ba0>
+2026-10-06 16:27:05,879 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c3260>
+2026-10-06 16:27:05,879 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d658 at 2393c4c2ba0>
+2026-10-06 16:27:05,879 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c2f90>
+2026-10-06 16:27:05,879 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c31d0>
+2026-10-06 16:27:05,880 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c31d0>
+2026-10-06 16:27:05,880 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c2e70>
+2026-10-06 16:27:05,880 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c2d50>
+2026-10-06 16:27:05,880 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c2ba0>
+2026-10-06 16:27:05,880 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c2e70>
+2026-10-06 16:27:05,881 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c3650>
+2026-10-06 16:27:05,881 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3800>
+2026-10-06 16:27:05,882 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c36e0>
+2026-10-06 16:27:05,882 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d810 at 2393c4c3650>
+2026-10-06 16:27:05,882 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d810 at 2393c4c36e0>
+2026-10-06 16:27:05,882 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d810 at 2393c4c36e0>
+2026-10-06 16:27:05,882 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4c36e0>
+2026-10-06 16:27:05,882 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c34a0>
+2026-10-06 16:27:05,882 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3380>
+2026-10-06 16:27:05,882 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d7b8 at 2393c4c2690>
+2026-10-06 16:27:05,883 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d658 at 2393c4c2de0>
+2026-10-06 16:27:05,883 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d6b0 at 2393c4c1fd0>
+2026-10-06 16:27:05,883 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c2720>
+2026-10-06 16:27:05,883 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d658 at 2393c4c24e0>
+2026-10-06 16:27:05,883 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d658 at 2393c4c31d0>
+2026-10-06 16:27:05,883 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c31d0>
+2026-10-06 16:27:05,884 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d600 at 2393c4c1760>
+2026-10-06 16:27:05,884 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1520>
+2026-10-06 16:27:05,884 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d5a8 at 2393c4c1490>
+2026-10-06 16:27:05,884 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c2f90>
+2026-10-06 16:27:05,885 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c2f00>
+2026-10-06 16:27:05,885 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d8c0 at 2393c4c31d0>
+2026-10-06 16:27:05,885 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d8c0 at 2393c4c2f90>
+2026-10-06 16:27:05,885 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c1fd0>
+2026-10-06 16:27:05,885 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1490>
+2026-10-06 16:27:05,885 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d868 at 2393c4c1520>
+2026-10-06 16:27:05,885 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c42fa10>
+2026-10-06 16:27:05,885 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d0d8 at 2393c42fb60>
+2026-10-06 16:27:05,886 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d130 at 2393c4c1520>
+2026-10-06 16:27:05,886 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c17f0>
+2026-10-06 16:27:05,886 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d1e0 at 2393c4c1520>
+2026-10-06 16:27:05,886 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d238 at 2393c4c17f0>
+2026-10-06 16:27:05,886 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d290 at 2393c4c1520>
+2026-10-06 16:27:05,886 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d2e8 at 2393c4c17f0>
+2026-10-06 16:27:05,886 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d340 at 2393c4c1520>
+2026-10-06 16:27:05,886 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d398 at 2393c4c17f0>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d3f0 at 2393c4c1520>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d448 at 2393c4c17f0>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d4a0 at 2393c4c1520>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d4f8 at 2393c4c17f0>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d550 at 2393c4c1520>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d5a8 at 2393c4c17f0>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d600 at 2393c4c1520>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d658 at 2393c4c17f0>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d6b0 at 2393c4c1520>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d708 at 2393c4c17f0>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d760 at 2393c4c1520>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d7b8 at 2393c4c17f0>
+2026-10-06 16:27:05,887 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d810 at 2393c4c1520>
+2026-10-06 16:27:05,888 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d868 at 2393c4c17f0>
+2026-10-06 16:27:05,888 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d8c0 at 2393c4c1520>
+2026-10-06 16:27:05,888 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c1a30>
+2026-10-06 16:27:05,888 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1520>
+2026-10-06 16:27:05,888 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d918 at 2393c4c17f0>
+2026-10-06 16:27:05,888 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d4a0 at 2393c4c2210>
+2026-10-06 16:27:05,888 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c1910>
+2026-10-06 16:27:05,889 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3260>
+2026-10-06 16:27:05,889 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3410>
+2026-10-06 16:27:05,889 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c2720>
+2026-10-06 16:27:05,889 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1910>
+2026-10-06 16:27:05,892 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d9c8 at 2393c4c2210>
+2026-10-06 16:27:05,893 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c35c0>
+2026-10-06 16:27:05,893 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c2210>
+2026-10-06 16:27:05,893 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18da20 at 2393c4c1910>
+2026-10-06 16:27:05,893 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,893 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d970 at 2393c4c1520>
+2026-10-06 16:27:05,893 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d9c8 at 2393c4c17f0>
+2026-10-06 16:27:05,893 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18da20 at 2393c4c1520>
+2026-10-06 16:27:05,893 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3650>
+2026-10-06 16:27:05,893 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3ad0>
+2026-10-06 16:27:05,893 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3ad0>
+2026-10-06 16:27:05,894 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3ad0>
+2026-10-06 16:27:05,894 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3ad0>
+2026-10-06 16:27:05,895 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3b60>
+2026-10-06 16:27:05,895 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3bf0>
+2026-10-06 16:27:05,895 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c3260>
+2026-10-06 16:27:05,895 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3380>
+2026-10-06 16:27:05,895 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dad0 at 2393c4c16d0>
+2026-10-06 16:27:05,895 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3380>
+2026-10-06 16:27:05,896 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d9c8 at 2393c4c16d0>
+2026-10-06 16:27:05,896 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c2720>
+2026-10-06 16:27:05,896 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3c80>
+2026-10-06 16:27:05,896 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3c80>
+2026-10-06 16:27:05,896 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3c80>
+2026-10-06 16:27:05,897 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3c80>
+2026-10-06 16:27:05,897 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c34a0>
+2026-10-06 16:27:05,897 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c16d0>
+2026-10-06 16:27:05,897 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18db28 at 2393c4c3380>
+2026-10-06 16:27:05,897 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c36e0>
+2026-10-06 16:27:05,898 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3380>
+2026-10-06 16:27:05,898 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18db80 at 2393c4c16d0>
+2026-10-06 16:27:05,898 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18da20 at 2393c4c3380>
+2026-10-06 16:27:05,898 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1520>
+2026-10-06 16:27:05,898 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18da78 at 2393c4c17f0>
+2026-10-06 16:27:05,898 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dad0 at 2393c4c1520>
+2026-10-06 16:27:05,898 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18db28 at 2393c4c17f0>
+2026-10-06 16:27:05,898 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18db80 at 2393c4c1520>
+2026-10-06 16:27:05,899 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3bf0>
+2026-10-06 16:27:05,899 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3f50>
+2026-10-06 16:27:05,899 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d398 at 2393c4c3a40>
+2026-10-06 16:27:05,899 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3f50>
+2026-10-06 16:27:05,899 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d398 at 2393c4c3650>
+2026-10-06 16:27:05,902 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3f50>
+2026-10-06 16:27:05,902 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d398 at 2393c4c3890>
+2026-10-06 16:27:05,903 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c1c70>
+2026-10-06 16:27:05,903 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3b60>
+2026-10-06 16:27:05,903 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c3530>
+2026-10-06 16:27:05,903 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3920>
+2026-10-06 16:27:05,903 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dc30 at 2393c4c2d50>
+2026-10-06 16:27:05,903 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3920>
+2026-10-06 16:27:05,903 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d9c8 at 2393c4c2d50>
+2026-10-06 16:27:05,904 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18db28 at 2393c4c3920>
+2026-10-06 16:27:05,904 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18db80 at 2393c4c2d50>
+2026-10-06 16:27:05,904 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1520>
+2026-10-06 16:27:05,904 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dbd8 at 2393c4c17f0>
+2026-10-06 16:27:05,904 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dc30 at 2393c4c1520>
+2026-10-06 16:27:05,904 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d448 at 2393c4c36e0>
+2026-10-06 16:27:05,904 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dc30 at 2393c4c3da0>
+2026-10-06 16:27:05,904 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c36e0>
+2026-10-06 16:27:05,904 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1520>
+2026-10-06 16:27:05,904 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dc88 at 2393c4c17f0>
+2026-10-06 16:27:05,905 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c3650>
+2026-10-06 16:27:05,905 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3890>
+2026-10-06 16:27:05,905 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dd38 at 2393c4c3530>
+2026-10-06 16:27:05,905 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3890>
+2026-10-06 16:27:05,905 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18da20 at 2393c4c3530>
+2026-10-06 16:27:05,905 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,905 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dce0 at 2393c4c1520>
+2026-10-06 16:27:05,905 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dd38 at 2393c4c17f0>
+2026-10-06 16:27:05,906 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c3f50>
+2026-10-06 16:27:05,906 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3650>
+2026-10-06 16:27:05,906 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dde8 at 2393c4c3bf0>
+2026-10-06 16:27:05,906 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d188 at 2393c4c3650>
+2026-10-06 16:27:05,906 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18da20 at 2393c4c3bf0>
+2026-10-06 16:27:05,907 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d98 at 2393c53d1c0>
+2026-10-06 16:27:05,907 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53ca70>
+2026-10-06 16:27:05,907 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53c830>
+2026-10-06 16:27:05,907 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18de98 at 2393c53c7a0>
+2026-10-06 16:27:05,907 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53c050>
+2026-10-06 16:27:05,907 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3bf0>
+2026-10-06 16:27:05,907 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18de40 at 2393c4c3650>
+2026-10-06 16:27:05,908 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,908 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dd90 at 2393c4c1520>
+2026-10-06 16:27:05,908 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dde8 at 2393c4c17f0>
+2026-10-06 16:27:05,908 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18de40 at 2393c4c1520>
+2026-10-06 16:27:05,908 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18de98 at 2393c4c17f0>
+2026-10-06 16:27:05,908 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d130 at 2393c53ca70>
+2026-10-06 16:27:05,908 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d130 at 2393c53cd40>
+2026-10-06 16:27:05,909 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53e7b0>
+2026-10-06 16:27:05,909 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e100 at 2393c53e720>
+2026-10-06 16:27:05,910 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53ec30>
+2026-10-06 16:27:05,910 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e1b0 at 2393c53f020>
+2026-10-06 16:27:05,910 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e1b0 at 2393c53f1d0>
+2026-10-06 16:27:05,910 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e1b0 at 2393c53f0b0>
+2026-10-06 16:27:05,910 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e1b0 at 2393c53ef90>
+2026-10-06 16:27:05,911 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e1b0 at 2393c53ef00>
+2026-10-06 16:27:05,911 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53eb10>
+2026-10-06 16:27:05,911 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53e8d0>
+2026-10-06 16:27:05,911 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e158 at 2393c53e7b0>
+2026-10-06 16:27:05,911 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e158 at 2393c53e840>
+2026-10-06 16:27:05,911 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d600 at 2393c53e060>
+2026-10-06 16:27:05,911 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53de20>
+2026-10-06 16:27:05,912 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53fb60>
+2026-10-06 16:27:05,912 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c53fd10>
+2026-10-06 16:27:05,913 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53fe30>
+2026-10-06 16:27:05,913 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c53fda0>
+2026-10-06 16:27:05,913 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c5580e0>
+2026-10-06 16:27:05,913 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c53ff50>
+2026-10-06 16:27:05,913 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c558560>
+2026-10-06 16:27:05,913 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c558440>
+2026-10-06 16:27:05,913 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e310 at 2393c5584d0>
+2026-10-06 16:27:05,914 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c5580e0>
+2026-10-06 16:27:05,914 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53fec0>
+2026-10-06 16:27:05,914 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e2b8 at 2393c53ff50>
+2026-10-06 16:27:05,914 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e310 at 2393c53ff50>
+2026-10-06 16:27:05,914 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c53ff50>
+2026-10-06 16:27:05,915 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c558d40>
+2026-10-06 16:27:05,915 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e368 at 2393c558dd0>
+2026-10-06 16:27:05,915 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c5584d0>
+2026-10-06 16:27:05,915 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c558320>
+2026-10-06 16:27:05,915 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e368 at 2393c5580e0>
+2026-10-06 16:27:05,915 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c5580e0>
+2026-10-06 16:27:05,916 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53f650>
+2026-10-06 16:27:05,916 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53f1d0>
+2026-10-06 16:27:05,916 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53ef90>
+2026-10-06 16:27:05,916 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e208 at 2393c53f1d0>
+2026-10-06 16:27:05,916 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53eb10>
+2026-10-06 16:27:05,917 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53e450>
+2026-10-06 16:27:05,917 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e208 at 2393c53e570>
+2026-10-06 16:27:05,917 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53f4a0>
+2026-10-06 16:27:05,917 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dff8 at 2393c53ef00>
+2026-10-06 16:27:05,917 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53f0b0>
+2026-10-06 16:27:05,917 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53e450>
+2026-10-06 16:27:05,918 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e3c0 at 2393c53eb10>
+2026-10-06 16:27:05,918 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dff8 at 2393c53eb10>
+2026-10-06 16:27:05,918 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e0a8 at 2393c53dd90>
+2026-10-06 16:27:05,918 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53db50>
+2026-10-06 16:27:05,918 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53dac0>
+2026-10-06 16:27:05,918 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53de20>
+2026-10-06 16:27:05,919 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53f2f0>
+2026-10-06 16:27:05,919 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e418 at 2393c53ef90>
+2026-10-06 16:27:05,919 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53e570>
+2026-10-06 16:27:05,920 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53e060>
+2026-10-06 16:27:05,920 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e418 at 2393c53deb0>
+2026-10-06 16:27:05,920 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53de20>
+2026-10-06 16:27:05,920 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53e690>
+2026-10-06 16:27:05,920 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53db50>
+2026-10-06 16:27:05,920 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c53db50>
+2026-10-06 16:27:05,921 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53e690>
+2026-10-06 16:27:05,921 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53e690>
+2026-10-06 16:27:05,921 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53d5b0>
+2026-10-06 16:27:05,921 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53d2e0>
+2026-10-06 16:27:05,921 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53e210>
+2026-10-06 16:27:05,921 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53dbe0>
+2026-10-06 16:27:05,922 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53d910>
+2026-10-06 16:27:05,922 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53e720>
+2026-10-06 16:27:05,922 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e1b0 at 2393c53d9a0>
+2026-10-06 16:27:05,922 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dff8 at 2393c53d1c0>
+2026-10-06 16:27:05,922 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53cc20>
+2026-10-06 16:27:05,922 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dfa0 at 2393c53cd40>
+2026-10-06 16:27:05,923 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dfa0 at 2393c53ce60>
+2026-10-06 16:27:05,923 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53cc20>
+2026-10-06 16:27:05,923 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e470 at 2393c53d880>
+2026-10-06 16:27:05,924 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53dac0>
+2026-10-06 16:27:05,924 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e470 at 2393c53d910>
+2026-10-06 16:27:05,924 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53e690>
+2026-10-06 16:27:05,924 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c53e690>
+2026-10-06 16:27:05,924 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dfa0 at 2393c53d910>
+2026-10-06 16:27:05,925 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53cd40>
+2026-10-06 16:27:05,925 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53c7a0>
+2026-10-06 16:27:05,925 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e470 at 2393c53ce60>
+2026-10-06 16:27:05,926 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d4f8 at 2393c53c830>
+2026-10-06 16:27:05,926 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53c200>
+2026-10-06 16:27:05,926 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53c290>
+2026-10-06 16:27:05,926 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18df48 at 2393c53c050>
+2026-10-06 16:27:05,926 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c53cb90>
+2026-10-06 16:27:05,927 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53c200>
+2026-10-06 16:27:05,927 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53c050>
+2026-10-06 16:27:05,927 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e4c8 at 2393c53c290>
+2026-10-06 16:27:05,927 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d868 at 2393c53c050>
+2026-10-06 16:27:05,927 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,927 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18def0 at 2393c4c1520>
+2026-10-06 16:27:05,927 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18df48 at 2393c4c17f0>
+2026-10-06 16:27:05,927 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dfa0 at 2393c4c1520>
+2026-10-06 16:27:05,927 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18dff8 at 2393c4c17f0>
+2026-10-06 16:27:05,927 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c4c1520>
+2026-10-06 16:27:05,928 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e0a8 at 2393c4c17f0>
+2026-10-06 16:27:05,928 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e100 at 2393c4c1520>
+2026-10-06 16:27:05,928 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e158 at 2393c4c17f0>
+2026-10-06 16:27:05,928 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e1b0 at 2393c4c1520>
+2026-10-06 16:27:05,928 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e208 at 2393c4c17f0>
+2026-10-06 16:27:05,928 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e260 at 2393c4c1520>
+2026-10-06 16:27:05,928 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e2b8 at 2393c4c17f0>
+2026-10-06 16:27:05,928 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e310 at 2393c4c1520>
+2026-10-06 16:27:05,929 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e368 at 2393c4c17f0>
+2026-10-06 16:27:05,929 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e3c0 at 2393c4c1520>
+2026-10-06 16:27:05,929 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e418 at 2393c4c17f0>
+2026-10-06 16:27:05,929 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e470 at 2393c4c1520>
+2026-10-06 16:27:05,929 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e4c8 at 2393c4c17f0>
+2026-10-06 16:27:05,929 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18df48 at 2393c53c440>
+2026-10-06 16:27:05,930 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53e690>
+2026-10-06 16:27:05,930 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53dd90>
+2026-10-06 16:27:05,931 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c53e060>
+2026-10-06 16:27:05,931 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c53e840>
+2026-10-06 16:27:05,931 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53f0b0>
+2026-10-06 16:27:05,931 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53e210>
+2026-10-06 16:27:05,931 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53e690>
+2026-10-06 16:27:05,931 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e5d0 at 2393c53d2e0>
+2026-10-06 16:27:05,931 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53c8c0>
+2026-10-06 16:27:05,931 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53c440>
+2026-10-06 16:27:05,932 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e578 at 2393c53cef0>
+2026-10-06 16:27:05,932 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d868 at 2393c53c440>
+2026-10-06 16:27:05,932 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,932 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e520 at 2393c4c1520>
+2026-10-06 16:27:05,932 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e578 at 2393c4c17f0>
+2026-10-06 16:27:05,932 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e5d0 at 2393c4c1520>
+2026-10-06 16:27:05,932 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53c200>
+2026-10-06 16:27:05,932 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1520>
+2026-10-06 16:27:05,932 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e628 at 2393c4c17f0>
+2026-10-06 16:27:05,933 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53d760>
+2026-10-06 16:27:05,934 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53ca70>
+2026-10-06 16:27:05,934 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e6d8 at 2393c53c8c0>
+2026-10-06 16:27:05,934 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,934 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e680 at 2393c4c1520>
+2026-10-06 16:27:05,934 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e6d8 at 2393c4c17f0>
+2026-10-06 16:27:05,934 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d4f8 at 2393c53ce60>
+2026-10-06 16:27:05,934 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,934 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e730 at 2393c4c1520>
+2026-10-06 16:27:05,935 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d1e0 at 2393c53e720>
+2026-10-06 16:27:05,935 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d868 at 2393c53e210>
+2026-10-06 16:27:05,935 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1520>
+2026-10-06 16:27:05,935 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e788 at 2393c4c17f0>
+2026-10-06 16:27:05,935 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c53ee70>
+2026-10-06 16:27:05,936 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c53ee70>
+2026-10-06 16:27:05,937 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c53f920>
+2026-10-06 16:27:05,937 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c53f920>
+2026-10-06 16:27:05,938 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c559010>
+2026-10-06 16:27:05,938 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18d080 at 2393c558f80>
+2026-10-06 16:27:05,938 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c558290>
+2026-10-06 16:27:05,938 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c5580e0>
+2026-10-06 16:27:05,938 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e8e8 at 2393c53fe30>
+2026-10-06 16:27:05,939 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e8e8 at 2393c558d40>
+2026-10-06 16:27:05,939 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c558290>
+2026-10-06 16:27:05,939 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53ff50>
+2026-10-06 16:27:05,939 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e940 at 2393c53fec0>
+2026-10-06 16:27:05,939 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53fad0>
+2026-10-06 16:27:05,939 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53e330>
+2026-10-06 16:27:05,939 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e890 at 2393c53f410>
+2026-10-06 16:27:05,940 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53c710>
+2026-10-06 16:27:05,940 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53c7a0>
+2026-10-06 16:27:05,940 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e838 at 2393c53e690>
+2026-10-06 16:27:05,940 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,940 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e7e0 at 2393c4c1520>
+2026-10-06 16:27:05,940 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e838 at 2393c4c17f0>
+2026-10-06 16:27:05,940 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e890 at 2393c4c1520>
+2026-10-06 16:27:05,940 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e8e8 at 2393c4c17f0>
+2026-10-06 16:27:05,940 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e940 at 2393c4c1520>
+2026-10-06 16:27:05,941 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e890 at 2393c53dd90>
+2026-10-06 16:27:05,941 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1520>
+2026-10-06 16:27:05,941 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e998 at 2393c4c17f0>
+2026-10-06 16:27:05,941 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53e7b0>
+2026-10-06 16:27:05,941 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,941 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e9f0 at 2393c4c1520>
+2026-10-06 16:27:05,942 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53fad0>
+2026-10-06 16:27:05,942 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53e450>
+2026-10-06 16:27:05,943 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18eba8 at 2393c53f2f0>
+2026-10-06 16:27:05,943 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18eaf8 at 2393c53eb10>
+2026-10-06 16:27:05,943 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53d7f0>
+2026-10-06 16:27:05,944 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18eaa0 at 2393c53deb0>
+2026-10-06 16:27:05,944 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1520>
+2026-10-06 16:27:05,944 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18ea48 at 2393c4c17f0>
+2026-10-06 16:27:05,944 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18eaa0 at 2393c4c1520>
+2026-10-06 16:27:05,944 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18eb50 at 2393c4c17f0>
+2026-10-06 16:27:05,945 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18eba8 at 2393c53f530>
+2026-10-06 16:27:05,945 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18ecb0 at 2393c53f2f0>
+2026-10-06 16:27:05,945 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53fd10>
+2026-10-06 16:27:05,945 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18ec58 at 2393c53ec30>
+2026-10-06 16:27:05,945 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,945 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18ec00 at 2393c4c1520>
+2026-10-06 16:27:05,945 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18ec58 at 2393c4c17f0>
+2026-10-06 16:27:05,947 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18eba8 at 2393c53f9b0>
+2026-10-06 16:27:05,947 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485e228 at 2393c53f530>
+2026-10-06 16:27:05,947 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53fb60>
+2026-10-06 16:27:05,947 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18ed60 at 2393c53f4a0>
+2026-10-06 16:27:05,947 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,947 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18ed08 at 2393c4c1520>
+2026-10-06 16:27:05,947 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18ed60 at 2393c4c17f0>
+2026-10-06 16:27:05,947 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18e050 at 2393c53fda0>
+2026-10-06 16:27:05,948 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c17f0>
+2026-10-06 16:27:05,948 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485e168 at 2393c4c1520>
+2026-10-06 16:27:05,948 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b18eba8 at 2393c558b00>
+2026-10-06 16:27:05,949 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485e288 at 2393c53ee70>
+2026-10-06 16:27:05,949 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53f920>
+2026-10-06 16:27:05,949 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485e648 at 2393c53f9b0>
+2026-10-06 16:27:05,949 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1520>
+2026-10-06 16:27:05,949 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485e5e8 at 2393c4c17f0>
+2026-10-06 16:27:05,949 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485e648 at 2393c4c1520>
+2026-10-06 16:27:05,968 - DEBUG - filename: "C:\Windows\System32\qedit.dll": tlib_mtime: 1775023328.4100602
+2026-10-06 16:27:05,970 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3650>
+2026-10-06 16:27:05,970 - INFO - # Generating comtypes.gen.DexterLib
+2026-10-06 16:27:05,971 - DEBUG - GetModule(TLIBATTR(GUID={00020430-0000-0000-C000-000000000046}, Version=2.0, LCID=0, FLags=0x8))
+2026-10-06 16:27:05,972 - INFO - Could not import comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0: No module named 'comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0'
+2026-10-06 16:27:05,973 - INFO - # Generating comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0
+2026-10-06 16:27:05,974 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3e30>
+2026-10-06 16:27:05,974 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,974 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4c3650>
+2026-10-06 16:27:05,975 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c2e70>
+2026-10-06 16:27:05,975 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,975 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193e48 at 2393c4c3c80>
+2026-10-06 16:27:05,975 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c2210>
+2026-10-06 16:27:05,975 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,975 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d98 at 2393c4c3650>
+2026-10-06 16:27:05,976 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4c3020>
+2026-10-06 16:27:05,976 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,976 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c3c80>
+2026-10-06 16:27:05,977 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4c2b10>
+2026-10-06 16:27:05,977 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c4c1ac0>
+2026-10-06 16:27:05,977 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193e48 at 2393c4c1ac0>
+2026-10-06 16:27:05,977 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d98 at 2393c4c1ac0>
+2026-10-06 16:27:05,977 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c1a30>
+2026-10-06 16:27:05,977 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,977 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c4c3650>
+2026-10-06 16:27:05,978 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ea0 at 2393c4c15b0>
+2026-10-06 16:27:05,978 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c1a30>
+2026-10-06 16:27:05,978 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,978 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ea0 at 2393c4c3c80>
+2026-10-06 16:27:05,979 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,979 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ef8 at 2393c4c3650>
+2026-10-06 16:27:05,979 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,979 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193f50 at 2393c4c3c80>
+2026-10-06 16:27:05,979 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,979 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193fa8 at 2393c4c3650>
+2026-10-06 16:27:05,979 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,979 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194000 at 2393c4c3c80>
+2026-10-06 16:27:05,980 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,980 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194058 at 2393c4c3650>
+2026-10-06 16:27:05,980 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,980 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1940b0 at 2393c4c3c80>
+2026-10-06 16:27:05,980 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,980 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194108 at 2393c4c3650>
+2026-10-06 16:27:05,980 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,980 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194160 at 2393c4c3c80>
+2026-10-06 16:27:05,981 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,981 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1941b8 at 2393c4c3650>
+2026-10-06 16:27:05,981 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,981 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194210 at 2393c4c3c80>
+2026-10-06 16:27:05,981 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,981 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194268 at 2393c4c3650>
+2026-10-06 16:27:05,981 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,981 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1942c0 at 2393c4c3c80>
+2026-10-06 16:27:05,981 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,981 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194318 at 2393c4c3650>
+2026-10-06 16:27:05,982 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,982 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194370 at 2393c4c3c80>
+2026-10-06 16:27:05,982 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,982 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1943c8 at 2393c4c3650>
+2026-10-06 16:27:05,982 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,982 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194420 at 2393c4c3c80>
+2026-10-06 16:27:05,982 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,982 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194478 at 2393c4c3650>
+2026-10-06 16:27:05,983 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,983 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1944d0 at 2393c4c3c80>
+2026-10-06 16:27:05,983 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,983 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194528 at 2393c4c3650>
+2026-10-06 16:27:05,983 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,983 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194580 at 2393c4c3c80>
+2026-10-06 16:27:05,983 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,983 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1945d8 at 2393c4c3650>
+2026-10-06 16:27:05,984 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,984 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194630 at 2393c4c3c80>
+2026-10-06 16:27:05,984 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,984 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194688 at 2393c4c3650>
+2026-10-06 16:27:05,984 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,984 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1946e0 at 2393c4c3c80>
+2026-10-06 16:27:05,985 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194370 at 2393c53f1d0>
+2026-10-06 16:27:05,986 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194738 at 2393c53e330>
+2026-10-06 16:27:05,986 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194738 at 2393c53e7b0>
+2026-10-06 16:27:05,986 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194370 at 2393c53f2f0>
+2026-10-06 16:27:05,986 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194370 at 2393c4c1520>
+2026-10-06 16:27:05,986 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c1250>
+2026-10-06 16:27:05,986 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,987 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194738 at 2393c4c3650>
+2026-10-06 16:27:05,990 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c4c11c0>
+2026-10-06 16:27:05,990 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,990 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194790 at 2393c4c3c80>
+2026-10-06 16:27:05,990 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194790 at 2393c4c12e0>
+2026-10-06 16:27:05,990 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,991 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1947e8 at 2393c4c3650>
+2026-10-06 16:27:05,991 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194790 at 2393c4c1130>
+2026-10-06 16:27:05,992 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53ff50>
+2026-10-06 16:27:05,992 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c1130>
+2026-10-06 16:27:05,992 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194898 at 2393c4c1250>
+2026-10-06 16:27:05,992 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194738 at 2393c4c1130>
+2026-10-06 16:27:05,992 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,992 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194840 at 2393c4c3c80>
+2026-10-06 16:27:05,993 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194370 at 2393c53f1d0>
+2026-10-06 16:27:05,993 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194370 at 2393c53cc20>
+2026-10-06 16:27:05,993 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194160 at 2393c53cc20>
+2026-10-06 16:27:05,993 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1941b8 at 2393c53cc20>
+2026-10-06 16:27:05,994 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1940b0 at 2393c53f530>
+2026-10-06 16:27:05,994 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194108 at 2393c53e330>
+2026-10-06 16:27:05,994 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194160 at 2393c53d7f0>
+2026-10-06 16:27:05,994 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1941b8 at 2393c53dd90>
+2026-10-06 16:27:05,994 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194370 at 2393c53c710>
+2026-10-06 16:27:05,994 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194370 at 2393c53f800>
+2026-10-06 16:27:05,995 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194370 at 2393c53ff50>
+2026-10-06 16:27:05,995 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c4c1130>
+2026-10-06 16:27:05,995 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,995 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1948f0 at 2393c4c3650>
+2026-10-06 16:27:05,996 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194370 at 2393c53cc20>
+2026-10-06 16:27:05,996 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194370 at 2393c53cc20>
+2026-10-06 16:27:05,996 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194160 at 2393c53cc20>
+2026-10-06 16:27:05,996 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1941b8 at 2393c53cc20>
+2026-10-06 16:27:05,997 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1940b0 at 2393c53e210>
+2026-10-06 16:27:05,997 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194108 at 2393c53cc20>
+2026-10-06 16:27:05,997 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194160 at 2393c53c710>
+2026-10-06 16:27:05,997 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1941b8 at 2393c53dd90>
+2026-10-06 16:27:05,997 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c4c1130>
+2026-10-06 16:27:05,997 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,997 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194948 at 2393c4c3c80>
+2026-10-06 16:27:05,997 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194948 at 2393c53d7f0>
+2026-10-06 16:27:05,998 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,998 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1949a0 at 2393c4c3650>
+2026-10-06 16:27:05,998 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194948 at 2393c53f800>
+2026-10-06 16:27:05,998 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1948f0 at 2393c53e330>
+2026-10-06 16:27:05,998 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,998 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b1949f8 at 2393c4c3c80>
+2026-10-06 16:27:05,998 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3c80>
+2026-10-06 16:27:05,998 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194a50 at 2393c4c3650>
+2026-10-06 16:27:05,999 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,999 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194aa8 at 2393c4c3c80>
+2026-10-06 16:27:05,999 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194898 at 2393c4c3650>
+2026-10-06 16:27:05,999 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194898 at 2393c53dd90>
+2026-10-06 16:27:05,999 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c3650>
+2026-10-06 16:27:05,999 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b194b00 at 2393c4c3c80>
+2026-10-06 16:27:06,002 - DEBUG - filename: "C:\Windows\System32\stdole2.tlb": tlib_mtime: 1711956124.7159297
+2026-10-06 16:27:06,003 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c1130>
+2026-10-06 16:27:06,003 - INFO - # Generating comtypes.gen.stdole
+2026-10-06 16:27:06,096 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c4c11c0>
+2026-10-06 16:27:06,096 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081330 at 2393c53c710>
+2026-10-06 16:27:06,237 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3bf0>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c35c0>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c16d0>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53cb90>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53e720>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53ec30>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53f4a0>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53ecc0>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53eb10>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53e690>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53f0b0>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c2d50>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3da0>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53c8c0>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53de20>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53d5b0>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c40ed50>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53d520>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1eb0>
+2026-10-06 16:27:06,238 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c3530>
+2026-10-06 16:27:06,239 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c4c1fd0>
+2026-10-06 16:27:06,239 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c53e450>
+2026-10-06 16:27:06,239 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b082670 at 2393c45e8f0>
+2026-10-06 16:27:06,239 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 16:27:06,245 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:27:06,245 - INFO - Could not import comtypes.gen._56A868B0_0AD4_11CE_B03A_0020AF0BA770_0_1_0: No module named 'comtypes.gen._56A868B0_0AD4_11CE_B03A_0020AF0BA770_0_1_0'
+2026-10-06 16:27:06,246 - INFO - # Generating comtypes.gen._56A868B0_0AD4_11CE_B03A_0020AF0BA770_0_1_0
+2026-10-06 16:27:06,246 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c3da0>
+2026-10-06 16:27:06,247 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c4c10a0>
+2026-10-06 16:27:06,247 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c4c2d50>
+2026-10-06 16:27:06,247 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9d98 at 2393c4c3a40>
+2026-10-06 16:27:06,247 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c10a0>
+2026-10-06 16:27:06,247 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9d40 at 2393c4c3da0>
+2026-10-06 16:27:06,248 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c4c1910>
+2026-10-06 16:27:06,248 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9e48 at 2393c4c3920>
+2026-10-06 16:27:06,248 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c3da0>
+2026-10-06 16:27:06,248 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9df0 at 2393c4c10a0>
+2026-10-06 16:27:06,248 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53c440>
+2026-10-06 16:27:06,248 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53e690>
+2026-10-06 16:27:06,248 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53e690>
+2026-10-06 16:27:06,248 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53e570>
+2026-10-06 16:27:06,248 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53c7a0>
+2026-10-06 16:27:06,249 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53e060>
+2026-10-06 16:27:06,249 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ef8 at 2393c4c3410>
+2026-10-06 16:27:06,249 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c10a0>
+2026-10-06 16:27:06,249 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ea0 at 2393c4c3da0>
+2026-10-06 16:27:06,249 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53c8c0>
+2026-10-06 16:27:06,249 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53e450>
+2026-10-06 16:27:06,249 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ef8 at 2393c53c7a0>
+2026-10-06 16:27:06,249 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c3da0>
+2026-10-06 16:27:06,249 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9f50 at 2393c4c10a0>
+2026-10-06 16:27:06,250 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53fa40>
+2026-10-06 16:27:06,250 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa000 at 2393c53e450>
+2026-10-06 16:27:06,250 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c10a0>
+2026-10-06 16:27:06,250 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9fa8 at 2393c4c3da0>
+2026-10-06 16:27:06,251 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53ecc0>
+2026-10-06 16:27:06,251 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa0b0 at 2393c53e690>
+2026-10-06 16:27:06,251 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c3da0>
+2026-10-06 16:27:06,251 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa058 at 2393c4c10a0>
+2026-10-06 16:27:06,252 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53c440>
+2026-10-06 16:27:06,253 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53e570>
+2026-10-06 16:27:06,253 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53deb0>
+2026-10-06 16:27:06,253 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53c050>
+2026-10-06 16:27:06,253 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53ff50>
+2026-10-06 16:27:06,254 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53fd10>
+2026-10-06 16:27:06,254 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ce8 at 2393c53d910>
+2026-10-06 16:27:06,255 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53ec30>
+2026-10-06 16:27:06,255 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa160 at 2393c53f0b0>
+2026-10-06 16:27:06,255 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c10a0>
+2026-10-06 16:27:06,255 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa108 at 2393c4c3da0>
+2026-10-06 16:27:06,256 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53deb0>
+2026-10-06 16:27:06,256 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa210 at 2393c53f4a0>
+2026-10-06 16:27:06,257 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c3da0>
+2026-10-06 16:27:06,257 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa1b8 at 2393c4c10a0>
+2026-10-06 16:27:06,257 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa210 at 2393c53f4a0>
+2026-10-06 16:27:06,257 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c10a0>
+2026-10-06 16:27:06,257 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa268 at 2393c4c3da0>
+2026-10-06 16:27:06,257 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53f4a0>
+2026-10-06 16:27:06,258 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c3da0>
+2026-10-06 16:27:06,258 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa2c0 at 2393c4c10a0>
+2026-10-06 16:27:06,258 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa2c0 at 2393c53fc80>
+2026-10-06 16:27:06,258 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c53f650>
+2026-10-06 16:27:06,258 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa2c0 at 2393c53dbe0>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193d40 at 2393c53cc20>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193ce8 at 2393c53f4a0>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c10a0>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485dfe8 at 2393c4c3da0>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9df0 at 2393c53d5b0>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9ea0 at 2393c53e210>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373f9fa8 at 2393c53d5b0>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa058 at 2393c53e210>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa1b8 at 2393c53d5b0>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x239373fa108 at 2393c53e210>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c3da0>
+2026-10-06 16:27:06,259 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485daa8 at 2393c4c10a0>
+2026-10-06 16:27:06,260 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53f1d0>
+2026-10-06 16:27:06,260 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485de68 at 2393c53d5b0>
+2026-10-06 16:27:06,260 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c10a0>
+2026-10-06 16:27:06,260 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485d388 at 2393c4c3da0>
+2026-10-06 16:27:06,260 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53fec0>
+2026-10-06 16:27:06,260 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485df88 at 2393c53fd10>
+2026-10-06 16:27:06,260 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c3da0>
+2026-10-06 16:27:06,260 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485dec8 at 2393c4c10a0>
+2026-10-06 16:27:06,261 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53c4d0>
+2026-10-06 16:27:06,261 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485ce48 at 2393c53f530>
+2026-10-06 16:27:06,261 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c10a0>
+2026-10-06 16:27:06,261 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485cde8 at 2393c4c3da0>
+2026-10-06 16:27:06,262 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53dfd0>
+2026-10-06 16:27:06,262 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485d208 at 2393c53e9f0>
+2026-10-06 16:27:06,262 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c3da0>
+2026-10-06 16:27:06,262 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485d1a8 at 2393c4c10a0>
+2026-10-06 16:27:06,263 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2393b193df0 at 2393c53cb90>
+2026-10-06 16:27:06,263 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485e3a8 at 2393c53c710>
+2026-10-06 16:27:06,263 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c10a0>
+2026-10-06 16:27:06,263 - DEBUG - Release <POINTER(ITypeInfo) ptr=0x2392485d268 at 2393c4c3da0>
+2026-10-06 16:27:06,269 - DEBUG - filename: "C:\Windows\System32\quartz.dll": tlib_mtime: 1790143394.1121151
+2026-10-06 16:27:06,269 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c1910>
+2026-10-06 16:27:06,270 - INFO - # Generating comtypes.gen.QuartzTypeLib
+2026-10-06 16:27:06,270 - DEBUG - GetModule(TLIBATTR(GUID={00020430-0000-0000-C000-000000000046}, Version=2.0, LCID=0, FLags=0x8))
+2026-10-06 16:27:06,351 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c53fc80>
+2026-10-06 16:27:06,351 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2393b081b70 at 2393c4c1d00>
+2026-10-06 16:27:10,464 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 16:27:10,513 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-06 16:27:10,611 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 16:27:10,613 - INFO - >> Hardware Trigger: DI2 (Abort) Not Pressed!
+2026-10-06 16:27:16,664 - INFO - UI load successful
+2026-10-06 16:31:47,952 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 16:31:48,480 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 16:31:48,593 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 16:31:48,594 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen'
+2026-10-06 16:31:48,615 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 16:31:48,620 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:31:48,666 - DEBUG - Release <POINTER(ITypeLib) ptr=0x233b2e57eb0 at 233b7dde8f0>
+2026-10-06 16:31:48,667 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 16:31:48,670 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:31:48,689 - DEBUG - Release <POINTER(ITypeLib) ptr=0x233b2e573b0 at 233b7dde8f0>
+2026-10-06 16:31:51,642 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 16:31:51,644 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 16:31:51,702 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 16:31:51,749 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 16:31:57,838 - INFO - UI load successful
+2026-10-06 16:32:01,134 - INFO - Galvo Laser Shutdown
+2026-10-06 16:32:01,135 - CRITICAL - Laser 1 : OFF
+2026-10-06 16:32:01,136 - CRITICAL - Laser 2 : OFF
+2026-10-06 16:32:01,136 - INFO - Stepper Lasers Shutdown
+2026-10-06 16:32:01,136 - INFO - COM connection close successfully
+2026-10-06 16:32:01,136 - INFO - Main window close successfully
+2026-10-06 16:32:01,136 - INFO - ==================================================
+2026-10-06 16:32:01,136 - INFO - New session close at 2026-10-06 16:32
+2026-10-06 16:32:01,136 - INFO - ==================================================
+2026-10-06 16:32:01,150 - DEBUG - Calling CoUninitialize()
+2026-10-06 16:32:01,150 - DEBUG - CoUninitialize() done.
+2026-10-06 16:32:08,205 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 16:32:08,652 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 16:32:08,732 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 16:32:08,732 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen'
+2026-10-06 16:32:08,742 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 16:32:08,744 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:32:08,773 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2595d720080 at 2595eb8e8f0>
+2026-10-06 16:32:08,774 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 16:32:08,775 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:32:08,790 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2595d721100 at 2595eb8e8f0>
+2026-10-06 16:32:11,648 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 16:32:11,649 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 16:32:11,671 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 16:32:11,718 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 16:32:17,877 - INFO - UI load successful
+2026-10-06 16:32:44,640 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 16:32:55,871 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 16:33:00,558 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 16:33:01,920 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 16:33:56,655 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 16:34:09,885 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 16:34:18,977 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 16:34:20,311 - INFO - mapmatrixAction : redmarkmat
+2026-10-06 16:34:30,387 - INFO - mapmatrixAction : lasermarkmat
+2026-10-06 16:34:35,558 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:34:44,397 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:34:44,661 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:34:44,997 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:34:45,262 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:34:47,533 - INFO - mapmatrixAction : stopmat
+2026-10-06 16:34:49,592 - INFO - Galvo Laser Shutdown
+2026-10-06 16:34:49,593 - CRITICAL - Laser 1 : OFF
+2026-10-06 16:34:49,593 - CRITICAL - Laser 2 : OFF
+2026-10-06 16:34:49,593 - INFO - Stepper Lasers Shutdown
+2026-10-06 16:34:49,593 - INFO - COM connection close successfully
+2026-10-06 16:34:49,593 - INFO - Main window close successfully
+2026-10-06 16:34:49,593 - INFO - ==================================================
+2026-10-06 16:34:49,594 - INFO - New session close at 2026-10-06 16:34
+2026-10-06 16:34:49,594 - INFO - ==================================================
+2026-10-06 16:34:49,616 - DEBUG - Calling CoUninitialize()
+2026-10-06 16:34:49,616 - DEBUG - CoUninitialize() done.
+2026-10-06 16:39:44,745 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 16:39:45,280 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 16:39:45,390 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 16:39:45,391 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen'
+2026-10-06 16:39:45,403 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 16:39:45,406 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:39:45,442 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1ec5ca44340 at 1ec5debe8f0>
+2026-10-06 16:39:45,444 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 16:39:45,445 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:39:45,462 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1ec5ca45c00 at 1ec5debe8f0>
+2026-10-06 16:39:48,475 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 16:39:48,475 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 16:39:48,530 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 16:39:48,577 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 16:39:54,682 - INFO - UI load successful
+2026-10-06 16:41:22,942 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_061026/svg_files/Files/Electrode/ide2.svg
+2026-10-06 16:41:36,948 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/svg_files/Files/Electrode/ide2.svg
+2026-10-06 16:51:54,178 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 16:51:54,841 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 16:51:55,021 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 16:51:55,022 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen'
+2026-10-06 16:51:55,046 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 16:51:55,057 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:51:55,309 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2b61e4f8380 at 2b62345e8f0>
+2026-10-06 16:51:55,310 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 16:51:55,313 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 16:51:55,380 - DEBUG - Release <POINTER(ITypeLib) ptr=0x2b61e4fbd40 at 2b62345e8f0>
+2026-10-06 16:51:59,367 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 16:51:59,367 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 16:51:59,379 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 16:51:59,421 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 16:52:06,305 - INFO - UI load successful
+2026-10-06 16:52:14,932 - INFO - Close event ignored.
+2026-10-06 16:52:14,948 - DEBUG - Calling CoUninitialize()
+2026-10-06 16:52:14,948 - DEBUG - CoUninitialize() done.
+2026-10-06 16:52:18,619 - INFO - Galvo Laser Shutdown
+2026-10-06 16:52:18,659 - CRITICAL - Laser 1 : OFF
+2026-10-06 16:52:18,665 - CRITICAL - Laser 2 : OFF
+2026-10-06 16:52:18,665 - INFO - Stepper Lasers Shutdown
+2026-10-06 16:52:18,667 - INFO - COM connection close successfully
+2026-10-06 16:52:18,667 - INFO - Main window close successfully
+2026-10-06 16:52:18,670 - INFO - ==================================================
+2026-10-06 16:52:18,670 - INFO - New session close at 2026-10-06 16:52
+2026-10-06 16:52:18,670 - INFO - ==================================================
+2026-10-06 16:52:18,784 - DEBUG - Calling CoUninitialize()
+2026-10-06 16:52:18,788 - DEBUG - CoUninitialize() done.
+2026-10-06 17:17:19,502 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 17:17:20,142 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 17:17:20,268 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 17:17:20,268 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen'
+2026-10-06 17:17:20,283 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 17:17:20,286 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 17:17:20,321 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1965cfd5970 at 196620de8f0>
+2026-10-06 17:17:20,322 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 17:17:20,325 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 17:17:20,343 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1965cfd5970 at 196620de8f0>
+2026-10-06 17:17:23,885 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 17:17:23,890 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 17:17:23,951 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 17:17:30,129 - INFO - UI load successful
+2026-10-06 17:20:54,954 - INFO - Galvo Laser Shutdown
+2026-10-06 17:20:54,958 - CRITICAL - Laser 1 : OFF
+2026-10-06 17:20:54,958 - CRITICAL - Laser 2 : OFF
+2026-10-06 17:20:54,959 - INFO - Stepper Lasers Shutdown
+2026-10-06 17:20:54,959 - INFO - COM connection close successfully
+2026-10-06 17:20:54,959 - INFO - Main window close successfully
+2026-10-06 17:20:54,959 - INFO - ==================================================
+2026-10-06 17:20:54,959 - INFO - New session close at 2026-10-06 17:20
+2026-10-06 17:20:54,959 - INFO - ==================================================
+2026-10-06 17:20:54,988 - DEBUG - Calling CoUninitialize()
+2026-10-06 17:20:54,988 - DEBUG - CoUninitialize() done.
+2026-10-06 17:25:56,232 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 17:25:56,882 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 17:25:57,004 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 17:25:57,005 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen'
+2026-10-06 17:25:57,020 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 17:25:57,025 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 17:25:57,065 - DEBUG - Release <POINTER(ITypeLib) ptr=0x205013ca700 at 2050609e8f0>
+2026-10-06 17:25:57,066 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 17:25:57,067 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 17:25:57,092 - DEBUG - Release <POINTER(ITypeLib) ptr=0x205013cbd00 at 2050609e8f0>
+2026-10-06 17:26:00,477 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 17:26:00,477 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 17:26:00,529 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 17:26:00,579 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 17:26:06,691 - INFO - UI load successful
+2026-10-06 17:31:08,649 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-06 17:31:09,374 - DEBUG - CoInitializeEx(None, 2)
+2026-10-06 17:31:09,505 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-06 17:31:09,506 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen'
+2026-10-06 17:31:09,522 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-06 17:31:09,526 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 17:31:09,565 - DEBUG - Release <POINTER(ITypeLib) ptr=0x208f4978770 at 208f5cfe8f0>
+2026-10-06 17:31:09,566 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-06 17:31:09,569 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-06 17:31:09,589 - DEBUG - Release <POINTER(ITypeLib) ptr=0x208f4977f30 at 208f5cfe8f0>
+2026-10-06 17:31:13,002 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 17:31:13,003 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-06 17:31:13,061 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 17:31:13,062 - INFO - >> Hardware Trigger: DI1 (Start) Not Pressed!
+2026-10-06 17:31:19,239 - INFO - UI load successful
+2026-10-06 17:31:46,002 - INFO - File selected : D:/Users/EXPSOL/Downloads/Code_Generated_Image.bmp
+2026-10-06 17:32:00,353 - INFO - Parameters saved for D:/Users/EXPSOL/Downloads/Code_Generated_Image.bmp
+2026-10-06 17:32:00,365 - DEBUG - Importing BmpImagePlugin
+2026-10-06 17:33:39,223 - INFO - Parameters saved for D:/Users/EXPSOL/Downloads/Code_Generated_Image.bmp
+2026-10-06 17:50:40,523 - INFO - File selected : D:/Users/EXPSOL/Downloads/Code_Generated_Image (1).bmp
+2026-10-06 17:50:50,877 - INFO - Parameters saved for D:/Users/EXPSOL/Downloads/Code_Generated_Image (1).bmp
+2026-10-06 17:51:55,617 - INFO - Parameters saved for D:/Users/EXPSOL/Downloads/Code_Generated_Image (1).bmp
+2026-10-07 10:41:02,846 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-07 10:41:04,032 - DEBUG - CoInitializeEx(None, 2)
+2026-10-07 10:41:04,380 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-07 10:41:04,381 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen'
+2026-10-07 10:41:04,413 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-07 10:41:04,416 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-07 10:41:04,462 - DEBUG - Release <POINTER(ITypeLib) ptr=0x21fa0365630 at 21fa5dce8f0>
+2026-10-07 10:41:04,463 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-07 10:41:04,466 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-07 10:41:04,493 - DEBUG - Release <POINTER(ITypeLib) ptr=0x21fa0365bb0 at 21fa5dce8f0>
+2026-10-07 10:41:13,592 - INFO - UI load successful
+2026-10-07 10:42:02,587 - INFO - Galvo Laser Shutdown
+2026-10-07 10:42:02,589 - CRITICAL - Laser 1 : OFF
+2026-10-07 10:42:02,590 - CRITICAL - Laser 2 : OFF
+2026-10-07 10:42:02,590 - INFO - Stepper Lasers Shutdown
+2026-10-07 10:42:02,590 - INFO - COM connection close successfully
+2026-10-07 10:42:02,590 - INFO - Main window close successfully
+2026-10-07 10:42:02,590 - INFO - ==================================================
+2026-10-07 10:42:02,590 - INFO - New session close at 2026-10-07 10:42
+2026-10-07 10:42:02,590 - INFO - ==================================================
+2026-10-07 10:42:02,599 - DEBUG - Calling CoUninitialize()
+2026-10-07 10:42:02,599 - DEBUG - CoUninitialize() done.
+2026-10-07 11:05:52,853 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-10-07 11:05:53,216 - DEBUG - CoInitializeEx(None, 2)
+2026-10-07 11:05:53,287 - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\EXPSOL\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-10-07 11:05:53,287 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPSOL\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\site-packages\comtypes\gen'
+2026-10-07 11:05:53,296 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-07 11:05:53,299 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-07 11:05:53,326 - DEBUG - Release <POINTER(ITypeLib) ptr=0x17be16d3d20 at 17be2aee8f0>
+2026-10-07 11:05:53,326 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-07 11:05:53,328 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-07 11:05:53,341 - DEBUG - Release <POINTER(ITypeLib) ptr=0x17be16d34e0 at 17be2aee8f0>
+2026-10-07 11:06:02,610 - INFO - UI load successful
+2026-10-07 11:06:56,664 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/Gerber_files/Arduino Nano IO Shield Gerber/Arduino Nano IO Shield-B_Cu.gbr
+2026-10-07 11:07:15,507 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_22092026/Gerber_files/3RL_WLC_PCB/3RWLC2/JR_3RWLC2_PCB-B_Cu.gbr
+2026-10-07 11:07:19,573 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_22092026/Gerber_files/3RL_WLC_PCB/3RWLC2/JR_3RWLC2_PCB-B_Cu.gbr
+2026-10-07 11:08:08,552 - INFO - Galvo Laser Shutdown
+2026-10-07 11:08:08,554 - CRITICAL - Laser 1 : OFF
+2026-10-07 11:08:08,555 - CRITICAL - Laser 2 : OFF
+2026-10-07 11:08:08,555 - INFO - Stepper Lasers Shutdown
+2026-10-07 11:08:08,555 - INFO - COM connection close successfully
+2026-10-07 11:08:08,555 - INFO - Main window close successfully
+2026-10-07 11:08:08,555 - INFO - ==================================================
+2026-10-07 11:08:08,555 - INFO - New session close at 2026-10-07 11:08
+2026-10-07 11:08:08,555 - INFO - ==================================================
+2026-10-07 11:08:08,564 - DEBUG - Calling CoUninitialize()
+2026-10-07 11:08:08,564 - DEBUG - CoUninitialize() done.

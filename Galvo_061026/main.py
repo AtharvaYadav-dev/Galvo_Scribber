@@ -2094,17 +2094,22 @@ class MainWindow(QMainWindow):
                             if widget_ui:
                                 self.wh.invokeMethod(widget_ui, "set", str(val))
                                 
-                    # Also restore Power and Frequency from Laser Conf widgets
+                    # Also restore Power and Frequency from Laser Conf widgets and Design page widgets
                     pwr_val = nested_params.get("Laser Power")
                     if pwr_val is not None:
                         if hasattr(self.ui, 'laserpowerLineEdit'):
                             self.ui.laserpowerLineEdit.setText(str(pwr_val))
+                        if hasattr(self.ui, 'pgmlaserpowerLineEdit'):
+                            self.ui.pgmlaserpowerLineEdit.setText(str(pwr_val))
                         if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2'):
                             self.ui.galvolaserpowerHorizontalSlider_2.setValue(int(float(pwr_val)))
+                            
                     freq_val = nested_params.get("Laser Frequency")
                     if freq_val is not None:
                         if hasattr(self.ui, 'laserfreqLineEdit'):
                             self.ui.laserfreqLineEdit.setText(str(freq_val))
+                        if hasattr(self.ui, 'pgmlaserfreqLineEdit'):
+                            self.ui.pgmlaserfreqLineEdit.setText(str(freq_val))
                         if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
                             self.ui.galvolaserfreqHorizontalSlider.setValue(int(float(freq_val)))
                                 

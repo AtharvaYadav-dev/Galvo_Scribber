@@ -23,7 +23,6 @@ from com import SerialCom, SerialConfigError
 from util import CallbackHandler, FileHandler, ConfigHandler, AppLogger, Utils, CyclicBuffer
 from gcode import GcodeHandler
 from custom import CustomMessageBox
-from core.styles import *
 from dxf import DXFParser
 from preview3d import GCode3DPreview
 from uihandler import AxisHandler, LaserHandler, WidgetHandler, WidgetManger, KeyFilter, DictAsClass, EventHandler
@@ -1299,7 +1298,7 @@ class MainWindow(QMainWindow):
         # Camera Display Label
         self.video_label = QLabel("Camera OFF")
         self.video_label.setAlignment(Qt.AlignCenter)
-        self.video_label.setStyleSheet(VIDEO_LABEL_STYLE)
+        self.video_label.setStyleSheet("background-color: black; color: white; font-size: 20px;")
         
         # Add label to camFrame
         cam_layout = QVBoxLayout(self.camera_widgets.camvdo)
@@ -1464,12 +1463,12 @@ class MainWindow(QMainWindow):
         if widget == self.center_menu_btn or self.wh.checkRole(widget, name="close"):
             center_menu.collapseMenu()
             if self.center_menu_btn is not None:
-                self.center_menu_btn.setStyleSheet(CENTER_MENU_BTN_ACTIVE)
+                self.center_menu_btn.setStyleSheet("background-color: rgb(16, 42, 131);")
             self.center_menu_btn = None
             
         else:
             if self.wh.checkRole(widget, name="profile") and self.center_menu_btn is not None:
-                self.center_menu_btn.setStyleSheet(CENTER_MENU_BTN_ACTIVE)
+                self.center_menu_btn.setStyleSheet("background-color: rgb(16, 42, 131);")
             
             self.center_menu_btn = widget
             center_menu.expandMenu() 
@@ -2002,12 +2001,12 @@ class MainWindow(QMainWindow):
                 self._apply_galvo_laser_settings()
                 self.galvo_controller.connection.laser_on()
                 widget.setText("OFF")
-                widget.setStyleSheet(BTN_DANGER)
+                widget.setStyleSheet("QPushButton { color: rgb(255, 255, 255); background-color: rgb(200, 0, 0); border-color: transparent; border-style: outset; border-radius: 20px; border-width: 2px; padding: 6px; }")
             else:
                 print("UI COMMAND: Turning Laser OFF (DO1 = LOW)")
                 self.galvo_controller.connection.laser_off()
                 widget.setText("ON")
-                widget.setStyleSheet(BTN_PRIMARY)
+                widget.setStyleSheet("QPushButton { color: rgb(255, 255, 255); background-color: rgb(16, 42, 131); border-color: transparent; border-style: outset; border-radius: 20px; border-width: 2px; padding: 6px; }")
         elif action == "freddotlasergalvoset":
             if not self.galvo_controller.is_connected:
                 self.showAutoCloseMessage("Hardware Disconnected", "Ensure hardware is connected before operating reddot laser.")
@@ -2021,7 +2020,7 @@ class MainWindow(QMainWindow):
                 else:
                     print("WARNING: reddot_on() method not found in connection")
                 widget.setText("OFF")
-                widget.setStyleSheet(BTN_DANGER)
+                widget.setStyleSheet("QPushButton { color: rgb(255, 255, 255); background-color: rgb(200, 0, 0); border-color: transparent; border-style: outset; border-radius: 20px; border-width: 2px; padding: 6px; }")
             else:
                 print("UI COMMAND: Turning Reddot Laser OFF")
                 if hasattr(self.galvo_controller.connection, 'reddot_off'):
@@ -2029,7 +2028,7 @@ class MainWindow(QMainWindow):
                 else:
                     print("WARNING: reddot_off() method not found in connection")
                 widget.setText("ON")
-                widget.setStyleSheet(BTN_PRIMARY)
+                widget.setStyleSheet("QPushButton { color: rgb(255, 255, 255); background-color: rgb(16, 42, 131); border-color: transparent; border-style: outset; border-radius: 20px; border-width: 2px; padding: 6px; }")
 
         elif action == "galvolaserpower":
             val = self.ui.galvolaserpowerHorizontalSlider_2.value()
@@ -4725,7 +4724,10 @@ class MainWindow(QMainWindow):
 
         if hasattr(self.ui, 'reddotPushButton'):
             self.ui.reddotPushButton.setText("Stop Red Dot")
-            self.ui.reddotPushButton.setStyleSheet(REDDOT_BTN_ACTIVE)
+            self.ui.reddotPushButton.setStyleSheet(
+                "color: rgb(255, 255, 255); background-color: rgb(220, 38, 38); "
+                "border-style: outset; border-radius: 15px; border-width: 2px; padding: 6px;"
+            )
         self.set_cal_status("Status : Red Dot Framing Active")
 
     def stop_cal_reddot(self):
@@ -4740,7 +4742,10 @@ class MainWindow(QMainWindow):
 
         if hasattr(self.ui, 'reddotPushButton'):
             self.ui.reddotPushButton.setText("Red Dot Frame")
-            self.ui.reddotPushButton.setStyleSheet(REDDOT_BTN_INACTIVE)
+            self.ui.reddotPushButton.setStyleSheet(
+                "color: rgb(255, 255, 255); background-color: rgb(16, 42, 131); "
+                "border-style: outset; border-radius: 15px; border-width: 2px; padding: 6px;"
+            )
         self.set_cal_status("Status : Ready")
 
     def on_cal_reddot_finished(self, success):

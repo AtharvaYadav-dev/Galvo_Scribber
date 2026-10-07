@@ -344,9 +344,31 @@ class MotionPlanner:
                     best_idx = i
             optimized.append(motion_paths.pop(best_idx))
             
-        # 2-opt refinement removed: 2-opt is invalid for directed asymmetric paths (like hatch lines)
-        # without reversing the internal points of the paths, which caused massive travel lines.
-
+        # 2. Basic 2-opt refinement (only if small enough to prevent UI freeze)
+        if len(optimized) < 500:
+            improved = True
+            while improved:
+                improved = False
+                for i in range(1, len(optimized) - 2):
+                    for j in range(i + 1, len(optimized) - 1):
+                        _, end_i1 = path_endpoints[id(optimized[i-1])]
+                        start_i, end_i = path_endpoints[id(optimized[i])]
+                        start_j, end_j = path_endpoints[id(optimized[j])]
+                        start_j1, _ = path_endpoints[id(optimized[j+1])]
+                        
+                        if not all([end_i1, start_i, end_i, start_j, end_j, start_j1]):
+                            continue
+                            
+                        current_dist = dist(end_i1, start_i) + dist(end_j, start_j1)
+                        new_dist = dist(end_i1, start_j) + dist(end_i, start_j1)
+                        
+                        if new_dist < current_dist:
+                            optimized[i:j+1] = reversed(optimized[i:j+1])
+                            improved = True
+                            break
+                    if improved:
+                        break
+                    
         # Reconstruct queue
         self.preview_queue = []
         for p in optimized + static_paths:

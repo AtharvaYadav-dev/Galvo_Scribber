@@ -177,6 +177,7 @@ class HardwareConnection(BaseConnection):
         return max(20.0, min(80.0, float(requested_freq)))
 
     def set_analog_do_bit(self, max_val, crt_val, freq_val, bit):
+        print(f"HARDWARE COMMAND: set_analog_do_bit() called. max_val={max_val}, crt_val={crt_val}, freq_val={freq_val}, bit={bit}")
         if self.dll and hasattr(self.dll, 'GT_PROSYS_U3_set_analog_do_bit'):
             self.dll.GT_PROSYS_U3_set_analog_do_bit(c_double(max_val), c_double(crt_val), c_double(freq_val), c_short(bit))
             self.send_buffer()
@@ -264,6 +265,7 @@ class HardwareConnection(BaseConnection):
                 print(f"Error setting axis position: {e}")
 
     def set_io(self, io_pin, state):
+        print(f"HARDWARE COMMAND: Setting IO pin {io_pin} to state {state}")
         if self.dll and hasattr(self.dll, 'GT_PROSYS_U3_set_do_bit'):
             self.dll.GT_PROSYS_U3_set_do_bit(c_short(io_pin), c_short(state))
 
@@ -276,23 +278,28 @@ class HardwareConnection(BaseConnection):
         return 0
 
     def laser_on(self):
+        print("HARDWARE COMMAND: laser_on() called. Setting DO1 (Pin 0) to HIGH (1) to turn ON the laser/LED.")
         self.set_io(0, 1)
         self.send_buffer()
 
     def laser_off(self):
+        print("HARDWARE COMMAND: laser_off() called. Setting DO1 (Pin 0) to LOW (0) to turn OFF the laser/LED.")
         self.set_io(0, 0)
         self.send_buffer()
 
     def reddot_on(self):
+        print("HARDWARE COMMAND: reddot_on() called. Setting DO2 (Pin 1) to HIGH (1) to turn ON the red dot laser.")
         self.set_io(1, 1)
         self.send_buffer()
 
     def reddot_off(self):
+        print("HARDWARE COMMAND: reddot_off() called. Setting DO2 (Pin 1) to LOW (0) to turn OFF the red dot laser.")
         self.set_io(1, 0)
         self.send_buffer()
 
     def send_buffer(self):
         if self.dll and hasattr(self.dll, 'GT_PROSYS_U3_send_buffer'):
+            print("HARDWARE COMMAND: send_buffer() called.")
             self.dll.GT_PROSYS_U3_send_buffer()
 
     def stop(self):
