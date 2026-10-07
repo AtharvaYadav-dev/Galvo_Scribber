@@ -6774,3 +6774,28 @@
 2026-10-07 11:08 - INFO - ==================================================
 2026-10-07 11:08 - INFO - New session close at 2026-10-07 11:08
 2026-10-07 11:08 - INFO - ==================================================
+2026-10-07 11:18 - INFO - UI load successful
+2026-10-07 11:20 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_061026/Gerber_files/3RL_WLC_PCB/3RWLC2/JR_3RWLC2_PCB-B_Cu.gbr
+2026-10-07 11:20 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/Gerber_files/3RL_WLC_PCB/3RWLC2/JR_3RWLC2_PCB-B_Cu.gbr
+2026-10-07 11:21 - INFO - Galvo Laser Shutdown
+2026-10-07 11:21 - CRITICAL - Laser 1 : OFF
+2026-10-07 11:21 - CRITICAL - Laser 2 : OFF
+2026-10-07 11:21 - INFO - Stepper Lasers Shutdown
+2026-10-07 11:21 - INFO - COM connection close successfully
+2026-10-07 11:21 - INFO - Main window close successfully
+2026-10-07 11:21 - INFO - ==================================================
+2026-10-07 11:21 - INFO - New session close at 2026-10-07 11:21
+2026-10-07 11:21 - INFO - ==================================================
+2026-10-07 11:21 - INFO - UI load successful
+2026-10-07 11:21 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_061026/Gerber_files/3RL_WLC_PCB/3RWLC2/JR_3RWLC2_PCB-B_Cu.gbr
+2026-10-07 11:21 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/Gerber_files/3RL_WLC_PCB/3RWLC2/JR_3RWLC2_PCB-B_Cu.gbr
+2026-10-07 11:28 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/Gerber_files/3RL_WLC_PCB/3RWLC2/JR_3RWLC2_PCB-B_Cu.gbr
+2026-10-07 11:32 - INFO - Galvo Laser Shutdown
+2026-10-07 11:32 - CRITICAL - Laser 1 : OFF
+2026-10-07 11:32 - CRITICAL - Laser 2 : OFF
+2026-10-07 11:32 - INFO - Stepper Lasers Shutdown
+2026-10-07 11:32 - INFO - COM connection close successfully
+2026-10-07 11:32 - INFO - Main window close successfully
+2026-10-07 11:32 - INFO - ==================================================
+2026-10-07 11:32 - INFO - New session close at 2026-10-07 11:32
+2026-10-07 11:32 - INFO - ==================================================
