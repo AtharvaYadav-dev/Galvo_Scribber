@@ -6799,3 +6799,24 @@
 2026-10-07 11:32 - INFO - ==================================================
 2026-10-07 11:32 - INFO - New session close at 2026-10-07 11:32
 2026-10-07 11:32 - INFO - ==================================================
+2026-10-08 16:36 - INFO - UI load successful
+2026-10-08 16:37 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-08 16:37 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-08 16:47 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-08 16:47 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-08 16:58 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-08 16:59 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-08 16:59 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-08 17:00 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-08 17:00 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-08 17:00 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-08 17:01 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_061026/38mmsize 250Micron channel.svg
+2026-10-08 17:42 - INFO - Galvo Laser Shutdown
+2026-10-08 17:42 - CRITICAL - Laser 1 : OFF
+2026-10-08 17:42 - CRITICAL - Laser 2 : OFF
+2026-10-08 17:42 - INFO - Stepper Lasers Shutdown
+2026-10-08 17:42 - INFO - COM connection close successfully
+2026-10-08 17:42 - INFO - Main window close successfully
+2026-10-08 17:42 - INFO - ==================================================
+2026-10-08 17:42 - INFO - New session close at 2026-10-08 17:42
+2026-10-08 17:42 - INFO - ==================================================
