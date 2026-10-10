@@ -6854,3 +6854,255 @@
 2026-10-10 12:48 - INFO - ==================================================
 2026-10-10 12:48 - INFO - New session close at 2026-10-10 12:48
 2026-10-10 12:48 - INFO - ==================================================
+2026-10-10 13:03 - INFO - UI load successful
+2026-10-10 13:03 - CRITICAL - Laser 1 : OFF
+2026-10-10 13:03 - CRITICAL - Laser 2 : OFF
+2026-10-10 13:03 - INFO - Stepper Lasers Shutdown
+2026-10-10 13:03 - INFO - COM connection close successfully
+2026-10-10 13:03 - INFO - Main window close successfully
+2026-10-10 13:03 - INFO - ==================================================
+2026-10-10 13:03 - INFO - New session close at 2026-10-10 13:03
+2026-10-10 13:03 - INFO - ==================================================
+2026-10-10 13:12 - INFO - UI load successful
+2026-10-10 13:20 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/RUTHBAR.dxf
+2026-10-10 13:20 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/RUTHBAR.dxf
+2026-10-10 13:22 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/RUTHBAR.dxf
+2026-10-10 13:22 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/RUTHBAR.dxf
+2026-10-10 13:27 - CRITICAL - Laser 1 : OFF
+2026-10-10 13:27 - CRITICAL - Laser 2 : OFF
+2026-10-10 13:27 - INFO - Stepper Lasers Shutdown
+2026-10-10 13:27 - INFO - COM connection close successfully
+2026-10-10 13:27 - INFO - Main window close successfully
+2026-10-10 13:27 - INFO - ==================================================
+2026-10-10 13:27 - INFO - New session close at 2026-10-10 13:27
+2026-10-10 13:27 - INFO - ==================================================
+2026-10-10 13:27 - INFO - UI load successful
+2026-10-10 13:34 - CRITICAL - Laser 1 : OFF
+2026-10-10 13:34 - CRITICAL - Laser 2 : OFF
+2026-10-10 13:34 - INFO - Stepper Lasers Shutdown
+2026-10-10 13:34 - INFO - COM connection close successfully
+2026-10-10 13:34 - INFO - Main window close successfully
+2026-10-10 13:34 - INFO - ==================================================
+2026-10-10 13:34 - INFO - New session close at 2026-10-10 13:34
+2026-10-10 13:34 - INFO - ==================================================
+2026-10-10 13:34 - INFO - UI load successful
+2026-10-10 13:40 - CRITICAL - Laser 1 : OFF
+2026-10-10 13:40 - CRITICAL - Laser 2 : OFF
+2026-10-10 13:40 - INFO - Stepper Lasers Shutdown
+2026-10-10 13:40 - INFO - COM connection close successfully
+2026-10-10 13:40 - INFO - Main window close successfully
+2026-10-10 13:40 - INFO - ==================================================
+2026-10-10 13:40 - INFO - New session close at 2026-10-10 13:40
+2026-10-10 13:40 - INFO - ==================================================
+2026-10-10 13:40 - INFO - UI load successful
+2026-10-10 14:26 - CRITICAL - Laser 1 : OFF
+2026-10-10 14:26 - CRITICAL - Laser 2 : OFF
+2026-10-10 14:26 - INFO - Stepper Lasers Shutdown
+2026-10-10 14:26 - INFO - COM connection close successfully
+2026-10-10 14:26 - INFO - Main window close successfully
+2026-10-10 14:26 - INFO - ==================================================
+2026-10-10 14:26 - INFO - New session close at 2026-10-10 14:26
+2026-10-10 14:26 - INFO - ==================================================
+2026-10-10 14:26 - INFO - UI load successful
+2026-10-10 14:30 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test3.dxf
+2026-10-10 14:30 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test3.dxf
+2026-10-10 14:32 - INFO - UI load successful
+2026-10-10 14:35 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test4.dxf
+2026-10-10 14:36 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test4.dxf
+2026-10-10 14:38 - CRITICAL - Laser 1 : OFF
+2026-10-10 14:38 - CRITICAL - Laser 2 : OFF
+2026-10-10 14:38 - INFO - Stepper Lasers Shutdown
+2026-10-10 14:38 - INFO - COM connection close successfully
+2026-10-10 14:38 - INFO - Main window close successfully
+2026-10-10 14:38 - INFO - ==================================================
+2026-10-10 14:38 - INFO - New session close at 2026-10-10 14:38
+2026-10-10 14:38 - INFO - ==================================================
+2026-10-10 14:38 - INFO - UI load successful
+2026-10-10 14:38 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test5.dxf
+2026-10-10 14:38 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test5.dxf
+2026-10-10 14:39 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test5.dxf
+2026-10-10 14:44 - CRITICAL - Laser 1 : OFF
+2026-10-10 14:44 - CRITICAL - Laser 2 : OFF
+2026-10-10 14:44 - INFO - Stepper Lasers Shutdown
+2026-10-10 14:44 - INFO - COM connection close successfully
+2026-10-10 14:44 - INFO - Main window close successfully
+2026-10-10 14:44 - INFO - ==================================================
+2026-10-10 14:44 - INFO - New session close at 2026-10-10 14:44
+2026-10-10 14:44 - INFO - ==================================================
+2026-10-10 14:44 - INFO - UI load successful
+2026-10-10 14:46 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test6.dxf
+2026-10-10 14:46 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test6.dxf
+2026-10-10 14:47 - CRITICAL - Laser 1 : OFF
+2026-10-10 14:47 - CRITICAL - Laser 2 : OFF
+2026-10-10 14:47 - INFO - Stepper Lasers Shutdown
+2026-10-10 14:47 - INFO - COM connection close successfully
+2026-10-10 14:47 - INFO - Main window close successfully
+2026-10-10 14:47 - INFO - ==================================================
+2026-10-10 14:47 - INFO - New session close at 2026-10-10 14:47
+2026-10-10 14:47 - INFO - ==================================================
+2026-10-10 14:48 - INFO - UI load successful
+2026-10-10 14:49 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/Test7.dxf
+2026-10-10 14:49 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/Test7.dxf
+2026-10-10 14:51 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/Test7.dxf
+2026-10-10 14:52 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/Test7.dxf
+2026-10-10 15:10 - INFO - Galvo Laser Shutdown
+2026-10-10 15:10 - CRITICAL - Laser 1 : OFF
+2026-10-10 15:10 - CRITICAL - Laser 2 : OFF
+2026-10-10 15:10 - INFO - Stepper Lasers Shutdown
+2026-10-10 15:10 - INFO - COM connection close successfully
+2026-10-10 15:10 - INFO - Main window close successfully
+2026-10-10 15:10 - INFO - ==================================================
+2026-10-10 15:10 - INFO - New session close at 2026-10-10 15:10
+2026-10-10 15:10 - INFO - ==================================================
+2026-10-10 15:10 - INFO - UI load successful
+2026-10-10 15:11 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/Testsvg.svg
+2026-10-10 15:11 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/Testsvg.svg
+2026-10-10 15:11 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/Testsvg.svg
+2026-10-10 15:12 - INFO - Galvo Laser Shutdown
+2026-10-10 15:12 - CRITICAL - Laser 1 : OFF
+2026-10-10 15:12 - CRITICAL - Laser 2 : OFF
+2026-10-10 15:12 - INFO - Stepper Lasers Shutdown
+2026-10-10 15:12 - INFO - COM connection close successfully
+2026-10-10 15:12 - INFO - Main window close successfully
+2026-10-10 15:12 - INFO - ==================================================
+2026-10-10 15:12 - INFO - New session close at 2026-10-10 15:12
+2026-10-10 15:12 - INFO - ==================================================
+2026-10-10 15:12 - INFO - UI load successful
+2026-10-10 15:13 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testsvg2.svg
+2026-10-10 15:13 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testsvg2.svg
+2026-10-10 15:16 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testsvg3.svg
+2026-10-10 15:16 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testsvg3.svg
+2026-10-10 15:33 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testsvg4.svg
+2026-10-10 15:33 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testsvg4.svg
+2026-10-10 15:44 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-10 15:44 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-10 15:54 - CRITICAL - Laser 1 : OFF
+2026-10-10 15:54 - CRITICAL - Laser 2 : OFF
+2026-10-10 15:54 - INFO - Stepper Lasers Shutdown
+2026-10-10 15:54 - INFO - COM connection close successfully
+2026-10-10 15:54 - INFO - Main window close successfully
+2026-10-10 15:54 - INFO - ==================================================
+2026-10-10 15:54 - INFO - New session close at 2026-10-10 15:54
+2026-10-10 15:54 - INFO - ==================================================
+2026-10-10 15:58 - INFO - UI load successful
+2026-10-10 16:02 - CRITICAL - Laser 1 : OFF
+2026-10-10 16:02 - CRITICAL - Laser 2 : OFF
+2026-10-10 16:02 - INFO - Stepper Lasers Shutdown
+2026-10-10 16:02 - INFO - COM connection close successfully
+2026-10-10 16:02 - INFO - Main window close successfully
+2026-10-10 16:02 - INFO - ==================================================
+2026-10-10 16:02 - INFO - New session close at 2026-10-10 16:02
+2026-10-10 16:02 - INFO - ==================================================
+2026-10-10 16:02 - INFO - UI load successful
+2026-10-10 16:02 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testdxf5.dxf
+2026-10-10 16:03 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testdxf5.dxf
+2026-10-10 16:03 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testdxf5.dxf
+2026-10-10 16:04 - INFO - Galvo Laser Shutdown
+2026-10-10 16:04 - CRITICAL - Laser 1 : OFF
+2026-10-10 16:04 - CRITICAL - Laser 2 : OFF
+2026-10-10 16:04 - INFO - Stepper Lasers Shutdown
+2026-10-10 16:04 - INFO - COM connection close successfully
+2026-10-10 16:04 - INFO - Main window close successfully
+2026-10-10 16:04 - INFO - ==================================================
+2026-10-10 16:04 - INFO - New session close at 2026-10-10 16:04
+2026-10-10 16:04 - INFO - ==================================================
+2026-10-10 16:04 - INFO - UI load successful
+2026-10-10 16:04 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testdxf5.dxf
+2026-10-10 16:04 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testdxf5.dxf
+2026-10-10 16:07 - INFO - UI load successful
+2026-10-10 16:07 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testdxf5.dxf
+2026-10-10 16:07 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/testdxf5.dxf
+2026-10-10 16:09 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/newfile.dxf
+2026-10-10 16:09 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/newfile.dxf
+2026-10-10 16:10 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/newfile.dxf
+2026-10-10 16:11 - INFO - Galvo Laser Shutdown
+2026-10-10 16:11 - CRITICAL - Laser 1 : OFF
+2026-10-10 16:11 - CRITICAL - Laser 2 : OFF
+2026-10-10 16:11 - INFO - Stepper Lasers Shutdown
+2026-10-10 16:11 - INFO - COM connection close successfully
+2026-10-10 16:11 - INFO - Main window close successfully
+2026-10-10 16:11 - INFO - ==================================================
+2026-10-10 16:11 - INFO - New session close at 2026-10-10 16:11
+2026-10-10 16:11 - INFO - ==================================================
+2026-10-10 16:12 - INFO - UI load successful
+2026-10-10 16:12 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test1.dxf
+2026-10-10 16:12 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test1.dxf
+2026-10-10 16:13 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test1.dxf
+2026-10-10 16:14 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/svg_files/30to70square.svg
+2026-10-10 16:14 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/svg_files/30to70square.svg
+2026-10-10 16:14 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test1.dxf
+2026-10-10 16:14 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test1.dxf
+2026-10-10 16:15 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test1.svg
+2026-10-10 16:15 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test1.svg
+2026-10-10 16:15 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-10-10 16:15 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/svg_files/Files/concentric_circles-20260831173907.dxf
+2026-10-10 16:19 - INFO - Galvo Laser Shutdown
+2026-10-10 16:19 - CRITICAL - Laser 1 : OFF
+2026-10-10 16:19 - CRITICAL - Laser 2 : OFF
+2026-10-10 16:19 - INFO - Stepper Lasers Shutdown
+2026-10-10 16:19 - INFO - COM connection close successfully
+2026-10-10 16:19 - INFO - Main window close successfully
+2026-10-10 16:19 - INFO - ==================================================
+2026-10-10 16:19 - INFO - New session close at 2026-10-10 16:19
+2026-10-10 16:19 - INFO - ==================================================
+2026-10-10 16:20 - INFO - UI load successful
+2026-10-10 16:21 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test2.dxf
+2026-10-10 16:21 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test2.dxf
+2026-10-10 16:22 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/test2.dxf
+2026-10-10 16:23 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-10 16:23 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-10 16:32 - CRITICAL - Laser 1 : OFF
+2026-10-10 16:32 - CRITICAL - Laser 2 : OFF
+2026-10-10 16:32 - INFO - Stepper Lasers Shutdown
+2026-10-10 16:32 - INFO - COM connection close successfully
+2026-10-10 16:32 - INFO - Main window close successfully
+2026-10-10 16:32 - INFO - ==================================================
+2026-10-10 16:32 - INFO - New session close at 2026-10-10 16:32
+2026-10-10 16:32 - INFO - ==================================================
+2026-10-10 16:34 - INFO - UI load successful
+2026-10-10 16:34 - CRITICAL - Laser 1 : OFF
+2026-10-10 16:34 - CRITICAL - Laser 2 : OFF
+2026-10-10 16:34 - INFO - Stepper Lasers Shutdown
+2026-10-10 16:34 - INFO - COM connection close successfully
+2026-10-10 16:34 - INFO - Main window close successfully
+2026-10-10 16:34 - INFO - ==================================================
+2026-10-10 16:34 - INFO - New session close at 2026-10-10 16:34
+2026-10-10 16:34 - INFO - ==================================================
+2026-10-10 16:36 - INFO - UI load successful
+2026-10-10 16:38 - CRITICAL - Laser 1 : OFF
+2026-10-10 16:38 - CRITICAL - Laser 2 : OFF
+2026-10-10 16:38 - INFO - Stepper Lasers Shutdown
+2026-10-10 16:38 - INFO - COM connection close successfully
+2026-10-10 16:38 - INFO - Main window close successfully
+2026-10-10 16:38 - INFO - ==================================================
+2026-10-10 16:38 - INFO - New session close at 2026-10-10 16:38
+2026-10-10 16:38 - INFO - ==================================================
+2026-10-10 16:38 - INFO - UI load successful
+2026-10-10 16:39 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/barcodetest.svg
+2026-10-10 16:39 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/barcodetest.svg
+2026-10-10 16:41 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/barcodetest.svg
+2026-10-10 16:41 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/barcodetest.svg
+2026-10-10 16:41 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/barcodetest.svg
+2026-10-10 16:42 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/barcodetest.svg
+2026-10-10 16:43 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/barcodetest1.svg
+2026-10-10 16:43 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/barcodetest1.svg
+2026-10-10 16:49 - CRITICAL - Laser 1 : OFF
+2026-10-10 16:49 - CRITICAL - Laser 2 : OFF
+2026-10-10 16:49 - INFO - Stepper Lasers Shutdown
+2026-10-10 16:49 - INFO - COM connection close successfully
+2026-10-10 16:49 - INFO - Main window close successfully
+2026-10-10 16:49 - INFO - ==================================================
+2026-10-10 16:49 - INFO - New session close at 2026-10-10 16:49
+2026-10-10 16:49 - INFO - ==================================================
+2026-10-10 16:51 - INFO - UI load successful
+2026-10-10 16:52 - INFO - File selected : D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/barcodetest1.svg
+2026-10-10 16:52 - INFO - Parameters saved for D:/Atharva/Galvo_Scribber/Galvo_UI_2/QR/Barcode DXF/barcodetest1.svg
+2026-10-10 17:06 - INFO - Galvo Laser Shutdown
+2026-10-10 17:06 - CRITICAL - Laser 1 : OFF
+2026-10-10 17:06 - CRITICAL - Laser 2 : OFF
+2026-10-10 17:06 - INFO - Stepper Lasers Shutdown
+2026-10-10 17:06 - INFO - COM connection close successfully
+2026-10-10 17:06 - INFO - Main window close successfully
+2026-10-10 17:06 - INFO - ==================================================
+2026-10-10 17:06 - INFO - New session close at 2026-10-10 17:06
+2026-10-10 17:06 - INFO - ==================================================

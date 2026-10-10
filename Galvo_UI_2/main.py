@@ -360,6 +360,7 @@ class MainWindow(QMainWindow):
 #         self.wh.invokeMethod(self.left_menu_widgets.camerajog, "hide" if is_on else "show")
         
         self.wh.invokeMethod(self.left_menu_widgets.joggalvo, "show" if is_on else "hide")
+        self.wh.invokeMethod(self.left_menu_widgets.qrgalvo, "show" if is_on else "hide")
 #         self.wh.invokeMethod(self.left_menu_widgets.programsgalvo, "show" if is_on else "hide")
 #         self.wh.invokeMethod(self.left_menu_widgets.printgalvo, "show" if is_on else "hide")
         
@@ -593,6 +594,7 @@ class MainWindow(QMainWindow):
         left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "programsgalvoPushButton", role="programsgalvo", toolTip="Program Galvo"))
         left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "printgalvoPushButton", role="printgalvo", toolTip="Print Galvo"))
         left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "paramapmatrixPushButton", role="paramapmatrix", toolTip="Param Matrix"))
+        left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "qrgalvoPushButton", role="qrgalvo", toolTip="QR/Barcode DXF"))
 
         self.util.dedupeList(left_menu_widget_list)
         self.left_menu_widgets = self.wh.createMap(*left_menu_widget_list)
@@ -629,6 +631,14 @@ class MainWindow(QMainWindow):
     
     def setupMainPages(self):
         self.main_stack = self.findChild(QCustomStackedWidget, "mainPages")
+        
+        # Setup QR/Barcode DXF Generator widget in qrPage
+        from qr_barcode_tool import QRBarcodeWidget
+        from PySide6.QtWidgets import QVBoxLayout
+        if hasattr(self.ui, 'qrPage'):
+            self.qr_layout = QVBoxLayout(self.ui.qrPage)
+            self.qr_widget = QRBarcodeWidget(self.ui.qrPage)
+            self.qr_layout.addWidget(self.qr_widget)
     
     def setupInfoPages(self):
         self.info_stack = self.findChild(QStackedWidget, "infoSubPages")
