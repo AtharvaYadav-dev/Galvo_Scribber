@@ -18052,3 +18052,53 @@
 2026-10-10 11:19:03,487 - INFO - ==================================================
 2026-10-10 11:19:03,499 - DEBUG - Calling CoUninitialize()
 2026-10-10 11:19:03,499 - DEBUG - CoUninitialize() done.
+2026-10-10 12:42:56,191 - DEBUG - OpenGL_accelerate module loaded
+2026-10-10 12:42:56,204 - DEBUG - Using accelerated ArrayDatatype
+2026-10-10 12:42:56,461 - DEBUG - CoInitializeEx(None, 2)
+2026-10-10 12:42:56,548 - INFO - Could not import comtypes.gen, trying to create it.
+2026-10-10 12:42:56,548 - INFO - Creating comtypes.gen package failed: [WinError 5] Access is denied: 'C:\\Program Files\\Python314\\Lib\\site-packages\\comtypes\\gen'
+2026-10-10 12:42:56,548 - INFO - Created a memory-only package.
+2026-10-10 12:42:56,551 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPRESS\AppData\Roaming\Python\Python314\comtypes_cache'
+2026-10-10 12:42:56,557 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-10 12:42:56,558 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-10 12:42:56,581 - DEBUG - Release <POINTER(ITypeLib) ptr=0x29aeb662b30 at 29a816dd950>
+2026-10-10 12:42:56,581 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-10 12:42:56,582 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-10 12:42:56,589 - DEBUG - Release <POINTER(ITypeLib) ptr=0x29aeb662b30 at 29a816dd950>
+2026-10-10 12:43:05,677 - INFO - UI load successful
+2026-10-10 12:43:14,351 - INFO - Galvo Laser Shutdown
+2026-10-10 12:43:14,358 - CRITICAL - Laser 1 : OFF
+2026-10-10 12:43:14,359 - CRITICAL - Laser 2 : OFF
+2026-10-10 12:43:14,359 - INFO - Stepper Lasers Shutdown
+2026-10-10 12:43:14,359 - INFO - COM connection close successfully
+2026-10-10 12:43:14,359 - INFO - Main window close successfully
+2026-10-10 12:43:14,359 - INFO - ==================================================
+2026-10-10 12:43:14,359 - INFO - New session close at 2026-10-10 12:43
+2026-10-10 12:43:14,359 - INFO - ==================================================
+2026-10-10 12:43:14,373 - DEBUG - Calling CoUninitialize()
+2026-10-10 12:43:14,373 - DEBUG - CoUninitialize() done.
+2026-10-10 12:48:06,343 - DEBUG - OpenGL_accelerate module loaded
+2026-10-10 12:48:06,367 - DEBUG - Using accelerated ArrayDatatype
+2026-10-10 12:48:06,719 - DEBUG - CoInitializeEx(None, 2)
+2026-10-10 12:48:06,867 - INFO - Could not import comtypes.gen, trying to create it.
+2026-10-10 12:48:06,867 - INFO - Creating comtypes.gen package failed: [WinError 5] Access is denied: 'C:\\Program Files\\Python314\\Lib\\site-packages\\comtypes\\gen'
+2026-10-10 12:48:06,867 - INFO - Created a memory-only package.
+2026-10-10 12:48:06,870 - INFO - Using writeable comtypes cache directory: 'C:\Users\EXPRESS\AppData\Roaming\Python\Python314\comtypes_cache'
+2026-10-10 12:48:06,879 - DEBUG - GetModule(qedit.dll), resolved: False
+2026-10-10 12:48:06,881 - DEBUG - GetModule(TLIBATTR(GUID={78530B68-61F9-11D2-8CAD-00A024580902}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-10 12:48:06,918 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1b98abe7b70 at 1b98f601950>
+2026-10-10 12:48:06,918 - DEBUG - GetModule(quartz.dll), resolved: False
+2026-10-10 12:48:06,933 - DEBUG - GetModule(TLIBATTR(GUID={56A868B0-0AD4-11CE-B03A-0020AF0BA770}, Version=1.0, LCID=0, FLags=0x8))
+2026-10-10 12:48:06,947 - DEBUG - Release <POINTER(ITypeLib) ptr=0x1b98abe7b70 at 1b98f601950>
+2026-10-10 12:48:16,248 - INFO - UI load successful
+2026-10-10 12:48:27,277 - INFO - Galvo Laser Shutdown
+2026-10-10 12:48:27,317 - CRITICAL - Laser 1 : OFF
+2026-10-10 12:48:27,318 - CRITICAL - Laser 2 : OFF
+2026-10-10 12:48:27,318 - INFO - Stepper Lasers Shutdown
+2026-10-10 12:48:27,318 - INFO - COM connection close successfully
+2026-10-10 12:48:27,318 - INFO - Main window close successfully
+2026-10-10 12:48:27,318 - INFO - ==================================================
+2026-10-10 12:48:27,319 - INFO - New session close at 2026-10-10 12:48
+2026-10-10 12:48:27,319 - INFO - ==================================================
+2026-10-10 12:48:27,334 - DEBUG - Calling CoUninitialize()
+2026-10-10 12:48:27,334 - DEBUG - CoUninitialize() done.

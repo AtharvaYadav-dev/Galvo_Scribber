@@ -6834,3 +6834,23 @@
 2026-10-10 11:19 - INFO - ==================================================
 2026-10-10 11:19 - INFO - New session close at 2026-10-10 11:19
 2026-10-10 11:19 - INFO - ==================================================
+2026-10-10 12:43 - INFO - UI load successful
+2026-10-10 12:43 - INFO - Galvo Laser Shutdown
+2026-10-10 12:43 - CRITICAL - Laser 1 : OFF
+2026-10-10 12:43 - CRITICAL - Laser 2 : OFF
+2026-10-10 12:43 - INFO - Stepper Lasers Shutdown
+2026-10-10 12:43 - INFO - COM connection close successfully
+2026-10-10 12:43 - INFO - Main window close successfully
+2026-10-10 12:43 - INFO - ==================================================
+2026-10-10 12:43 - INFO - New session close at 2026-10-10 12:43
+2026-10-10 12:43 - INFO - ==================================================
+2026-10-10 12:48 - INFO - UI load successful
+2026-10-10 12:48 - INFO - Galvo Laser Shutdown
+2026-10-10 12:48 - CRITICAL - Laser 1 : OFF
+2026-10-10 12:48 - CRITICAL - Laser 2 : OFF
+2026-10-10 12:48 - INFO - Stepper Lasers Shutdown
+2026-10-10 12:48 - INFO - COM connection close successfully
+2026-10-10 12:48 - INFO - Main window close successfully
+2026-10-10 12:48 - INFO - ==================================================
+2026-10-10 12:48 - INFO - New session close at 2026-10-10 12:48
+2026-10-10 12:48 - INFO - ==================================================

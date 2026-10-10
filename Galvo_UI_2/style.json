@@ -148,7 +148,9 @@
                             "laserconfgalvoPushButton": "laserconfgalvoPage",
                             "programsgalvoPushButton": "programgalvoPage",
                             "printgalvoPushButton": "printgalvoPage",
-                            "paramapmatrixPushButton": "parametermatrixPage"
+                            "paramapmatrixPushButton": "parametermatrixPage",
+                            "textgalvoPushButton": "textPage",
+                            "qrgalvoPushButton": "qrPage"
                         }
                     ]
                 }
@@ -193,7 +195,9 @@
                 "laserconfgalvoPushButton",
                 "programsgalvoPushButton",
                 "printgalvoPushButton",
-                "paramapmatrixPushButton"
+                "paramapmatrixPushButton",
+                "textgalvoPushButton",
+                "qrgalvoPushButton"
             ],
             "ActiveButton": "joggalvoPushButton",
             "Style": [
