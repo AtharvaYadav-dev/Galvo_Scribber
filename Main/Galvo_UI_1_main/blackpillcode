@@ -1,0 +1,240 @@
+// Galvo Inputs
+const int PIN_ANALOG_IN   = PA0;  // Galvo Pin 35 (0-3.27V Power Reference)
+const int PIN_GALVO_D0_IN = PA1; // Galvo D0 Pin 19 (Main Laser Trigger - 5V Tolerant)
+const int PIN_GALVO_D2_IN = PA3;  // Galvo D2 Pin 20 (Red Dot Trigger - 3.3V Max!)
+
+// Laser DB25 & Red Dot Outputs
+const int DATA_PINS[8]    = {PB0, PB1, PB2, PB3, PB4, PB5, PB6, PB7}; // DB25 Pins 1-8 (D0-D7)
+const int PIN_LATCH       = PB8;  // DB25 Pin 9 (Latch)
+const int PIN_MO          = PA2; // DB25 Pin 18 (Master Oscillator / MO)
+const int PIN_BOOSTER     = PB9;  // DB25 Pin 19 (Booster / Emission)
+const int PIN_RED_DOT_OUT = PA4;  // Red Dot Laser Control Pin
+
+// New Frequency Translation Pins
+const int PIN_FREQ_IN     = PB10; // Connect to Galvo J2 Pin 33 (50Hz PWM signal, 5V Tolerant)
+const int PIN_PRR_OUT     = PA8;  // Connect to Laser Pin 20 (Hardware PRR 20-80kHz)
+
+const int ADC_OFF_THRESHOLD = 50; 
+uint8_t currentPowerByte = 0;
+bool laserIsFiring = false;
+
+volatile unsigned long freqRiseTime = 0;
+volatile unsigned long freqFallTime = 0;
+volatile unsigned long freqHighTime = 0;
+volatile unsigned long freqTotalPeriod = 0;
+HardwareTimer *prrTimer;
+
+void freqInISR() {
+  unsigned long now = micros();
+  if (digitalRead(PIN_FREQ_IN) == HIGH) {
+    if (freqFallTime > 0) {
+      freqTotalPeriod = now - freqRiseTime;
+    }
+    freqRiseTime = now;
+  } else {
+    freqHighTime = now - freqRiseTime;
+    freqFallTime = now;
+  }
+}
+
+// Write 8-bit power data and pulse Latch (PB8)
+void setLaserPowerByte(uint8_t powerByte) {
+  for (int i = 0; i < 8; i++) {
+    bool bitVal = (powerByte >> i) & 0x01;
+    digitalWrite(DATA_PINS[i], bitVal ? HIGH : LOW);
+  }
+  digitalWrite(PIN_LATCH, HIGH);
+  delayMicroseconds(5);
+  digitalWrite(PIN_LATCH, LOW);
+}
+
+// Immediate Main Laser Shutdown Sequence
+void turnLaserOff() {
+  digitalWrite(PIN_BOOSTER, LOW); // 1. Cut high-power booster emission first
+  delayMicroseconds(20);
+  digitalWrite(PIN_MO, LOW);      // 2. Shut off Master Oscillator seed
+  prrTimer->setCaptureCompare(1, 0, PERCENT_COMPARE_FORMAT); // Force PRR output LOW
+  prrTimer->pause();              // 3. Stop PRR signal
+  laserIsFiring = false;
+  // moIsOn state will be handled in loop
+}
+
+unsigned long lastActivityTime = 0;
+bool moIsOn = false;
+
+void setup() {
+  // Set ADC to 12-bit (0-4095) to match the calibration lookup table!
+  analogReadResolution(12);
+  
+  // Inputs
+  pinMode(PIN_ANALOG_IN, INPUT_ANALOG);
+  pinMode(PIN_GALVO_D0_IN, INPUT);
+  pinMode(PIN_GALVO_D2_IN, INPUT);
+  pinMode(PIN_FREQ_IN, INPUT_PULLDOWN);
+  
+  attachInterrupt(digitalPinToInterrupt(PIN_FREQ_IN), freqInISR, CHANGE);
+
+  // Laser Outputs
+  for (int i = 0; i < 8; i++) {
+    pinMode(DATA_PINS[i], OUTPUT);
+    digitalWrite(DATA_PINS[i], LOW);
+  }
+  pinMode(PIN_LATCH, OUTPUT);
+  pinMode(PIN_MO, OUTPUT);
+  pinMode(PIN_BOOSTER, OUTPUT);
+  pinMode(PIN_PRR_OUT, OUTPUT);
+
+  // Red Dot Output
+  pinMode(PIN_RED_DOT_OUT, OUTPUT);
+
+  // Setup Hardware PWM on PA8 for Laser PRR
+  prrTimer = new HardwareTimer(TIM1);
+  prrTimer->setMode(1, TIMER_OUTPUT_COMPARE_PWM1, PIN_PRR_OUT);
+  prrTimer->setOverflow(50000, HERTZ_FORMAT); // Default 50kHz
+  prrTimer->setCaptureCompare(1, 0, PERCENT_COMPARE_FORMAT); // Start at 0% (LOW)
+  prrTimer->pause(); // Start PAUSED until MO goes HIGH
+
+  // Initial States
+  digitalWrite(PIN_LATCH, LOW);
+  digitalWrite(PIN_MO, LOW);
+  digitalWrite(PIN_BOOSTER, LOW);
+  digitalWrite(PIN_RED_DOT_OUT, LOW);
+
+  turnLaserOff();
+}
+
+void loop() {
+  // --- 1. Red Dot Laser Control (Galvo D2 -> PA3 -> PA4) ---
+  bool redDotTrigger = digitalRead(PIN_GALVO_D2_IN);
+  digitalWrite(PIN_RED_DOT_OUT, redDotTrigger ? HIGH : LOW);
+
+  // --- 2. Dynamic Power Control ---
+  // The Galvo card outputs a 50Hz PWM signal on this pin instead of a flat DC voltage.
+  // We use a software low-pass filter by averaging the PWM signal over 40ms (exactly 2 full periods at 50Hz).
+  static unsigned long lastAdcTime = 0;
+  static long adcSum = 0;
+  static int adcCount = 0;
+  static int rawADC = 0;
+
+  unsigned long currentMicros = micros();
+  if (currentMicros - lastAdcTime >= 500) { // Sample every 500us (0.5ms)
+    adcSum += analogRead(PIN_ANALOG_IN);
+    adcCount++;
+    lastAdcTime = currentMicros;
+  }
+
+  if (adcCount >= 80) { // 80 samples * 0.5ms = 40ms
+    rawADC = adcSum / adcCount;
+    adcSum = 0;
+    adcCount = 0;
+
+    // The galvo analog output is inversely proportional to power percentage and slightly non-linear.
+    // We use an 11-point lookup table (multiMap) derived from calibration.
+    // We list ADC values from lowest (highest power) to highest (lowest power) for the interpolation logic.
+    const int numPoints = 11;
+    const int adcPoints[numPoints] = {290, 603, 921, 1247, 1586, 1938, 2307, 2680, 3090, 3537, 3971};
+    
+    // Power points properly end at 0 so 0% genuinely turns off
+    const int pwrPoints[numPoints] = {255, 230, 204, 179, 153, 128, 102, 77,  51,  26,  0};
+
+    int calculatedPower = 0;
+    
+    // Widen the deadbands slightly to account for DAC drift
+    if (rawADC <= adcPoints[0] + 10) {
+      calculatedPower = pwrPoints[0]; // Cap at 100% (ADC ~290)
+    } else if (rawADC >= adcPoints[numPoints-1] - 80) {
+      // If ADC is >= 3891, force to 0. This guarantees 0% slider completely turns off the laser!
+      calculatedPower = 0; 
+    } else {
+      // Interpolate between the points
+      for (int i = 0; i < numPoints - 1; i++) {
+        if (rawADC >= adcPoints[i] && rawADC <= adcPoints[i+1]) {
+          long diffADC = rawADC - adcPoints[i];
+          long stepADC = adcPoints[i+1] - adcPoints[i];
+          long stepPwr = pwrPoints[i+1] - pwrPoints[i]; // stepPwr will be negative
+          
+          calculatedPower = pwrPoints[i] + (diffADC * stepPwr) / stepADC;
+          break;
+        }
+      }
+    }
+
+    uint8_t targetPowerByte = constrain(calculatedPower, 0, 255);
+
+    if (targetPowerByte != currentPowerByte) {
+      currentPowerByte = targetPowerByte;
+      setLaserPowerByte(currentPowerByte);
+    }
+  }
+
+  // --- 3. Main Laser Sequential Firing Logic ---
+  bool galvoMainTrigger = digitalRead(PIN_GALVO_D0_IN);
+
+  if (galvoMainTrigger) {
+    // If MO is not on, turn it on and wait 5ms as per Maxphotonics manual
+    if (!moIsOn) {
+      digitalWrite(PIN_MO, HIGH);
+      prrTimer->setCaptureCompare(1, 50, PERCENT_COMPARE_FORMAT); // 50% duty cycle
+      prrTimer->refresh(); // Reset PRR timer counter to align first pulse
+      prrTimer->resume();  // Start PRR (Pin 20) synchronously with Pin 18
+      moIsOn = true;
+      delay(5); // 5ms stabilization delay before booster can turn on
+    }
+    
+    // Turn on Booster to fire the laser
+    if (!laserIsFiring) {
+      digitalWrite(PIN_BOOSTER, HIGH);
+      laserIsFiring = true;
+    }
+    
+    lastActivityTime = millis();
+  } else {
+    // Stop firing laser immediately when trigger goes low
+    if (laserIsFiring) {
+      digitalWrite(PIN_BOOSTER, LOW);
+      laserIsFiring = false;
+      lastActivityTime = millis();
+    }
+    
+    // Keep MO on for 5ms after firing stops, matching manual diagram precisely
+    if (moIsOn && (millis() - lastActivityTime >= 5)) {
+      digitalWrite(PIN_MO, LOW);
+      prrTimer->setCaptureCompare(1, 0, PERCENT_COMPARE_FORMAT); // Force PRR output LOW
+      prrTimer->pause();   // Stop PRR (Pin 20) synchronously with Pin 18
+      moIsOn = false;
+    }
+  }
+
+  // --- 4. Dynamic Frequency Control (Galvo Pin 33 -> PB10 -> PA8) ---
+  // The Galvo is sending a PWM signal where duty cycle represents 20kHz - 80kHz
+  long currentHigh = freqHighTime;
+  long currentPeriod = freqTotalPeriod;
+  
+  if (currentPeriod > 0) {
+    float dutyRatio = (float)currentHigh / (float)currentPeriod;
+    
+    // The Galvo board outputs an INVERTED signal (Active Low).
+    // So if Python sent 90% duty cycle, we measure 10% high time here.
+    float actualDuty = 1.0 - dutyRatio; 
+    
+    // 10% duty = 0.1 -> 20kHz
+    // 90% duty = 0.9 -> 80kHz
+    if (actualDuty >= 0.05 && actualDuty <= 0.95) {
+      long targetFreq = 20000 + ((actualDuty - 0.1) / (0.9 - 0.1)) * (80000 - 20000);
+      targetFreq = constrain(targetFreq, 20000, 80000);
+      
+      // Only update hardware timer if changed by > 500Hz to prevent jitter
+      static long lastTargetFreq = 0;
+      if (abs(targetFreq - lastTargetFreq) > 500) {
+        prrTimer->setOverflow(targetFreq, HERTZ_FORMAT);
+        // Only force to 50% if laser is actually supposed to be on
+        if (moIsOn) {
+          prrTimer->setCaptureCompare(1, 50, PERCENT_COMPARE_FORMAT);
+        }
+        lastTargetFreq = targetFreq;
+      }
+    }
+  }
+}
+
+

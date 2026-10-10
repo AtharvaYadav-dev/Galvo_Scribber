@@ -1,0 +1,46 @@
+The 5 images you shared actually show the exact same "Hatch" dialog, but in each picture, the "Type" button has been changed.
+
+In EzCad, there are 5 different Hatch Types (patterns), and clicking that icon cycles through them. They dictate the physical path the laser takes to fill in a shape.
+
+Here is a breakdown of what each of those 5 types does, followed by an explanation of all the other buttons and settings in the dialog.
+
+1. The 5 Hatch Types (The "Type" Icon Button)
+Unidirectional Hatch (Icon: parallel lines with arrows on one side)
+What it does: The laser marks a line from left to right, turns the laser off, flies back to the left side, and marks the next line left to right.
+When to use: It is slower due to the fly-back time, but it often yields the most uniform engraving color and prevents burning on the edges.
+Bidirectional Hatch / Zigzag (Icon: connected zigzag "Z" lines)
+What it does: The laser marks left to right, drops down, and marks right to left continuously without turning off.
+When to use: This is the most common hatch. It is much faster than unidirectional.
+Ring-like / Concentric Hatch (Icon: concentric squares, shown in your Image 1)
+What it does: The laser fills the shape by drawing progressively smaller outlines from the outside edge towards the center.
+When to use: Excellent for deep engraving. It ensures the edges are perfectly filled and prevents the "stitch" marks that linear hatching can leave on the borders.
+Optimized Bidirectional / Bow-tie Hatch (Icon: continuous snake-like path, shown in Image 2)
+What it does: Similar to bidirectional, but the software calculates the most efficient continuous path. It tries to connect segments that are close together to minimize the time the laser spends jumping with the beam off.
+When to use: Extremely fast and good for complex shapes with lots of gaps.
+Auto-Sorting / Block Hatch (Icon: broken grid blocks, shown in Image 4)
+What it does: It breaks the shape into a smaller grid or tiles, and the laser hatches one small block completely before moving to the next block.
+When to use: Used specifically to prevent metal from warping due to heat buildup. By moving around in small blocks, the heat is dispersed rather than concentrated in one long sweeping line.
+2. Main Hatch Parameters
+Mark Contour (Checkbox at the top): If checked, the laser will trace the outer outline of the shape. You can click the colored square next to it to assign a specific "Pen" (speed/power settings) just for the outline.
+Hatch 1 / 2 / 3 (Radio Buttons): EzCad allows you to apply up to 3 different hatch layers to the same object at once. You can select "Hatch 2", check "Enable", and configure a completely different pattern (e.g., Hatch 1 at 0 degrees, Hatch 2 at 90 degrees).
+Enable: Turns the currently selected Hatch tab (1, 2, or 3) on or off.
+All calc: If you have multiple shapes selected, checking this treats them all as one giant shape when calculating the hatch lines. Unchecked means each shape is hatched individually.
+Follow edge once: Traces the outer edge of the shape one time after the hatch is completed to give a clean, sharp border.
+Cross hatch: A shortcut that automatically does a second hatch pass at a 90-degree angle to your first one, creating a dense mesh.
+3. Detailed Settings
+Angle (Deg): The angle of the hatch lines. 0 is horizontal, 90 is vertical, 45 is diagonal.
+Pen No.: Selects which "Pen" (from your main parameter list on the right side of EzCad) provides the Speed, Power, and Frequency for this specific hatch pass.
+Count: How many times this specific hatch pass will be repeated.
+Line Space (MM): The distance between each hatch line.
+Smaller numbers (e.g., 0.01mm) make a dark, dense, high-quality fill but take a long time.
+Larger numbers (e.g., 0.1mm) are much faster but might leave visible un-lasered gaps between the lines.
+Average distribute line: If checked, the software slightly adjusts your "Line Space" value so that the very first and very last hatch lines perfectly touch the edges of the shape without leaving a micro-gap.
+4. Edge and Offset Adjustments
+Edge Offset (MM): Creates a gap between the outer boundary of your shape and where the hatch lines actually start.
+Positive number: Leaves an un-lasered margin inside the shape.
+Negative number: Makes the hatch bleed outside the boundary of the shape.
+Start Offset / End Offset (MM): Shortens or lengthens the beginning or end of every single hatch line. This is used to fix "bulging" or burned edges if your physical laser delays are not tuned perfectly.
+Line reduction (MM): Shrinks the hatch lines on both sides by the specified amount.
+NumLoops & Loop distance: Before doing the internal zig-zag hatch, the laser can draw several contour rings just inside the border. NumLoops is how many rings to draw, and Loop distance is the space between them. This is the best way to get perfectly clean, dark edges on a fill.
+Auto rotate hatch angle (Checkbox & Degree): If your Count is greater than 1, checking this will rotate the hatch angle by this amount on each pass. (e.g., Pass 1 at 0°, Pass 2 at 10°, Pass 3 at 20°). Highly recommended for deep engraving, as it prevents deep trenches or "moiré" patterns from forming in the material.
+4:32 PM
