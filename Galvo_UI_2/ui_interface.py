@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceoKvXIb.ui'
+## Form generated from reading UI file 'interfaceLgbaoF.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -214,13 +214,35 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.paramapmatrixPushButton)
 
+        self.textgalvoPushButton = QPushButton(self.middleFrame)
+        self.textgalvoPushButton.setObjectName(u"textgalvoPushButton")
+        self.textgalvoPushButton.setMinimumSize(QSize(0, 34))
+        self.textgalvoPushButton.setFont(font1)
+        icon6 = QIcon()
+        icon6.addFile(u":/icons/icons/file-text.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.textgalvoPushButton.setIcon(icon6)
+        self.textgalvoPushButton.setIconSize(QSize(24, 24))
+
+        self.verticalLayout_3.addWidget(self.textgalvoPushButton)
+
+        self.qrgalvoPushButton = QPushButton(self.middleFrame)
+        self.qrgalvoPushButton.setObjectName(u"qrgalvoPushButton")
+        self.qrgalvoPushButton.setMinimumSize(QSize(0, 34))
+        self.qrgalvoPushButton.setFont(font1)
+        icon7 = QIcon()
+        icon7.addFile(u":/icons/icons/life-buoy.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.qrgalvoPushButton.setIcon(icon7)
+        self.qrgalvoPushButton.setIconSize(QSize(24, 24))
+
+        self.verticalLayout_3.addWidget(self.qrgalvoPushButton)
+
         self.terminalPushButton = QPushButton(self.middleFrame)
         self.terminalPushButton.setObjectName(u"terminalPushButton")
         self.terminalPushButton.setMinimumSize(QSize(0, 34))
         self.terminalPushButton.setFont(font)
-        icon6 = QIcon()
-        icon6.addFile(u":/icons/icons/monitor.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.terminalPushButton.setIcon(icon6)
+        icon8 = QIcon()
+        icon8.addFile(u":/icons/icons/monitor.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.terminalPushButton.setIcon(icon8)
         self.terminalPushButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_3.addWidget(self.terminalPushButton)
@@ -245,9 +267,9 @@ class Ui_MainWindow(object):
         self.comPushButton.setObjectName(u"comPushButton")
         self.comPushButton.setMinimumSize(QSize(0, 34))
         self.comPushButton.setFont(font)
-        icon7 = QIcon()
-        icon7.addFile(u":/icons/icons/link.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.comPushButton.setIcon(icon7)
+        icon9 = QIcon()
+        icon9.addFile(u":/icons/icons/link.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.comPushButton.setIcon(icon9)
         self.comPushButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_4.addWidget(self.comPushButton)
@@ -256,9 +278,9 @@ class Ui_MainWindow(object):
         self.settingsPushButton.setObjectName(u"settingsPushButton")
         self.settingsPushButton.setMinimumSize(QSize(0, 34))
         self.settingsPushButton.setFont(font)
-        icon8 = QIcon()
-        icon8.addFile(u":/icons/icons/settings.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.settingsPushButton.setIcon(icon8)
+        icon10 = QIcon()
+        icon10.addFile(u":/icons/icons/settings.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.settingsPushButton.setIcon(icon10)
         self.settingsPushButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_4.addWidget(self.settingsPushButton)
@@ -267,9 +289,9 @@ class Ui_MainWindow(object):
         self.infoPushButton.setObjectName(u"infoPushButton")
         self.infoPushButton.setMinimumSize(QSize(0, 34))
         self.infoPushButton.setFont(font)
-        icon9 = QIcon()
-        icon9.addFile(u":/icons/icons/info.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.infoPushButton.setIcon(icon9)
+        icon11 = QIcon()
+        icon11.addFile(u":/icons/icons/info.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.infoPushButton.setIcon(icon11)
         self.infoPushButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_4.addWidget(self.infoPushButton)
@@ -327,9 +349,9 @@ class Ui_MainWindow(object):
         self.closeCenterMenuPushButton = QPushButton(self.centerMenuFrame)
         self.closeCenterMenuPushButton.setObjectName(u"closeCenterMenuPushButton")
         self.closeCenterMenuPushButton.setMinimumSize(QSize(0, 30))
-        icon10 = QIcon()
-        icon10.addFile(u":/icons/icons/x-circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.closeCenterMenuPushButton.setIcon(icon10)
+        icon12 = QIcon()
+        icon12.addFile(u":/icons/icons/x-circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.closeCenterMenuPushButton.setIcon(icon12)
         self.closeCenterMenuPushButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_2.addWidget(self.closeCenterMenuPushButton, 0, Qt.AlignmentFlag.AlignRight)
@@ -812,7 +834,7 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {\n"
 "	background-color: rgb(172, 172, 172);\n"
 "}")
-        self.aboutPushButton.setIcon(icon9)
+        self.aboutPushButton.setIcon(icon11)
         self.aboutPushButton.setIconSize(QSize(32, 32))
 
         self.verticalLayout_9.addWidget(self.aboutPushButton)
@@ -843,9 +865,9 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {\n"
 "	background-color: rgb(172, 172, 172);\n"
 "}")
-        icon11 = QIcon()
-        icon11.addFile(u":/icons/icons/help-circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.helpPushButton.setIcon(icon11)
+        icon13 = QIcon()
+        icon13.addFile(u":/icons/icons/help-circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.helpPushButton.setIcon(icon13)
         self.helpPushButton.setIconSize(QSize(32, 32))
 
         self.verticalLayout_9.addWidget(self.helpPushButton)
@@ -902,9 +924,9 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {\n"
 "	background-color: rgb(172, 172, 172);\n"
 "}")
-        icon12 = QIcon()
-        icon12.addFile(u":/icons/icons/arrow-left.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.back1PushButton.setIcon(icon12)
+        icon14 = QIcon()
+        icon14.addFile(u":/icons/icons/arrow-left.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.back1PushButton.setIcon(icon14)
         self.back1PushButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_44.addWidget(self.back1PushButton)
@@ -964,7 +986,7 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {\n"
 "	background-color: rgb(172, 172, 172);\n"
 "}")
-        self.back2PushButton.setIcon(icon12)
+        self.back2PushButton.setIcon(icon14)
         self.back2PushButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_43.addWidget(self.back2PushButton)
@@ -1158,9 +1180,9 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.profilePushButton.sizePolicy().hasHeightForWidth())
         self.profilePushButton.setSizePolicy(sizePolicy4)
         self.profilePushButton.setMinimumSize(QSize(0, 22))
-        icon13 = QIcon()
-        icon13.addFile(u":/icons/icons/user.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.profilePushButton.setIcon(icon13)
+        icon15 = QIcon()
+        icon15.addFile(u":/icons/icons/user.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.profilePushButton.setIcon(icon15)
         self.profilePushButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_29.addWidget(self.profilePushButton)
@@ -1209,36 +1231,36 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setContentsMargins(5, 0, 5, 0)
         self.notifyPushButton = QPushButton(self.windowFrame)
         self.notifyPushButton.setObjectName(u"notifyPushButton")
-        icon14 = QIcon()
-        icon14.addFile(u":/icons/icons/bell.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.notifyPushButton.setIcon(icon14)
+        icon16 = QIcon()
+        icon16.addFile(u":/icons/icons/bell.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.notifyPushButton.setIcon(icon16)
         self.notifyPushButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_7.addWidget(self.notifyPushButton)
 
         self.minimizePushButton = QPushButton(self.windowFrame)
         self.minimizePushButton.setObjectName(u"minimizePushButton")
-        icon15 = QIcon()
-        icon15.addFile(u":/icons/icons/minus.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.minimizePushButton.setIcon(icon15)
+        icon17 = QIcon()
+        icon17.addFile(u":/icons/icons/minus.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.minimizePushButton.setIcon(icon17)
         self.minimizePushButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_7.addWidget(self.minimizePushButton)
 
         self.restorePushButton = QPushButton(self.windowFrame)
         self.restorePushButton.setObjectName(u"restorePushButton")
-        icon16 = QIcon()
-        icon16.addFile(u":/icons/icons/square.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.restorePushButton.setIcon(icon16)
+        icon18 = QIcon()
+        icon18.addFile(u":/icons/icons/square.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.restorePushButton.setIcon(icon18)
         self.restorePushButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_7.addWidget(self.restorePushButton)
 
         self.closePushButton = QPushButton(self.windowFrame)
         self.closePushButton.setObjectName(u"closePushButton")
-        icon17 = QIcon()
-        icon17.addFile(u":/icons/icons/x.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.closePushButton.setIcon(icon17)
+        icon19 = QIcon()
+        icon19.addFile(u":/icons/icons/x.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.closePushButton.setIcon(icon19)
         self.closePushButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_7.addWidget(self.closePushButton)
@@ -1512,9 +1534,9 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {\n"
 "	background-color: rgb(172, 172, 172);\n"
 "}")
-        icon18 = QIcon()
-        icon18.addFile(u":/icons/icons/circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.circlePushButton.setIcon(icon18)
+        icon20 = QIcon()
+        icon20.addFile(u":/icons/icons/circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.circlePushButton.setIcon(icon20)
         self.circlePushButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_87.addWidget(self.circlePushButton)
@@ -1545,9 +1567,9 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {\n"
 "	background-color: rgb(172, 172, 172);\n"
 "}")
-        icon19 = QIcon()
-        icon19.addFile(u":/icons/icons/triangle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.trianglePushButton.setIcon(icon19)
+        icon21 = QIcon()
+        icon21.addFile(u":/icons/icons/triangle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.trianglePushButton.setIcon(icon21)
         self.trianglePushButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_87.addWidget(self.trianglePushButton)
@@ -1578,7 +1600,7 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {\n"
 "	background-color: rgb(172, 172, 172);\n"
 "}")
-        self.squarePushButton.setIcon(icon16)
+        self.squarePushButton.setIcon(icon18)
         self.squarePushButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_87.addWidget(self.squarePushButton)
@@ -3652,9 +3674,9 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {\n"
 "	background-color: rgb(172, 172, 172);\n"
 "}")
-        icon20 = QIcon()
-        icon20.addFile(u":/icons/icons/play.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.printrungalvoPushButton.setIcon(icon20)
+        icon22 = QIcon()
+        icon22.addFile(u":/icons/icons/play.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.printrungalvoPushButton.setIcon(icon22)
         self.printrungalvoPushButton.setIconSize(QSize(32, 32))
 
         self.verticalLayout_71.addWidget(self.printrungalvoPushButton)
@@ -3684,7 +3706,7 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {\n"
 "	background-color: rgb(172, 172, 172);\n"
 "}")
-        self.printabortgalvoPushButton.setIcon(icon16)
+        self.printabortgalvoPushButton.setIcon(icon18)
         self.printabortgalvoPushButton.setIconSize(QSize(32, 32))
 
         self.verticalLayout_71.addWidget(self.printabortgalvoPushButton)
@@ -3826,7 +3848,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(-30, -354, 613, 687))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 613, 687))
         self.verticalLayout_85 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_85.setObjectName(u"verticalLayout_85")
         self.frame_42 = QFrame(self.scrollAreaWidgetContents_2)
@@ -5051,9 +5073,9 @@ class Ui_MainWindow(object):
 "QPushButton:disabled {\n"
 "	background-color: rgb(172, 172, 172);\n"
 "}")
-        icon21 = QIcon()
-        icon21.addFile(u":/icons/icons/arrow-right.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.termsendPushButton.setIcon(icon21)
+        icon23 = QIcon()
+        icon23.addFile(u":/icons/icons/arrow-right.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.termsendPushButton.setIcon(icon23)
         self.termsendPushButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_31.addWidget(self.termsendPushButton)
@@ -5092,7 +5114,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(-228, -398, 828, 731))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 828, 731))
         self.verticalLayout_93 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_93.setObjectName(u"verticalLayout_93")
         self.frame_62 = QFrame(self.scrollAreaWidgetContents_3)
@@ -6438,7 +6460,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, -275, 574, 620))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 574, 620))
         self.verticalLayout_8 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.frame_5 = QFrame(self.scrollAreaWidgetContents_4)
@@ -7141,6 +7163,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_98.addWidget(self.parametermatrixFrame)
 
         self.mainPages.addWidget(self.parametermatrixPage)
+        self.textPage = QWidget()
+        self.textPage.setObjectName(u"textPage")
+        self.mainPages.addWidget(self.textPage)
+        self.qrPage = QWidget()
+        self.qrPage.setObjectName(u"qrPage")
+        self.mainPages.addWidget(self.qrPage)
 
         self.horizontalLayout_11.addWidget(self.mainPages)
 
@@ -7187,9 +7215,9 @@ class Ui_MainWindow(object):
         self.closeNotifyPushButton = QPushButton(self.frame)
         self.closeNotifyPushButton.setObjectName(u"closeNotifyPushButton")
         self.closeNotifyPushButton.setText(u"")
-        icon22 = QIcon()
-        icon22.addFile(u":/icons/icons/x-octagon.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.closeNotifyPushButton.setIcon(icon22)
+        icon24 = QIcon()
+        icon24.addFile(u":/icons/icons/x-octagon.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.closeNotifyPushButton.setIcon(icon24)
         self.closeNotifyPushButton.setIconSize(QSize(24, 24))
         self.closeNotifyPushButton.setCheckable(False)
 
@@ -7256,7 +7284,7 @@ class Ui_MainWindow(object):
 
         self.centerMenuPages.setCurrentIndex(3)
         self.infoSubPages.setCurrentIndex(0)
-        self.mainPages.setCurrentIndex(6)
+        self.mainPages.setCurrentIndex(7)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -7270,6 +7298,8 @@ class Ui_MainWindow(object):
         self.programsgalvoPushButton.setText(QCoreApplication.translate("MainWindow", u" Programs Page", None))
         self.printgalvoPushButton.setText(QCoreApplication.translate("MainWindow", u" Print Page", None))
         self.paramapmatrixPushButton.setText(QCoreApplication.translate("MainWindow", u"Jog Page", None))
+        self.textgalvoPushButton.setText(QCoreApplication.translate("MainWindow", u"Lasers Config", None))
+        self.qrgalvoPushButton.setText(QCoreApplication.translate("MainWindow", u"Lasers Config", None))
         self.terminalPushButton.setText(QCoreApplication.translate("MainWindow", u"Terminal", None))
         self.comPushButton.setText(QCoreApplication.translate("MainWindow", u"Connect", None))
         self.settingsPushButton.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
