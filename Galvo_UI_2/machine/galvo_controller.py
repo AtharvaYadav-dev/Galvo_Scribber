@@ -5,6 +5,7 @@ class GalvoController:
     def __init__(self):
         self.connection = None
         self.is_connected = False
+        self.is_paused = False
         
     def connect(self, force_mock=False):
         if force_mock:
@@ -112,6 +113,27 @@ class GalvoController:
                                 except:
                                     pass
                             return False
+                            
+                    # --- PAUSE LOGIC ---
+                    while getattr(self, "is_paused", False):
+                        if laser_state:
+                            try:
+                                if hasattr(self.connection, 'send_buffer'):
+                                    self.connection.send_buffer()
+                                if hasattr(self.connection, 'wait_for_motion'):
+                                    self.connection.wait_for_motion()
+                                if hasattr(self.connection, 'laser_off'):
+                                    self.connection.laser_off()
+                            except:
+                                pass
+                            laser_state = False
+                            
+                        if abort_check and abort_check():
+                            print("Execution aborted by user while paused.")
+                            return False
+                            
+                        time.sleep(0.05)
+                    # -------------------
                         
                     # No processEvents here because we are running inside a QThread
                 

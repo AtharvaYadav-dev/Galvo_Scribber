@@ -35,6 +35,8 @@ from machine.galvo_controller import GalvoController
 from machine.stepper_controller import StepperController
 from core.svg_parser import SVGParser
 from core.text_parser import TextParser
+from text_ui_handler import TextUIHandler
+
 
 from pygrabber.dshow_graph import FilterGraph
 from camera_thread import CameraThread
@@ -98,6 +100,7 @@ class MainWindow(QMainWindow):
         # self.exceptionOccurred.connect(self.showExceptionPopup)
         
         self.lh = LaserHandler()
+        self.text_ui_handler = TextUIHandler(self)
         
         # variables
         self.jogfeed = 1000
@@ -1039,6 +1042,7 @@ class MainWindow(QMainWindow):
                 getattr(self.programgalvo_widgets, field).setValidator(int_validator)
 
     def setupPrintGalvo(self):
+        from PySide6.QtWidgets import QPushButton, QHBoxLayout, QLabel, QLineEdit, QCheckBox
         widget_list = []
         widget_list.append(self.wh.configWidget(self, QPushButton, "printrungalvoPushButton", "clicked", self.printGalvoAction, role="printrungalvo"))
         widget_list.append(self.wh.configWidget(self, QPushButton, "printabortgalvoPushButton", "clicked", self.printGalvoAction, role="printabortgalvo"))
@@ -1046,6 +1050,38 @@ class MainWindow(QMainWindow):
         self.util.dedupeList(widget_list)
         self.printgalvo_widgets = self.wh.createMap(*widget_list)
         self.ui.redlightprePushButton.setText("START")
+        
+        # Serial Number & Pause UI
+        sn_layout = QHBoxLayout()
+        
+        self.cb_use_serial = QCheckBox("Use Serial Number")
+        self.cb_use_serial.setStyleSheet("color: white; font-weight: bold;")
+        sn_layout.addWidget(self.cb_use_serial)
+        
+        self.serial_number_input = QLineEdit()
+        self.serial_number_input.setPlaceholderText("SN-001")
+        self.serial_number_input.setStyleSheet("background-color: #2c3e50; color: white; border: 1px solid #34495e; padding: 5px;")
+        self.serial_number_input.setMinimumWidth(150)
+        self.serial_number_input.setMaximumWidth(250)
+        self.serial_number_input.setEnabled(False)  # Disabled by default
+        
+        self.cb_use_serial.toggled.connect(self.serial_number_input.setEnabled)
+        
+        sn_layout.addWidget(self.serial_number_input)
+        sn_layout.addStretch()
+        
+        self.btn_pause_galvo = QPushButton("PAUSE")
+        self.btn_pause_galvo.setObjectName("btn_pause_galvo")
+        self.btn_pause_galvo.setStyleSheet("background-color: #f39c12; color: white; font-weight: bold; padding: 5px 15px; border-radius: 3px;")
+        self.btn_pause_galvo.setMinimumWidth(100)
+        self.btn_pause_galvo.setEnabled(False) # Disabled until print starts
+        self.btn_pause_galvo.setProperty("role", "printpausegalvo")
+        self.btn_pause_galvo.clicked.connect(lambda: self.printGalvoAction(self.btn_pause_galvo))
+        sn_layout.addWidget(self.btn_pause_galvo)
+        
+        # Insert at the top of the print page layout
+        if hasattr(self.ui, 'printgalvoPage') and self.ui.printgalvoPage.layout():
+            self.ui.printgalvoPage.layout().insertLayout(0, sn_layout)
         
 
         from PySide6.QtGui import QShortcut, QKeySequence
@@ -2714,6 +2750,16 @@ class MainWindow(QMainWindow):
                 self.showAutoCloseMessage("Empty Queue", "Load a pattern first.")
                 return
                 
+            # Serial Number Validation
+            if hasattr(self, 'cb_use_serial') and self.cb_use_serial.isChecked():
+                sn_text = self.serial_number_input.text().strip()
+                if not sn_text:
+                    self.showCustomPopup("Error", "Please enter a Serial Number (e.g. SN-001) before printing.")
+                    return
+                if not sn_text[-1].isdigit():
+                    self.showCustomPopup("Error", "Serial Number must end with a number!")
+                    return
+                
             try:
                 focus_z_str = self.ch.getValues("focus", "galvo_z_focus")
                 if focus_z_str:
@@ -2789,6 +2835,13 @@ class MainWindow(QMainWindow):
             self.wh.invokeMethod(self.printgalvo_widgets.printabortgalvo, "enable")
             self.wh.invokeMethod(self.printgalvo_widgets.redlightpre, "disable")
             
+            # Enable Pause button
+            if hasattr(self, 'btn_pause_galvo'):
+                self.btn_pause_galvo.setEnabled(True)
+                self.btn_pause_galvo.setText("PAUSE")
+            if hasattr(self, 'galvo_controller'):
+                self.galvo_controller.is_paused = False
+                
             self.galvo_exec_thread = ExecutionThread(self.galvo_controller, self.planner.send_queue, loop_count)
             self.galvo_exec_thread.finished_signal.connect(self.on_galvo_execution_finished)
             self.galvo_exec_thread.progress_signal.connect(self.on_galvo_execution_progress)
@@ -2804,6 +2857,16 @@ class MainWindow(QMainWindow):
             self.galvo_exec_thread.start()
 
         elif action == "printabortgalvo":
+            # Clear Serial Number on Abort
+            if hasattr(self, 'cb_use_serial') and self.cb_use_serial.isChecked() and hasattr(self, 'serial_number_input'):
+                self.serial_number_input.clear()
+                
+            if hasattr(self, 'btn_pause_galvo'):
+                self.btn_pause_galvo.setEnabled(False)
+                self.btn_pause_galvo.setText("PAUSE")
+            if hasattr(self, 'galvo_controller'):
+                self.galvo_controller.is_paused = False
+                
             if hasattr(self, "galvo_exec_thread") and self.galvo_exec_thread.isRunning():
                 self.wh.invokeMethod(widget, "disable")
                 self.galvo_exec_thread.abort()
@@ -2822,6 +2885,21 @@ class MainWindow(QMainWindow):
             if hasattr(self, "galvo_preview"):
                 self.galvo_preview.draw_queue([])
 
+        elif action == "printpausegalvo":
+            if hasattr(self, "galvo_controller"):
+                if getattr(self.galvo_controller, "is_paused", False):
+                    # It was paused, now resume
+                    self.galvo_controller.is_paused = False
+                    if hasattr(self, 'btn_pause_galvo'):
+                        self.btn_pause_galvo.setText("PAUSE")
+                        self.btn_pause_galvo.setStyleSheet("background-color: #f39c12; color: white; font-weight: bold; padding: 5px 15px; border-radius: 3px;")
+                else:
+                    # It was running, now pause
+                    self.galvo_controller.is_paused = True
+                    if hasattr(self, 'btn_pause_galvo'):
+                        self.btn_pause_galvo.setText("RESUME")
+                        self.btn_pause_galvo.setStyleSheet("background-color: #27ae60; color: white; font-weight: bold; padding: 5px 15px; border-radius: 3px;")
+                        
     def on_galvo_execution_progress(self, idx, total, x, y, ctype):
         if ctype and str(ctype).startswith("pass_change:"):
             try:
@@ -2853,6 +2931,12 @@ class MainWindow(QMainWindow):
         self.wh.invokeMethod(self.printgalvo_widgets.printabortgalvo, "disable")
         self.wh.invokeMethod(self.printgalvo_widgets.redlightpre, "enable")
         
+        if hasattr(self, 'btn_pause_galvo'):
+            self.btn_pause_galvo.setEnabled(False)
+            self.btn_pause_galvo.setText("PAUSE")
+        if hasattr(self, 'galvo_controller'):
+            self.galvo_controller.is_paused = False
+            
         is_disconnected = False
         if self.galvo_controller.connection and hasattr(self.galvo_controller.connection, 'is_physically_connected'):
             if not self.galvo_controller.connection.is_physically_connected():
@@ -2860,6 +2944,19 @@ class MainWindow(QMainWindow):
                 
         if success:
             self.showAutoCloseMessage("Success", "Galvo execution complete.")
+            
+            # Auto-increment Serial Number
+            if hasattr(self, 'cb_use_serial') and self.cb_use_serial.isChecked() and hasattr(self, 'serial_number_input'):
+                text = self.serial_number_input.text().strip()
+                if text:
+                    import re
+                    match = re.search(r'(\d+)$', text)
+                    if match:
+                        num_str = match.group(1)
+                        num_len = len(num_str)
+                        new_num = int(num_str) + 1
+                        new_text = text[:-num_len] + str(new_num).zfill(num_len)
+                        self.serial_number_input.setText(new_text)
         else:
             if is_disconnected:
                 self.showAutoCloseMessage("Hardware Disconnected", "USB removed. Aborting and disconnecting. Please restart the UI when card is connected again.")

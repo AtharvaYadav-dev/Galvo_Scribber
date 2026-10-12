@@ -81,8 +81,16 @@ class TextParser:
         windir = os.environ.get("WINDIR", "C:\\Windows")
         font_dir = os.path.join(windir, "Fonts")
         
-        # Load all TTF fonts
-        ttf_files = glob(os.path.join(font_dir, "*.ttf"))
+        # Load all TTF and OTF fonts from standard system dir
+        ttf_files = glob(os.path.join(font_dir, "*.ttf")) + glob(os.path.join(font_dir, "*.otf"))
+        
+        # Load fonts installed for the current user (Windows 10/11 standard)
+        local_app_data = os.environ.get("LOCALAPPDATA")
+        if local_app_data:
+            user_font_dir = os.path.join(local_app_data, "Microsoft", "Windows", "Fonts")
+            ttf_files += glob(os.path.join(user_font_dir, "*.ttf"))
+            ttf_files += glob(os.path.join(user_font_dir, "*.otf"))
+            
         for file in ttf_files:
             name = os.path.basename(file)
             self.fonts[name] = file
