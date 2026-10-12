@@ -364,6 +364,8 @@ class MainWindow(QMainWindow):
         
         self.wh.invokeMethod(self.left_menu_widgets.joggalvo, "show" if is_on else "hide")
         self.wh.invokeMethod(self.left_menu_widgets.qrgalvo, "show" if is_on else "hide")
+        if hasattr(self.left_menu_widgets, 'cadgalvo'):
+            self.wh.invokeMethod(self.left_menu_widgets.cadgalvo, "show" if is_on else "hide")
 #         self.wh.invokeMethod(self.left_menu_widgets.programsgalvo, "show" if is_on else "hide")
 #         self.wh.invokeMethod(self.left_menu_widgets.printgalvo, "show" if is_on else "hide")
         
@@ -598,6 +600,8 @@ class MainWindow(QMainWindow):
         left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "printgalvoPushButton", role="printgalvo", toolTip="Print Galvo"))
         left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "paramapmatrixPushButton", role="paramapmatrix", toolTip="Param Matrix"))
         left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "qrgalvoPushButton", role="qrgalvo", toolTip="QR/Barcode DXF"))
+        if hasattr(self.ui, 'printgalvoPushButton_2'):
+            left_menu_widget_list.append(self.wh.configWidget(self, QPushButton, "printgalvoPushButton_2", role="cadgalvo", toolTip="Cad Page"))
 
         self.util.dedupeList(left_menu_widget_list)
         self.left_menu_widgets = self.wh.createMap(*left_menu_widget_list)
@@ -642,6 +646,9 @@ class MainWindow(QMainWindow):
             self.qr_layout = QVBoxLayout(self.ui.qrPage)
             self.qr_widget = QRBarcodeWidget(self.ui.qrPage)
             self.qr_layout.addWidget(self.qr_widget)
+            
+        if hasattr(self.ui, 'printgalvoPushButton_2') and hasattr(self.ui, 'cadPage'):
+            self.ui.printgalvoPushButton_2.clicked.connect(lambda: self.main_stack.setCurrentWidget(self.ui.cadPage))
     
     def setupInfoPages(self):
         self.info_stack = self.findChild(QStackedWidget, "infoSubPages")
@@ -1047,11 +1054,12 @@ class MainWindow(QMainWindow):
         widget_list.append(self.wh.configWidget(self, QPushButton, "printrungalvoPushButton", "clicked", self.printGalvoAction, role="printrungalvo"))
         widget_list.append(self.wh.configWidget(self, QPushButton, "printabortgalvoPushButton", "clicked", self.printGalvoAction, role="printabortgalvo"))
         widget_list.append(self.wh.configWidget(self, QPushButton, "redlightprePushButton", "clicked", self.printGalvoAction, role="redlightpre"))
+        widget_list.append(self.wh.configWidget(self, QPushButton, "printpausePushButton", "clicked", self.printGalvoAction, role="printpausegalvo"))
         self.util.dedupeList(widget_list)
         self.printgalvo_widgets = self.wh.createMap(*widget_list)
         self.ui.redlightprePushButton.setText("START")
         
-        # Serial Number & Pause UI
+        # Serial Number UI
         sn_layout = QHBoxLayout()
         
         self.cb_use_serial = QCheckBox("Use Serial Number")
@@ -1070,15 +1078,6 @@ class MainWindow(QMainWindow):
         sn_layout.addWidget(self.serial_number_input)
         sn_layout.addStretch()
         
-        self.btn_pause_galvo = QPushButton("PAUSE")
-        self.btn_pause_galvo.setObjectName("btn_pause_galvo")
-        self.btn_pause_galvo.setStyleSheet("background-color: #f39c12; color: white; font-weight: bold; padding: 5px 15px; border-radius: 3px;")
-        self.btn_pause_galvo.setMinimumWidth(100)
-        self.btn_pause_galvo.setEnabled(False) # Disabled until print starts
-        self.btn_pause_galvo.setProperty("role", "printpausegalvo")
-        self.btn_pause_galvo.clicked.connect(lambda: self.printGalvoAction(self.btn_pause_galvo))
-        sn_layout.addWidget(self.btn_pause_galvo)
-        
         # Insert at the top of the print page layout
         if hasattr(self.ui, 'printgalvoPage') and self.ui.printgalvoPage.layout():
             self.ui.printgalvoPage.layout().insertLayout(0, sn_layout)
@@ -1091,6 +1090,9 @@ class MainWindow(QMainWindow):
         self.f2_shortcut = QShortcut(QKeySequence("F2"), self)
         self.f2_shortcut.activated.connect(self.handle_f2_shortcut)
 
+        self.f3_shortcut = QShortcut(QKeySequence("F3"), self)
+        self.f3_shortcut.activated.connect(self.handle_f3_shortcut)
+
     def handle_f1_shortcut(self):
         if hasattr(self.ui, 'redlightprePushButton') and self.ui.redlightprePushButton.isVisible():
             if self.ui.redlightprePushButton.isEnabled():
@@ -1102,6 +1104,23 @@ class MainWindow(QMainWindow):
                 self.printGalvoAction(self.ui.printrungalvoPushButton)
             elif hasattr(self.ui, 'printabortgalvoPushButton') and self.ui.printabortgalvoPushButton.isEnabled():
                 self.printGalvoAction(self.ui.printabortgalvoPushButton)
+
+    def handle_f3_shortcut(self):
+        if hasattr(self.ui, 'printpausePushButton') and self.ui.printpausePushButton.isEnabled():
+            self.printGalvoAction(self.ui.printpausePushButton)
+
+    def updateGalvoPauseUI(self, is_paused=False, enabled=None):
+        from PySide6.QtGui import QIcon
+        if hasattr(self.ui, 'printpausePushButton'):
+            btn = self.ui.printpausePushButton
+            if enabled is not None:
+                btn.setEnabled(enabled)
+            if is_paused:
+                btn.setToolTip("Resume (F3)")
+                btn.setIcon(QIcon(":/icons/icons/play.svg"))
+            else:
+                btn.setToolTip("Pause (F3)")
+                btn.setIcon(QIcon(":/icons/icons/pause.svg"))
 
 
     def setupConfigGalvo(self):
@@ -1242,6 +1261,11 @@ class MainWindow(QMainWindow):
         self.main_page_dict["terminal"] = 5
         self.main_page_dict["ezcad"] = 6
         self.main_page_dict["parametermatrix"] = 7
+        self.main_page_dict["text"] = 8
+        self.main_page_dict["qr"] = 9
+        self.main_page_dict["cad"] = 10
+        self.main_page_dict["cadgalvo"] = 10
+        self.main_page_dict["cadPage"] = 10
 
     
     def initInfoPages(self):
@@ -2836,9 +2860,7 @@ class MainWindow(QMainWindow):
             self.wh.invokeMethod(self.printgalvo_widgets.redlightpre, "disable")
             
             # Enable Pause button
-            if hasattr(self, 'btn_pause_galvo'):
-                self.btn_pause_galvo.setEnabled(True)
-                self.btn_pause_galvo.setText("PAUSE")
+            self.updateGalvoPauseUI(is_paused=False, enabled=True)
             if hasattr(self, 'galvo_controller'):
                 self.galvo_controller.is_paused = False
                 
@@ -2861,9 +2883,7 @@ class MainWindow(QMainWindow):
             if hasattr(self, 'cb_use_serial') and self.cb_use_serial.isChecked() and hasattr(self, 'serial_number_input'):
                 self.serial_number_input.clear()
                 
-            if hasattr(self, 'btn_pause_galvo'):
-                self.btn_pause_galvo.setEnabled(False)
-                self.btn_pause_galvo.setText("PAUSE")
+            self.updateGalvoPauseUI(is_paused=False, enabled=False)
             if hasattr(self, 'galvo_controller'):
                 self.galvo_controller.is_paused = False
                 
@@ -2890,15 +2910,11 @@ class MainWindow(QMainWindow):
                 if getattr(self.galvo_controller, "is_paused", False):
                     # It was paused, now resume
                     self.galvo_controller.is_paused = False
-                    if hasattr(self, 'btn_pause_galvo'):
-                        self.btn_pause_galvo.setText("PAUSE")
-                        self.btn_pause_galvo.setStyleSheet("background-color: #f39c12; color: white; font-weight: bold; padding: 5px 15px; border-radius: 3px;")
+                    self.updateGalvoPauseUI(is_paused=False)
                 else:
                     # It was running, now pause
                     self.galvo_controller.is_paused = True
-                    if hasattr(self, 'btn_pause_galvo'):
-                        self.btn_pause_galvo.setText("RESUME")
-                        self.btn_pause_galvo.setStyleSheet("background-color: #27ae60; color: white; font-weight: bold; padding: 5px 15px; border-radius: 3px;")
+                    self.updateGalvoPauseUI(is_paused=True)
                         
     def on_galvo_execution_progress(self, idx, total, x, y, ctype):
         if ctype and str(ctype).startswith("pass_change:"):
@@ -2931,9 +2947,7 @@ class MainWindow(QMainWindow):
         self.wh.invokeMethod(self.printgalvo_widgets.printabortgalvo, "disable")
         self.wh.invokeMethod(self.printgalvo_widgets.redlightpre, "enable")
         
-        if hasattr(self, 'btn_pause_galvo'):
-            self.btn_pause_galvo.setEnabled(False)
-            self.btn_pause_galvo.setText("PAUSE")
+        self.updateGalvoPauseUI(is_paused=False, enabled=False)
         if hasattr(self, 'galvo_controller'):
             self.galvo_controller.is_paused = False
             
@@ -3705,7 +3719,11 @@ class MainWindow(QMainWindow):
             "joggalvo": "joggalvo",
             "laserconfgalvo": "laserconfgalvo",
             "programsgalvo": "programsgalvo",
-            "printgalvo": "printgalvo"
+            "printgalvo": "printgalvo",
+            "qrgalvo": "qrgalvo",
+            "cad": "cadgalvo",
+            "cadgalvo": "cadgalvo",
+            "cadPage": "cadgalvo"
         }
         
         role = button_map.get(page)

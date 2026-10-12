@@ -150,7 +150,8 @@
                             "printgalvoPushButton": "printgalvoPage",
                             "paramapmatrixPushButton": "parametermatrixPage",
                             "textgalvoPushButton": "textPage",
-                            "qrgalvoPushButton": "qrPage"
+                            "qrgalvoPushButton": "qrPage",
+                            "printgalvoPushButton_2": "cadPage"
                         }
                     ]
                 }
@@ -197,7 +198,8 @@
                 "printgalvoPushButton",
                 "paramapmatrixPushButton",
                 "textgalvoPushButton",
-                "qrgalvoPushButton"
+                "qrgalvoPushButton",
+                "printgalvoPushButton_2"
             ],
             "ActiveButton": "joggalvoPushButton",
             "Style": [
