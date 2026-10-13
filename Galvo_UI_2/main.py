@@ -3102,6 +3102,8 @@ class MainWindow(QMainWindow):
                 # Dynamically sync to the galvo_config engine and update preview
                 self._apply_galvo_config_to_core()
                 self._apply_galvo_settings()
+                if hasattr(self, 'cad_widget') and self.cad_widget:
+                    self.cad_widget.refresh_field_size()
                 
                 # Show success popup
                 self.showAutoCloseMessage("Settings Saved", "Galvo configurations have been applied successfully.", timeout_ms=2000)
