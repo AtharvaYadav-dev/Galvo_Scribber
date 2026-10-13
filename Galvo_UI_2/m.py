@@ -648,6 +648,14 @@ class MainWindow(QMainWindow):
             self.qr_widget = QRBarcodeWidget(self.ui.qrPage)
             self.qr_layout.addWidget(self.qr_widget)
             
+        # Setup 2D CAD Canvas in cadPage
+        from cad_canvas import CadCanvasWidget
+        if hasattr(self.ui, 'cadPage'):
+            self.cad_layout = QVBoxLayout(self.ui.cadPage)
+            self.cad_layout.setContentsMargins(0, 0, 0, 0)
+            self.cad_widget = CadCanvasWidget(self.ui.cadPage, main_window=self)
+            self.cad_layout.addWidget(self.cad_widget)
+
         if hasattr(self.ui, 'printgalvoPushButton_2') and hasattr(self.ui, 'cadPage'):
             self.ui.printgalvoPushButton_2.clicked.connect(lambda: self.main_stack.setCurrentWidget(self.ui.cadPage))
     
