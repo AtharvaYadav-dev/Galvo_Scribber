@@ -56,13 +56,63 @@ class MotionPlanner:
             hatch_idx = cfg.get('hatch_idx', 1)
             self.preview_queue.append({'type': 'pass_change', 'idx': hatch_idx})
                 
-            shapely_polys = []
+            # Convert raw loop coordinates to valid Shapely Polygons
+            raw_polys = []
             for poly in polygons:
                 if len(poly) >= 3:
-                    p = Polygon(poly)
-                    if p.is_valid:
-                        shapely_polys.append(p)
-            
+                    try:
+                        poly_obj = Polygon(poly)
+                        if not poly_obj.is_valid:
+                            poly_obj = poly_obj.buffer(0)
+                        if not poly_obj.is_empty:
+                            if poly_obj.geom_type == 'MultiPolygon':
+                                raw_polys.extend(list(poly_obj.geoms))
+                            elif poly_obj.geom_type == 'Polygon':
+                                raw_polys.append(poly_obj)
+                    except Exception:
+                        pass
+
+            if not raw_polys:
+                continue
+
+            # Determine nesting depth for each polygon (even = solid shell / island, odd = hole)
+            n = len(raw_polys)
+            depths = [0] * n
+            for i in range(n):
+                for j in range(n):
+                    if i != j:
+                        try:
+                            if raw_polys[j].covers(raw_polys[i]):
+                                depths[i] += 1
+                        except Exception:
+                            pass
+
+            shells = [(i, raw_polys[i]) for i in range(n) if depths[i] % 2 == 0]
+            holes = [(i, raw_polys[i]) for i in range(n) if depths[i] % 2 == 1]
+
+            shapely_polys = []
+            for s_idx, s_poly in shells:
+                s_depth = depths[s_idx]
+                direct_holes = []
+                for h_idx, h_poly in holes:
+                    if depths[h_idx] == s_depth + 1:
+                        try:
+                            if s_poly.covers(h_poly):
+                                direct_holes.append(h_poly.exterior.coords)
+                        except Exception:
+                            pass
+                try:
+                    poly_with_holes = Polygon(shell=s_poly.exterior.coords, holes=direct_holes)
+                    if not poly_with_holes.is_valid:
+                        poly_with_holes = poly_with_holes.buffer(0)
+                    if not poly_with_holes.is_empty:
+                        if poly_with_holes.geom_type == 'MultiPolygon':
+                            shapely_polys.extend(list(poly_with_holes.geoms))
+                        else:
+                            shapely_polys.append(poly_with_holes)
+                except Exception:
+                    shapely_polys.append(s_poly)
+
             if cfg.get('all_calc', False):
                 try:
                     union_poly = unary_union(shapely_polys)

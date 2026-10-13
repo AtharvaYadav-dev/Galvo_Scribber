@@ -161,59 +161,57 @@ class QRBarcodeWidget(QWidget):
         filepath = os.path.join(self.save_dir, filename)
         
         try:
-            with open(filepath, 'w') as f:
-                if file_format == "DXF":
-                    # Minimal DXF header just to start the entities section
-                    f.write("  0\nSECTION\n  2\nENTITIES\n")
-                    
-                    def write_polyline(x1, y1, x2, y2, x3, y3, x4, y4):
-                        f.write("  0\nPOLYLINE\n  8\n0\n 66\n1\n 70\n1\n")
-                        f.write(f"  0\nVERTEX\n  8\n0\n 10\n{x1}\n 20\n{y1}\n 30\n0.0\n")
-                        f.write(f"  0\nVERTEX\n  8\n0\n 10\n{x2}\n 20\n{y2}\n 30\n0.0\n")
-                        f.write(f"  0\nVERTEX\n  8\n0\n 10\n{x3}\n 20\n{y3}\n 30\n0.0\n")
-                        f.write(f"  0\nVERTEX\n  8\n0\n 10\n{x4}\n 20\n{y4}\n 30\n0.0\n")
-                        f.write("  0\nSEQEND\n  8\n0\n")
+            if file_format == "DXF":
+                doc = ezdxf.new("R2010")
+                msp = doc.modelspace()
 
-                    if self.current_type == "QR":
-                        rows = len(self.current_matrix)
-                        cols = len(self.current_matrix[0])
-                        for y in range(rows):
-                            x = 0
-                            while x < cols:
-                                if self.current_matrix[y][x]:
-                                    start_x = x
-                                    while x < cols and self.current_matrix[y][x]:
-                                        x += 1
-                                    width = x - start_x
-                                    y_top = rows - y
-                                    y_bottom = rows - y - 1
-                                    pad = 0.002
-                                    write_polyline(start_x + pad, y_bottom + pad, 
-                                                start_x + width - pad, y_bottom + pad, 
-                                                start_x + width - pad, y_top - pad, 
-                                                start_x + pad, y_top - pad)
-                                else:
-                                    x += 1
-                    elif self.current_type == "BARCODE":
-                        row_data = self.current_matrix[0]
-                        height = 40
+                if self.current_type == "QR":
+                    rows = len(self.current_matrix)
+                    cols = len(self.current_matrix[0])
+                    for y in range(rows):
                         x = 0
-                        while x < len(row_data):
-                            if row_data[x] == '1':
+                        while x < cols:
+                            if self.current_matrix[y][x]:
                                 start_x = x
-                                while x < len(row_data) and row_data[x] == '1':
+                                while x < cols and self.current_matrix[y][x]:
                                     x += 1
                                 width = x - start_x
+                                y_top = rows - y
+                                y_bottom = rows - y - 1
                                 pad = 0.002
-                                write_polyline(start_x + pad, pad, 
-                                            start_x + width - pad, pad, 
-                                            start_x + width - pad, height - pad, 
-                                            start_x + pad, height - pad)
+                                pts = [
+                                    (start_x + pad, y_bottom + pad),
+                                    (start_x + width - pad, y_bottom + pad),
+                                    (start_x + width - pad, y_top - pad),
+                                    (start_x + pad, y_top - pad),
+                                ]
+                                msp.add_lwpolyline(pts, close=True)
                             else:
                                 x += 1
-                    f.write("  0\nENDSEC\n  0\nEOF\n")
-                    
-                elif file_format == "SVG":
+                elif self.current_type == "BARCODE":
+                    row_data = self.current_matrix[0]
+                    height = 40
+                    x = 0
+                    while x < len(row_data):
+                        if row_data[x] == '1':
+                            start_x = x
+                            while x < len(row_data) and row_data[x] == '1':
+                                x += 1
+                            width = x - start_x
+                            pad = 0.002
+                            pts = [
+                                (start_x + pad, pad),
+                                (start_x + width - pad, pad),
+                                (start_x + width - pad, height - pad),
+                                (start_x + pad, height - pad),
+                            ]
+                            msp.add_lwpolyline(pts, close=True)
+                        else:
+                            x += 1
+                doc.saveas(filepath)
+
+            elif file_format == "SVG":
+                with open(filepath, 'w') as f:
                     scale = 10 # Scaling factor to make the SVG larger
                     
                     if self.current_type == "QR":

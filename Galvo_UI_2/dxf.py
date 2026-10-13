@@ -121,6 +121,30 @@ class DXFParser:
                 out.append(p)
         return out
 
+    @staticmethod
+    def _is_inkscape_origin_line(x0, y0, x1, y1):
+        """
+        Detects lines belonging to the Bob Cook / Inkscape 'DXF R12 Output' origin mark
+        (an 'X' with 3 hash marks placed at x=0, y=page_height or y=0).
+        """
+        # All Inkscape origin mark lines lie within x in [-3, 5] mm
+        if max(abs(x0), abs(x1)) > 5.0:
+            return False
+
+        dx = abs(x1 - x0)
+        dy = abs(y1 - y0)
+
+        # Vertical line: length ~ 2.64583 mm (5/48 inch)
+        if abs(dx) < 0.02 and abs(dy - 2.64583) < 0.02:
+            return True
+        # Cross diagonal: dx ~ 1.5875 mm (1/16 inch), dy ~ 1.5875 mm
+        if abs(dx - 1.5875) < 0.02 and abs(dy - 1.5875) < 0.02:
+            return True
+        # Three hash marks: dx ~ 1.05833 mm (1/24 inch), dy ~ 1.05833 mm
+        if abs(dx - 1.05833) < 0.02 and abs(dy - 1.05833) < 0.02:
+            return True
+        return False
+
     # ------------------------------------------------------------------
     # DXF extraction
     # ------------------------------------------------------------------
@@ -158,6 +182,18 @@ class DXFParser:
         def process_entity(e):
             try:
                 layer = e.dxf.layer if e.dxf.hasattr("layer") else "default"
+                if layer.lower() == "defpoints":
+                    return
+
+                # Ignore layers that are turned off or frozen in the DXF layer table
+                if self.doc and hasattr(self.doc, "layers"):
+                    try:
+                        layer_obj = self.doc.layers.get(layer)
+                        if layer_obj and (layer_obj.is_off() or layer_obj.is_frozen()):
+                            return
+                    except Exception:
+                        pass
+
                 dxftype = e.dxftype()
 
                 if dxftype == "INSERT":
@@ -168,15 +204,40 @@ class DXFParser:
                     return
 
                 if dxftype == "LINE":
+                    x0 = float(e.dxf.start.x)
+                    y0 = float(e.dxf.start.y)
+                    x1 = float(e.dxf.end.x)
+                    y1 = float(e.dxf.end.y)
+                    # Automatically skip Bob Cook / Inkscape DXF R12 origin / registration marks
+                    if self._is_inkscape_origin_line(x0, y0, x1, y1):
+                        return
                     self.debug_stats["LINE"] += 1
                     entities[layer].append(
-                        ("LINE", (
-                            float(e.dxf.start.x),
-                            float(e.dxf.start.y),
-                            float(e.dxf.end.x),
-                            float(e.dxf.end.y),
-                        ))
+                        ("LINE", (x0, y0, x1, y1))
                     )
+                    return
+
+                if dxftype in ("SOLID", "3DFACE", "TRACE"):
+                    self.debug_stats[dxftype] = self.debug_stats.get(dxftype, 0) + 1
+                    try:
+                        v0 = (float(e.dxf.vtx0.x), float(e.dxf.vtx0.y), 0.0)
+                        v1 = (float(e.dxf.vtx1.x), float(e.dxf.vtx1.y), 0.0)
+                        v2 = (float(e.dxf.vtx2.x), float(e.dxf.vtx2.y), 0.0)
+                        v3 = (float(e.dxf.vtx3.x), float(e.dxf.vtx3.y), 0.0) if e.dxf.hasattr("vtx3") else v2
+                        if self._same_point((v2[0], v2[1]), (v3[0], v3[1]), self.point_duplicate_tolerance):
+                            pts = [v0, v1, v2]
+                        else:
+                            pts = [v0, v1, v3, v2]
+                        pts = self._remove_consecutive_duplicate_vertices(pts)
+                        if len(pts) >= 3:
+                            entities[layer].append(
+                                ("POLYLINE", {
+                                    "points": pts,
+                                    "closed": True,
+                                })
+                            )
+                    except Exception:
+                        pass
                     return
 
                 if dxftype in ("LWPOLYLINE", "POLYLINE"):
@@ -205,31 +266,16 @@ class DXFParser:
                     points = self._remove_consecutive_duplicate_vertices(points)
 
                     # Many CAD exporters store a closed polyline with the first
-                    # vertex repeated as the LAST vertex.  That repeated vertex
-                    # is a representation of the endpoint, not an additional
-                    # zero-length machining segment.
-                    #
-                    # In laser scribing (similar to EZcad), we only treat a polyline 
-                    # as closed if it physically closes or if the user exported it 
-                    # with identical start and end points. If it doesn't physically 
-                    # close, we ignore the DXF closed flag to avoid stray lines 
-                    # cutting across designs like open spirals.
-                    
-                    is_physically_closed = False
+                    # vertex repeated as the LAST vertex.
+                    # If start and end point meet, remove that duplicate endpoint
+                    # and ensure the polyline is marked as closed.
                     if len(points) >= 3 and self._same_point(
                         (points[0][0], points[0][1]),
                         (points[-1][0], points[-1][1]),
                         self.point_duplicate_tolerance,
                     ):
-                        is_physically_closed = True
-
-                    if closed and is_physically_closed:
-                        # Remove the duplicate endpoint so that the REAL last vertex keeps
-                        # its bulge, which correctly describes: last_real_vertex -> first_vertex
                         points.pop()
-                    elif closed and not is_physically_closed:
-                        # Ignore the closed flag because the endpoints do not physically meet.
-                        closed = False
+                        closed = True
 
                     # CRITICAL:
                     # Do NOT append first point here.
@@ -318,6 +364,11 @@ class DXFParser:
 
         for e in self.msp:
             process_entity(e)
+
+        # Remove layers that have no entities (e.g. if all entities in a layer were ignored)
+        empty_layers = [l for l, elist in entities.items() if not elist]
+        for l in empty_layers:
+            del entities[l]
 
         return entities
 
@@ -683,16 +734,43 @@ class DXFParser:
             # Fast contiguous path merge (O(N)) since paths are already sorted by _optimize_layer
             merged_paths = []
             current_path = []
+            join_tol = max(self.path_join_tolerance, 1e-4)
             
             for path in all_paths_mm:
                 if not path:
                     continue
-                    
+                
+                # If this path is already a closed loop (e.g. closed rectangle/polygon),
+                # keep it as a distinct shape so it doesn't merge into other geometry.
+                is_path_closed = (
+                    len(path) >= 3
+                    and abs(path[0][0] - path[-1][0]) <= join_tol
+                    and abs(path[0][1] - path[-1][1]) <= join_tol
+                )
+                
+                if is_path_closed:
+                    if current_path:
+                        merged_paths.append(current_path)
+                        current_path = []
+                    merged_paths.append(list(path))
+                    continue
+
                 if not current_path:
                     current_path = list(path)
                 else:
-                    # Check if the end of current_path matches the start of the new path
-                    if abs(current_path[-1][0] - path[0][0]) < 1e-4 and abs(current_path[-1][1] - path[0][1]) < 1e-4:
+                    # If current_path is already closed, finalize it before starting a new one
+                    is_current_closed = (
+                        len(current_path) >= 3
+                        and abs(current_path[0][0] - current_path[-1][0]) <= join_tol
+                        and abs(current_path[0][1] - current_path[-1][1]) <= join_tol
+                    )
+                    if is_current_closed:
+                        merged_paths.append(current_path)
+                        current_path = list(path)
+                    elif (
+                        abs(current_path[-1][0] - path[0][0]) <= join_tol
+                        and abs(current_path[-1][1] - path[0][1]) <= join_tol
+                    ):
                         current_path.extend(path[1:])
                     else:
                         merged_paths.append(current_path)
