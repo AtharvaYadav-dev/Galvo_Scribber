@@ -7447,3 +7447,34 @@
 2026-10-13 17:22 - INFO - ==================================================
 2026-10-13 17:22 - INFO - New session close at 2026-10-13 17:22
 2026-10-13 17:22 - INFO - ==================================================
+2026-10-14 10:30 - INFO - UI load successful
+2026-10-14 11:05 - INFO - UI load successful
+2026-10-14 12:27 - INFO - UI load successful
+2026-10-14 13:17 - INFO - UI load successful
+2026-10-14 14:25 - INFO - UI load successful
+2026-10-14 15:16 - INFO - UI load successful
+2026-10-14 15:18 - CRITICAL - Laser 1 : OFF
+2026-10-14 15:18 - CRITICAL - Laser 2 : OFF
+2026-10-14 15:18 - INFO - Stepper Lasers Shutdown
+2026-10-14 15:18 - INFO - COM connection close successfully
+2026-10-14 15:18 - INFO - Main window close successfully
+2026-10-14 15:18 - INFO - ==================================================
+2026-10-14 15:18 - INFO - New session close at 2026-10-14 15:18
+2026-10-14 15:18 - INFO - ==================================================
+2026-10-14 15:36 - INFO - UI load successful
+2026-10-14 15:39 - ERROR - Error generating text: 'MotionPlanner' object has no attribute 'generate_hatch'
+2026-10-14 15:39 - ERROR - Error generating text: 'MotionPlanner' object has no attribute 'generate_hatch'
+2026-10-14 15:40 - ERROR - Error generating text: 'MotionPlanner' object has no attribute 'generate_hatch'
+2026-10-14 15:42 - INFO - UI load successful
+2026-10-14 15:42 - INFO - Text generated and sent to planner. 17 polygons.
+2026-10-14 15:47 - INFO - >> Hardware Trigger: DI1 (Start) Pressed!
+2026-10-14 15:47 - INFO - >> Hardware Trigger: DI2 (Abort) Pressed!
+2026-10-14 15:57 - INFO - Galvo Laser Shutdown
+2026-10-14 15:57 - CRITICAL - Laser 1 : OFF
+2026-10-14 15:57 - CRITICAL - Laser 2 : OFF
+2026-10-14 15:57 - INFO - Stepper Lasers Shutdown
+2026-10-14 15:57 - INFO - COM connection close successfully
+2026-10-14 15:57 - INFO - Main window close successfully
+2026-10-14 15:57 - INFO - ==================================================
+2026-10-14 15:57 - INFO - New session close at 2026-10-14 15:57
+2026-10-14 15:57 - INFO - ==================================================
