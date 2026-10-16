@@ -62,6 +62,10 @@ class BaseConnection:
         """Turns the red dot laser OFF."""
         raise NotImplementedError
 
+    def is_buffer_ready(self):
+        """Returns True if the motion controller FIFO buffer has room for new commands."""
+        return True
+
     def send_buffer(self):
         """Sends the command buffer to the physical hardware."""
         pass

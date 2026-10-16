@@ -53,6 +53,10 @@ class MockConnection(BaseConnection):
         # In mock mode, we assume the machine is infinitely fast and returns immediately
         pass
 
+    def is_buffer_ready(self):
+        """Mock hardware buffer is always ready."""
+        return True
+
     def axis_move(self, axis, position, speed, is_relative=False):
         log_command(f"AXIS_MOVE {axis} {'REL' if is_relative else 'ABS'} {position} {speed}")
 

@@ -9,6 +9,13 @@
         "Enable Hatch": false,
         "Mode": null,
         "Laser Power": 40.0,
-        "Laser Frequency": 50.0
+        "Laser Frequency": 50.0,
+        "Enable Engraving": false,
+        "Engraving Material": "Aluminium",
+        "Engraving Depth": "1",
+        "Engraving Step": "0.02",
+        "Engraving Style": "Linear Bidirectional",
+        "Engraving Pitch": "0.03",
+        "Engraving Substrate Height": "0"
     }
 }
