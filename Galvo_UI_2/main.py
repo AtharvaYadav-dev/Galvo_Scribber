@@ -16,8 +16,10 @@ from ui_interface import *
 from Custom_Widgets.Widgets import *
 from PySide6.QtCore import QTimer, QRegularExpression, Signal, Slot, Qt, QThread, QEvent, QEventLoop, QSize
 from PySide6.QtGui import QIcon, QCloseEvent, QIntValidator, QDoubleValidator, QRegularExpressionValidator
-from PySide6.QtWidgets import QFileDialog
-from PySide6.QtWidgets import QMessageBox
+from PySide6.QtWidgets import (
+    QFileDialog, QMessageBox, QInputDialog, QFrame, QLabel, QLineEdit, 
+    QComboBox, QCheckBox, QPushButton, QHBoxLayout, QVBoxLayout, QSizePolicy
+)
 
 from com import SerialCom, SerialConfigError
 from util import CallbackHandler, FileHandler, ConfigHandler, AppLogger, Utils, CyclicBuffer
@@ -36,6 +38,7 @@ from machine.stepper_controller import StepperController
 from core.svg_parser import SVGParser
 from core.text_parser import TextParser
 from text_ui_handler import TextUIHandler
+from core.engraving_manager import EngravingManager
 
 
 from pygrabber.dshow_graph import FilterGraph
@@ -87,6 +90,7 @@ class MainWindow(QMainWindow):
         self.galvo_controller.connect()
         self.galvo_controller.galvo_home()
         self.stepper_controller = StepperController(self.galvo_controller.connection)
+        self.engraving_mgr = EngravingManager()
         self.galvo_preview_thread = None
         self.galvo_has_disconnected = False
         if not self.galvo_controller.is_connected:
@@ -1041,6 +1045,9 @@ class MainWindow(QMainWindow):
         self._load_hatch_profiles_from_config()
         self.load_hatch_profile(1)
         
+        # Setup Deep Engraving UI directly below widget_26 (Enable Hatching)
+        self.setupEngravingUI()
+        
         # Apply input validations
         double_validator = QDoubleValidator(-10000.0, 10000.0, 4, self)
         int_validator = QIntValidator(-10000, 1000000, self)
@@ -1394,6 +1401,394 @@ class MainWindow(QMainWindow):
                 self.camera_widgets.camstop.setVisible(False)
                 QTimer.singleShot(500, lambda: self.cameraAction(self.camera_widgets.camstart))
 
+    
+    def setupEngravingUI(self):
+        """
+        Creates and embeds the Deep Engraving / 2.5D Multi-layer controls into the Program Page,
+        directly below widget_26 (Enable Hatching).
+        """
+        if not hasattr(self.ui, 'verticalLayout_64') or not hasattr(self.ui, 'widget_26'):
+            return
+
+        # Container Widget
+        self.engraving_container = QWidget()
+        eng_layout = QVBoxLayout(self.engraving_container)
+        eng_layout.setContentsMargins(0, 4, 0, 4)
+        eng_layout.setSpacing(6)
+
+        # Style definitions matching the interface.ui palette
+        lbl_style = "color: rgb(16, 42, 131); font-weight: bold; font-size: 13pt;"
+        unit_style = "color: rgb(16, 42, 131); font-weight: bold; font-size: 13pt;"
+        edit_style = (
+            "QLineEdit {"
+            " border: 2px solid #102a83;"
+            " border-radius: 6px;"
+            " padding: 4px;"
+            " color: #102a83;"
+            " font-weight: bold;"
+            " font-size: 13pt;"
+            " background-color: #ffffff;"
+            "}"
+        )
+        combo_style = (
+            "QComboBox {"
+            " border: 2px solid #102a83;"
+            " border-radius: 6px;"
+            " padding: 4px 8px;"
+            " color: #102a83;"
+            " font-weight: bold;"
+            " font-size: 12pt;"
+            " background-color: #ffffff;"
+            " min-height: 32px;"
+            "}"
+            "QComboBox QAbstractItemView {"
+            " color: #102a83;"
+            " background-color: #ffffff;"
+            " selection-background-color: #a7c6e5;"
+            " selection-color: #102a83;"
+            " font-size: 12pt;"
+            "}"
+        )
+        btn_style = (
+            "QPushButton {"
+            " color: #ffffff;"
+            " background-color: #102a83;"
+            " border-radius: 8px;"
+            " padding: 6px 14px;"
+            " font-weight: bold;"
+            " font-size: 11pt;"
+            "}"
+            "QPushButton:hover {"
+            " background-color: #a7c6e5;"
+            " color: #102a83;"
+            "}"
+        )
+
+        # --- Row 1: Enable Engraving Toggle Header ---
+        header_widget = QWidget()
+        header_layout = QHBoxLayout(header_widget)
+        header_layout.setContentsMargins(0, 0, 0, 0)
+        header_layout.setSpacing(10)
+
+        lbl_engrave = QLabel("Enable Engraving :")
+        lbl_engrave.setStyleSheet(lbl_style)
+        header_layout.addWidget(lbl_engrave)
+
+        self.cb_enable_engraving = QCheckBox()
+        self.cb_enable_engraving.setCursor(Qt.PointingHandCursor)
+        self.cb_enable_engraving.setStyleSheet("QCheckBox::indicator { width: 22px; height: 22px; }")
+        header_layout.addWidget(self.cb_enable_engraving)
+        header_layout.addStretch()
+
+        eng_layout.addWidget(header_widget)
+
+        # --- Expandable Options Panel ---
+        self.engraving_options_widget = QFrame()
+        self.engraving_options_widget.setStyleSheet(
+            "QFrame {"
+            " border: 2px solid #102a83;"
+            " border-radius: 10px;"
+            " background-color: rgba(16, 42, 131, 0.04);"
+            " padding: 8px;"
+            "}"
+        )
+        self.engraving_options_widget.setVisible(False)
+        options_layout = QVBoxLayout(self.engraving_options_widget)
+        options_layout.setSpacing(10)
+
+        # Row A: Material Selection & Custom Add Button
+        row_mat = QHBoxLayout()
+        lbl_mat = QLabel("Material Preset :")
+        lbl_mat.setStyleSheet(lbl_style)
+        lbl_mat.setFixedWidth(160)
+        row_mat.addWidget(lbl_mat)
+
+        self.combo_engrave_material = QComboBox()
+        self.combo_engrave_material.setStyleSheet(combo_style)
+        self.combo_engrave_material.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        self.reload_engraving_materials()
+        row_mat.addWidget(self.combo_engrave_material)
+
+        self.btn_save_custom_material = QPushButton("+ Save As New Preset")
+        self.btn_save_custom_material.setStyleSheet(btn_style)
+        self.btn_save_custom_material.setCursor(Qt.PointingHandCursor)
+        self.btn_save_custom_material.clicked.connect(self.on_save_new_material_preset)
+        row_mat.addWidget(self.btn_save_custom_material)
+        options_layout.addLayout(row_mat)
+
+        # Row B: Substrate / Object Height & Target Engraving Depth
+        row_depth = QHBoxLayout()
+        lbl_obj = QLabel("Substrate Height :")
+        lbl_obj.setStyleSheet(lbl_style)
+        lbl_obj.setFixedWidth(160)
+        row_depth.addWidget(lbl_obj)
+
+        self.input_engrave_obj_height = QLineEdit("0.0")
+        self.input_engrave_obj_height.setStyleSheet(edit_style)
+        self.input_engrave_obj_height.setAlignment(Qt.AlignCenter)
+        self.input_engrave_obj_height.setValidator(QDoubleValidator(0.0, 150.0, 3, self))
+        row_depth.addWidget(self.input_engrave_obj_height)
+
+        u1 = QLabel("mm")
+        u1.setStyleSheet(unit_style)
+        row_depth.addWidget(u1)
+
+        row_depth.addSpacing(15)
+
+        lbl_target = QLabel("Target Depth :")
+        lbl_target.setStyleSheet(lbl_style)
+        row_depth.addWidget(lbl_target)
+
+        self.input_engrave_depth = QLineEdit("1.0")
+        self.input_engrave_depth.setStyleSheet(edit_style)
+        self.input_engrave_depth.setAlignment(Qt.AlignCenter)
+        self.input_engrave_depth.setValidator(QDoubleValidator(0.01, 5.0, 3, self))
+        row_depth.addWidget(self.input_engrave_depth)
+
+        u2 = QLabel("mm")
+        u2.setStyleSheet(unit_style)
+        row_depth.addWidget(u2)
+        options_layout.addLayout(row_depth)
+
+        # Row C: Z-Drop Step per Pass & Calculated Loops
+        row_step = QHBoxLayout()
+        lbl_step = QLabel("Z-Drop Step :")
+        lbl_step.setStyleSheet(lbl_style)
+        lbl_step.setFixedWidth(160)
+        row_step.addWidget(lbl_step)
+
+        self.input_engrave_step = QLineEdit("0.05")
+        self.input_engrave_step.setStyleSheet(edit_style)
+        self.input_engrave_step.setAlignment(Qt.AlignCenter)
+        self.input_engrave_step.setValidator(QDoubleValidator(0.005, 0.5, 4, self))
+        row_step.addWidget(self.input_engrave_step)
+
+        u3 = QLabel("mm")
+        u3.setStyleSheet(unit_style)
+        row_step.addWidget(u3)
+
+        row_step.addSpacing(15)
+
+        lbl_calc = QLabel("Total Passes :")
+        lbl_calc.setStyleSheet(lbl_style)
+        row_step.addWidget(lbl_calc)
+
+        self.label_engrave_loops = QLabel("20 Passes (1.00 mm)")
+        self.label_engrave_loops.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt; background: #e8f5e9; border: 1px solid #0b6623; border-radius: 6px; padding: 4px 10px;")
+        self.label_engrave_loops.setAlignment(Qt.AlignCenter)
+        row_step.addWidget(self.label_engrave_loops)
+        options_layout.addLayout(row_step)
+
+        # Row D: Engraving Pattern / Style & Hatch Pitch
+        row_style = QHBoxLayout()
+        lbl_style_title = QLabel("Engrave Pattern :")
+        lbl_style_title.setStyleSheet(lbl_style)
+        lbl_style_title.setFixedWidth(160)
+        row_style.addWidget(lbl_style_title)
+
+        self.combo_engrave_style = QComboBox()
+        self.combo_engrave_style.setStyleSheet(combo_style)
+        self.combo_engrave_style.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        self.combo_engrave_style.addItems(EngravingManager.ALL_STYLES)
+        row_style.addWidget(self.combo_engrave_style)
+
+        row_style.addSpacing(15)
+
+        lbl_pitch = QLabel("Hatch Pitch :")
+        lbl_pitch.setStyleSheet(lbl_style)
+        row_style.addWidget(lbl_pitch)
+
+        self.input_engrave_pitch = QLineEdit("0.04")
+        self.input_engrave_pitch.setStyleSheet(edit_style)
+        self.input_engrave_pitch.setAlignment(Qt.AlignCenter)
+        self.input_engrave_pitch.setValidator(QDoubleValidator(0.005, 0.5, 4, self))
+        self.input_engrave_pitch.setFixedWidth(80)
+        row_style.addWidget(self.input_engrave_pitch)
+
+        u4 = QLabel("mm")
+        u4.setStyleSheet(unit_style)
+        row_style.addWidget(u4)
+        options_layout.addLayout(row_style)
+
+        eng_layout.addWidget(self.engraving_options_widget)
+
+        # Insert directly below widget_26 in verticalLayout_64
+        idx = self.ui.verticalLayout_64.indexOf(self.ui.widget_26)
+        if idx >= 0:
+            self.ui.verticalLayout_64.insertWidget(idx + 1, self.engraving_container)
+        else:
+            self.ui.verticalLayout_64.addWidget(self.engraving_container)
+
+        # Signal connections
+        self.cb_enable_engraving.toggled.connect(self.on_engraving_toggled)
+        self.combo_engrave_material.currentIndexChanged.connect(self.on_engraving_material_changed)
+        self.input_engrave_depth.textChanged.connect(self.update_engraving_calculations)
+        self.input_engrave_step.textChanged.connect(self.update_engraving_calculations)
+        self.input_engrave_obj_height.textChanged.connect(self.on_engrave_obj_height_changed)
+        if hasattr(self.ui, 'pgmheightgalvoLineEdit'):
+            self.ui.pgmheightgalvoLineEdit.textChanged.connect(self.on_sample_height_changed_sync)
+
+    def reload_engraving_materials(self):
+        if not hasattr(self, 'combo_engrave_material'):
+            return
+        curr = self.combo_engrave_material.currentText()
+        self.combo_engrave_material.blockSignals(True)
+        self.combo_engrave_material.clear()
+        for mat_name in self.engraving_mgr.presets.keys():
+            self.combo_engrave_material.addItem(mat_name)
+        if curr and self.combo_engrave_material.findText(curr) >= 0:
+            self.combo_engrave_material.setCurrentText(curr)
+        self.combo_engrave_material.blockSignals(False)
+
+    def on_engraving_toggled(self, checked):
+        if hasattr(self, 'engraving_options_widget'):
+            self.engraving_options_widget.setVisible(checked)
+        if checked:
+            # Sync object height from sample height if available
+            if hasattr(self.ui, 'pgmheightgalvoLineEdit') and hasattr(self, 'input_engrave_obj_height'):
+                curr_sample = self.ui.pgmheightgalvoLineEdit.text()
+                if curr_sample:
+                    self.input_engrave_obj_height.setText(curr_sample)
+            # Apply current material preset settings
+            self.on_engraving_material_changed(self.combo_engrave_material.currentIndex())
+            self.update_engraving_calculations()
+
+    def on_engraving_material_changed(self, idx):
+        if not hasattr(self, 'combo_engrave_material') or not hasattr(self, 'cb_enable_engraving'):
+            return
+        mat_name = self.combo_engrave_material.currentText()
+        preset = self.engraving_mgr.presets.get(mat_name)
+        if not preset:
+            return
+
+        # Auto-fill Power
+        pwr = preset.get("power", 20.0)
+        if hasattr(self.ui, 'pgmlaserpowerLineEdit'):
+            self.ui.pgmlaserpowerLineEdit.setText(str(pwr))
+        if hasattr(self.ui, 'laserpowerLineEdit'):
+            self.ui.laserpowerLineEdit.setText(str(pwr))
+        if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2'):
+            self.ui.galvolaserpowerHorizontalSlider_2.setValue(int(float(pwr)))
+
+        # Auto-fill Frequency
+        freq = preset.get("frequency", 30.0)
+        if hasattr(self.ui, 'pgmlaserfreqLineEdit'):
+            self.ui.pgmlaserfreqLineEdit.setText(str(freq))
+        if hasattr(self.ui, 'laserfreqLineEdit'):
+            self.ui.laserfreqLineEdit.setText(str(freq))
+        if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
+            self.ui.galvolaserfreqHorizontalSlider.setValue(int(float(freq)))
+
+        # Auto-fill Speed
+        spd = preset.get("speed", 500.0)
+        if hasattr(self.ui, 'pgmmarkspeedgalvoLineEdit'):
+            self.ui.pgmmarkspeedgalvoLineEdit.setText(str(int(spd)))
+
+        # Auto-fill Z-Step
+        z_step = preset.get("z_step", 0.05)
+        if hasattr(self, 'input_engrave_step'):
+            self.input_engrave_step.setText(str(z_step))
+
+        # Auto-fill Style & Pitch
+        style = preset.get("hatch_style", EngravingManager.STYLE_CROSS_90)
+        if hasattr(self, 'combo_engrave_style'):
+            self.combo_engrave_style.setCurrentText(style)
+
+        pitch = preset.get("hatch_pitch", 0.04)
+        if hasattr(self, 'input_engrave_pitch'):
+            self.input_engrave_pitch.setText(str(pitch))
+
+        # Recommended depth
+        rec_depth = preset.get("max_depth", 1.0)
+        if hasattr(self, 'input_engrave_depth') and (not self.input_engrave_depth.text() or self.input_engrave_depth.text() in ["1.0", "0.0", ""]):
+            self.input_engrave_depth.setText(str(rec_depth))
+
+        self.update_engraving_calculations()
+
+    def update_engraving_calculations(self):
+        if not hasattr(self, 'input_engrave_depth') or not hasattr(self, 'input_engrave_step'):
+            return
+        try:
+            depth_str = self.input_engrave_depth.text().strip()
+            step_str = self.input_engrave_step.text().strip()
+            depth = float(depth_str or 0.0)
+            step = float(step_str or 0.05)
+
+            # Safety cap
+            if depth > 5.0:
+                depth = 5.0
+                self.input_engrave_depth.setText("5.0")
+            if step <= 0.001:
+                step = 0.05
+
+            loops = EngravingManager.calculate_loops(depth, step)
+            actual_depth = loops * step
+            if hasattr(self, 'label_engrave_loops'):
+                self.label_engrave_loops.setText(f"{loops} Passes ({actual_depth:.2f} mm)")
+
+            # Sync with main Loop Count
+            if hasattr(self, 'programgalvo_widgets') and hasattr(self.programgalvo_widgets, 'pgmloopcount'):
+                self.wh.invokeMethod(self.programgalvo_widgets.pgmloopcount, "set", str(loops))
+        except Exception:
+            pass
+
+    def on_save_new_material_preset(self):
+        name, ok = QInputDialog.getText(self, "Save Material Preset", "Enter New Material Preset Name:")
+        if not ok or not name.strip():
+            return
+        name = name.strip()
+
+        try:
+            pwr = float(self.ui.pgmlaserpowerLineEdit.text() or 20.0)
+        except:
+            pwr = 20.0
+        try:
+            freq = float(self.ui.pgmlaserfreqLineEdit.text() or 30.0)
+        except:
+            freq = 30.0
+        try:
+            spd = float(self.ui.pgmmarkspeedgalvoLineEdit.text() or 500.0)
+        except:
+            spd = 500.0
+        try:
+            z_step = float(self.input_engrave_step.text() or 0.05)
+        except:
+            z_step = 0.05
+        try:
+            depth = float(self.input_engrave_depth.text() or 2.0)
+        except:
+            depth = 2.0
+        try:
+            pitch = float(self.input_engrave_pitch.text() or 0.04)
+        except:
+            pitch = 0.04
+
+        style = self.combo_engrave_style.currentText()
+
+        saved = self.engraving_mgr.add_or_update_preset(
+            name=name, power=pwr, frequency=freq, speed=spd,
+            z_step=z_step, max_depth=depth, hatch_style=style, hatch_pitch=pitch
+        )
+        if saved:
+            self.reload_engraving_materials()
+            self.combo_engrave_material.setCurrentText(name)
+            self.showAutoCloseMessage("Preset Saved", f"Material preset '{name}' saved successfully!")
+
+    def on_engrave_obj_height_changed(self, text):
+        if hasattr(self.ui, 'pgmheightgalvoLineEdit'):
+            if self.ui.pgmheightgalvoLineEdit.text() != text:
+                self.ui.pgmheightgalvoLineEdit.setText(text)
+
+    def on_sample_height_changed_sync(self, text):
+        if hasattr(self, 'input_engrave_obj_height'):
+            if self.input_engrave_obj_height.text() != text:
+                self.input_engrave_obj_height.setText(text)
+
+    def on_engraving_depth_progress(self, current_layer, total_layers, current_depth, max_depth):
+        self._current_engraving_info = f"Pass {current_layer}/{total_layers} | Depth: {current_depth:.2f} mm / {max_depth:.2f} mm"
+        if hasattr(self.ui, 'progressLabel_2'):
+            pct = int((current_layer / max(1, total_layers)) * 100)
+            self.ui.progressLabel_2.setText(f"{self._current_engraving_info} | {pct}%")
     
     def initJogGalvo(self):
         pass
@@ -2201,6 +2596,22 @@ class MainWindow(QMainWindow):
                         cross = getattr(self.ui, 'pgmmodeCheckBox', None)
                         if cross: cross.setChecked(mode)
 
+                    enable_engrave = nested_params.get("Enable Engraving")
+                    if enable_engrave is not None and hasattr(self, 'cb_enable_engraving'):
+                        self.cb_enable_engraving.setChecked(bool(enable_engrave))
+                        if nested_params.get("Engraving Material") and hasattr(self, 'combo_engrave_material'):
+                            self.combo_engrave_material.setCurrentText(str(nested_params.get("Engraving Material")))
+                        if nested_params.get("Engraving Depth") and hasattr(self, 'input_engrave_depth'):
+                            self.input_engrave_depth.setText(str(nested_params.get("Engraving Depth")))
+                        if nested_params.get("Engraving Step") and hasattr(self, 'input_engrave_step'):
+                            self.input_engrave_step.setText(str(nested_params.get("Engraving Step")))
+                        if nested_params.get("Engraving Style") and hasattr(self, 'combo_engrave_style'):
+                            self.combo_engrave_style.setCurrentText(str(nested_params.get("Engraving Style")))
+                        if nested_params.get("Engraving Pitch") and hasattr(self, 'input_engrave_pitch'):
+                            self.input_engrave_pitch.setText(str(nested_params.get("Engraving Pitch")))
+                        if nested_params.get("Engraving Substrate Height") and hasattr(self, 'input_engrave_obj_height'):
+                            self.input_engrave_obj_height.setText(str(nested_params.get("Engraving Substrate Height")))
+
                     self.showAutoCloseMessage("Parameters Fetched", "Previous parameters for this file have been loaded.", timeout_ms=3000)
 
         elif action == "pgmenablehatch":
@@ -2264,6 +2675,14 @@ class MainWindow(QMainWindow):
                         "Laser Frequency": getattr(self, 'pgm_laserfreq', None)
                     }
                 }
+                if hasattr(self, 'cb_enable_engraving'):
+                    params["Galvo program page parameters"]["Enable Engraving"] = self.cb_enable_engraving.isChecked()
+                    params["Galvo program page parameters"]["Engraving Material"] = self.combo_engrave_material.currentText()
+                    params["Galvo program page parameters"]["Engraving Depth"] = self.input_engrave_depth.text()
+                    params["Galvo program page parameters"]["Engraving Step"] = self.input_engrave_step.text()
+                    params["Galvo program page parameters"]["Engraving Style"] = self.combo_engrave_style.currentText()
+                    params["Galvo program page parameters"]["Engraving Pitch"] = self.input_engrave_pitch.text()
+                    params["Galvo program page parameters"]["Engraving Substrate Height"] = self.input_engrave_obj_height.text()
                 if self.fh.saveDxfParams(self.pgm_file, params):
                     self.util.debugPrint(f"Saved parameters for Galvo file: {params}")
                     self.logger.info(f"Parameters saved for {self.pgm_file}")
@@ -2558,63 +2977,77 @@ class MainWindow(QMainWindow):
         self.planner.clear()
         
         is_hatch = self.ui.pgmenablehatchCheckBox.isChecked()
+        is_engraving = hasattr(self, 'cb_enable_engraving') and self.cb_enable_engraving.isChecked()
         mark_contour = getattr(self.ui, 'pgmmarkcontourCheckBox', None) and self.ui.pgmmarkcontourCheckBox.isChecked()
         
-        # If hatching is not enabled, we must draw the contour so something is printed
-        if not is_hatch:
+        # If hatching is not enabled and engraving is not enabled, mark contour
+        if not is_hatch and not is_engraving:
             mark_contour = True
         
         hatch_configs = []
-        if is_hatch:
-            self.save_current_hatch_profile()
-            
-            def build_cfg(p):
-                return {
-                    'enable': True,
-                    'follow_edge': p.get("follow_edge", False),
-                    'all_calc': p.get("all_calc", False),
-                    'cross_hatch': p.get("cross_hatch", False),
-                    'type': p.get("type", "Bidirectional"),
-                    'angle': float(p.get("angle", "0.0") or 0.0),
-                    'pen_no': 0,
-                    'count': int(p.get("count", "1") or 1),
-                    'line_space': float(p.get("line_space", "0.05") or 0.05),
-                    'avg_distribute': p.get("avg_dist", False),
-                    'edge_offset': float(p.get("edge_off", "0.0") or 0.0),
-                    'start_offset': float(p.get("start_off", "0.0") or 0.0),
-                    'end_offset': float(p.get("end_off", "0.0") or 0.0),
-                    'line_reduction': float(p.get("line_red", "0.0") or 0.0),
-                    'num_loops': int(p.get("num_loops", "0") or 0),
-                    'loop_distance': float(p.get("loop_dist", "0.05") or 0.05),
-                    'auto_rotate': p.get("auto_rot", False),
-                    'rotate_angle': float(p.get("rot_angle", "10.0") or 10.0),
-                    'hatch_idx': k
-                }
-            
-            for k, p in self.hatch_profiles.items():
-                if not p.get("enable", False):
-                    continue
-                try:
-                    hatch_configs.append(build_cfg(p))
-                except Exception as e:
-                    self.util.debugPrint(f"Hatch config {k} error: {e}")
-                    pass
-                    
-            if not hatch_configs:
-                # If hatch is globally enabled but no profiles are enabled, force profile 1
-                if 1 not in self.hatch_profiles:
-                    self.hatch_profiles[1] = {"enable": True}
-                else:
-                    self.hatch_profiles[1]["enable"] = True
+        if is_hatch or is_engraving:
+            if is_hatch:
+                self.save_current_hatch_profile()
                 
-                k = 1
+                def build_cfg(p):
+                    return {
+                        'enable': True,
+                        'follow_edge': p.get("follow_edge", False),
+                        'all_calc': p.get("all_calc", False),
+                        'cross_hatch': p.get("cross_hatch", False),
+                        'type': p.get("type", "Bidirectional"),
+                        'angle': float(p.get("angle", "0.0") or 0.0),
+                        'pen_no': 0,
+                        'count': int(p.get("count", "1") or 1),
+                        'line_space': float(p.get("line_space", "0.05") or 0.05),
+                        'avg_distribute': p.get("avg_dist", False),
+                        'edge_offset': float(p.get("edge_off", "0.0") or 0.0),
+                        'start_offset': float(p.get("start_off", "0.0") or 0.0),
+                        'end_offset': float(p.get("end_off", "0.0") or 0.0),
+                        'line_reduction': float(p.get("line_red", "0.0") or 0.0),
+                        'num_loops': int(p.get("num_loops", "0") or 0),
+                        'loop_distance': float(p.get("loop_dist", "0.05") or 0.05),
+                        'auto_rotate': p.get("auto_rot", False),
+                        'rotate_angle': float(p.get("rot_angle", "10.0") or 10.0),
+                        'hatch_idx': k
+                    }
+                
+                for k, p in self.hatch_profiles.items():
+                    if not p.get("enable", False):
+                        continue
+                    try:
+                        hatch_configs.append(build_cfg(p))
+                    except Exception as e:
+                        self.util.debugPrint(f"Hatch config {k} error: {e}")
+                        pass
+                        
+                if not hatch_configs and not is_engraving:
+                    # If hatch is globally enabled but no profiles are enabled, force profile 1
+                    if 1 not in self.hatch_profiles:
+                        self.hatch_profiles[1] = {"enable": True}
+                    else:
+                        self.hatch_profiles[1]["enable"] = True
+                    
+                    k = 1
+                    try:
+                        hatch_configs.append(build_cfg(self.hatch_profiles[1]))
+                        # Also update UI if it's the currently selected profile
+                        if getattr(self, 'current_hatch_idx', 1) == 1:
+                            self.ui.pgmenableCheckBox.setChecked(True)
+                    except Exception as e:
+                        self.util.debugPrint(f"Hatch config {k} fallback error: {e}")
+
+            # If engraving is active and no manual hatch configs, inject engraving pattern
+            if is_engraving and not hatch_configs:
+                style_name = self.combo_engrave_style.currentText()
                 try:
-                    hatch_configs.append(build_cfg(self.hatch_profiles[1]))
-                    # Also update UI if it's the currently selected profile
-                    if getattr(self, 'current_hatch_idx', 1) == 1:
-                        self.ui.pgmenableCheckBox.setChecked(True)
-                except Exception as e:
-                    self.util.debugPrint(f"Hatch config {k} fallback error: {e}")
+                    pitch_val = float(self.input_engrave_pitch.text() or 0.04)
+                except Exception:
+                    pitch_val = 0.04
+                engrave_cfg = EngravingManager.get_hatch_config_for_style(style_name, pitch_val)
+                engrave_cfg['hatch_idx'] = 1
+                hatch_configs = [engrave_cfg]
+                print(f"[Engraving] Auto-injected hatch config for '{style_name}' with pitch {pitch_val:.3f} mm")
                 
         all_polys_galvo = []
         seen_polys = set()
@@ -2641,7 +3074,7 @@ class MainWindow(QMainWindow):
                 for pt in poly_galvo[1:]:
                     self.planner.add_mark(pt[0], pt[1], speed=mark_speed)
                 
-        if is_hatch and hatch_configs:
+        if (is_hatch or is_engraving) and hatch_configs:
             self.planner.generate_hatch(
                 all_polys_galvo, 
                 hatch_configs,
@@ -2650,7 +3083,7 @@ class MainWindow(QMainWindow):
                 galvo_units_per_mm=galvo_units_per_mm
             )
             
-        if not is_hatch or not hatch_configs:
+        if not (is_hatch or is_engraving) or not hatch_configs:
             self.planner.optimize_path()
             
         self.planner.commit_to_send_queue()
@@ -2872,9 +3305,35 @@ class MainWindow(QMainWindow):
             if hasattr(self, 'galvo_controller'):
                 self.galvo_controller.is_paused = False
                 
-            self.galvo_exec_thread = ExecutionThread(self.galvo_controller, self.planner.send_queue, loop_count)
+            enable_engrave = hasattr(self, 'cb_enable_engraving') and self.cb_enable_engraving.isChecked()
+            z_step = 0.05
+            target_depth = 1.0
+            if enable_engrave:
+                try:
+                    z_step = float(self.input_engrave_step.text() or 0.05)
+                except ValueError:
+                    z_step = 0.05
+                try:
+                    target_depth = float(self.input_engrave_depth.text() or 1.0)
+                except ValueError:
+                    target_depth = 1.0
+
+            safe_z = locals().get('finalgalvofocus', getattr(self.stepper_controller, 'z_position', None))
+
+            self.galvo_exec_thread = ExecutionThread(
+                self.galvo_controller, 
+                self.planner.send_queue, 
+                loop_count,
+                stepper_controller=self.stepper_controller,
+                enable_engraving=enable_engrave,
+                z_step_mm=z_step,
+                target_depth_mm=target_depth,
+                settle_delay_s=0.15,
+                safe_return_z=safe_z
+            )
             self.galvo_exec_thread.finished_signal.connect(self.on_galvo_execution_finished)
             self.galvo_exec_thread.progress_signal.connect(self.on_galvo_execution_progress)
+            self.galvo_exec_thread.depth_signal.connect(self.on_engraving_depth_progress)
             
             if hasattr(self, "galvo_preview"):
                 self.galvo_preview.reset_progress()
@@ -2938,7 +3397,9 @@ class MainWindow(QMainWindow):
             
         if hasattr(self.ui, 'progressLabel_2'):
             pass_str = ""
-            if hasattr(self, "_current_printing_pass"):
+            if hasattr(self, "_current_engraving_info") and self._current_engraving_info:
+                pass_str = f"{self._current_engraving_info} | "
+            elif hasattr(self, "_current_printing_pass"):
                 active_hatches = 0
                 if hasattr(self, 'hatch_profiles'):
                     active_hatches = sum(1 for p in self.hatch_profiles.values() if p.get('enable', False))
@@ -2965,7 +3426,11 @@ class MainWindow(QMainWindow):
                 is_disconnected = True
                 
         if success:
-            self.showAutoCloseMessage("Success", "Galvo execution complete.")
+            if hasattr(self, '_current_engraving_info') and self._current_engraving_info:
+                self.showAutoCloseMessage("Success", f"Engraving complete! {self._current_engraving_info}")
+                self._current_engraving_info = ""
+            else:
+                self.showAutoCloseMessage("Success", "Galvo execution complete.")
             
             # Auto-increment Serial Number
             if hasattr(self, 'cb_use_serial') and self.cb_use_serial.isChecked() and hasattr(self, 'serial_number_input'):
@@ -2980,6 +3445,8 @@ class MainWindow(QMainWindow):
                         new_text = text[:-num_len] + str(new_num).zfill(num_len)
                         self.serial_number_input.setText(new_text)
         else:
+            if hasattr(self, '_current_engraving_info'):
+                self._current_engraving_info = ""
             if is_disconnected:
                 self.showAutoCloseMessage("Hardware Disconnected", "USB removed. Aborting and disconnecting. Please restart the UI when card is connected again.")
                 self.galvo_has_disconnected = True

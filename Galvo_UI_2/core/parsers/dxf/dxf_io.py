@@ -1,23 +1,19 @@
+import math
 import os.path
 
 import ezdxf
 from ezdxf import units
-
-from ..core.exceptions import BadFileError
-from ..core.units import UNITS_PER_INCH, UNITS_PER_MM
-
-try:
-    # ezdxf <= 0.6.14
-    from ezdxf.tools.rgb import DXF_DEFAULT_COLORS, int2rgb
-except ImportError:
-    # ezdxf > 0.6.14
-    from ezdxf import int2rgb
-    from ezdxf.colors import DXF_DEFAULT_COLORS
-import math
-
 from ezdxf.units import decode
 
-from meerk40t.svgelements import (
+# Modern ezdxf color mapping
+try:
+    from ezdxf.colors import DXF_DEFAULT_COLORS, int2rgb
+except ImportError:
+    from ezdxf.colors import DXF_DEFAULT_COLORS
+    int2rgb = getattr(ezdxf, "int2rgb", lambda c: (0, 0, 0))
+
+from core.mk_lib.core.units import UNITS_PER_INCH, UNITS_PER_MM
+from core.mk_lib.svgelements import (
     SVG_ATTR_VECTOR_EFFECT,
     SVG_VALUE_NON_SCALING_STROKE,
     Angle,
@@ -32,7 +28,12 @@ from meerk40t.svgelements import (
     Polyline,
     Viewbox,
 )
-from meerk40t.core.geomstr import Geomstr
+from core.mk_lib.core.geomstr import Geomstr
+
+
+class BadFileError(Exception):
+    """Abort loading a malformed file"""
+    pass
 
 
 class DxfLoader:
