@@ -1,0 +1,21 @@
+{
+    "Galvo program page parameters": {
+        "Sample Height": "0.0",
+        "Mark Speed": "500",
+        "Jump Speed": "2000",
+        "Loop Count": "100",
+        "Start Pos X": "0",
+        "Start Pos Y": "0",
+        "Enable Hatch": true,
+        "Mode": null,
+        "Laser Power": 90.0,
+        "Laser Frequency": 30.0,
+        "Enable Engraving": true,
+        "Engraving Material": "Aluminium",
+        "Engraving Depth": "2",
+        "Engraving Step": "0.02",
+        "Engraving Style": "Cross-Hatch (90\u00b0 Grid)",
+        "Engraving Pitch": "0.03",
+        "Engraving Substrate Height": "0.0"
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "Galvo program page parameters": {
+        "Sample Height": "4",
+        "Mark Speed": "500",
+        "Jump Speed": "1000",
+        "Loop Count": "50",
+        "Start Pos X": "0",
+        "Start Pos Y": "0",
+        "Enable Hatch": false,
+        "Mode": null,
+        "Laser Power": 90.0,
+        "Laser Frequency": 30.0,
+        "Enable Engraving": true,
+        "Engraving Material": "Aluminium",
+        "Engraving Depth": "1",
+        "Engraving Step": "0.02",
+        "Engraving Style": "Linear Bidirectional",
+        "Engraving Pitch": "0.01",
+        "Engraving Substrate Height": "4"
+    }
+}

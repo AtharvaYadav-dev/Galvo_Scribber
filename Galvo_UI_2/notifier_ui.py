@@ -329,18 +329,21 @@ class NotifierUI:
     @staticmethod
     def showAutoCloseMessage(main_window, title, message, timeout_ms=5000):
         """Show notification that auto-collapses after timeout_ms ms."""
+        if not hasattr(main_window, "btnOk"):
+            NotifierUI.setup(main_window)
         if hasattr(main_window, "notifyLabel"):
             main_window.notifyLabel.setText(title)
         if hasattr(main_window, "notifyTextEdit"):
             main_window.notifyTextEdit.setText(message)
 
-        main_window.btnOk.hide()
-        main_window.btnYes.hide()
-        main_window.btnNo.hide()
-        main_window.btnCancel.hide()
+        if hasattr(main_window, "btnOk"): main_window.btnOk.hide()
+        if hasattr(main_window, "btnYes"): main_window.btnYes.hide()
+        if hasattr(main_window, "btnNo"): main_window.btnNo.hide()
+        if hasattr(main_window, "btnCancel"): main_window.btnCancel.hide()
 
-        if not main_window.notify_menu_widgets.notify.isExpanded():
-            main_window.notify_menu_widgets.notify.expandMenu()
+        if hasattr(main_window, 'notify_menu_widgets') and hasattr(main_window.notify_menu_widgets, 'notify'):
+            if not main_window.notify_menu_widgets.notify.isExpanded():
+                main_window.notify_menu_widgets.notify.expandMenu()
         
         # Keep a persistent reference to the timer to prevent garbage collection
         if hasattr(main_window, '_auto_close_timer'):

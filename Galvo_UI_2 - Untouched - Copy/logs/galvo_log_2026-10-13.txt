@@ -1,0 +1,242 @@
+[10:55:21] 
+========================================
+[10:55:21] EXECUTION BATCH START (Loops: 1)
+[10:55:21] ========================================
+[11:02:59] EXECUTION FINISHED: Sent 39878 Mark commands and 39182 Jump commands in 457.67 seconds.
+[11:02:59] ========================================
+
+[11:08:50] 
+========================================
+[11:08:50] EXECUTION BATCH START (Loops: 1)
+[11:08:50] ========================================
+[11:08:52] EXECUTION FINISHED: Sent 296 Mark commands and 74 Jump commands in 1.60 seconds.
+[11:08:52] ========================================
+
+[11:09:53] 
+========================================
+[11:09:53] EXECUTION BATCH START (Loops: 10)
+[11:09:53] ========================================
+[11:10:07] EXECUTION FINISHED: Sent 2960 Mark commands and 740 Jump commands in 14.53 seconds.
+[11:10:07] ========================================
+
+[11:34:36] INIT_CARD (MOCK)
+[11:34:36] 
+========================================
+[11:34:36] EXECUTION BATCH START (Loops: 1)
+[11:34:36] ========================================
+[11:34:36] SET_IO pin=1 state=0
+[11:34:36] LASER_OFF
+[11:34:36] MOVE_XY 27171 27171 SPEED=1000000
+[11:34:36] SEND_BUFFER
+[11:34:36] SEND_BUFFER
+[11:34:36] SET_IO pin=1 state=1
+[11:34:36] LASER_ON
+[11:34:36] MOVE_XY 27171 30900 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] MOVE_XY 27702 30900 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] MOVE_XY 27702 27171 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] MOVE_XY 27171 27171 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] SEND_BUFFER
+[11:34:36] SET_IO pin=1 state=0
+[11:34:36] LASER_OFF
+[11:34:36] MOVE_XY 27704 27171 SPEED=1000000
+[11:34:36] SEND_BUFFER
+[11:34:36] SEND_BUFFER
+[11:34:36] SET_IO pin=1 state=1
+[11:34:36] LASER_ON
+[11:34:36] MOVE_XY 27704 27702 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] MOVE_XY 28235 27702 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] MOVE_XY 28235 27171 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] MOVE_XY 27704 27171 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] SEND_BUFFER
+[11:34:36] SET_IO pin=1 state=0
+[11:34:36] LASER_OFF
+[11:34:36] MOVE_XY 28237 27171 SPEED=1000000
+[11:34:36] SEND_BUFFER
+[11:34:36] SEND_BUFFER
+[11:34:36] SET_IO pin=1 state=1
+[11:34:36] LASER_ON
+[11:34:36] MOVE_XY 28237 27702 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] MOVE_XY 28768 27702 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] MOVE_XY 28768 27171 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] MOVE_XY 28237 27171 SPEED=500000
+[11:34:36] SEND_BUFFER
+[11:34:36] SEND_BUFFER
+[11:34:36] SET_IO pin=1 state=0
+[11:34:36] LASER_OFF
+[11:34:36] EXECUTION FINISHED: Sent 12 Mark commands and 3 Jump commands in 0.05 seconds.
+[11:34:36] ========================================
+
+[11:34:36] SET_IO pin=1 state=0
+[11:34:36] LASER_OFF
+[11:47:18] 
+========================================
+[11:47:18] EXECUTION BATCH START (Loops: 10)
+[11:47:18] ========================================
+[11:47:53] EXECUTION FINISHED: Sent 4640 Mark commands and 1160 Jump commands in 34.15 seconds.
+[11:47:53] ========================================
+
+[12:00:48] INIT_CARD (MOCK)
+[12:00:48] 
+========================================
+[12:00:48] EXECUTION BATCH START (Loops: 1)
+[12:00:48] ========================================
+[12:00:48] SET_IO pin=1 state=0
+[12:00:48] LASER_OFF
+[12:00:48] SET_ANALOG_DO_BIT max=100.0 crt=20.0 freq=50.0 bit=2
+[12:00:48] SET_ANALOG_DO_BIT max=100.0 crt=50.0 freq=7.5 bit=3
+[12:00:48] MOVE_XY 27171 27171 SPEED=1000000
+[12:00:48] SEND_BUFFER
+[12:00:48] SEND_BUFFER
+[12:00:48] SET_IO pin=1 state=1
+[12:00:48] LASER_ON
+[12:00:48] MOVE_XY 27171 30900 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 27702 30900 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 27702 27171 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 27171 27171 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] SEND_BUFFER
+[12:00:48] SET_IO pin=1 state=0
+[12:00:48] LASER_OFF
+[12:00:48] MOVE_XY 27704 27171 SPEED=1000000
+[12:00:48] SEND_BUFFER
+[12:00:48] SEND_BUFFER
+[12:00:48] SET_IO pin=1 state=1
+[12:00:48] LASER_ON
+[12:00:48] MOVE_XY 27704 27702 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 28235 27702 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 28235 27171 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 27704 27171 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] SEND_BUFFER
+[12:00:48] SET_IO pin=1 state=0
+[12:00:48] LASER_OFF
+[12:00:48] MOVE_XY 28237 27171 SPEED=1000000
+[12:00:48] SEND_BUFFER
+[12:00:48] SEND_BUFFER
+[12:00:48] SET_IO pin=1 state=1
+[12:00:48] LASER_ON
+[12:00:48] MOVE_XY 28237 27702 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 28768 27702 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 28768 27171 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 28237 27171 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] SEND_BUFFER
+[12:00:48] SET_IO pin=1 state=0
+[12:00:48] LASER_OFF
+[12:00:48] MOVE_XY 28770 27171 SPEED=1000000
+[12:00:48] SEND_BUFFER
+[12:00:48] SEND_BUFFER
+[12:00:48] SET_IO pin=1 state=1
+[12:00:48] LASER_ON
+[12:00:48] MOVE_XY 28770 27702 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 29301 27702 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 29301 27171 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 28770 27171 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] SEND_BUFFER
+[12:00:48] SET_IO pin=1 state=0
+[12:00:48] LASER_OFF
+[12:00:48] MOVE_XY 29303 27171 SPEED=1000000
+[12:00:48] SEND_BUFFER
+[12:00:48] SEND_BUFFER
+[12:00:48] SET_IO pin=1 state=1
+[12:00:48] LASER_ON
+[12:00:48] MOVE_XY 29303 27702 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 29834 27702 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 29834 27171 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] MOVE_XY 29303 27171 SPEED=500000
+[12:00:48] SEND_BUFFER
+[12:00:48] SEND_BUFFER
+[12:00:48] SET_IO pin=1 state=0
+[12:00:48] LASER_OFF
+[12:00:48] EXECUTION FINISHED: Sent 20 Mark commands and 5 Jump commands in 0.11 seconds.
+[12:00:48] ========================================
+
+[12:00:48] SET_IO pin=1 state=0
+[12:00:48] LASER_OFF
+[12:54:44] 
+========================================
+[12:54:44] EXECUTION BATCH START (Loops: 1)
+[12:54:44] ========================================
+[12:54:47] EXECUTION FINISHED: Sent 464 Mark commands and 116 Jump commands in 2.76 seconds.
+[12:54:47] ========================================
+
+[13:15:14] 
+========================================
+[13:15:14] EXECUTION BATCH START (Loops: 1)
+[13:15:14] ========================================
+[13:15:16] EXECUTION FINISHED: Sent 464 Mark commands and 116 Jump commands in 2.07 seconds.
+[13:15:16] ========================================
+
+[14:15:57] 
+========================================
+[14:15:57] EXECUTION BATCH START (Loops: 1)
+[14:15:57] ========================================
+[14:15:59] EXECUTION FINISHED: Sent 2022 Mark commands and 30 Jump commands in 2.26 seconds.
+[14:15:59] ========================================
+
+[14:16:49] 
+========================================
+[14:16:49] EXECUTION BATCH START (Loops: 1)
+[14:16:49] ========================================
+[14:16:51] EXECUTION FINISHED: Sent 2022 Mark commands and 30 Jump commands in 2.26 seconds.
+[14:16:51] ========================================
+
+[14:25:30] 
+========================================
+[14:25:30] EXECUTION BATCH START (Loops: 1)
+[14:25:30] ========================================
+[14:25:31] EXECUTION FINISHED: Sent 262 Mark commands and 40 Jump commands in 0.91 seconds.
+[14:25:31] ========================================
+
+[14:58:14] 
+========================================
+[14:58:14] EXECUTION BATCH START (Loops: 1)
+[14:58:14] ========================================
+[14:58:15] EXECUTION FINISHED: Sent 262 Mark commands and 40 Jump commands in 0.90 seconds.
+[14:58:15] ========================================
+
+[17:28:01] 
+========================================
+[17:28:01] EXECUTION BATCH START (Loops: 1)
+[17:28:01] ========================================
+[17:29:34] 
+========================================
+[17:29:34] EXECUTION BATCH START (Loops: 1)
+[17:29:34] ========================================
+[17:32:22] EXECUTION FINISHED: Sent 153253 Mark commands and 1 Jump commands in 167.10 seconds.
+[17:32:22] ========================================
+
+[17:33:42] 
+========================================
+[17:33:42] EXECUTION BATCH START (Loops: 1)
+[17:33:42] ========================================
+[17:36:28] EXECUTION FINISHED: Sent 153253 Mark commands and 1 Jump commands in 166.39 seconds.
+[17:36:28] ========================================
+

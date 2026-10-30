@@ -1,0 +1,83 @@
+{
+  "POM / Delrin (Hard Plastic)": {
+    "power": 14.0,
+    "frequency": 50.0,
+    "speed": 800.0,
+    "z_step": 0.05,
+    "max_depth": 3.0,
+    "hatch_style": "Cross-Hatch (90\u00b0 Grid)",
+    "hatch_pitch": 0.04
+  },
+  "ABS (Hard Plastic)": {
+    "power": 18.0,
+    "frequency": 40.0,
+    "speed": 650.0,
+    "z_step": 0.05,
+    "max_depth": 3.5,
+    "hatch_style": "Cross-Hatch (90\u00b0 Grid)",
+    "hatch_pitch": 0.05
+  },
+  "Acrylic / PMMA": {
+    "power": 20.0,
+    "frequency": 30.0,
+    "speed": 500.0,
+    "z_step": 0.05,
+    "max_depth": 4.0,
+    "hatch_style": "Cross-Hatch (45\u00b0 / 135\u00b0 Diamond)",
+    "hatch_pitch": 0.03
+  },
+  "Nylon (PA)": {
+    "power": 22.0,
+    "frequency": 60.0,
+    "speed": 700.0,
+    "z_step": 0.05,
+    "max_depth": 3.0,
+    "hatch_style": "Linear Unidirectional",
+    "hatch_pitch": 0.05
+  },
+  "Polycarbonate (PC)": {
+    "power": 12.0,
+    "frequency": 45.0,
+    "speed": 900.0,
+    "z_step": 0.04,
+    "max_depth": 3.0,
+    "hatch_style": "Concentric / Spiral Rings",
+    "hatch_pitch": 0.05
+  },
+  "Aluminium": {
+    "power": 90.0,
+    "frequency": 30.0,
+    "speed": 500.0,
+    "z_step": 0.02,
+    "max_depth": 2.0,
+    "hatch_style": "Cross-Hatch (90\u00b0 Grid)",
+    "hatch_pitch": 0.03
+  },
+  "Brass / Copper": {
+    "power": 95.0,
+    "frequency": 25.0,
+    "speed": 450.0,
+    "z_step": 0.02,
+    "max_depth": 2.0,
+    "hatch_style": "Cross-Hatch (45\u00b0 / 135\u00b0 Diamond)",
+    "hatch_pitch": 0.025
+  },
+  "Stainless Steel / Steel": {
+    "power": 85.0,
+    "frequency": 35.0,
+    "speed": 400.0,
+    "z_step": 0.015,
+    "max_depth": 2.0,
+    "hatch_style": "Cross-Hatch (90\u00b0 Grid)",
+    "hatch_pitch": 0.02
+  },
+  "Rusted Metal": {
+    "power": 85.0,
+    "frequency": 35.0,
+    "speed": 400.0,
+    "z_step": 0.015,
+    "max_depth": 1.0,
+    "hatch_style": "Cross-Hatch (90\u00b0 Grid)",
+    "hatch_pitch": 0.02
+  }
+}

@@ -1,0 +1,29 @@
+{
+    "Galvo program page parameters": {
+        "Sample Height": "0.0",
+        "Mark Speed": "810",
+        "Jump Speed": "1500",
+        "Loop Count": "500",
+        "Start Pos X": "0",
+        "Start Pos Y": "0",
+        "Enable Hatch": false,
+        "Mode": null,
+        "Laser Power": 100.0,
+        "Laser Frequency": 80.0,
+        "Enable Engraving": false,
+        "Engraving Material": "POM / Delrin (Hard Plastic)",
+        "Engraving Depth": "1.0",
+        "Engraving Step": "0.05",
+        "Engraving Style": "Cross-Hatch (90\u00b0 Grid)",
+        "Engraving Pitch": "0.04",
+        "Engraving Substrate Height": "0.0",
+        "Enable 3D Engraving": true,
+        "3D Material": "Brass Blank (~1.8 mm)",
+        "3D Resolution": "Custom (Manual Passes)",
+        "3D Slicing Mode": "Imported Sliced G-Code Relief (*.gcode, *.nc)",
+        "3D Model File": "D:/Atharva/Galvo_Scribber/Galvo_UI_2/DeepEngrave/rupee_10_relief_27mm.gcode",
+        "3D Max Depth": "0.75",
+        "3D Passes": "500",
+        "3D Pitch": "0.015"
+    }
+}

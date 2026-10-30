@@ -1,0 +1,29 @@
+{
+    "Galvo program page parameters": {
+        "Sample Height": "0.0",
+        "Mark Speed": "2000",
+        "Jump Speed": "2000",
+        "Loop Count": "1",
+        "Start Pos X": "0",
+        "Start Pos Y": "0",
+        "Enable Hatch": false,
+        "Mode": null,
+        "Laser Power": 20.0,
+        "Laser Frequency": 80.0,
+        "Enable Engraving": false,
+        "Engraving Material": "POM / Delrin (Hard Plastic)",
+        "Engraving Depth": "1.0",
+        "Engraving Step": "0.05",
+        "Engraving Style": "Cross-Hatch (90\u00b0 Grid)",
+        "Engraving Pitch": "0.04",
+        "Engraving Substrate Height": "0.0",
+        "Enable 3D Engraving": true,
+        "3D Material": "Brass Blank (~1.8 mm)",
+        "3D Resolution": "Ultra / Highest (~500 Passes - Die Grade)",
+        "3D Slicing Mode": "3D Mesh / STL Relief (Direct STL Slicing)",
+        "3D Model File": "D:/Atharva/Galvo_Scribber/Galvo_UI_2/svg_files/smooth_spiral_0.5mm_pitch.dxf",
+        "3D Max Depth": "0.75",
+        "3D Passes": "500",
+        "3D Pitch": "0.015"
+    }
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="2drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.0989207"
+     inkscape:cx="499.78068"
+     inkscape:cy="272.2828"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="409.65904"
+       y="161.70752"
+       width="40.426879"
+       height="37.731754"
+       id="rect2" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 109.09605,51.504936 h -3.07622 v -0.475771 l 1.21876,-1.231793 q 0.35194,-0.35194 0.59308,-0.625672 0.24115,-0.273732 0.36498,-0.534429 0.12383,-0.267214 0.12383,-0.58005 0,-0.384528 -0.22811,-0.58005 -0.22811,-0.20204 -0.59309,-0.20204 -0.3389,0 -0.5996,0.117313 -0.25418,0.117314 -0.52139,0.325871 l -0.30632,-0.384527 q 0.27373,-0.22811 0.62567,-0.384528 0.35846,-0.162936 0.80164,-0.162936 0.65175,0 1.02976,0.332389 0.37801,0.325871 0.37801,0.905921 0,0.364976 -0.1499,0.684329 -0.14991,0.319354 -0.41712,0.63219 -0.26721,0.306319 -0.62567,0.658259 l -0.9711,0.958061 v 0.02607 h 2.35279 z"
+       id="text1"
+       style="font-size:6.51742px;fill:#010000;fill-opacity:0.439216;stroke:#000000;stroke-width:0.54312"
+       transform="scale(1.058727,0.9445306)"
+       aria-label="2" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text2"
+       style="white-space:pre;shape-inside:url(#rect2);display:inline;fill:#010000;fill-opacity:0.439216;stroke:#000000" />
+  </g>
+</svg>

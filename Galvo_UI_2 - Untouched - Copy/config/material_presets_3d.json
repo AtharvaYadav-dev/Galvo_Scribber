@@ -1,0 +1,200 @@
+{
+  "Aluminium (6061 / 7075)": {
+    "power": 88.0,
+    "frequency": 30.0,
+    "speed": 600.0,
+    "resolutions": {
+      "Fine (High Quality / Smooth)": {
+        "z_step": 0.008,
+        "hatch_pitch": 0.025
+      },
+      "Standard (Balanced Speed & Detail)": {
+        "z_step": 0.015,
+        "hatch_pitch": 0.035
+      },
+      "Fast (Draft / Deep Removal)": {
+        "z_step": 0.03,
+        "hatch_pitch": 0.05
+      }
+    },
+    "default_resolution": "Standard (Balanced Speed & Detail)",
+    "bg_margin": 2.0,
+    "cross_layer_rotate": true
+  },
+  "Stainless Steel / Steel": {
+    "power": 90.0,
+    "frequency": 35.0,
+    "speed": 500.0,
+    "resolutions": {
+      "Fine (High Quality / Smooth)": {
+        "z_step": 0.006,
+        "hatch_pitch": 0.02
+      },
+      "Standard (Balanced Speed & Detail)": {
+        "z_step": 0.012,
+        "hatch_pitch": 0.03
+      },
+      "Fast (Draft / Deep Removal)": {
+        "z_step": 0.025,
+        "hatch_pitch": 0.045
+      }
+    },
+    "default_resolution": "Standard (Balanced Speed & Detail)",
+    "bg_margin": 2.0,
+    "cross_layer_rotate": true
+  },
+  "Brass / Copper": {
+    "power": 95.0,
+    "frequency": 25.0,
+    "speed": 450.0,
+    "resolutions": {
+      "Fine (High Quality / Smooth)": {
+        "z_step": 0.008,
+        "hatch_pitch": 0.025
+      },
+      "Standard (Balanced Speed & Detail)": {
+        "z_step": 0.015,
+        "hatch_pitch": 0.035
+      },
+      "Fast (Draft / Deep Removal)": {
+        "z_step": 0.03,
+        "hatch_pitch": 0.05
+      }
+    },
+    "default_resolution": "Standard (Balanced Speed & Detail)",
+    "bg_margin": 2.0,
+    "cross_layer_rotate": true
+  },
+  "Titanium": {
+    "power": 80.0,
+    "frequency": 40.0,
+    "speed": 600.0,
+    "resolutions": {
+      "Fine (High Quality / Smooth)": {
+        "z_step": 0.006,
+        "hatch_pitch": 0.025
+      },
+      "Standard (Balanced Speed & Detail)": {
+        "z_step": 0.012,
+        "hatch_pitch": 0.035
+      },
+      "Fast (Draft / Deep Removal)": {
+        "z_step": 0.025,
+        "hatch_pitch": 0.045
+      }
+    },
+    "default_resolution": "Standard (Balanced Speed & Detail)",
+    "bg_margin": 2.0,
+    "cross_layer_rotate": true
+  },
+  "Tool Steel / Mold Steel": {
+    "power": 92.0,
+    "frequency": 30.0,
+    "speed": 450.0,
+    "resolutions": {
+      "Fine (High Quality / Smooth)": {
+        "z_step": 0.005,
+        "hatch_pitch": 0.02
+      },
+      "Standard (Balanced Speed & Detail)": {
+        "z_step": 0.01,
+        "hatch_pitch": 0.03
+      },
+      "Fast (Draft / Deep Removal)": {
+        "z_step": 0.02,
+        "hatch_pitch": 0.04
+      }
+    },
+    "default_resolution": "Standard (Balanced Speed & Detail)",
+    "bg_margin": 2.0,
+    "cross_layer_rotate": true
+  },
+  "POM / Delrin (Hard Plastic)": {
+    "power": 20.0,
+    "frequency": 50.0,
+    "speed": 850.0,
+    "resolutions": {
+      "Fine (High Quality / Smooth)": {
+        "z_step": 0.02,
+        "hatch_pitch": 0.035
+      },
+      "Standard (Balanced Speed & Detail)": {
+        "z_step": 0.04,
+        "hatch_pitch": 0.045
+      },
+      "Fast (Draft / Deep Removal)": {
+        "z_step": 0.08,
+        "hatch_pitch": 0.06
+      }
+    },
+    "default_resolution": "Standard (Balanced Speed & Detail)",
+    "bg_margin": 2.0,
+    "cross_layer_rotate": true
+  },
+  "Acrylic / PMMA": {
+    "power": 22.0,
+    "frequency": 35.0,
+    "speed": 600.0,
+    "resolutions": {
+      "Fine (High Quality / Smooth)": {
+        "z_step": 0.02,
+        "hatch_pitch": 0.03
+      },
+      "Standard (Balanced Speed & Detail)": {
+        "z_step": 0.04,
+        "hatch_pitch": 0.04
+      },
+      "Fast (Draft / Deep Removal)": {
+        "z_step": 0.08,
+        "hatch_pitch": 0.06
+      }
+    },
+    "default_resolution": "Standard (Balanced Speed & Detail)",
+    "bg_margin": 2.0,
+    "cross_layer_rotate": true
+  },
+  "ABS / Hard Polymers": {
+    "power": 22.0,
+    "frequency": 45.0,
+    "speed": 700.0,
+    "resolutions": {
+      "Fine (High Quality / Smooth)": {
+        "z_step": 0.025,
+        "hatch_pitch": 0.035
+      },
+      "Standard (Balanced Speed & Detail)": {
+        "z_step": 0.05,
+        "hatch_pitch": 0.045
+      },
+      "Fast (Draft / Deep Removal)": {
+        "z_step": 0.09,
+        "hatch_pitch": 0.06
+      }
+    },
+    "default_resolution": "Standard (Balanced Speed & Detail)",
+    "bg_margin": 2.0,
+    "cross_layer_rotate": true
+  },
+  "Wood / Organic Material": {
+    "power": 20.0,
+    "frequency": 35.0,
+    "speed": 900.0,
+    "resolutions": {
+      "Fine (High Quality / Smooth)": {
+        "z_step": 0.03,
+        "hatch_pitch": 0.04
+      },
+      "Standard (Balanced Speed & Detail)": {
+        "z_step": 0.06,
+        "hatch_pitch": 0.05
+      },
+      "Fast (Draft / Deep Removal)": {
+        "z_step": 0.12,
+        "hatch_pitch": 0.07
+      }
+    },
+    "default_resolution": "Standard (Balanced Speed & Detail)",
+    "bg_margin": 2.0,
+    "cross_layer_rotate": true
+  }
+}

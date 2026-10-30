@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="150mm"
+   height="150mm"
+   viewBox="0 0 300 300"
+   version="1.1"
+   id="svg13"
+   sodipodi:docname="yantra.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.51948287"
+     inkscape:cx="469.69787"
+     inkscape:cy="466.81039"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg13" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .bg { fill: #fdfbf7; }
+      .border-line { fill: none; stroke: #1e293b; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .thin-line { fill: none; stroke: #64748b; stroke-width: 1.2; stroke-dasharray: 3 3; }
+      .accent-shape { fill: none; stroke: #0f172a; stroke-width: 1.8; }
+      .accent-fill { fill: #0ea5e9; fill-opacity: 0.12; stroke: #0284c7; stroke-width: 1.5; }
+      .center-dot { fill: #0f172a; }
+    </style>
+  </defs>
+  <!-- 150mm Canvas Background -->
+  <path
+     id="rect1"
+     class="bg"
+     style="fill:#fdfbf7"
+     d="m 12,0 h 276 c 6.648,0 12,5.352 12,12 v 276 c 0,6.648 -5.352,12 -12,12 H 12 C 5.352,300 0,294.648 0,288 V 12 C 0,5.352 5.352,0 12,0 Z" />
+  <!-- Outer Framing -->
+  <path
+     id="rect2"
+     class="border-line"
+     style="fill:none;stroke:#1e293b;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round"
+     d="m 26,20 h 248 c 3.324,0 6,2.676 6,6 v 248 c 0,3.324 -2.676,6 -6,6 H 26 c -3.324,0 -6,-2.676 -6,-6 V 26 c 0,-3.324 2.676,-6 6,-6 z" />
+  <path
+     id="rect3"
+     class="thin-line"
+     style="fill:none;stroke:#64748b;stroke-width:1.2;stroke-dasharray:3, 3"
+     d="m 31,28 h 238 c 1.662,0 3,1.338 3,3 v 238 c 0,1.662 -1.338,3 -3,3 H 31 c -1.662,0 -3,-1.338 -3,-3 V 31 c 0,-1.662 1.338,-3 3,-3 z" />
+  <!-- Corner Accents -->
+  <path
+     class="border-line"
+     d="M 20 45 L 45 45 L 45 20"
+     id="path3" />
+  <path
+     class="border-line"
+     d="M 280 45 L 255 45 L 255 20"
+     id="path4" />
+  <path
+     class="border-line"
+     d="M 20 255 L 45 255 L 45 280"
+     id="path5" />
+  <path
+     class="border-line"
+     d="M 280 255 L 255 255 L 255 280"
+     id="path6" />
+  <!-- Central Concentric Guides -->
+  <path
+     id="circle6"
+     class="thin-line"
+     style="fill:none;stroke:#64748b;stroke-width:1.2;stroke-dasharray:3, 3"
+     d="M 255,150 A 105,105 0 0 1 150,255 105,105 0 0 1 45,150 105,105 0 0 1 150,45 105,105 0 0 1 255,150 Z" />
+  <path
+     id="circle7"
+     class="accent-shape"
+     style="fill:none;stroke:#0f172a;stroke-width:1.8"
+     d="m 235,150 a 85,85 0 0 1 -85,85 85,85 0 0 1 -85,-85 85,85 0 0 1 85,-85 85,85 0 0 1 85,85 z" />
+  <path
+     id="circle8"
+     class="thin-line"
+     style="fill:none;stroke:#64748b;stroke-width:1.2;stroke-dasharray:3, 3"
+     d="m 215,150 a 65,65 0 0 1 -65,65 65,65 0 0 1 -65,-65 65,65 0 0 1 65,-65 65,65 0 0 1 65,65 z" />
+  <!-- Rotated Diamonds (Geometric Star Motif) -->
+  <g
+     transform="translate(150, 150)"
+     id="g13">
+    <!-- 8-Pointed Outer Star Layer -->
+    <path
+       id="rect8"
+       class="accent-fill"
+       style="fill:#0ea5e9;fill-opacity:0.12;stroke:#0284c7;stroke-width:1.5"
+       d="M -52,-60 H 52 c 4.432,0 8,3.568 8,8 V 52 c 0,4.432 -3.568,8 -8,8 H -52 c -4.432,0 -8,-3.568 -8,-8 V -52 c 0,-4.432 3.568,-8 8,-8 z" />
+    <path
+       id="rect9"
+       class="accent-fill"
+       transform="rotate(45)"
+       style="fill:#0ea5e9;fill-opacity:0.12;stroke:#0284c7;stroke-width:1.5"
+       d="M -52,-60 H 52 c 4.432,0 8,3.568 8,8 V 52 c 0,4.432 -3.568,8 -8,8 H -52 c -4.432,0 -8,-3.568 -8,-8 V -52 c 0,-4.432 3.568,-8 8,-8 z" />
+    <!-- Inner Sharp Star -->
+    <path
+       id="polygon9"
+       class="accent-shape"
+       style="fill:none;stroke:#0f172a;stroke-width:1.8"
+       d="M 0,-75 18,-25 75,0 18,25 0,75 -18,25 -75,0 -18,-25 Z" />
+    <path
+       id="polygon10"
+       class="accent-shape"
+       transform="rotate(45)"
+       style="fill:none;stroke:#0f172a;stroke-width:1.8"
+       d="M 0,-75 18,-25 75,0 18,25 0,75 -18,25 -75,0 -18,-25 Z" />
+    <!-- Center Core -->
+    <path
+       id="circle10"
+       class="bg"
+       style="fill:#fdfbf7"
+       d="M 28,0 A 28,28 0 0 1 0,28 28,28 0 0 1 -28,0 28,28 0 0 1 0,-28 28,28 0 0 1 28,0 Z" />
+    <path
+       id="circle11"
+       class="border-line"
+       style="fill:none;stroke:#1e293b;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round"
+       d="M 28,0 A 28,28 0 0 1 0,28 28,28 0 0 1 -28,0 28,28 0 0 1 0,-28 28,28 0 0 1 28,0 Z" />
+    <path
+       id="circle12"
+       class="accent-fill"
+       style="fill:#0ea5e9;fill-opacity:0.12;stroke:#0284c7;stroke-width:1.5"
+       d="M 16,0 A 16,16 0 0 1 0,16 16,16 0 0 1 -16,0 16,16 0 0 1 0,-16 16,16 0 0 1 16,0 Z" />
+    <path
+       id="circle13"
+       class="center-dot"
+       style="fill:#0f172a"
+       d="M 4,0 A 4,4 0 0 1 0,4 4,4 0 0 1 -4,0 4,4 0 0 1 0,-4 4,4 0 0 1 4,0 Z" />
+  </g>
+</svg>

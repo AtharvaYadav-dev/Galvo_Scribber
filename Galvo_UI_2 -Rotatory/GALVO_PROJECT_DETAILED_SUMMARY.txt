@@ -1,0 +1,682 @@
+================================================================================
+          SPECIALISE PRODUCTS PRIVATE LIMITED (SPPL) / SPECIALISE INDIA
+                 GALVO LASER SCRIBING & PATTERNING SYSTEM
+                    (GALVO STUDIO / PATTERNING MACHINE)
+              EXHAUSTIVE TECHNICAL, HARDWARE & ARCHITECTURAL SUMMARY
+================================================================================
+Project Name        : Galvo Laser Scribing & Patterning System (Galvo Studio / Galvo_UI_2)
+Internal Identifiers: Galvo_Studio, Patterning_Machine, Galvo_UI_2
+Company             : Specialise Products Private Limited (SPPL) / Specialise India
+Primary Author/Dev  : Atharva
+Workspace Directory : d:/Atharva/Galvo_Scribber/Galvo_UI_2
+Core Entry Points   : app.py (Modern React+PyWebView UI) | main.py (PySide6 / Qt UI)
+Motion Driver DLL   : gt5motion_GT.dll / gt5motion.dll (Googol Technology GT5 / ProSys U3)
+Microcontroller     : STM32F411CEU6 "Black Pill" ARM Cortex-M4 (Signal Conditioning & DB25 Bridge)
+Target Hardware     : Dual-Galvanometer Optical Scanner with Motorized Z-Axis Focus & Q-Switched/MOPA Fiber Laser
+Target Field Sizes  : 70 x 70 mm (f=100mm lens) | 100 x 100 mm (f=160mm lens) | 110 x 110 mm
+Date Generated      : October 2026
+================================================================================
+
+TABLE OF CONTENTS:
+--------------------------------------------------------------------------------
+1. EXECUTIVE SUMMARY & SYSTEM OVERVIEW
+   1.1 Purpose and Industrial Application
+   1.2 System Evolution & Dual-Architecture Framework
+   1.3 Key Engineering Capabilities & Operational Scope
+
+2. COMPLETE HARDWARE SPECIFICATIONS & ELECTRONIC ARCHITECTURE
+   2.1 Laser Source & Optical Delivery System
+   2.2 Laser DB25 Control Interface & Pin Configuration
+   2.3 Googol Technology GT5 / ProSys U3 Galvo Motion Controller Card
+   2.4 Native DLL Driver Architecture (gt5motion_GT.dll)
+   2.5 STM32F411CEU6 Black Pill Microcontroller Subsystem
+   2.6 Motorized Z-Axis Stepper Motion Subsystem
+   2.7 Dual Galvanometer Mirror Scanner Assembly (Galvo 1 & Galvo 2)
+   2.8 Machine Vision & Optical Inspection Camera Subsystem
+
+3. COMPLETE SOFTWARE STACK & TECHNOLOGIES USED
+   3.1 Modernized Web-Tech Desktop Framework (React 18 + Vite + PyWebView)
+   3.2 Original Qt Desktop Framework (PySide6 + Qt Designer + Custom Widgets)
+   3.3 Backend Core Engine & Python Subsystems
+   3.4 Low-Level C/C++ Firmware & DLL Bindings
+   3.5 Computer Vision & Image Processing Pipeline
+   3.6 Standalone Executable Packaging & Deployment
+
+4. DETAILED BREAKDOWN OF PAGES, PANELS & USER INTERFACES
+   4.1 Modernized Web Application Layout (app.py / frontend/)
+       4.1.1 TopNav (Header & Hardware Status Bar)
+       4.1.2 LeftPanel (Laser Beam Settings, Delays, Z-Focus & Material Presets)
+       4.1.3 Center Panel: CanvasViewer (Interactive 2D Field & Simulation)
+       4.1.4 RightPanel (Job Parameters, Geometry, Hatching & Execution)
+       4.1.5 BottomConsole (Real-Time Industrial Telemetry & G-code Logs)
+   4.2 Original PySide6 Desktop GUI Layout (main.py / ui_interface.py)
+       4.2.1 Home / Motion Page
+       4.2.2 Laser Configuration Page
+       4.2.3 Programs / Hatching / CAD Page
+       4.2.4 Print / Job Execution Page
+       4.2.5 Camera / Machine Vision Page
+       4.2.6 Terminal / G-Code Console Page
+       4.2.7 COM / Hardware Interface Page
+       4.2.8 Settings / Galvo Field & Lens Calibration Page
+       4.2.9 Info / System Diagnostics Page
+
+5. EXHAUSTIVE PARAMETER REFERENCE & SCIENTIFIC PURPOSE
+   5.1 Optical & Laser Power Parameters
+   5.2 Galvo Motion & Velocity Parameters
+   5.3 Critical Industrial Galvo Timing Delays (Laser On/Off, Jump, Mark, Poly)
+   5.4 Geometric Hatching & Patterning Parameters
+   5.5 Galvo Field & Lens Distortion Calibration Parameters
+   5.6 Motorized Z-Axis Stepper & Focus Parameters
+   5.7 Machine Vision & Alignment Parameters
+   5.8 Curated Industrial Material Preset Matrix
+
+6. END-TO-END OPERATIONAL WORKFLOW & WORKING MECHANISM
+   6.1 Phase 1: CAD Ingestion & Vector Discretization
+   6.2 Phase 2: Coordinate Transformation & Optical Distortion Correction
+   6.3 Phase 3: Hatch Pattern Generation & Scanline Slicing
+   6.4 Phase 4: Motion Planning & Galvo Vector Queue Generation
+   6.5 Phase 5: Red Pointer Bounding Box Framing & Operator Verification
+   6.6 Phase 6: Automated Camera Inspection & Alignment
+   6.7 Phase 7: Real-Time Laser Firing & Micro-Galvo Vector Execution
+   6.8 Phase 8: Multi-Layer Z-Axis Stepping (Deep Engraving & Texturing)
+   6.9 Phase 9: Job Finalization & Safety Parking
+
+7. SPECIALIZED INDUSTRIAL FEATURES & ALGORITHMIC IMPLEMENTATIONS
+   7.1 Surface Texturing (100 um to 250 um)
+   7.2 Multi-Layer Depth Engraving with Dynamic Focus Stepping (3 mm - 5 mm)
+   7.3 Curvature Surface Marking (3D Galvo / Z-Profile Dynamic Tracking)
+   7.4 Rotary Marking on Cylindrical Workpieces (A-Axis Stepper Slicing)
+   7.5 Automated Serial Number Increment Engine
+   7.6 Low-Overhead 2D QR Code & 1D Barcode Synthesis
+   7.7 Single-Stroke Hershey & TrueType Vector Font Engine
+   7.8 Non-Blocking Multi-Threaded Pause, Resume & Emergency Stop Architecture
+   7.9 F-Theta Lens Correction Grid (.cor) Interpolation Mathematics
+
+================================================================================
+1. EXECUTIVE SUMMARY & SYSTEM OVERVIEW
+================================================================================
+1.1 PURPOSE AND INDUSTRIAL APPLICATION
+The Galvo Laser Scribing & Patterning System (also commercially designated as 
+Galvo Studio and Patterning Machine) is an ultra-high-precision, industrial-grade 
+computer-numerical-controlled (CNC) laser micromachining workstation. Developed 
+by Spécialisé Products Private Limited (SPPL), the platform is engineered to 
+execute microscopic material processing with sub-micron positioning repeatability 
+and high-speed beam steering up to 10,000 mm/s.
+
+Key industrial and scientific applications include:
+- Laser scribing and micro-channel patterning for lab-on-a-chip and microfluidic 
+  bio-devices (channel widths from 10 microns to 250 microns).
+- Thin-film selective ablation and patterning on silicon wafers, solar cells, 
+  and flexible polymer substrates.
+- Direct-write printed circuit board (PCB) isolation routing and solder mask 
+  ablation from Gerber RS-274X layout files.
+- Surface texturing (creating micro-roughness from 100 to 250 micrometers for 
+  biomedical implant osseointegration or mechanical friction enhancement).
+- High-contrast, thermal-annealing black oxide marking on medical-grade stainless 
+  steel (SS304/SS316L) and titanium.
+- High-speed white frosting and ablation on anodized aluminum alloys.
+- Low-thermal-damage contrast marking on engineering plastics (ABS, Delrin, PEEK).
+- Dynamic serialization, 1D barcode, and 2D DataMatrix / QR code marking for 
+  aerospace, automotive, and medical device traceability.
+
+1.2 SYSTEM EVOLUTION & DUAL-ARCHITECTURE FRAMEWORK
+The codebase embodies an evolution from a classic desktop Qt application 
+into a modern, web-technology-driven industrial workstation:
+
+A. Classic Qt Desktop Architecture (main.py):
+   Built using Python 3.12 and PySide6 (Qt 6.6+), leveraging Qt Designer-compiled 
+   interfaces (`interface.ui` -> `ui_interface.py`), custom widget styling 
+   (`style.json`), and PyVista 3D OpenGL preview rendering (`preview3d.py`). 
+   This foundation established full hardware drivers, serial communications, 
+   calibration engines, and multi-threaded execution loops.
+
+B. Next-Generation Modern Desktop Architecture (app.py):
+   Built with a decoupled client-server architecture:
+   - Frontend: A React 18, Vite 5, TypeScript, and Tailwind CSS single-page app 
+     offering an industrial dark-themed UI (#09090b), interactive HTML5 Canvas 
+     with live laser trajectory simulation, Web Audio acoustic feedback, and 
+     sub-100ms real-time telemetry polling.
+   - Host Runtime: PyWebView 5 embedding Microsoft Edge WebView2, exposing a 
+     bidirectional asynchronous JavaScript-Python hardware bridge (`bridge.py` / 
+     `GalvoHardwareBridge`).
+   - Backend Engine: Direct native C++ DLL bindings to the Googol Technology 
+     motion controller, integrated motion planners, vector parsers, and serial 
+     subsystems.
+
+1.3 KEY ENGINEERING CAPABILITIES & OPERATIONAL SCOPE
+- Dual-Galvanometer high-speed beam scanning across calibrated fields (70x70 mm, 
+  100x100 mm, 110x110 mm).
+- Motorized Z-axis focal height adjustment with 333.333 steps/mm resolution 
+  and 120 mm total vertical travel.
+- Native ingestion of industry-standard vector files: AutoCAD DXF (R12 to modern), 
+  Scalable Vector Graphics (SVG), and Gerber RS-274X PCB files.
+- Multi-engine hatching algorithms: Bidirectional, Cross-Hatch (90° dual pass), 
+  Contour Offset, and Auto-Rotating multi-pass layers.
+- Full lens distortion correction supporting 9-point, 25-point, and 65x65 grid 
+  binary correction tables (`.cor` files) to eliminate F-theta barrel, pincushion, 
+  and trapezoidal distortions.
+- Integrated machine vision camera for automated workpiece position detection, 
+  rotation angle calculation, and fiducial alignment.
+- Hardware-level Emergency Stop (E-Stop) with instant beam quench, DO1 cutoff, 
+  and software latch protection.
+
+================================================================================
+2. COMPLETE HARDWARE SPECIFICATIONS & ELECTRONIC ARCHITECTURE
+================================================================================
+2.1 LASER SOURCE & OPTICAL DELIVERY SYSTEM
+The system is engineered to interface with pulsed industrial fiber laser sources, 
+predominantly:
+- Laser Source Type: Q-Switched Pulsed Ytterbium Fiber Laser / MOPA Pulsed Fiber Laser.
+- Manufacturers: Raycus (RFL-P20QE / RFL-P30QS / RFL-P50QB), Maxphotonics (MFP-5W to 70W), 
+  or JPT M1/M6/M7 series.
+- Central Emission Wavelength: 1064 nm (Near-Infrared / NIR).
+- Average Optical Output Power: 20 W to 50 W rated (software-tunable from 0% to 100%).
+- Pulse Repetition Frequency (PRF): 20 kHz to 100 kHz (typically nominal at 20–80 kHz).
+- Pulse Duration: 100 ns to 250 ns (Q-switched) or 2 ns to 500 ns (MOPA).
+- Beam Quality factor: M² < 1.5 (TEM00 fundamental spatial mode).
+- Collimated Output Beam Diameter: 6.0 mm to 7.5 mm.
+- Red Pilot / Guide Laser: 635–650 nm visible red diode (<5 mW, Class IIIA) 
+  co-axially aligned with the NIR fiber laser path for framing and positioning.
+
+2.2 LASER DB25 CONTROL INTERFACE & PIN CONFIGURATION
+The fiber laser source is controlled through a standardized DB25 female connector 
+on its rear panel. The system interfaces directly with these signals:
+
+| DB25 Pin | Signal Name | Direction | Signal Type | Electrical Specification | Functional Purpose in Machine |
+|:---------|:------------|:----------|:------------|:-------------------------|:------------------------------|
+| Pin 1    | D0 (Bit 0)  | Input     | Digital TTL | 0V (Low) / 5V (High)     | Laser Power Data Bus - Least Significant Bit (LSB) |
+| Pin 2    | D1 (Bit 1)  | Input     | Digital TTL | 0V (Low) / 5V (High)     | Laser Power Data Bus - Bit 1 |
+| Pin 3    | D2 (Bit 2)  | Input     | Digital TTL | 0V (Low) / 5V (High)     | Laser Power Data Bus - Bit 2 |
+| Pin 4    | D3 (Bit 3)  | Input     | Digital TTL | 0V (Low) / 5V (High)     | Laser Power Data Bus - Bit 3 |
+| Pin 5    | D4 (Bit 4)  | Input     | Digital TTL | 0V (Low) / 5V (High)     | Laser Power Data Bus - Bit 4 |
+| Pin 6    | D5 (Bit 5)  | Input     | Digital TTL | 0V (Low) / 5V (High)     | Laser Power Data Bus - Bit 5 |
+| Pin 7    | D6 (Bit 6)  | Input     | Digital TTL | 0V (Low) / 5V (High)     | Laser Power Data Bus - Bit 6 |
+| Pin 8    | D7 (Bit 7)  | Input     | Digital TTL | 0V (Low) / 5V (High)     | Laser Power Data Bus - Most Significant Bit (MSB) |
+| Pin 9    | Latch       | Input     | Digital TTL | Active High Pulse (5 us) | Power Latch: Transfers D0-D7 byte into internal DAC |
+| Pin 10   | GND         | Ground    | Power Return| 0V Reference             | Digital Ground for data bus |
+| Pin 11-15| Reserved/GND| -         | -           | -                        | Factory service / ground lines |
+| Pin 16   | Status 0    | Output    | Digital TTL | Active High/Low          | Laser status bit 0 (Laser ready) |
+| Pin 17   | Status 1    | Output    | Digital TTL | Active High/Low          | Laser status bit 1 (Temperature alarm) |
+| Pin 18   | MO (Enable) | Input     | Digital TTL | High = Active (5V)       | Master Oscillator / Seed Laser emission enable |
+| Pin 19   | PA / Booster| Input     | Digital TTL | High = Active (5V)       | Power Amplifier / Gating trigger (Laser Beam ON) |
+| Pin 20   | Red Laser   | Input     | Digital TTL | High = Active (5V)       | Red Guide Laser Diode power ON/OFF |
+| Pin 21-25| GND / Fault | Ground    | Digital/Pwr | 0V / Fault feedback      | Laser fault interlock and signal returns |
+
+2.3 GOOGOL TECHNOLOGY GT5 / PROSYS U3 GALVO MOTION CONTROLLER CARD
+The master hardware controller for coordinate positioning and motion interpolation:
+- Controller Board: Googol Technology GT5 / ProSys U3 Series PCI/PCIe/USB Galvo Card.
+- Galvo Control Protocol: Standard XY2-100 16-bit differential digital protocol 
+  (Clock, Sync, Channel 1 X-data, Channel 2 Y-data) or Dual 16-bit Analog (+/- 10V).
+- Coordinate Resolution: 16-bit signed integer (-32,768 to +32,767 bits, mapped 
+  over nominal scan fields at 600.0 or 655.36 bits per millimeter).
+- Maximum Scanning Speed: Up to 12,000 bits/ms (approx. 10,000 mm/s optical scan).
+- Digital I/O Ports:
+  - DO1 (Pin 33): Laser Gating / Modulation trigger signal.
+  - DO2: Red Light Guide pointer control.
+  - Analog Out (Pin 35): 0 to 5V or 0 to 10V DAC proportional power control voltage.
+  - Stepper Axis 2: Pulse (PUL) and Direction (DIR) differential outputs for Z-axis.
+
+2.4 NATIVE DLL DRIVER ARCHITECTURE (gt5motion_GT.dll)
+Communication with the Googol Technology card is mediated via the Win32 C++ DLL 
+`gt5motion_GT.dll` (with fallback to `gt5motion.dll`) loaded via Python `ctypes`:
+- GT_PROSYS_U3_SetPass(12242): Authenticates and unlocks the board control registers.
+- GT_PROSYS_U3_Initialize(byref(cards)): Detects and initializes installed cards.
+- GT_PROSYS_U3_XY_Data(channel, dac_val): Writes 16-bit position data to galvo mirrors.
+- GT_PROSYS_U3_Run_Galvo(mode): Starts execution of galvo trajectory interpolation.
+- GT_PROSYS_U3_disable_hard_limit(axis): Disables hardware limit switch trip for Axis 2.
+- GT_PROSYS_U3_ResetAxis(axis): Clears alarm registers and resets motor drive faults.
+- GT_PROSYS_U3_set_pulse_out_mode(axis, mode): Sets pulse mode (0 = Pulse/Direction).
+- GT_PROSYS_U3_Close(): Safely releases card hardware handles upon application exit.
+
+2.5 STM32F411CEU6 BLACK PILL MICROCONTROLLER SUBSYSTEM
+To bridge the Googol Technology card outputs with the DB25 laser bus, an STM32F411CEU6 
+ARM Cortex-M4 32-bit microcontroller (Black Pill board) is deployed as a dedicated 
+real-time signal conditioning coprocessor:
+- Processor Core: ARM Cortex-M4 running at 96 MHz with hardware FPU.
+- Firmware: Custom embedded C/C++ firmware (`lasertesting.ino` / `blackpillcode`).
+- Input Conditioners:
+  - PA0 (ADC Input): Wired to Galvo Card Pin 35 (via resistor divider to 0–3.3V). 
+    Reads 12-bit ADC (0 to 4095) representing commanded laser power.
+  - PA8 (High-Speed Digital Input): Wired to Galvo Card Pin 33 (laser modulation/gate).
+- Output Drivers:
+  - PB0 to PB7 (Digital Outputs): Wired directly to DB25 Pins 1–8 (D0–D7).
+  - PB8 (Digital Output): Wired to DB25 Pin 9 (Latch). Pulses HIGH for 5 us when 
+    power byte changes by >= 2 units (software hysteresis filter).
+  - PB9 (Digital Output): Wired to DB25 Pin 19 (PA / Booster Gate). Duplicates 
+    PA8 input with sub-microsecond latency, gating laser emission instantaneously.
+
+2.6 MOTORIZED Z-AXIS STEPPER MOTION SUBSYSTEM
+Focal distance and 3D depth engraving are managed by a precision motorized vertical stage:
+- Actuator: NEMA 17 or NEMA 23 stepper motor paired with a precision lead screw.
+- Motor Driver: Microstepping stepper driver configured for Pulse/Direction control.
+- Hardware Drive Axis: Axis 2 on the Googol Technology motion card.
+- Mechanical Calibration: Exactly 333.333 steps per millimeter (1 step = 3.0 microns).
+- Travel Range: 0.0 mm (home focus) to 120.0 mm (maximum upper travel limit).
+- Software Safety: Clamping checks in `stepper_controller.py` ensure commanded 
+  positions never exceed 0.0 to 120.0 mm.
+- Velocity & Timing: Default jog speed 1000 pulses/sec; rapid traverse 10,000 pulses/sec.
+
+2.7 DUAL GALVANOMETER MIRROR SCANNER ASSEMBLY (GALVO 1 & GALVO 2)
+The optical deflection head houses orthogonal galvanometer scanner motors:
+- Galvo 1: Deflects optical beam along the Y-axis (or X depending on aspect configuration).
+- Galvo 2: Deflects optical beam along the X-axis (default: Galvo 2 = X).
+- Focusing Lens: F-Theta telecentric or standard field lens. Common focal lengths:
+  - f = 100 mm: Produces a 70 x 70 mm marking field with ~20 um spot size.
+  - f = 160 mm: Produces a 100 x 100 mm marking field with ~35 um spot size.
+  - f = 210 mm: Produces a 140 x 140 mm marking field with ~45 um spot size.
+- Mirror Coating: Dielectric high-damage-threshold coatings optimized for 1064 nm NIR.
+
+2.8 MACHINE VISION & OPTICAL INSPECTION CAMERA SUBSYSTEM
+An industrial digital camera is mounted co-axially or off-axis to provide computer vision:
+- Interface: USB 3.0 / USB 2.0 DirectShow video stream capture via `FilterGraph`.
+- Resolution: 1080p (1920x1080) or 5MP industrial CMOS sensor.
+- Driver Architecture: `camera_thread.py` running an isolated `QThread` with OpenCV (`cv2`).
+- Calibration Matrix: Calibrated camera-to-laser offsets (stored in `config.ini`):
+  - Laser 1: X = +35.8 mm, Y = -7.6 mm
+  - Laser 2: X = +84.5 mm, Y = -8.0 mm
+- Vision Processing: Canny edge detection, Hough transform, and OpenCV template 
+  matching (`cv2.matchTemplate`) to detect workpiece position, calculate rotation 
+  angles, and apply 2D affine transformation matrices to marking coordinates.
+
+================================================================================
+3. COMPLETE SOFTWARE STACK & TECHNOLOGIES USED
+================================================================================
+3.1 MODERNIZED WEB-TECH DESKTOP FRAMEWORK (React 18 + Vite + PyWebView)
+- React 18: Component-based reactive UI rendering for industrial control dashboards.
+- TypeScript: Type-safe interfaces for hardware telemetry (`TelemetryData`), 
+  vector files (`VectorFileInfo`), and marking jobs (`JobParams`).
+- Vite 5: Ultra-fast frontend bundler with Hot Module Replacement (HMR).
+- Tailwind CSS: Utility-first CSS framework delivering an industrial dark aesthetic.
+- Lucide React: Vector iconography for CNC, laser, motion, and status controls.
+- PyWebView 5: Native Win32 window wrapper running Microsoft Edge WebView2 runtime.
+- HTML5 Canvas API: Custom 2D hardware-accelerated canvas engine with real-time 
+  pan, zoom, coordinate mapping, and animated galvo mirror trajectory simulation.
+- Web Audio API: Synthetic acoustic feedback producing industrial operator audio tones.
+
+3.2 ORIGINAL QT DESKTOP FRAMEWORK (PySide6 + Qt Designer + Custom Widgets)
+- Python 3.12: Core application execution language.
+- PySide6 (Qt 6.6+): Official Python bindings for Qt GUI application development.
+- Qt Designer (`interface.ui`): Visual XML form definition compiled via `pyside6-uic` 
+  into `ui_interface.py`.
+- Custom_Widgets: Animated sidebar navigation menus and styled modern dialogs.
+- style.json: Dynamic QSS theme definition for widget colors, borders, and states.
+- PyVista & OpenGL: Interactive 3D point cloud and toolpath previewer (`preview3d.py`).
+
+3.3 BACKEND CORE ENGINE & PYTHON SUBSYSTEMS
+- ctypes: Direct foreign function interface to C++ DLLs (`gt5motion_GT.dll`).
+- pyserial: Multi-threaded RS232 / USB-UART serial communication (`com.py`).
+- ezdxf: Parsing, inspecting, and generating AutoCAD DXF entities.
+- svgelements: High-speed SVG path parsing and mathematical curve discretization.
+- gerber_parser.py: Custom Gerber RS-274X interpreter converting PCB copper layers 
+  into vector trajectories.
+- qrcode & python-barcode: Generation of 2D QR Code matrices and 1D Code128 barcodes.
+- FreeType-py & Hershey Fonts: Single-stroke vector font extraction for laser text.
+- NumPy & SciPy: Matrix algebra, affine transformations, and 2D calibration grids.
+- configparser: Reading and persisting machine parameters in `config/config.ini`.
+
+3.4 LOW-LEVEL C/C++ FIRMWARE & DLL BINDINGS
+- Googol Technology GT5 C++ Motion Library (`gt5motion_GT.dll`).
+- Arduino C/C++ Embedded Framework for STM32F411CEU6 Black Pill (`lasertesting.ino`).
+- STM32 HAL / CMSIS peripheral drivers for 12-bit ADC and GPIO bus switching.
+
+3.5 COMPUTER VISION & IMAGE PROCESSING PIPELINE
+- OpenCV (`cv2`): Real-time image acquisition, filtering, and template matching.
+- DirectShow Graph (`pygrabber`): Windows DirectShow video filter graph management.
+- Pillow (PIL): Image manipulation, thresholding, and bitmap engraving prep.
+
+3.6 STANDALONE EXECUTABLE PACKAGING & DEPLOYMENT
+- PyInstaller: Freezing the application into standalone Windows executables:
+  - `Galvo_Studio.spec`: Packages the PySide6 standalone executable.
+  - `Patterning_Machine.spec`: Packages the complete multi-modal workstation suite.
+  - Runtime bundle includes Python DLLs, Qt binaries, C++ motion DLLs, and configs.
+
+================================================================================
+4. DETAILED BREAKDOWN OF PAGES, PANELS & USER INTERFACES
+================================================================================
+4.1 MODERNIZED WEB APPLICATION LAYOUT (app.py / frontend/)
+
+4.1.1 TopNav (Header & Hardware Status Bar)
+- Visual Status Indicator: Live pulse dot showing CONNECTED (emerald), SIMULATOR (amber), 
+  or DISCONNECTED (red).
+- Serial Port Selector: Dropdown auto-populated with active COM ports (e.g. COM4).
+- Baud Rate Selector: Dropdown with standard rates (9600, 19200, 57600, 115200, 250000).
+- Connect / Disconnect Button: Toggles physical link to hardware or simulation mode.
+- Cards Detected Badge: Displays number of Googol Technology cards found (e.g. 1 Card).
+- Guide Red Dot Toggle: Turns the visible 650 nm red pilot laser ON/OFF.
+- Pulse Laser Test Button: Fires a safe, single-shot laser pulse (default 200 ms).
+- Master Emergency Stop (E-Stop): High-prominence red button. Instantly cuts all beam 
+  emission, halts galvo motion, clamps DO1 to zero, and triggers a persistent safety banner.
+- Latch Reset Button: Clears the E-Stop latch once physical conditions are verified.
+
+4.1.2 LeftPanel (Laser Beam Settings, Delays, Z-Focus & Material Presets)
+- Laser Power Section:
+  - Dual-input control: Continuous slider (0–100%) and numeric input box.
+  - Live Telemetry Readout: Displays commanded power %, calculated DAC bit (0–255), 
+    and analog voltage (0.0 to 5.0 V) delivered to the laser source.
+- Frequency & Pulse Width Section:
+  - Laser Pulse Frequency: 20.0 kHz to 100.0 kHz with 0.1 kHz precision.
+  - Pulse Width: 100 ns to 500 ns tuning for MOPA fiber sources.
+- Motion Speed Section:
+  - Mark Speed: Marking velocity (10 to 5,000 mm/s; default 500 mm/s).
+  - Jump Speed: Slew velocity between non-marking vectors (100 to 10,000 mm/s; default 1200 mm/s).
+- Industrial Galvo Delay Matrix:
+  - Laser On Delay (us): Settling delay before opening optical gate (-500 to +500 us).
+  - Laser Off Delay (us): Hold delay before closing optical gate (0 to 500 us).
+  - Jump Delay (us): Settling wait time after mirror jump move (0 to 2000 us).
+  - Mark Delay (us): Settling wait time after vector marking move (0 to 1000 us).
+  - Poly Delay (us): Wait time at corners of contiguous polylines (0 to 500 us).
+- Motorized Z-Axis Focus Controller:
+  - Current Z Position: Real-time digital readout in millimeters (e.g. 15.000 mm).
+  - Incremental Jog Buttons: +0.1 mm, +1.0 mm, +5.0 mm, -0.1 mm, -1.0 mm, -5.0 mm.
+  - Absolute Go-To Input: Direct millimeter destination input with auto-move.
+  - Auto-Home Z: Drives Z axis to origin and zeroes coordinate register.
+- Curated Material Presets Library:
+  - Preset Cards: Stainless Steel 304, Anodized Aluminum, Brass & Copper, Silicon 
+    Wafer / PCB, Hard Plastic.
+  - One-Click Apply: Automatically populates power, frequency, speeds, line spacing, 
+    and loop counts optimized for the selected material.
+
+4.1.3 Center Panel: CanvasViewer (Interactive 2D Field & Simulation)
+- Coordinate System & Canvas Field:
+  - Renders physical scan field centered at (0.0, 0.0) mm with +/- 50 mm boundaries.
+  - Dynamic mm coordinate tracker beneath cursor: Displays exact real-world X/Y position.
+- Interactive Vector Manipulation:
+  - Direct Mouse Drag: Click and drag any shape, text, or vector file to re-position.
+  - Bounding Box Overlay: Renders bounding limits with corner handles.
+- Real-Time Live Galvo Mirror Simulator:
+  - Visualizes simulated galvanometer spot during marking.
+  - Jump moves displayed as dashed cyan trajectories.
+  - Marking moves displayed as glowing, high-intensity laser beam lines.
+  - Progress tracking with simulated laser burn persistence.
+- Synthetic Acoustic Web Audio Feedback:
+  - Synthesizes 880 Hz tone during active laser emission.
+  - Synthesizes 440 Hz settling tone when laser gate closes.
+- Canvas Viewport Controls:
+  - Zoom In (+), Zoom Out (-), Reset Center (0,0), Center Crosshairs toggle, 
+    Grid Overlay toggle, Sound Mute/Unmute toggle.
+
+4.1.4 RightPanel (Job Parameters, Geometry, Hatching & Execution)
+- Job Execution Controls:
+  - Start Marking (Green Play Button): Compiles geometry, generates hatch vectors, 
+    sends queue to motion controller, and begins physical laser firing.
+  - Pause Marking (Yellow Pause Button): Halts laser emission and freezes galvo position.
+  - Resume Marking (Play Button): Restarts vector queue from exact paused coordinate.
+  - Stop / Abort (Red Stop Button): Instantly stops execution, turns off beam, and parks mirrors.
+  - Red Light Framing (Guide Button): Continuously loops the visible red laser pointer 
+    around the outer rectangular bounding box of the workpiece design.
+- Geometry & Entity Selector:
+  - Vector File Mode: Ingests loaded DXF, SVG, or Gerber files.
+  - Primitive Rectangle: Width (mm), Height (mm), Center X/Y (mm).
+  - Primitive Circle: Diameter (mm), Center X/Y (mm).
+  - Center Point: Single-point piercing at defined coordinate.
+  - Text Mode: Renders dynamic alphanumeric strings with selectable font size and scale.
+- Advanced Hatching Engine:
+  - Hatch Enable Toggle: Enables or disables interior fill.
+  - Hatch Style: Scanline (Unidirectional), Bidirectional (Zigzag), Cross-Hatch (90° dual pass).
+  - Line Spacing: Pitch between adjacent fill lines (0.01 mm to 2.0 mm; default 0.5 mm).
+  - Edge Offset: Boundary clearance margin to prevent edge burn (0.0 mm to 1.0 mm).
+  - Hatch Angle: Incline angle of hatching lines (0° to 360°; default 0° / 45°).
+  - Mark Contour: Toggles whether the outer outline is scribed before or after hatching.
+  - Loop Count: Number of repeat passes (for multi-layer depth engraving).
+- Sample Vector Files Manager:
+  - Dropdown browser listing files in `dxf_files/` and `svg_files/`.
+  - Drag-and-drop file upload zone for instantaneous CAD import.
+
+4.1.5 BottomConsole (Real-Time Industrial Telemetry & G-code Logs)
+- Log Viewer Console: Auto-scrolling terminal displaying timestamped system messages.
+- Color-Coded Log Levels:
+  - INFO (slate/blue): Standard operational messages and parameter changes.
+  - COMMAND (cyan): Low-level commands dispatched to the motion controller or Black Pill.
+  - TELEMETRY (emerald): Periodic status updates (frequency, DAC voltage, positions).
+  - WARN (amber): Boundary warnings, limit clipping, or missing parameters.
+  - ERROR (red): Communication timeouts, DLL errors, or E-Stop activations.
+- Console Actions: Clear Logs button, Auto-scroll toggle, Log filter by category.
+
+--------------------------------------------------------------------------------
+4.2 ORIGINAL PYSIDE6 DESKTOP GUI LAYOUT (main.py / ui_interface.py)
+
+4.2.1 Home / Motion Page (`homePushButton`)
+- Axis Jogging Controls: Direct manual jogging for X, Y, and Z axes.
+- Jog Step Distance: Radio buttons for 1 mm, 10 mm, 50 mm, and 100 mm increments.
+- Homing Controls: Individual home buttons (`xhomePushButton`, `yhomePushButton`, 
+  `zhomePushButton`) and master `allhomePushButton`.
+- Coordinate Displays: Digital readouts showing current machine X, Y, and Z positions.
+
+4.2.2 Laser Configuration Page (`laserPushButton`)
+- Power Settings: Laser power percentage input and analog output calibration.
+- Frequency Settings: PRF (kHz) setting for laser Q-switch.
+- Pulse Duration: Single-shot laser firing test button (`flaserPushButton`) with 
+  duration setting in milliseconds (default 200 ms).
+- Delay Management: Inputs for Laser On, Laser Off, Mark, Jump, and Polygon delays.
+
+4.2.3 Programs / Hatching / CAD Page (`programsPushButton`)
+- File Loader: Open CAD file (`pgmfilePushButton`), supporting DXF, SVG, and Gerber.
+- Triple Hatch Profiles (`hatch_profile_1`, `hatch_profile_2`, `hatch_profile_3`):
+  - Mark Contour, All Calc, Follow Edge, Cross Hatch toggles.
+  - Line Spacing, Angle, Count, Edge Offset, Start/End Offsets, Line Reduction.
+  - Auto Rotation toggle and Rotation Angle step (e.g. 10.0° or 45.0°).
+- CAD Canvas (`cad_canvas.py`): 2D interactive drawing canvas with line, rectangle, 
+  circle, and text tools.
+
+4.2.4 Print / Job Execution Page (`printPushButton`)
+- Job Run Controls: Start (`printrunPushButton`), Pause (`printpausePushButton`), 
+  Abort (`printabortPushButton`), and Inspection Move (`inspectionPushButton`).
+- Real-Time Progress: Progress bar showing percentage completion, current loop pass, 
+  and total execution time elapsed.
+- Preview Window: Integrated 2D/3D visualizer showing completed and pending paths.
+
+4.2.5 Camera / Machine Vision Page (`cameraPushButton`)
+- Camera Feed: Real-time DirectShow video capture stream with crosshair overlay.
+- Control Buttons: Start (`camstartPushButton`), Pause (`campausePushButton`), 
+  Stop (`camstopPushButton`).
+- Offset Calibration: Direct controls to align camera optical center with laser beam spot.
+
+4.2.6 Terminal / G-Code Console Page (`terminalPushButton`)
+- Command Line: Text input field (`termsendPushButton`) for direct G-code entry.
+- Communication Console: Full bidirectional serial send/receive terminal with timestamping.
+
+4.2.7 COM / Hardware Interface Page (`comPushButton`)
+- Port Settings: Dropdown of detected COM ports and baud rates.
+- Connection Triggers: Connect (`mainconnectPushButton`) and Refresh (`mainrefreshPushButton`).
+- Hardware Status: Status indicator of motion controller card and serial bridge link.
+
+4.2.8 Settings / Galvo Field & Lens Calibration Page (`settingsPushButton`)
+- Galvo Aspect: Radio buttons to assign Galvo 1 = X or Galvo 2 = X.
+- Axis Inversion: Negate X / Negate Y checkboxes for optical mirroring.
+- Scaling: Independent X and Y scale percentage factors (default 100.0%).
+- Lens Distortion Corrections: Barrel/Bulge, Parallelogram Skew, Trapezoidal correction.
+- Position After Mark: Radio buttons for Top Right, Galvo Center, or custom coordinates.
+- Calibration File: Selection of binary `.cor` grid files (`newest100mm.cor`, `70x70mini.cor`).
+
+4.2.9 Info / System Diagnostics Page (`infoPushButton`)
+- System Version: Version 2.0 (v2.8.0 / Galvo_UI_2).
+- Hardware Summary: Connected card details, firmware versions, and developer credits.
+
+================================================================================
+5. EXHAUSTIVE PARAMETER REFERENCE & SCIENTIFIC PURPOSE
+================================================================================
+The following table provides an exhaustive reference for every parameter configured 
+in `config.ini`, the React UI, and the Python backend:
+
+| Parameter Name | Configuration Key / UI Field | Default Value | Typical Range | Engineering Purpose & Impact on Machine |
+|:---------------|:-----------------------------|:--------------|:--------------|:----------------------------------------|
+| Laser Power (%) | `power` / `power_percent` | 25.0% | 0.0 - 100.0% | Controls average laser optical power output. Converted via STM32 to 8-bit byte (0-255) on DB25 D0-D7. Higher power increases ablation depth; lower power used for surface annealing and plastic marking. |
+| Laser Frequency | `frequency` / `frequency_khz` | 35.0 kHz | 20.0 - 100.0 kHz | Q-switch pulse repetition frequency. At lower frequency (20 kHz), pulse peak power is maximum, ideal for deep metal cutting; at high frequency (80 kHz), pulse energy is low, producing smooth annealing without spatter. |
+| Pulse Width | `pulse_width_ns` | 200 ns | 2 - 500 ns | Duration of individual laser pulse (for MOPA laser sources). Shorter pulses (2-20 ns) minimize Heat Affected Zone (HAZ); longer pulses (200 ns) maximize material removal rate. |
+| Single Shot Millis | `single-shot.millis` | 200 ms | 10 - 5000 ms | Duration of test pulse fired when the operator clicks the single-shot pulse button. Used for focal burn paper alignment. |
+| Mark Speed | `laser` / `mark_speed` | 500 mm/s | 10 - 5000 mm/s | Optical travel velocity of galvo mirrors while the laser beam is actively ON. Lower speeds increase linear energy density (deeper cut); higher speeds reduce cycle time. |
+| Jump Speed | `jog` / `jump_speed` | 1200 mm/s | 100 - 10000 mm/s | Slew velocity of galvo mirrors when moving between non-connected shapes with laser OFF. Kept high to minimize idle time, but bounded to prevent mirror servo overshoot. |
+| Laser On Delay | `laser_on_delay` | 100 us | -500 to +500 us | Timing delay between galvo mirror arrival and laser beam opening. Compensates for mirror inertia. If too small, start of line has a "burn dot"; if too large, start of line is missing. |
+| Laser Off Delay| `laser_off_delay`| 150 us | 0 to 500 us | Timing delay before shutting off laser beam at the end of a vector. Prevents un-etched gaps at end of vectors due to mirror momentum. |
+| Jump Delay | `jump_delay` | 250 us | 0 to 2000 us | Settling wait time after a high-speed jump before the laser is permitted to fire. Ensures galvo mirror has completely come to rest at the new starting coordinate. |
+| Mark Delay | `mark_delay` | 100 us | 0 to 1000 us | Settling wait time at the end of a marking line before executing the next jump. Prevents rounded corners. |
+| Poly Delay | `poly_delay` | 50 us | 0 to 500 us | Wait time applied at vertices between contiguous connected segments of a polyline. Guarantees sharp geometric corners without corner clipping. |
+| Line Spacing | `line_space` / `line_spacing` | 0.01 - 0.5 mm | 0.005 - 2.0 mm | Distance between adjacent hatch fill lines. For solid black metal marking, set to 0.01-0.03 mm (high overlap); for rapid surface texturing, set to 0.1-0.5 mm. |
+| Hatch Angle | `angle` | 45.0 deg | 0.0 - 360.0 deg | Angular orientation of hatch lines relative to the X-axis. Alternating angles across layers prevents visible directional banding. |
+| Cross Hatch | `cross_hatch` | True | True / False | When enabled, generates a second set of hatch lines at exactly 90 degrees to the first, producing a dense cross-woven grid fill. |
+| Mark Contour | `mark_contour` | True | True / False | When enabled, traces the perimeter vector outline of the shape to produce clean, sharp outer boundaries. |
+| Follow Edge | `follow_edge` | True | True / False | Directs hatch lines to follow inner contours rather than strict parallel scanlines, improving border uniformity. |
+| All Calc | `all_calc` | True | True / False | Forces calculation of all sub-polygons in complex geometries with islands/holes (e.g., donut shapes or text letters like 'O', 'A'). |
+| Edge Offset | `edge_off` | 0.0 mm | 0.0 - 2.0 mm | Inward setback distance between hatch fill lines and the outer boundary vector. Prevents laser energy buildup and melting at edges. |
+| Start / End Offset| `start_off` / `end_off` | 0.0 mm | 0.0 - 2.0 mm | Pullback distance at the beginning and end of each hatch line. |
+| Line Reduction | `line_red` | 0.0 mm | 0.0 - 2.0 mm | Symmetrical reduction applied to both ends of hatch segments to eliminate boundary over-burn. |
+| Num Loops | `num_loops` | 0 | 0 - 5 | Number of concentric contour offset rings generated inside the boundary before hatching. |
+| Loop Distance | `loop_dist` | 0.5 mm | 0.01 - 2.0 mm | Spacing between concentric contour offset rings. |
+| Auto Rotate | `auto_rot` | True | True / False | Automatically increments the hatch angle by `rot_angle` after every completed layer pass. |
+| Rotate Angle | `rot_angle` | 10.0 deg | 1.0 - 90.0 deg | The angular increment applied to the hatch direction on each successive layer pass (e.g., 10° or 45°). Eliminates directional grain. |
+| Field Size | `GalvoField.field_size` | 70.0 mm | 50.0 - 200.0 mm | Calibrated physical dimension of the square marking field (70 mm for f=100mm; 100 mm for f=160mm). |
+| Offset X / Y | `GalvoField.offset_x/y` | 0.0 mm | -50.0 to +50.0 mm | Physical translational offset shifting the software origin (0,0) relative to the optical center of the lens. |
+| Field Angle | `GalvoField.angle` | 0.0 deg | -180.0 to +180.0 deg| Global rotation angle applied to the entire coordinate field to align with physical machine axes. |
+| Galvo 1 = X | `GalvoField.galvo1_x` | False | True / False | Axis assignment: When False, Galvo 2 controls X and Galvo 1 controls Y. Toggling this rotates physical marking by 90 degrees. |
+| G1 / G2 Negate | `g1_negate` / `g2_negate` | False | True / False | Mirroring inversion: `g2_negate` mirrors design horizontally (left-to-right); `g1_negate` mirrors design vertically (top-to-bottom). |
+| G1 / G2 Scale | `g1_scale` / `g2_scale` | 100.0% | 50.0 - 200.0% | Dimensional scale factor correcting for focal length deviations and aspect ratio stretching along X and Y. |
+| Barrel / Bulge | `g1_barrel` / `g2_barrel` | 1.0 | 0.8 - 1.2 | Optical lens distortion correction factor for pincushion (>1.0) or barrel (<1.0) geometric bowing. |
+| Parallelogram | `g1_par` / `g2_par` | 1.0 | 0.8 - 1.2 | Skew correction factor for non-orthogonal galvanometer mirror mounting angles. |
+| Trapezoid | `g1_trapezoid` / `g2_trapezoid` | 1.0 | 0.8 - 1.2 | Keystoning correction factor for non-perpendicular optical alignment between galvo head and work surface. |
+| Pos After Mark | `pos_after_mark` | Top Right | Top Right / Center | Resting park coordinate of the red guide pointer when idle: Top-Right corner or Galvo Center. |
+| Galvo Z Focus | `focus.galvo_z_focus` | 29.0 mm | 0.0 - 120.0 mm | Nominal motorized Z-axis focal distance where laser spot achieves minimum waist diameter on the work bed. |
+| Z Steps Per MM | `steps_per_mm` | 333.333 | - | Stepper motor drive ratio for Z axis (333.333 pulses per millimeter; 1 pulse = 3 microns). |
+| Camera Offsets | `camera_offset.laser1_x/y` | +35.8, -7.6 mm | - | Calibrated physical distance between optical center of vision camera and physical laser focal point. |
+
+================================================================================
+6. END-TO-END OPERATIONAL WORKFLOW & WORKING MECHANISM
+================================================================================
+The execution lifecycle of a marking job proceeds through nine distinct phases:
+
+6.1 PHASE 1: CAD INGESTION & VECTOR DISCRETIZATION
+1. The operator imports a design file (DXF, SVG, or Gerber) or generates text/primitives.
+2. If DXF: `DXFParser` extracts lines, arcs, circles, polylines, and splines. Splines 
+   are discretized into chords using chordal tolerance limits.
+3. If SVG: `parse_svg_paths_fast` parses SVG XML elements via `svgelements`. 
+   Coordinates are converted from 96 DPI CSS pixels to physical millimeters 
+   (scale factor: 25.4 / 96 = 0.264583 mm/px) and centered around (0, 0).
+4. If Gerber: `gerber_parser.py` extracts copper traces and pads into boundary loops.
+5. If QR/Barcode: Data is encoded into a 2D matrix, converted directly into 
+   optimized rectangular solid modules, avoiding file bloating.
+
+6.2 PHASE 2: COORDINATE TRANSFORMATION & OPTICAL DISTORTION CORRECTION
+1. Global offsets (`offset_x`, `offset_y`), scaling (`scale_percent`), and rotation 
+   (`angle`) are applied via 2D affine transformation matrices.
+2. The coordinates pass through `core/coordinate_mapper.py`:
+   - Axis swapping applied based on `galvo1_x`.
+   - Inversion applied based on `g1_negate` / `g2_negate`.
+   - Mathematical correction applied for barrel, pincushion, and trapezoid distortion.
+3. If `.cor` correction table is loaded: Bilinear or bicubic interpolation calculates 
+   the exact optical correction offset from the 65x65 grid table (`newest100mm.cor`).
+
+6.3 PHASE 3: HATCH PATTERN GENERATION & SCANLINE SLICING
+1. If hatching is enabled: The outer boundary polygon is intersected with a family 
+   of parallel lines pitched at `line_spacing` (e.g. 0.05 mm) oriented at `angle`.
+2. Clean line segments bounded inside the polygon are extracted.
+3. If bidirectional: Alternating line directions are connected to minimize jump distance.
+4. If cross-hatch: A second set of lines rotated by 90 degrees is added.
+5. If contour marking: Perimeter passes are sequenced to mark before or after hatch fill.
+
+6.4 PHASE 4: MOTION PLANNING & GALVO VECTOR QUEUE GENERATION
+1. `core/motion_planner.py` compiles entities into a serialized command queue:
+   - JUMP commands: Moves mirrors from current point to start of next segment 
+     at `jump_speed` with laser OFF.
+   - JUMP DELAY: Waits for mirror servo settling.
+   - LASER ON DELAY: Opens laser gate.
+   - MARK commands: Steers mirrors along vector at `mark_speed` with laser ON.
+   - MARK DELAY / POLY DELAY: Stabilizes corner vertices.
+   - LASER OFF DELAY: Closes laser gate.
+2. Coordinates are converted from millimeters to 16-bit integer DAC bits 
+   (typically 600.0 bits/mm).
+
+6.5 PHASE 5: RED POINTER BOUNDING BOX FRAMING & OPERATOR VERIFICATION
+1. Prior to firing, the operator clicks "Red Light Framing".
+2. The system computes the overall bounding rectangle (Xmin, Ymin, Xmax, Ymax).
+3. The motion controller turns ON the 650 nm red pilot diode and continuously sweeps 
+   the galvo mirrors around the 4 outer perimeter corners at 1200 mm/s.
+4. The operator physically inspects the red rectangle projected onto the workpiece 
+   to confirm positioning, alignment, and scale.
+
+6.6 PHASE 6: AUTOMATED CAMERA INSPECTION & ALIGNMENT
+1. If machine vision alignment is active: The motorized stage moves workpiece beneath camera.
+2. Camera captures image frame; OpenCV performs Canny edge detection or template matching.
+3. System calculates translation offset (dx, dy) and workpiece rotation angle (theta).
+4. Affine rotation and translation are injected into the motion planner, automatically 
+   aligning the marking path to a crooked workpiece without requiring physical jigs.
+
+6.7 PHASE 7: REAL-TIME LASER FIRING & MICRO-GALVO VECTOR EXECUTION
+1. The operator clicks "Start Marking".
+2. Commanded power (%) is output:
+   - Googol Technology card outputs analog voltage on Pin 35.
+   - STM32F411CE Black Pill reads ADC, updates 8-bit bus PB0-PB7, and pulses PB8 Latch.
+   - DB25 sets internal laser power register.
+3. Commanded frequency (kHz) and pulse width (ns) are configured.
+4. Motion controller executes compiled vector queue via `gt5motion_GT.dll`.
+5. For each mark command, Galvo Card Pin 33 triggers Black Pill PA8 -> PB9 -> DB25 Pin 19 
+   (Booster Gate), firing the laser beam with sub-microsecond synchronization.
+
+6.8 PHASE 8: MULTI-LAYER Z-AXIS STEPPING (DEEP ENGRAVING & TEXTURING)
+1. If multiple loop passes are configured for deep engraving:
+2. After completing Pass N:
+   - Laser beam shuts OFF.
+   - Controller issues pulses to Axis 2 stepper motor to lower Z stage by `z_drop_per_layer` 
+     (e.g. 0.05 mm downward, keeping the laser beam focal waist at the newly excavated floor).
+   - If `auto_rot` is enabled, hatch angle increments by `rot_angle` (e.g. +10°).
+   - Pass N+1 executes.
+3. Process repeats until total configured depth or loop count is achieved.
+
+6.9 PHASE 9: JOB FINALIZATION & SAFETY PARKING
+1. Upon queue completion, DO1 laser gate is clamped LOW, ensuring zero optical emission.
+2. Red guide pointer is directed to configured park position (Top-Right or Galvo Center).
+3. Telemetry reports `is_marking = False`, progress bar reaches 100%, and UI logs 
+   "Job Completed Successfully".
+
+================================================================================
+7. SPECIALIZED INDUSTRIAL FEATURES & ALGORITHMIC IMPLEMENTATIONS
+================================================================================
+7.1 SURFACE TEXTURING (100 um TO 250 um)
+- Generates controlled microscopic surface roughness for biomedical implants or mold grip.
+- Operates at high frequency (60-80 kHz) and low-to-medium power (15-30%) combined 
+  with dense cross-hatching to micro-melt the surface without deep cratering.
+
+7.2 MULTI-LAYER DEPTH ENGRAVING WITH DYNAMIC FOCUS STEPPING (3 mm - 5 mm)
+- Allows deep engraving up to 5 mm into metals (brass, steel, aluminum).
+- Solves Rayleigh range defocusing by automatically driving the motorized Z-axis downward 
+  after each layer pass, maintaining optimal power density at the bottom of the cut.
+
+7.3 CURVATURE SURFACE MARKING (3D GALVO / Z-PROFILE DYNAMIC TRACKING)
+- For marking on curved objects (cylinders, spheres, pipes).
+- Mathematically projects 2D CAD vectors onto the 3D surface equation Z = f(X, Y), 
+  calculating dynamic focal length adjustments sent to a 3D dynamic focusing unit 
+  or synchronized Z-axis stage.
+
+7.4 ROTARY MARKING ON CYLINDRICAL WORKPIECES (A-AXIS STEPPER SLICING)
+- For 360-degree seamless marking around rings, tubes, and bottles.
+- CAD geometry is sliced into narrow longitudinal strips (typically 0.5 to 2.0 mm wide).
+- Slices are marked sequentially, interspersed with rotational stepper motor indexing commands.
+
+7.5 AUTOMATED SERIAL NUMBER INCREMENT ENGINE
+- Eliminates manual typing during batch manufacturing runs.
+- Maintains integer counter state with customizable prefix, suffix, padding, and step size.
+- Automatically re-synthesizes single-stroke vector outlines after each successful mark cycle.
+
+7.6 LOW-OVERHEAD 2D QR CODE & 1D BARCODE SYNTHESIS
+- Solves memory overload and DXF bloat by generating direct mathematical solid rectangles 
+  for each module rather than heavy traced bitmap outlines, maintaining DXF sizes under 50 KB.
+
+7.7 SINGLE-STROKE HERSHEY & TRUETYPE VECTOR FONT ENGINE
+- Standard Windows TTF fonts produce double outline borders when marked.
+- The system incorporates Hershey single-stroke centerline fonts and TrueType outline 
+  hatching, enabling rapid marking of text and serial numbers in a single optical pass.
+
+7.8 NON-BLOCKING MULTI-THREADED PAUSE, RESUME & EMERGENCY STOP ARCHITECTURE
+- Python `threading.Thread` and Qt `QThread` isolate hardware communication from GUI event loops.
+- `pause_marking()` sets an atomic boolean flag, immediately halts laser gating, and pauses 
+  queue iteration without losing the current vector index.
+- `emergency_stop()` executes an unconditional hardware beam cutoff, resets controller buffers, 
+  and engages an operational safety lock.
+
+7.9 F-THETA LENS CORRECTION GRID (.cor) INTERPOLATION MATHEMATICS
+- Binary `.cor` files contain a 65 x 65 matrix of calibrated optical distortion coordinates.
+- For any commanded coordinate (X, Y), the engine determines the bounding 4 grid points 
+  and applies bilinear or bicubic spline interpolation to calculate the exact DAC correction 
+  values (dX, dY), ensuring geometric accuracy better than 10 microns across the entire field.
+
+================================================================================
+END OF TECHNICAL & ARCHITECTURAL SUMMARY
+================================================================================

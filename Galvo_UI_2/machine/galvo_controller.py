@@ -284,8 +284,16 @@ class GalvoController:
                                 self.live_freq = cmd['freq']
                         
                         elif ctype == 'pass_change':
+                            layer_idx = cmd.get('layer_idx')
+                            total_layers = cmd.get('total_layers')
+                            depth_mm = float(cmd.get('depth_mm') or 0.0)
+                            rot_ang = float(cmd.get('angle_deg') or 0.0)
+                            desc = cmd.get('desc', '')
                             if progress_callback:
-                                progress_callback(current_idx, total_cmds, 0, 0, f"pass_change:{cmd.get('idx', 1)}")
+                                if layer_idx is not None:
+                                    progress_callback(current_idx, total_cmds, layer_idx, total_layers or 50, f"3d_layer:{layer_idx}:{total_layers}:{depth_mm:.3f}:{rot_ang:.1f}:{desc}")
+                                else:
+                                    progress_callback(current_idx, total_cmds, 0, 0, f"pass_change:{cmd.get('idx', 1)}")
                     except ConnectionError as e:
                         print(f"Execution aborted: {e}")
                         return False

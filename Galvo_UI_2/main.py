@@ -1,6 +1,8 @@
 import os
 import sys
 import re
+import math
+import numpy as np
 
 # Ensure current working directory is the script directory so relative paths and configs resolve
 _app_dir = os.path.dirname(os.path.abspath(__file__))
@@ -18,7 +20,7 @@ from PySide6.QtCore import QTimer, QRegularExpression, Signal, Slot, Qt, QThread
 from PySide6.QtGui import QIcon, QCloseEvent, QIntValidator, QDoubleValidator, QRegularExpressionValidator
 from PySide6.QtWidgets import (
     QFileDialog, QMessageBox, QInputDialog, QFrame, QLabel, QLineEdit, 
-    QComboBox, QCheckBox, QPushButton, QHBoxLayout, QVBoxLayout, QSizePolicy
+    QComboBox, QCheckBox, QPushButton, QHBoxLayout, QVBoxLayout, QSizePolicy, QSlider
 )
 
 from com import SerialCom, SerialConfigError
@@ -39,6 +41,8 @@ from core.svg_parser import SVGParser
 from core.text_parser import TextParser
 from text_ui_handler import TextUIHandler
 from core.engraving_manager import EngravingManager
+from core.heightmap_slicer import Heightmap3DSlicer
+from core.coin_3d_engraver import Coin3DReliefEngraver
 
 
 from pygrabber.dshow_graph import FilterGraph
@@ -52,6 +56,42 @@ class MainWindow(QMainWindow):
     sigPrintProgress = Signal(float)
     exceptionOccurred = Signal(str)
     sigUpdateData = Signal(str)
+
+    RESOLUTION_3D_TIERS = {
+        "Draft / Low (~100 Passes - Fast)": {
+            "passes": 100,
+            "pitch": 0.025,
+            "power_scale": 1.05,
+            "freq_scale": 1.0,
+            "speed_scale": 1.0,
+            "desc": "Fast roughing & rapid 3D relief preview (100 passes)"
+        },
+        "Medium Detail (~250 Passes - Balanced)": {
+            "passes": 250,
+            "pitch": 0.020,
+            "power_scale": 0.90,
+            "freq_scale": 1.15,
+            "speed_scale": 1.15,
+            "desc": "Crisp bas-relief with balanced speed & detail (250 passes)"
+        },
+        "High Quality (~350 Passes - Fine)": {
+            "passes": 350,
+            "pitch": 0.018,
+            "power_scale": 0.82,
+            "freq_scale": 1.25,
+            "speed_scale": 1.25,
+            "desc": "High definition coin reliefs and fine chamfers (350 passes)"
+        },
+        "Ultra / Highest (~500 Passes - Die Grade)": {
+            "passes": 500,
+            "pitch": 0.015,
+            "power_scale": 0.72,
+            "freq_scale": 1.35,
+            "speed_scale": 1.35,
+            "desc": "Mirror-finish master die grade, ~1.5 µm micro-ablation (500 passes)"
+        },
+        "Custom (Manual Passes)": None
+    }
     
     def __init__(self, parent=None):
         # basic UI working starts here
@@ -64,6 +104,9 @@ class MainWindow(QMainWindow):
         self.ui.pgmhatch1_RadioButton.setAutoExclusive(False)
         self.ui.pgmhatch2_RadioButton.setAutoExclusive(False)
         self.ui.pgmhatch3_RadioButton.setAutoExclusive(False)
+        
+        # Enable Drag and Drop for design and G-Code files
+        self.setAcceptDrops(True)
         
         # basic UI working ends here
         
@@ -661,6 +704,30 @@ class MainWindow(QMainWindow):
 
         if hasattr(self.ui, 'printgalvoPushButton_2') and hasattr(self.ui, 'cadPage'):
             self.ui.printgalvoPushButton_2.clicked.connect(lambda: self.main_stack.setCurrentWidget(self.ui.cadPage))
+
+        if hasattr(self, 'main_stack') and self.main_stack:
+            self.main_stack.currentChanged.connect(self.on_main_page_changed)
+
+    def on_main_page_changed(self, index):
+        # Index 3 is printgalvo page
+        target_idx = getattr(self, 'main_page_dict', {}).get("printgalvo", 3)
+        if index == target_idx:
+            is_3d = hasattr(self, 'cb_enable_3d_engraving') and self.cb_enable_3d_engraving.isChecked()
+            if hasattr(self, 'layer_slider_frame'):
+                self.layer_slider_frame.setVisible(is_3d)
+            if is_3d:
+                if hasattr(self, '_cached_3d_layers') and self._cached_3d_layers:
+                    tot = len(self._cached_3d_layers)
+                    cur = self.slider_3d_layer.value() if hasattr(self, 'slider_3d_layer') else 1
+                    if hasattr(self, 'slider_3d_layer'):
+                        self.slider_3d_layer.blockSignals(True)
+                        self.slider_3d_layer.setMaximum(tot)
+                        self.slider_3d_layer.setValue(cur)
+                        self.slider_3d_layer.blockSignals(False)
+                    self.render_3d_preview_layer(cur)
+        else:
+            # Leaving preview page
+            pass
     
     def setupInfoPages(self):
         self.info_stack = self.findChild(QStackedWidget, "infoSubPages")
@@ -1062,6 +1129,12 @@ class MainWindow(QMainWindow):
         for field in int_fields:
             if hasattr(self.programgalvo_widgets, field) and getattr(self.programgalvo_widgets, field):
                 getattr(self.programgalvo_widgets, field).setValidator(int_validator)
+
+        # Allow typing, pasting, and direct entry in pgmfilegalvoTextEdit
+        if hasattr(self.ui, 'pgmfilegalvoTextEdit'):
+            self.ui.pgmfilegalvoTextEdit.setReadOnly(False)
+            self.ui.pgmfilegalvoTextEdit.setPlaceholderText("Select file with SELECT button, paste path here, or drag & drop...")
+            self.ui.pgmfilegalvoTextEdit.textChanged.connect(self._on_pgmfile_text_edited)
 
     def setupPrintGalvo(self):
         from PySide6.QtWidgets import QPushButton, QHBoxLayout, QLabel, QLineEdit, QCheckBox
@@ -1612,6 +1685,330 @@ class MainWindow(QMainWindow):
 
         eng_layout.addWidget(self.engraving_options_widget)
 
+        # =========================================================================
+        # Row 2: Enable 3D Relief Engraving Toggle Header
+        # =========================================================================
+        header_3d_widget = QWidget()
+        header_3d_layout = QHBoxLayout(header_3d_widget)
+        header_3d_layout.setContentsMargins(0, 8, 0, 0)
+        header_3d_layout.setSpacing(10)
+
+        lbl_3d = QLabel("Enable 3D Relief Engraving :")
+        lbl_3d.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt;")
+        header_3d_layout.addWidget(lbl_3d)
+
+        self.cb_enable_3d_engraving = QCheckBox()
+        self.cb_enable_3d_engraving.setCursor(Qt.PointingHandCursor)
+        self.cb_enable_3d_engraving.setStyleSheet("QCheckBox::indicator { width: 22px; height: 22px; }")
+        header_3d_layout.addWidget(self.cb_enable_3d_engraving)
+        header_3d_layout.addStretch()
+
+        eng_layout.addWidget(header_3d_widget)
+
+        # Material-specific calibrated 3D relief presets
+        self.MATERIAL_3D_PRESETS = {
+            "Brass Blank (~1.8 mm)": {
+                "max_depth": 0.75,
+                "passes": 65,
+                "pitch": 0.025,
+                "power": 65.0,
+                "freq": 35.0,
+                "mark_speed": 600.0,
+                "jump_speed": 2000.0,
+                "clean_enabled": True,
+                "clean_interval": 6,
+                "desc": "Calibrated for 27mm 1.8mm brass coin dies & bas-relief"
+            },
+            "Brass Sheet (1.0 mm)": {
+                "max_depth": 0.45,
+                "passes": 45,
+                "pitch": 0.025,
+                "power": 55.0,
+                "freq": 38.0,
+                "mark_speed": 650.0,
+                "jump_speed": 2000.0,
+                "clean_enabled": True,
+                "clean_interval": 5,
+                "desc": "Safe low-heat relief for 1.0mm brass sheets"
+            },
+            "Copper Blank / Sheet (~1.8 mm)": {
+                "max_depth": 0.60,
+                "passes": 70,
+                "pitch": 0.020,
+                "power": 82.0,
+                "freq": 28.0,
+                "mark_speed": 450.0,
+                "jump_speed": 2000.0,
+                "clean_enabled": True,
+                "clean_interval": 5,
+                "desc": "High power density for reflective copper"
+            },
+            "Stainless Steel / Steel (~1.8 mm)": {
+                "max_depth": 0.80,
+                "passes": 80,
+                "pitch": 0.020,
+                "power": 75.0,
+                "freq": 30.0,
+                "mark_speed": 700.0,
+                "jump_speed": 2000.0,
+                "clean_enabled": False,
+                "clean_interval": 10,
+                "desc": "Ultra-fine detail micro-ablation for steel dies"
+            },
+            "Aluminum Blank (~1.8 mm)": {
+                "max_depth": 0.85,
+                "passes": 40,
+                "pitch": 0.030,
+                "power": 68.0,
+                "freq": 40.0,
+                "mark_speed": 800.0,
+                "jump_speed": 2500.0,
+                "clean_enabled": False,
+                "clean_interval": 0,
+                "desc": "Fast volumetric ablation for aluminum alloys"
+            },
+            "Silver / Gold (Precious Metal)": {
+                "max_depth": 0.50,
+                "passes": 55,
+                "pitch": 0.022,
+                "power": 70.0,
+                "freq": 32.0,
+                "mark_speed": 500.0,
+                "jump_speed": 2000.0,
+                "clean_enabled": True,
+                "clean_interval": 5,
+                "desc": "Precious bullion coin & jewelry relief"
+            },
+            "Titanium / Tool Steel": {
+                "max_depth": 0.60,
+                "passes": 90,
+                "pitch": 0.018,
+                "power": 80.0,
+                "freq": 25.0,
+                "mark_speed": 550.0,
+                "jump_speed": 2000.0,
+                "clean_enabled": False,
+                "clean_interval": 8,
+                "desc": "Hardened alloy stamping die relief"
+            },
+            "Custom Metal (Manual Settings)": {
+                "max_depth": 0.75,
+                "passes": 50,
+                "pitch": 0.025,
+                "power": 70.0,
+                "freq": 35.0,
+                "mark_speed": 600.0,
+                "jump_speed": 2000.0,
+                "clean_enabled": True,
+                "clean_interval": 6,
+                "desc": "Manual custom user configuration"
+            }
+        }
+
+        self.RESOLUTION_3D_TIERS = MainWindow.RESOLUTION_3D_TIERS
+
+        # --- Expandable 3D Relief Options Panel ---
+        self.engraving_3d_options_widget = QFrame()
+        self.engraving_3d_options_widget.setStyleSheet(
+            "QFrame {"
+            " border: 2px solid #0b6623;"
+            " border-radius: 10px;"
+            " background-color: rgba(11, 102, 35, 0.04);"
+            " padding: 8px;"
+            "}"
+        )
+        self.engraving_3d_options_widget.setVisible(True)
+        options_3d_layout = QVBoxLayout(self.engraving_3d_options_widget)
+        options_3d_layout.setSpacing(10)
+
+        # Row 3D-A: Mode Selector
+        row_3d_mode = QHBoxLayout()
+        lbl_3d_mode = QLabel("Relief Slicing Mode :")
+        lbl_3d_mode.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt;")
+        lbl_3d_mode.setFixedWidth(160)
+        row_3d_mode.addWidget(lbl_3d_mode)
+
+        self.combo_3d_mode = QComboBox()
+        self.combo_3d_mode.setStyleSheet(combo_style)
+        self.combo_3d_mode.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        self.combo_3d_mode.addItems([
+            "3D Coin Relief (Continuous 50-Pass Slicing, 27mm)",
+            "3D Mesh / STL Relief (Direct STL Slicing)",
+            "Imported Sliced G-Code Relief (*.gcode, *.nc)",
+            "Multi-Layer Vector Step Relief (Layers 00 to 05)",
+            "Custom 16-Bit Heightmap File (.png, .bmp, .tiff)"
+        ])
+        row_3d_mode.addWidget(self.combo_3d_mode)
+        options_3d_layout.addLayout(row_3d_mode)
+
+        # Row 3D-B2: Selected 3D / G-Code File row with dedicated Browse button
+        row_3d_file = QHBoxLayout()
+        lbl_3d_file = QLabel("3D / G-Code File :")
+        lbl_3d_file.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt;")
+        lbl_3d_file.setFixedWidth(160)
+        row_3d_file.addWidget(lbl_3d_file)
+
+        self.input_3d_filepath = QLineEdit()
+        self.input_3d_filepath.setPlaceholderText("Select file with Browse button, or paste path...")
+        self.input_3d_filepath.setStyleSheet(edit_style)
+        self.input_3d_filepath.returnPressed.connect(self._on_3d_filepath_entered)
+        row_3d_file.addWidget(self.input_3d_filepath)
+
+        self.btn_3d_browse = QPushButton("📂 Browse G-Code / 3D File")
+        self.btn_3d_browse.setStyleSheet(
+            "QPushButton { background-color: #0b6623; color: white; border-radius: 6px; padding: 6px 14px; font-weight: bold; font-size: 11pt; } "
+            "QPushButton:hover { background-color: #084d1a; }"
+        )
+        self.btn_3d_browse.clicked.connect(self.browse_3d_model_file)
+        row_3d_file.addWidget(self.btn_3d_browse)
+
+        options_3d_layout.addLayout(row_3d_file)
+
+        # Row 3D-C: Substrate Thickness, Max Depth & Target Relief Size
+        row_3d_depth = QHBoxLayout()
+        lbl_3d_mat = QLabel("Material Substrate :")
+        lbl_3d_mat.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt;")
+        lbl_3d_mat.setFixedWidth(160)
+        row_3d_depth.addWidget(lbl_3d_mat)
+
+        self.combo_3d_material = QComboBox()
+        self.combo_3d_material.setStyleSheet(combo_style)
+        self.combo_3d_material.addItems(list(self.MATERIAL_3D_PRESETS.keys()))
+        row_3d_depth.addWidget(self.combo_3d_material)
+
+        row_3d_depth.addSpacing(15)
+
+        lbl_3d_depth = QLabel("Max Relief Depth :")
+        lbl_3d_depth.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt;")
+        row_3d_depth.addWidget(lbl_3d_depth)
+
+        self.input_3d_max_depth = QLineEdit("0.75")
+        self.input_3d_max_depth.setStyleSheet(edit_style)
+        self.input_3d_max_depth.setAlignment(Qt.AlignCenter)
+        self.input_3d_max_depth.setFixedWidth(70)
+        row_3d_depth.addWidget(self.input_3d_max_depth)
+
+        u_3d_1 = QLabel("mm")
+        u_3d_1.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt;")
+        row_3d_depth.addWidget(u_3d_1)
+
+        row_3d_depth.addSpacing(15)
+
+        lbl_3d_size = QLabel("Relief Size (Dia/Span) :")
+        lbl_3d_size.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt;")
+        row_3d_depth.addWidget(lbl_3d_size)
+
+        self.input_3d_size = QLineEdit("27.0")
+        self.input_3d_size.setStyleSheet(edit_style)
+        self.input_3d_size.setAlignment(Qt.AlignCenter)
+        self.input_3d_size.setFixedWidth(70)
+        self.input_3d_size.setToolTip("Target Diameter (for coins) or Width/Span in mm")
+        row_3d_depth.addWidget(self.input_3d_size)
+
+        u_3d_sz = QLabel("mm")
+        u_3d_sz.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt;")
+        row_3d_depth.addWidget(u_3d_sz)
+
+        options_3d_layout.addLayout(row_3d_depth)
+
+        # Row 3D-C2: Resolution / Quality Selector (100 passes, 250 passes, 500 passes)
+        row_3d_res = QHBoxLayout()
+        lbl_3d_res = QLabel("Resolution (Passes) :")
+        lbl_3d_res.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt; background-color: #e8f5e9; border: 1.5px solid #0b6623; border-radius: 5px; padding: 2px 6px;")
+        lbl_3d_res.setFixedWidth(160)
+        row_3d_res.addWidget(lbl_3d_res)
+
+        self.combo_3d_resolution = QComboBox()
+        self.combo_3d_resolution.setStyleSheet(combo_style)
+        self.combo_3d_resolution.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        self.combo_3d_resolution.addItems(list(self.RESOLUTION_3D_TIERS.keys()))
+        def_res_idx = self.combo_3d_resolution.findText("Medium Detail (~250 Passes - Balanced)")
+        if def_res_idx >= 0:
+            self.combo_3d_resolution.setCurrentIndex(def_res_idx)
+        row_3d_res.addWidget(self.combo_3d_resolution)
+        options_3d_layout.addLayout(row_3d_res)
+
+        # Row 3D-D: Passes & Pitch & Soot Clean
+        row_3d_passes = QHBoxLayout()
+        lbl_3d_passes = QLabel("Total Slices/Passes :")
+        lbl_3d_passes.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt;")
+        lbl_3d_passes.setFixedWidth(160)
+        row_3d_passes.addWidget(lbl_3d_passes)
+
+        self.input_3d_passes = QLineEdit("50")
+        self.input_3d_passes.setStyleSheet(edit_style)
+        self.input_3d_passes.setAlignment(Qt.AlignCenter)
+        self.input_3d_passes.setFixedWidth(70)
+        row_3d_passes.addWidget(self.input_3d_passes)
+
+        row_3d_passes.addSpacing(15)
+
+        lbl_3d_pitch = QLabel("Hatch Pitch :")
+        lbl_3d_pitch.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt;")
+        row_3d_passes.addWidget(lbl_3d_pitch)
+
+        self.input_3d_pitch = QLineEdit("0.025")
+        self.input_3d_pitch.setStyleSheet(edit_style)
+        self.input_3d_pitch.setAlignment(Qt.AlignCenter)
+        self.input_3d_pitch.setFixedWidth(70)
+        row_3d_passes.addWidget(self.input_3d_pitch)
+
+        u_3d_2 = QLabel("mm")
+        u_3d_2.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 13pt;")
+        row_3d_passes.addWidget(u_3d_2)
+
+        row_3d_passes.addSpacing(15)
+
+        self.cb_3d_clean = QCheckBox("Brass De-Oxidation Clean (Every 6 Passes)")
+        self.cb_3d_clean.setChecked(True)
+        self.cb_3d_clean.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 12pt;")
+        row_3d_passes.addWidget(self.cb_3d_clean)
+        options_3d_layout.addLayout(row_3d_passes)
+
+        # Row 3D-D2: Advanced Toolpath Options (Serpentine Hatch, Contour Cleanup, Invert Relief)
+        row_3d_opts = QHBoxLayout()
+        self.cb_3d_bidirectional = QCheckBox("Serpentine / Bidirectional Hatching")
+        self.cb_3d_bidirectional.setChecked(True)
+        self.cb_3d_bidirectional.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 11pt;")
+        self.cb_3d_bidirectional.setToolTip("Alternating scanlines reduce flyback travel by ~80% and prevent galvo overheating")
+        row_3d_opts.addWidget(self.cb_3d_bidirectional)
+
+        row_3d_opts.addSpacing(15)
+
+        self.cb_3d_contour = QCheckBox("Perimeter Contour Cleanup")
+        self.cb_3d_contour.setChecked(True)
+        self.cb_3d_contour.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 11pt;")
+        self.cb_3d_contour.setToolTip("Outline trace on each layer removes stair-stepping scallops on relief edges")
+        row_3d_opts.addWidget(self.cb_3d_contour)
+
+        row_3d_opts.addSpacing(15)
+
+        self.cb_3d_invert = QCheckBox("Invert Relief (Stamping Die / Mold)")
+        self.cb_3d_invert.setChecked(False)
+        self.cb_3d_invert.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 11pt;")
+        self.cb_3d_invert.setToolTip("Inverts bas-relief to create female stamping dies and intaglio molds")
+        row_3d_opts.addWidget(self.cb_3d_invert)
+
+        row_3d_opts.addStretch()
+        options_3d_layout.addLayout(row_3d_opts)
+
+        # Row 3D-E: Quick Action Buttons (Red Light Framing & 3D Preview)
+        row_3d_actions = QHBoxLayout()
+        self.btn_3d_frame = QPushButton("🔴 3D Red Light Framing")
+        self.btn_3d_frame.setStyleSheet("QPushButton { background-color: #d32f2f; color: white; border-radius: 8px; padding: 7px 16px; font-weight: bold; font-size: 12pt; } QPushButton:hover { background-color: #b71c1c; }")
+        self.btn_3d_frame.clicked.connect(self.on_3d_frame_clicked)
+        row_3d_actions.addWidget(self.btn_3d_frame)
+
+        self.btn_3d_preview = QPushButton("👁️ 3D Bas-Relief Preview")
+        self.btn_3d_preview.setStyleSheet("QPushButton { background-color: #0b6623; color: white; border-radius: 8px; padding: 7px 16px; font-weight: bold; font-size: 12pt; } QPushButton:hover { background-color: #084d1a; }")
+        self.btn_3d_preview.clicked.connect(self.on_3d_preview_clicked)
+        row_3d_actions.addWidget(self.btn_3d_preview)
+
+        row_3d_actions.addStretch()
+        options_3d_layout.addLayout(row_3d_actions)
+
+        eng_layout.addWidget(self.engraving_3d_options_widget)
+
         # Insert directly below widget_26 in verticalLayout_64
         idx = self.ui.verticalLayout_64.indexOf(self.ui.widget_26)
         if idx >= 0:
@@ -1621,12 +2018,29 @@ class MainWindow(QMainWindow):
 
         # Signal connections
         self.cb_enable_engraving.toggled.connect(self.on_engraving_toggled)
+        self.cb_enable_3d_engraving.toggled.connect(self.on_3d_engraving_toggled)
+        self.combo_3d_mode.currentIndexChanged.connect(self.on_3d_mode_changed)
+        self.combo_3d_material.currentIndexChanged.connect(self.on_3d_material_changed)
+        self.combo_3d_resolution.currentIndexChanged.connect(self.on_3d_resolution_changed)
+        self.input_3d_max_depth.textChanged.connect(self.on_3d_param_custom_changed)
+        self.input_3d_size.textChanged.connect(self.on_3d_param_custom_changed)
+        self.cb_3d_bidirectional.toggled.connect(self.on_3d_param_custom_changed)
+        self.cb_3d_contour.toggled.connect(self.on_3d_param_custom_changed)
+        self.cb_3d_invert.toggled.connect(self.on_3d_param_custom_changed)
+        self.input_3d_passes.textChanged.connect(self.on_3d_passes_manually_edited)
+        self.input_3d_passes.returnPressed.connect(self.process_galvo_file)
+        self.input_3d_pitch.textChanged.connect(self.on_3d_param_custom_changed)
+        self.cb_3d_clean.toggled.connect(self.on_3d_param_custom_changed)
         self.combo_engrave_material.currentIndexChanged.connect(self.on_engraving_material_changed)
         self.input_engrave_depth.textChanged.connect(self.update_engraving_calculations)
         self.input_engrave_step.textChanged.connect(self.update_engraving_calculations)
         self.input_engrave_obj_height.textChanged.connect(self.on_engrave_obj_height_changed)
         if hasattr(self.ui, 'pgmheightgalvoLineEdit'):
             self.ui.pgmheightgalvoLineEdit.textChanged.connect(self.on_sample_height_changed_sync)
+
+        # Default 3D Relief Engraving to checked so panel is expanded and visible
+        self.cb_enable_3d_engraving.setChecked(True)
+        self.engraving_3d_options_widget.setVisible(True)
 
     def reload_engraving_materials(self):
         if not hasattr(self, 'combo_engrave_material'):
@@ -1789,6 +2203,863 @@ class MainWindow(QMainWindow):
         if hasattr(self.ui, 'progressLabel_2'):
             pct = int((current_layer / max(1, total_layers)) * 100)
             self.ui.progressLabel_2.setText(f"{self._current_engraving_info} | {pct}%")
+
+    def on_3d_engraving_toggled(self, checked):
+        if hasattr(self, 'engraving_3d_options_widget'):
+            self.engraving_3d_options_widget.setVisible(checked)
+        if hasattr(self, 'layer_slider_frame'):
+            self.layer_slider_frame.setVisible(checked)
+        if checked:
+            # Mutual exclusion: uncheck 2D engraving to avoid conflicts
+            if hasattr(self, 'cb_enable_engraving') and self.cb_enable_engraving.isChecked():
+                self.cb_enable_engraving.setChecked(False)
+            if hasattr(self, 'combo_3d_material'):
+                self.on_3d_material_changed(self.combo_3d_material.currentIndex())
+            self._cached_3d_key = None
+
+    def on_3d_material_changed(self, idx):
+        if not hasattr(self, 'combo_3d_material'):
+            return
+        mat_name = self.combo_3d_material.currentText()
+        preset = getattr(self, 'MATERIAL_3D_PRESETS', {}).get(mat_name)
+        if not preset or mat_name.startswith("Custom"):
+            return
+
+        # Check if a resolution tier is active
+        res_tier = None
+        if hasattr(self, 'combo_3d_resolution'):
+            res_tier = getattr(self, 'RESOLUTION_3D_TIERS', {}).get(self.combo_3d_resolution.currentText())
+
+        # Block textChanged signals to avoid premature re-slicing while updating multiple fields
+        if hasattr(self, 'input_3d_max_depth'):
+            self.input_3d_max_depth.blockSignals(True)
+            self.input_3d_max_depth.setText(f"{preset['max_depth']:.2f}")
+            self.input_3d_max_depth.blockSignals(False)
+
+        passes = res_tier["passes"] if res_tier else preset['passes']
+        pitch = res_tier["pitch"] if res_tier else preset['pitch']
+
+        if hasattr(self, 'input_3d_passes'):
+            self.input_3d_passes.blockSignals(True)
+            self.input_3d_passes.setText(str(passes))
+            self.input_3d_passes.blockSignals(False)
+
+        if hasattr(self, 'input_3d_pitch'):
+            self.input_3d_pitch.blockSignals(True)
+            self.input_3d_pitch.setText(f"{pitch:.3f}")
+            self.input_3d_pitch.blockSignals(False)
+
+        if hasattr(self, 'cb_3d_clean'):
+            self.cb_3d_clean.blockSignals(True)
+            self.cb_3d_clean.setChecked(preset.get('clean_enabled', True))
+            self.cb_3d_clean.blockSignals(False)
+
+        pwr_scale = res_tier.get("power_scale", 1.0) if res_tier else 1.0
+        freq_scale = res_tier.get("freq_scale", 1.0) if res_tier else 1.0
+        spd_scale = res_tier.get("speed_scale", 1.0) if res_tier else 1.0
+
+        pwr = max(20.0, min(95.0, round(preset['power'] * pwr_scale)))
+        freq = max(20.0, min(80.0, round(preset['freq'] * freq_scale)))
+        spd = max(100.0, min(2000.0, round(preset['mark_speed'] * spd_scale)))
+        jmp = preset['jump_speed']
+
+        # Synchronize laser power and frequency sliders & line edits
+        if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2'):
+            self.ui.galvolaserpowerHorizontalSlider_2.setValue(int(pwr))
+        if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
+            self.ui.galvolaserfreqHorizontalSlider.setValue(int(freq))
+
+        if hasattr(self.ui, 'pgmlaserpowerLineEdit'):
+            self.ui.pgmlaserpowerLineEdit.setText(str(int(pwr)))
+        if hasattr(self.ui, 'pgmlaserfreqLineEdit'):
+            self.ui.pgmlaserfreqLineEdit.setText(str(int(freq)))
+        if hasattr(self.ui, 'laserpowerLineEdit'):
+            self.ui.laserpowerLineEdit.setText(str(int(pwr)))
+        if hasattr(self.ui, 'laserfreqLineEdit'):
+            self.ui.laserfreqLineEdit.setText(str(int(freq)))
+
+        if hasattr(self.ui, 'pgmmarkspeedgalvoLineEdit'):
+            self.ui.pgmmarkspeedgalvoLineEdit.setText(str(int(spd)))
+        if hasattr(self.ui, 'pgmjumpspeedLineEdit'):
+            self.ui.pgmjumpspeedLineEdit.setText(str(int(jmp)))
+
+        if hasattr(self, 'galvo_controller'):
+            self.galvo_controller.live_power = pwr
+            self.galvo_controller.live_freq = freq
+
+        self.showAutoCloseMessage(
+            "Material Profile Applied",
+            f"<b>{mat_name}</b><br>"
+            f"Relief Depth: <b>{preset['max_depth']:.2f} mm</b> | Slices: <b>{passes} Passes</b><br>"
+            f"Power: <b>{pwr:.0f}%</b> | Freq: <b>{freq:.0f} kHz</b> | Speed: <b>{spd:.0f} mm/s</b><br>"
+            f"Hatch Pitch: <b>{pitch*1000:.0f} µm</b> ({preset['desc']})",
+            timeout_ms=3500
+        )
+
+        self._cached_3d_key = None
+
+    def on_3d_resolution_changed(self, idx):
+        if not hasattr(self, 'combo_3d_resolution'):
+            return
+        res_name = self.combo_3d_resolution.currentText()
+        preset = getattr(self, 'RESOLUTION_3D_TIERS', {}).get(res_name)
+        if not preset or res_name.startswith("Custom"):
+            return
+
+        passes = preset["passes"]
+        pitch = preset["pitch"]
+
+        # Block textChanged signals to avoid premature re-slicing while updating multiple fields
+        if hasattr(self, 'input_3d_passes'):
+            self.input_3d_passes.blockSignals(True)
+            self.input_3d_passes.setText(str(passes))
+            self.input_3d_passes.blockSignals(False)
+
+        if hasattr(self, 'input_3d_pitch'):
+            self.input_3d_pitch.blockSignals(True)
+            self.input_3d_pitch.setText(f"{pitch:.3f}")
+            self.input_3d_pitch.blockSignals(False)
+
+        # Adapt laser power, freq, and speed based on material and resolution tier
+        mat_name = self.combo_3d_material.currentText() if hasattr(self, 'combo_3d_material') else "Brass Blank (~1.8 mm)"
+        mat_preset = getattr(self, 'MATERIAL_3D_PRESETS', {}).get(mat_name, {})
+        base_pwr = mat_preset.get("power", 70.0)
+        base_freq = mat_preset.get("freq", 35.0)
+        base_spd = mat_preset.get("mark_speed", 600.0)
+
+        pwr = max(20.0, min(95.0, round(base_pwr * preset.get("power_scale", 1.0))))
+        freq = max(20.0, min(80.0, round(base_freq * preset.get("freq_scale", 1.0))))
+        spd = max(100.0, min(2000.0, round(base_spd * preset.get("speed_scale", 1.0))))
+
+        if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2'):
+            self.ui.galvolaserpowerHorizontalSlider_2.setValue(int(pwr))
+        if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
+            self.ui.galvolaserfreqHorizontalSlider.setValue(int(freq))
+
+        if hasattr(self.ui, 'pgmlaserpowerLineEdit'):
+            self.ui.pgmlaserpowerLineEdit.setText(str(int(pwr)))
+        if hasattr(self.ui, 'pgmlaserfreqLineEdit'):
+            self.ui.pgmlaserfreqLineEdit.setText(str(int(freq)))
+        if hasattr(self.ui, 'laserpowerLineEdit'):
+            self.ui.laserpowerLineEdit.setText(str(int(pwr)))
+        if hasattr(self.ui, 'laserfreqLineEdit'):
+            self.ui.laserfreqLineEdit.setText(str(int(freq)))
+
+        if hasattr(self.ui, 'pgmmarkspeedgalvoLineEdit'):
+            self.ui.pgmmarkspeedgalvoLineEdit.setText(str(int(spd)))
+
+        if hasattr(self, 'galvo_controller'):
+            self.galvo_controller.live_power = pwr
+            self.galvo_controller.live_freq = freq
+
+        self.showAutoCloseMessage(
+            "3D Resolution Applied",
+            f"<b>{res_name}</b><br>"
+            f"Total Slices: <b>{passes} Passes</b> | Pitch: <b>{pitch*1000:.0f} µm</b><br>"
+            f"Laser Power: <b>{pwr:.0f}%</b> | Freq: <b>{freq:.0f} kHz</b> | Speed: <b>{spd:.0f} mm/s</b><br>"
+            f"<i>{preset['desc']}</i>",
+            timeout_ms=3500
+        )
+
+        # Sync preview page dropdown if present
+        if hasattr(self, 'combo_preview_3d_resolution'):
+            self.combo_preview_3d_resolution.blockSignals(True)
+            self.combo_preview_3d_resolution.setCurrentText(res_name)
+            self.combo_preview_3d_resolution.blockSignals(False)
+
+        self._cached_3d_key = None
+        self._cached_3d_queue = None
+        self._cached_3d_layers = None
+
+        if hasattr(self, 'slider_3d_layer'):
+            self.slider_3d_layer.blockSignals(True)
+            self.slider_3d_layer.setMaximum(passes)
+            self.slider_3d_layer.setValue(1)
+            self.slider_3d_layer.blockSignals(False)
+
+        if getattr(self, 'pgm_file', None) and hasattr(self, 'cb_enable_3d_engraving') and self.cb_enable_3d_engraving.isChecked():
+            try:
+                self.process_galvo_file()
+            except Exception as e:
+                print(f"[3D Resolution Change] Preview refresh: {e}")
+
+    def on_preview_3d_resolution_changed(self, idx):
+        if hasattr(self, 'combo_preview_3d_resolution') and hasattr(self, 'combo_3d_resolution'):
+            text = self.combo_preview_3d_resolution.currentText()
+            if self.combo_3d_resolution.currentText() != text:
+                self.combo_3d_resolution.blockSignals(True)
+                self.combo_3d_resolution.setCurrentText(text)
+                self.combo_3d_resolution.blockSignals(False)
+            self.on_3d_resolution_changed(self.combo_3d_resolution.currentIndex())
+
+    def on_3d_passes_manually_edited(self):
+        if hasattr(self, 'combo_3d_resolution') and hasattr(self, 'input_3d_passes'):
+            txt = self.input_3d_passes.text().strip()
+            curr_tier = self.combo_3d_resolution.currentText()
+            preset = getattr(self, 'RESOLUTION_3D_TIERS', {}).get(curr_tier)
+            if preset and str(preset.get("passes")) != txt:
+                custom_idx = self.combo_3d_resolution.findText("Custom (Manual Passes)")
+                if custom_idx >= 0 and self.combo_3d_resolution.currentIndex() != custom_idx:
+                    self.combo_3d_resolution.blockSignals(True)
+                    self.combo_3d_resolution.setCurrentIndex(custom_idx)
+                    self.combo_3d_resolution.blockSignals(False)
+                if hasattr(self, 'combo_preview_3d_resolution'):
+                    self.combo_preview_3d_resolution.blockSignals(True)
+                    self.combo_preview_3d_resolution.setCurrentIndex(custom_idx)
+                    self.combo_preview_3d_resolution.blockSignals(False)
+            try:
+                p_val = int(txt)
+                if p_val > 0 and hasattr(self, 'slider_3d_layer'):
+                    self.slider_3d_layer.blockSignals(True)
+                    self.slider_3d_layer.setMaximum(p_val)
+                    self.slider_3d_layer.blockSignals(False)
+            except ValueError:
+                pass
+        self.on_3d_param_custom_changed()
+
+    def on_3d_param_custom_changed(self):
+        self._cached_3d_key = None
+        self._cached_3d_queue = None
+        self._cached_3d_layers = None
+
+    def on_3d_mode_changed(self, idx):
+        self._cached_3d_key = None
+        mode = self.combo_3d_mode.currentText() if hasattr(self, 'combo_3d_mode') else ""
+        if "Imported Sliced G-Code" in mode:
+            if not (getattr(self, 'pgm_file', None) and self.pgm_file.lower().endswith(('.gcode', '.nc', '.tap', '.gco'))):
+                self.showAutoCloseMessage(
+                    "G-Code File Needed",
+                    "Click 'Browse G-Code / 3D File' or 'SELECT' to choose your .gcode file.",
+                    timeout_ms=3000
+                )
+
+    def get_3d_relief_parameters(self):
+        """
+        Unified parameter extractor and validator for all 3D relief slicing modes.
+        Synchronizes material presets, laser power, frequency, speeds, offsets, dimensions,
+        and advanced toolpath settings across all 3D components.
+        """
+        filepath = getattr(self, 'pgm_file', None)
+        if not filepath or not os.path.exists(filepath):
+            deep_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "DeepEngrave")
+            filepath = os.path.join(deep_dir, "rupee_10_coin_27mm_relief_16bit.png")
+
+        field_sz = float(self.galvo_config.field_size if self.galvo_config else 100.0)
+
+        # Depth
+        try:
+            depth = float(self.input_3d_max_depth.text().strip() or 0.75)
+        except Exception:
+            depth = 0.75
+
+        # Passes
+        try:
+            passes = int(self.input_3d_passes.text().strip() or 50)
+        except Exception:
+            passes = 50
+
+        # Pitch
+        try:
+            pitch = float(self.input_3d_pitch.text().strip() or 0.025)
+        except Exception:
+            pitch = 0.025
+
+        # Target Size (Diameter or Width/Span in mm)
+        try:
+            target_size = float(self.input_3d_size.text().strip() or 27.0)
+        except Exception:
+            target_size = 27.0
+
+        mode = self.combo_3d_mode.currentText() if hasattr(self, 'combo_3d_mode') else "3D Coin Relief (Continuous 50-Pass Slicing, 27mm)"
+        clean_int = 6 if hasattr(self, 'cb_3d_clean') and self.cb_3d_clean.isChecked() else 0
+        bidirectional = self.cb_3d_bidirectional.isChecked() if hasattr(self, 'cb_3d_bidirectional') else True
+        contour = self.cb_3d_contour.isChecked() if hasattr(self, 'cb_3d_contour') else True
+        invert = self.cb_3d_invert.isChecked() if hasattr(self, 'cb_3d_invert') else False
+
+        # Start position offsets
+        start_x, start_y = 0.0, 0.0
+        try:
+            if hasattr(self, 'programgalvo_widgets'):
+                sx = self.wh.invokeMethod(self.programgalvo_widgets.pgmstartposx, "get")
+                if sx and str(sx).strip():
+                    start_x = float(str(sx).strip())
+                sy = self.wh.invokeMethod(self.programgalvo_widgets.pgmstartposy, "get")
+                if sy and str(sy).strip():
+                    start_y = float(str(sy).strip())
+        except Exception:
+            pass
+
+        # Mark & Jump Speeds
+        raw_jump = 2000.0
+        raw_mark = 800.0
+        try:
+            if hasattr(self, 'programgalvo_widgets'):
+                raw_jump = float(self.wh.invokeMethod(self.programgalvo_widgets.pgmjumpspeed, "get") or 2000.0)
+                raw_mark = float(self.wh.invokeMethod(self.programgalvo_widgets.pgmmarkspeedgalvo, "get") or 800.0)
+        except Exception:
+            pass
+        if raw_jump > 50000 or raw_jump <= 0: raw_jump = 2000.0
+        if raw_mark > 50000 or raw_mark <= 0: raw_mark = 800.0
+
+        # Laser Power & Frequency
+        pwr = 70.0
+        freq = 35.0
+        try:
+            if hasattr(self.ui, 'pgmlaserpowerLineEdit') and self.ui.pgmlaserpowerLineEdit.text().strip():
+                pwr = float(self.ui.pgmlaserpowerLineEdit.text().strip())
+            elif hasattr(self, 'galvo_controller') and getattr(self.galvo_controller, 'live_power', None) is not None:
+                pwr = float(self.galvo_controller.live_power)
+            elif hasattr(self.ui, 'laserpowerLineEdit') and self.ui.laserpowerLineEdit.text().strip():
+                pwr = float(self.ui.laserpowerLineEdit.text().strip())
+        except Exception:
+            pass
+
+        try:
+            if hasattr(self.ui, 'pgmlaserfreqLineEdit') and self.ui.pgmlaserfreqLineEdit.text().strip():
+                freq = float(self.ui.pgmlaserfreqLineEdit.text().strip())
+            elif hasattr(self, 'galvo_controller') and getattr(self.galvo_controller, 'live_freq', None) is not None:
+                freq = float(self.galvo_controller.live_freq)
+            elif hasattr(self.ui, 'laserfreqLineEdit') and self.ui.laserfreqLineEdit.text().strip():
+                freq = float(self.ui.laserfreqLineEdit.text().strip())
+        except Exception:
+            pass
+
+        # Boundary mode
+        if "Coin" in mode:
+            boundary_mode = 'circle'
+        elif "Vector" in mode:
+            boundary_mode = 'auto'
+        else:
+            boundary_mode = 'auto'
+
+        cache_key = (
+            filepath,
+            round(depth, 3),
+            passes,
+            round(pitch, 4),
+            round(target_size, 3),
+            mode,
+            clean_int,
+            bidirectional,
+            contour,
+            invert,
+            round(start_x, 2),
+            round(start_y, 2),
+            round(pwr, 1),
+            round(freq, 1),
+            round(raw_mark, 1),
+            round(raw_jump, 1)
+        )
+
+        return {
+            'filepath': filepath,
+            'field_sz': field_sz,
+            'depth': depth,
+            'passes': passes,
+            'pitch': pitch,
+            'target_size': target_size,
+            'mode': mode,
+            'clean_int': clean_int,
+            'bidirectional': bidirectional,
+            'contour': contour,
+            'invert': invert,
+            'start_x': start_x,
+            'start_y': start_y,
+            'raw_mark': raw_mark,
+            'raw_jump': raw_jump,
+            'laser_power': pwr,
+            'laser_freq': freq,
+            'boundary_mode': boundary_mode,
+            'cache_key': cache_key
+        }
+
+    def start_background_3d_slicing(self):
+        """
+        Called upon clicking 'Save' on the Galvo Program page or when 3D params change.
+        Initiates asynchronous slicing in the background without freezing the GUI.
+        """
+        params = self.get_3d_relief_parameters()
+        cache_key = params['cache_key']
+
+        # If already cached with identical settings, use cache immediately
+        if hasattr(self, '_cached_3d_key') and self._cached_3d_key == cache_key and hasattr(self, '_cached_3d_queue') and self._cached_3d_queue:
+            print("[3D Relief] Using pre-cached toolpaths.")
+            self._on_3d_slicing_finished(True, self._cached_3d_queue, self._cached_3d_layers, "", cache_key)
+            return
+
+        # Disable the print run button while slicing
+        if hasattr(self, 'printgalvo_widgets') and hasattr(self.printgalvo_widgets, 'printrungalvo'):
+            self.wh.invokeMethod(self.printgalvo_widgets.printrungalvo, "disable")
+
+        fname = os.path.basename(params['filepath'])
+        if hasattr(self.ui, 'progressLabel_2'):
+            self.ui.progressLabel_2.setText(f"⚙️ Slicing 3D Toolpaths in Background ({fname})...")
+
+        # Stop existing slicing thread if active
+        if hasattr(self, 'slicing_3d_thread') and self.slicing_3d_thread and self.slicing_3d_thread.isRunning():
+            self.slicing_3d_thread.terminate()
+            self.slicing_3d_thread.wait()
+
+        from galvo_threads import Slicing3DThread
+        self.slicing_3d_thread = Slicing3DThread(
+            filepath=params['filepath'],
+            field_sz=params['field_sz'],
+            depth=params['depth'],
+            passes=params['passes'],
+            pitch=params['pitch'],
+            mode=params['mode'],
+            clean_int=params['clean_int'],
+            target_size_mm=params['target_size'],
+            laser_power=params['laser_power'],
+            laser_freq=params['laser_freq'],
+            mark_speed_mms=params['raw_mark'],
+            jump_speed_mms=params['raw_jump'],
+            offset_x_mm=params['start_x'],
+            offset_y_mm=params['start_y'],
+            boundary_mode=params['boundary_mode'],
+            bidirectional=params['bidirectional'],
+            enable_contour=params['contour'],
+            invert_relief=params['invert'],
+            cache_key=cache_key
+        )
+        self.slicing_3d_thread.finished_signal.connect(self._on_3d_slicing_finished)
+        self.slicing_3d_thread.start()
+        print(f"[3D Relief] Background slicing started for '{fname}' ({params['target_size']}mm, {params['passes']} passes)...")
+
+    def _on_3d_slicing_finished(self, success, queue, layers, error_msg, cache_key):
+        if not success:
+            print(f"[3D Relief] Slicing error: {error_msg}")
+            if hasattr(self.ui, 'progressLabel_2'):
+                self.ui.progressLabel_2.setText("❌ 3D Slicing Error")
+            self.showAutoCloseMessage("Slicing Error", f"Failed to slice 3D model: {error_msg}")
+            return
+
+        self._cached_3d_queue = queue
+        self._cached_3d_layers = layers
+        self._cached_3d_key = cache_key
+
+        self.planner.clear()
+        self.planner.send_queue = list(queue)
+        self.planner.preview_queue = [cmd for cmd in queue if cmd.get('type') in ('jump', 'mark')]
+
+        tot = len(layers)
+        if hasattr(self, 'slider_3d_layer'):
+            self.slider_3d_layer.blockSignals(True)
+            self.slider_3d_layer.setMaximum(tot)
+            self.slider_3d_layer.setValue(1)
+            self.slider_3d_layer.blockSignals(False)
+
+        if hasattr(self, 'layer_slider_frame'):
+            self.layer_slider_frame.setVisible(True)
+
+        self.render_3d_preview_layer(1)
+        self.update_galvo_preview_bounds()
+
+        # Re-enable the print button now that toolpaths are ready
+        if hasattr(self, 'printgalvo_widgets') and hasattr(self.printgalvo_widgets, 'printrungalvo'):
+            self.wh.invokeMethod(self.printgalvo_widgets.printrungalvo, "enable")
+
+        if hasattr(self.ui, 'progressLabel_2'):
+            self.ui.progressLabel_2.setText(f"✅ 3D Slicing Complete: {tot} Layers Ready")
+
+        self.showAutoCloseMessage(
+            "3D Relief Ready",
+            f"Background slicing complete: <b>{tot} layers</b> prepared for laser engraving.",
+            timeout_ms=3000
+        )
+
+    def warmup_3d_relief_queue(self):
+        self.start_background_3d_slicing()
+
+    def on_3d_frame_clicked(self):
+        """
+        Non-blocking Red Light framing toggle for 3D reliefs.
+        Traces circular or rectangular bounds matching the actual 3D relief footprint.
+        """
+        if not hasattr(self, 'galvo_controller') or not self.galvo_controller:
+            return
+
+        # If framing thread is currently active, stop it
+        if hasattr(self, 'galvo_3d_preview_thread') and self.galvo_3d_preview_thread and getattr(self.galvo_3d_preview_thread, 'running', False):
+            self.galvo_3d_preview_thread.running = False
+            self.galvo_3d_preview_thread.wait()
+            self.galvo_3d_preview_thread = None
+            if self.galvo_controller.connection:
+                if hasattr(self.galvo_controller.connection, 'reddot_off'):
+                    self.galvo_controller.connection.reddot_off()
+                if hasattr(self.galvo_controller.connection, 'laser_off'):
+                    self.galvo_controller.connection.laser_off()
+            if hasattr(self, 'btn_3d_frame'):
+                self.btn_3d_frame.setText("🔴 3D Red Light Framing")
+                self.btn_3d_frame.setStyleSheet(
+                    "QPushButton { background-color: #d32f2f; color: white; border-radius: 8px; padding: 7px 16px; font-weight: bold; font-size: 12pt; } "
+                    "QPushButton:hover { background-color: #b71c1c; }"
+                )
+            self.showAutoCloseMessage("Framing", "Red light framing stopped.", timeout_ms=1500)
+            return
+
+        if not self.galvo_controller.is_connected:
+            self.galvo_controller.connect()
+            if not self.galvo_controller.is_connected:
+                self.showAutoCloseMessage("Hardware Error", "Galvo controller is not connected.")
+                return
+
+        params = self.get_3d_relief_parameters()
+        field_sz = params['field_sz']
+        scale = 65535.0 / field_sz
+        target_sz = params['target_size']
+        cx = 32767 + int(params['start_x'] * scale)
+        cy = 32767 + int(params['start_y'] * scale)
+        hw = int((target_sz / 2.0) * scale)
+
+        min_x = max(0, cx - hw)
+        max_x = min(65535, cx + hw)
+        min_y = max(0, cy - hw)
+        max_y = min(65535, cy + hw)
+
+        shape = 'circle' if 'Coin' in params['mode'] else 'rect'
+
+        from galvo_threads import PreviewThread
+        self.galvo_3d_preview_thread = PreviewThread(self.galvo_controller, min_x, max_x, min_y, max_y, shape=shape)
+        self.galvo_3d_preview_thread.finished_signal.connect(self._on_3d_frame_finished)
+        self.galvo_3d_preview_thread.start()
+
+        if hasattr(self, 'btn_3d_frame'):
+            self.btn_3d_frame.setText("⏹️ Stop Red Light Framing")
+            self.btn_3d_frame.setStyleSheet(
+                "QPushButton { background-color: #b71c1c; color: white; border-radius: 8px; padding: 7px 16px; font-weight: bold; font-size: 12pt; } "
+                "QPushButton:hover { background-color: #7f0000; }"
+            )
+
+        shape_str = "Circular" if shape == 'circle' else "Rectangular"
+        self.showAutoCloseMessage(
+            "3D Framing Active",
+            f"Projecting <b>{shape_str}</b> red pointer framing (Size: {target_sz:.1f} mm, Center: {params['start_x']:.1f}, {params['start_y']:.1f}).<br>Click button again to stop.",
+            timeout_ms=3000
+        )
+
+    def _on_3d_frame_finished(self, success):
+        if hasattr(self, 'btn_3d_frame'):
+            self.btn_3d_frame.setText("🔴 3D Red Light Framing")
+            self.btn_3d_frame.setStyleSheet(
+                "QPushButton { background-color: #d32f2f; color: white; border-radius: 8px; padding: 7px 16px; font-weight: bold; font-size: 12pt; } "
+                "QPushButton:hover { background-color: #b71c1c; }"
+            )
+        self.galvo_3d_preview_thread = None
+
+    def on_3d_preview_clicked(self):
+        """
+        Interactive 3D preview window with real-time layer-scrubbing.
+        Automatically exports or reuses true 3D G-code with Z-depth coordinates.
+        """
+        params = self.get_3d_relief_parameters()
+        filepath = params['filepath']
+        target_sz = params['target_size']
+        depth = params['depth']
+        passes = params['passes']
+        pitch = params['pitch']
+
+        custom_gcode = os.path.splitext(filepath)[0] + "_sliced.gcode"
+        gcode_path = custom_gcode
+
+        # If G-code already loaded directly:
+        if filepath.lower().endswith(('.gcode', '.nc', '.tap', '.gco')):
+            gcode_path = filepath
+        else:
+            # Check if we have cached layers from background slicing
+            need_export = True
+            if hasattr(self, '_cached_3d_layers') and self._cached_3d_layers:
+                # Write cached layers directly to G-code
+                try:
+                    with open(gcode_path, "w", encoding="utf-8") as f:
+                        f.write(f"; Galvo Studio 3D Relief Toolpaths\n")
+                        f.write(f"; Source: {os.path.basename(filepath)}\n")
+                        f.write(f"; Target Size: {target_sz:.2f}mm | Passes: {len(self._cached_3d_layers)} | Pitch: {pitch:.4f}mm\n")
+                        f.write(f"G21\nG90\n\n")
+                        for layer in self._cached_3d_layers:
+                            z_val = layer.get('z_depth_mm', 0.0)
+                            f.write(f"\n; --- Layer {layer.get('layer_index', 1)} | Z -{z_val:.3f} mm ---\n")
+                            f.write(f"G0 Z-{z_val:.3f}\n")
+                            for cmd in layer.get('commands', []):
+                                ctype = cmd.get('type')
+                                x, y = cmd.get('x_mm', 0.0), cmd.get('y_mm', 0.0)
+                                if ctype == 'jump':
+                                    f.write(f"G0 X{x:.3f} Y{y:.3f}\n")
+                                elif ctype == 'mark':
+                                    f.write(f"G1 X{x:.3f} Y{y:.3f}\n")
+                        f.write("\nM30\n")
+                    need_export = False
+                except Exception as ex:
+                    print(f"[3D Preview] Error writing cached G-code: {ex}")
+                    need_export = True
+
+            if need_export:
+                self.showAutoCloseMessage("Compiling 3D Preview", "Generating true 3D toolpaths for interactive preview...", timeout_ms=2500)
+                if filepath.lower().endswith(('.stl', '.obj')) or "3D Mesh / STL" in params['mode']:
+                    from core.stl_3d_engraver import STL3DEngraver
+                    engraver = STL3DEngraver(
+                        stl_path=filepath,
+                        target_size_mm=target_sz,
+                        max_depth_mm=depth,
+                        num_layers=passes,
+                        offset_x_mm=params['start_x'],
+                        offset_y_mm=params['start_y'],
+                        invert_relief=params['invert']
+                    )
+                    engraver.export_gcode(
+                        gcode_path,
+                        hatch_pitch_mm=pitch,
+                        clean_interval=params['clean_int'],
+                        bidirectional=params['bidirectional'],
+                        enable_contour=params['contour']
+                    )
+                elif "Multi-Layer Vector" in params['mode'] or filepath.lower().endswith(('.dxf', '.svg')):
+                    from core.coin_3d_engraver import Coin3DReliefEngraver
+                    engraver = Coin3DReliefEngraver(
+                        dxf_path=filepath,
+                        field_size=params['field_sz'],
+                        offset_x_mm=params['start_x'],
+                        offset_y_mm=params['start_y'],
+                        bidirectional=params['bidirectional']
+                    )
+                    engraver.export_gcode(gcode_path, clean_interval=params['clean_int'])
+                else:
+                    from core.heightmap_slicer import Heightmap3DSlicer
+                    slicer = Heightmap3DSlicer(
+                        heightmap_path=filepath,
+                        target_size_mm=target_sz,
+                        max_depth_mm=depth,
+                        num_layers=passes,
+                        field_size=params['field_sz'],
+                        offset_x_mm=params['start_x'],
+                        offset_y_mm=params['start_y'],
+                        boundary_mode=params['boundary_mode'],
+                        invert_relief=params['invert']
+                    )
+                    slicer.export_sliced_gcode(
+                        gcode_path,
+                        hatch_pitch_mm=pitch,
+                        clean_interval=params['clean_int'],
+                        bidirectional=params['bidirectional'],
+                        enable_contour=params['contour']
+                    )
+
+        if not os.path.exists(gcode_path):
+            deep_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "DeepEngrave")
+            gcode_path = os.path.join(deep_dir, "rupee_10_coin_27mm_sliced.gcode")
+
+        from preview3d import GCode3DPreview
+        self.preview_3d_win = QMainWindow(self)
+        self.preview_3d_win.setWindowTitle(f"3D Bas-Relief Preview - {os.path.basename(filepath)} ({target_sz}mm, {passes} Layers)")
+        self.preview_3d_win.resize(1100, 850)
+        p_widget = GCode3DPreview(self.preview_3d_win)
+        self.preview_3d_win.setCentralWidget(p_widget)
+        self.preview_3d_win.show()
+
+        if os.path.exists(gcode_path):
+            with open(gcode_path, "r", encoding="utf-8") as f:
+                lines = f.readlines()
+            p_widget.sigLoadGcode.emit(lines)
+
+    # --- 3D Layer Preview Slider Handlers ---
+    def on_preview_layer_slider_changed(self, layer_val):
+        self.render_3d_preview_layer(layer_val)
+
+    def on_prev_3d_layer(self):
+        if hasattr(self, 'slider_3d_layer'):
+            val = max(1, self.slider_3d_layer.value() - 1)
+            self.slider_3d_layer.setValue(val)
+
+    def on_next_3d_layer(self):
+        if hasattr(self, 'slider_3d_layer'):
+            val = min(self.slider_3d_layer.maximum(), self.slider_3d_layer.value() + 1)
+            self.slider_3d_layer.setValue(val)
+
+    def toggle_layer_display_mode(self):
+        self._layer_mode_cumulative = not getattr(self, '_layer_mode_cumulative', False)
+        if hasattr(self, 'btn_layer_mode'):
+            if self._layer_mode_cumulative:
+                self.btn_layer_mode.setText("Mode: Cumulative (1..N)")
+            else:
+                self.btn_layer_mode.setText("Mode: Single Layer")
+        if hasattr(self, 'slider_3d_layer'):
+            self.render_3d_preview_layer(self.slider_3d_layer.value())
+
+    def render_3d_preview_layer(self, layer_num):
+        layers = getattr(self, '_cached_3d_layers', None)
+        if not layers:
+            self.get_3d_engraving_queue()
+            layers = getattr(self, '_cached_3d_layers', None)
+
+        if not layers or layer_num < 1 or layer_num > len(layers):
+            return
+
+        target_layer = layers[layer_num - 1]
+        depth_val = target_layer.get('depth_mm', 0.0)
+        ang_val = target_layer.get('angle_deg', 0.0)
+        tot = len(layers)
+
+        if hasattr(self, 'label_3d_layer_status'):
+            self.label_3d_layer_status.setText(
+                f"Layer: {layer_num} / {tot} | Depth: -{depth_val:.3f} mm | Angle: {ang_val:.1f}°"
+            )
+
+        if getattr(self, '_layer_mode_cumulative', False):
+            combined_cmds = []
+            for i in range(layer_num):
+                combined_cmds.extend(layers[i].get('commands', []))
+            if hasattr(self, 'galvo_preview'):
+                self.galvo_preview.draw_queue(combined_cmds)
+        else:
+            cmds = target_layer.get('commands', [])
+            if hasattr(self, 'galvo_preview'):
+                self.galvo_preview.draw_queue(cmds)
+
+    def update_3d_layer_printing_ui(self, layer_num, total_layers, depth_val, ang_val):
+        """Called in real time during laser execution as each 3D relief layer is printed."""
+        if hasattr(self, 'slider_3d_layer'):
+            self.slider_3d_layer.blockSignals(True)
+            self.slider_3d_layer.setMaximum(total_layers)
+            self.slider_3d_layer.setValue(layer_num)
+            self.slider_3d_layer.blockSignals(False)
+
+        if hasattr(self, 'label_3d_layer_status'):
+            self.label_3d_layer_status.setText(
+                f"🔴 PRINTING LAYER: {layer_num} / {total_layers} | Depth: -{depth_val:.3f} mm | Angle: {ang_val:.1f}°"
+            )
+
+        # Update preview canvas to show active layer
+        layers = getattr(self, '_cached_3d_layers', None)
+        if layers and layer_num <= len(layers) and hasattr(self, 'galvo_preview'):
+            if getattr(self, '_layer_mode_cumulative', False):
+                combined_cmds = []
+                for i in range(layer_num):
+                    combined_cmds.extend(layers[i].get('commands', []))
+                self.galvo_preview.draw_queue(combined_cmds)
+            else:
+                cmds = layers[layer_num - 1].get('commands', [])
+                self.galvo_preview.draw_queue(cmds)
+
+        pct = int((layer_num / max(1, total_layers)) * 100)
+        if hasattr(self.ui, 'printgalvoProgressBar'):
+            self.ui.printgalvoProgressBar.setValue(pct)
+
+        if hasattr(self.ui, 'progressLabel_2'):
+            self.ui.progressLabel_2.setText(f"3D Relief Pass {layer_num}/{total_layers} (-{depth_val:.2f}mm) | {pct}%")
+
+        from PySide6.QtWidgets import QApplication
+        QApplication.instance().processEvents()
+
+    def get_3d_engraving_queue(self):
+        """
+        Compiles or retrieves pre-cached hardware command queue for 3D relief engraving.
+        Applies power, frequency, speeds, serpentine hatching, contour cleanup, and coordinate offsets.
+        """
+        params = self.get_3d_relief_parameters()
+        cache_key = params['cache_key']
+
+        # Check pre-compiled cache for instantaneous print start
+        if hasattr(self, '_cached_3d_key') and self._cached_3d_key == cache_key and hasattr(self, '_cached_3d_queue') and self._cached_3d_queue:
+            print("[3D Relief] Instant start using pre-cached toolpaths.")
+            return self._cached_3d_queue
+
+        filepath = params['filepath']
+        field_sz = params['field_sz']
+        depth = params['depth']
+        passes = params['passes']
+        pitch = params['pitch']
+        target_sz = params['target_size']
+        mode = params['mode']
+        clean_int = params['clean_int']
+        raw_mark = params['raw_mark']
+        raw_jump = params['raw_jump']
+        pwr = params['laser_power']
+        freq = params['laser_freq']
+        start_x = params['start_x']
+        start_y = params['start_y']
+        bidirectional = params['bidirectional']
+        contour = params['contour']
+        invert = params['invert']
+        boundary_mode = params['boundary_mode']
+
+        if filepath.lower().endswith(('.gcode', '.nc', '.tap', '.gco')) or "G-Code" in mode:
+            from core.gcode_3d_adapter import GCode3DAdapter
+            target_dia = target_sz if ("Coin" in mode and not filepath.lower().endswith(('.gcode', '.nc', '.tap', '.gco'))) else None
+            adapter = GCode3DAdapter(
+                gcode_path=filepath,
+                field_size=field_sz,
+                target_diameter_mm=target_dia,
+                mark_speed_mms=raw_mark,
+                jump_speed_mms=raw_jump,
+                laser_power=pwr,
+                laser_freq=freq,
+                target_passes=passes,
+                offset_x_mm=start_x,
+                offset_y_mm=start_y
+            )
+            q = adapter.compile_job_queue(mark_speed_mms=raw_mark, jump_speed_mms=raw_jump, clean_interval=clean_int, target_passes=passes)
+            self._cached_3d_layers = getattr(adapter, 'layers', [])
+        elif filepath.lower().endswith(('.stl', '.obj')) or "3D Mesh / STL" in mode:
+            from core.stl_3d_engraver import STL3DEngraver
+            engraver = STL3DEngraver(
+                stl_path=filepath,
+                target_size_mm=target_sz,
+                max_depth_mm=depth,
+                num_layers=passes,
+                field_size=field_sz,
+                laser_power=pwr,
+                laser_freq=freq,
+                mark_speed_mms=raw_mark,
+                jump_speed_mms=raw_jump,
+                offset_x_mm=start_x,
+                offset_y_mm=start_y,
+                bidirectional=bidirectional,
+                enable_contour=contour,
+                invert_relief=invert
+            )
+            q = engraver.compile_job_queue(hatch_pitch_mm=pitch, clean_interval=clean_int)
+            self._cached_3d_layers = getattr(engraver, 'layers', [])
+        elif "Multi-Layer Vector" in mode or filepath.lower().endswith(('.dxf', '.svg')):
+            from core.coin_3d_engraver import Coin3DReliefEngraver
+            engraver = Coin3DReliefEngraver(
+                dxf_path=filepath,
+                field_size=field_sz,
+                offset_x_mm=start_x,
+                offset_y_mm=start_y,
+                bidirectional=bidirectional
+            )
+            q = engraver.compile_job_queue(clean_interval=clean_int)
+            self._cached_3d_layers = getattr(engraver, 'layers', [])
+        else:
+            from core.heightmap_slicer import Heightmap3DSlicer
+            slicer = Heightmap3DSlicer(
+                heightmap_path=filepath,
+                target_size_mm=target_sz,
+                max_depth_mm=depth,
+                num_layers=passes,
+                field_size=field_sz,
+                laser_power=pwr,
+                laser_freq=freq,
+                mark_speed_mms=raw_mark,
+                jump_speed_mms=raw_jump,
+                offset_x_mm=start_x,
+                offset_y_mm=start_y,
+                boundary_mode=boundary_mode,
+                bidirectional=bidirectional,
+                enable_contour=contour,
+                invert_relief=invert
+            )
+            q = slicer.compile_sliced_3d_queue(hatch_pitch_mm=pitch, clean_interval=clean_int)
+            self._cached_3d_layers = getattr(slicer, 'layers', [])
+
+        self._cached_3d_queue = q
+        self._cached_3d_key = cache_key
+
+        if hasattr(self, 'slider_3d_layer'):
+            tot_l = len(self._cached_3d_layers) if hasattr(self, '_cached_3d_layers') and self._cached_3d_layers else passes
+            self.slider_3d_layer.setMaximum(tot_l)
+
+        return q
     
     def initJogGalvo(self):
         pass
@@ -1811,6 +3082,93 @@ class MainWindow(QMainWindow):
         if hasattr(self.ui, 'printplotgalvoFrame'):
             self.ui.printplotgalvoFrame.setLayout(galvo_plot_layout)
             galvo_plot_layout.addWidget(self.galvo_preview)
+
+            # --- 3D Relief Layer Control Bar on Preview Page ---
+            self.layer_slider_frame = QFrame()
+            self.layer_slider_frame.setStyleSheet(
+                "QFrame {"
+                " background: #f1f8e9;"
+                " border: 2px solid #0b6623;"
+                " border-radius: 8px;"
+                " padding: 4px 8px;"
+                "}"
+            )
+            self.layer_slider_frame.setVisible(True)
+            layer_layout = QHBoxLayout(self.layer_slider_frame)
+            layer_layout.setContentsMargins(6, 4, 6, 4)
+            layer_layout.setSpacing(8)
+
+            lbl_preview_res = QLabel("Resolution:")
+            lbl_preview_res.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 11pt;")
+            layer_layout.addWidget(lbl_preview_res)
+
+            self.combo_preview_3d_resolution = QComboBox()
+            self.combo_preview_3d_resolution.setStyleSheet(
+                "QComboBox {"
+                " border: 1.5px solid #0b6623;"
+                " border-radius: 5px;"
+                " padding: 3px 6px;"
+                " color: #0b6623;"
+                " font-weight: bold;"
+                " font-size: 10pt;"
+                " background-color: #ffffff;"
+                " min-width: 175px;"
+                "}"
+                "QComboBox QAbstractItemView {"
+                " color: #0b6623;"
+                " background-color: #ffffff;"
+                " selection-background-color: #c8e6c9;"
+                " selection-color: #0b6623;"
+                " font-size: 10pt;"
+                "}"
+            )
+            self.combo_preview_3d_resolution.addItems(list(self.RESOLUTION_3D_TIERS.keys()))
+            def_idx = self.combo_preview_3d_resolution.findText("Medium Detail (~250 Passes - Balanced)")
+            if def_idx >= 0:
+                self.combo_preview_3d_resolution.setCurrentIndex(def_idx)
+            self.combo_preview_3d_resolution.currentIndexChanged.connect(self.on_preview_3d_resolution_changed)
+            layer_layout.addWidget(self.combo_preview_3d_resolution)
+
+            layer_layout.addSpacing(10)
+
+            lbl_layer_title = QLabel("3D Layer:")
+            lbl_layer_title.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 11pt;")
+            layer_layout.addWidget(lbl_layer_title)
+
+            self.btn_layer_prev = QPushButton("◀")
+            self.btn_layer_prev.setFixedWidth(28)
+            self.btn_layer_prev.setStyleSheet("QPushButton { background: #0b6623; color: white; font-weight: bold; border-radius: 4px; padding: 3px; } QPushButton:hover { background: #084d1a; }")
+            self.btn_layer_prev.clicked.connect(self.on_prev_3d_layer)
+            layer_layout.addWidget(self.btn_layer_prev)
+
+            self.slider_3d_layer = QSlider(Qt.Horizontal)
+            self.slider_3d_layer.setRange(1, 250)
+            self.slider_3d_layer.setValue(1)
+            self.slider_3d_layer.setStyleSheet(
+                "QSlider::groove:horizontal { height: 8px; background: #c8e6c9; border-radius: 4px; }"
+                "QSlider::sub-page:horizontal { background: #0b6623; border-radius: 4px; }"
+                "QSlider::handle:horizontal { background: #2e7d32; border: 2px solid white; width: 20px; margin-top: -6px; margin-bottom: -6px; border-radius: 10px; }"
+                "QSlider::handle:horizontal:hover { background: #1b5e20; }"
+            )
+            self.slider_3d_layer.valueChanged.connect(self.on_preview_layer_slider_changed)
+            layer_layout.addWidget(self.slider_3d_layer, stretch=1)
+
+            self.btn_layer_next = QPushButton("▶")
+            self.btn_layer_next.setFixedWidth(28)
+            self.btn_layer_next.setStyleSheet("QPushButton { background: #0b6623; color: white; font-weight: bold; border-radius: 4px; padding: 3px; } QPushButton:hover { background: #084d1a; }")
+            self.btn_layer_next.clicked.connect(self.on_next_3d_layer)
+            layer_layout.addWidget(self.btn_layer_next)
+
+            self.btn_layer_mode = QPushButton("Mode: Single Layer")
+            self.btn_layer_mode.setStyleSheet("QPushButton { background: #e8f5e9; color: #0b6623; font-weight: bold; border: 1px solid #0b6623; border-radius: 5px; padding: 3px 8px; font-size: 10pt; } QPushButton:hover { background: #c8e6c9; }")
+            self.btn_layer_mode.clicked.connect(self.toggle_layer_display_mode)
+            layer_layout.addWidget(self.btn_layer_mode)
+
+            self.label_3d_layer_status = QLabel("Layer: 1 / 250 | Depth: -0.003 mm | Angle: 0.0°")
+            self.label_3d_layer_status.setStyleSheet("color: #0b6623; font-weight: bold; font-size: 10pt; padding: 2px 4px;")
+            layer_layout.addWidget(self.label_3d_layer_status)
+
+            galvo_plot_layout.addWidget(self.layer_slider_frame)
         
         self.debounce_timer = QTimer()
         self.debounce_timer.setSingleShot(True)
@@ -1961,6 +3319,28 @@ class MainWindow(QMainWindow):
     def showAutoCloseMessage(self, title, message, timeout_ms=5000):
         """Show notification that auto-collapses after timeout_ms ms."""
         NotifierUI.showAutoCloseMessage(self, title, message, timeout_ms)
+
+    def dragEnterEvent(self, event):
+        if event.mimeData().hasUrls() or event.mimeData().hasText():
+            event.acceptProposedAction()
+        else:
+            super().dragEnterEvent(event)
+
+    def dropEvent(self, event):
+        if event.mimeData().hasUrls():
+            for url in event.mimeData().urls():
+                fpath = url.toLocalFile()
+                if os.path.isfile(fpath):
+                    self.load_design_file(fpath)
+                    event.acceptProposedAction()
+                    return
+        elif event.mimeData().hasText():
+            txt = event.mimeData().text().strip().strip('"\';\r\n ')
+            if os.path.isfile(txt):
+                self.load_design_file(txt)
+                event.acceptProposedAction()
+                return
+        super().dropEvent(event)
 
     def closeEvent(self, event):
         reply = self.showCustomPopup(
@@ -2530,89 +3910,249 @@ class MainWindow(QMainWindow):
             except ValueError:
                 pass
 
+    def _get_initial_file_dir(self):
+        if getattr(self, 'pgm_file', None) and os.path.isfile(self.pgm_file):
+            return os.path.dirname(self.pgm_file)
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        svg_dir = os.path.join(base_dir, "svg_files")
+        if os.path.isdir(svg_dir):
+            return svg_dir
+        deep_dir = os.path.join(base_dir, "DeepEngrave")
+        if os.path.isdir(deep_dir):
+            return deep_dir
+        return base_dir
+
+    def browse_3d_model_file(self):
+        initial_dir = self._get_initial_file_dir()
+        filters = (
+            "G-Code Files (*.gcode *.nc *.tap *.gco);;"
+            "All Supported Files (*.gcode *.nc *.tap *.gco *.stl *.obj *.png *.bmp *.tiff *.svg *.dxf);;"
+            "3D Mesh Files (*.stl *.obj);;"
+            "All Files (*.*)"
+        )
+        file_path, _ = QFileDialog.getOpenFileName(
+            self,
+            "Select Sliced G-Code or 3D Model",
+            initial_dir,
+            filters,
+            "G-Code Files (*.gcode *.nc *.tap *.gco)"
+        )
+        if file_path:
+            self.load_design_file(file_path)
+
+    def _on_3d_filepath_entered(self):
+        if not hasattr(self, 'input_3d_filepath') or not self.input_3d_filepath:
+            return
+        txt = self.input_3d_filepath.text().strip().strip('"\';\r\n ')
+        if txt:
+            self.load_design_file(txt)
+
+    def _on_pgmfile_text_edited(self):
+        if getattr(self, '_setting_pgm_text', False):
+            return
+        if not hasattr(self.ui, 'pgmfilegalvoTextEdit'):
+            return
+        txt = self.ui.pgmfilegalvoTextEdit.toPlainText().strip().strip('"\';\r\n ')
+        if not txt:
+            return
+        if os.path.isfile(txt):
+            self.load_design_file(txt)
+        else:
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            for sub in ["svg_files", "DeepEngrave", ""]:
+                cand = os.path.join(base_dir, sub, txt) if sub else os.path.join(base_dir, txt)
+                if os.path.isfile(cand):
+                    self.load_design_file(cand)
+                    break
+
+    def load_design_file(self, filepath):
+        if not filepath:
+            return
+
+        # If relative or filename only, check svg_files or DeepEngrave
+        if not os.path.isabs(filepath) or not os.path.exists(filepath):
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            cand1 = os.path.join(base_dir, "svg_files", os.path.basename(filepath))
+            cand2 = os.path.join(base_dir, "DeepEngrave", os.path.basename(filepath))
+            cand3 = os.path.join(base_dir, filepath)
+            if os.path.isfile(cand1):
+                filepath = cand1
+            elif os.path.isfile(cand2):
+                filepath = cand2
+            elif os.path.isfile(cand3):
+                filepath = cand3
+
+        if not os.path.isfile(filepath):
+            self.showAutoCloseMessage("File Error", f"File not found:\n{filepath}", timeout_ms=3500)
+            return
+
+        self.pgm_file = filepath
+        self.current_test_shape = None
+        fname = os.path.basename(filepath)
+        self.logger.info(f"File selected : {self.pgm_file}")
+
+        self._setting_pgm_text = True
+        try:
+            if hasattr(self, 'programgalvo_widgets') and hasattr(self.programgalvo_widgets, 'pgmfilegalvotext'):
+                self.wh.invokeMethod(self.programgalvo_widgets.pgmfilegalvotext, "set", fname)
+            if hasattr(self.ui, 'pgmfilegalvoTextEdit'):
+                self.ui.pgmfilegalvoTextEdit.setPlainText(fname)
+            if hasattr(self, 'input_3d_filepath') and self.input_3d_filepath:
+                self.input_3d_filepath.setText(fname)
+            if hasattr(self, 'program_widgets') and hasattr(self.program_widgets, 'pgmfile'):
+                self.wh.invokeMethod(self.program_widgets.pgmfile, "set", fname)
+        finally:
+            self._setting_pgm_text = False
+
+        # Auto-detect Sliced G-Code or STL 3D Mesh and enable 3D Relief Engraving
+        lower_path = filepath.lower()
+        if lower_path.endswith(('.gcode', '.nc', '.tap', '.gco')):
+            if hasattr(self, 'cb_enable_3d_engraving'):
+                self.cb_enable_3d_engraving.setChecked(True)
+            if hasattr(self, 'combo_3d_mode'):
+                idx = self.combo_3d_mode.findText("Imported Sliced G-Code", Qt.MatchContains)
+                if idx >= 0:
+                    self.combo_3d_mode.setCurrentIndex(idx)
+            self._cached_3d_key = None
+            self.showAutoCloseMessage(
+                "G-Code File Selected",
+                f"Loaded: {fname}\n3D Imported G-Code mode enabled.\nClick 'Save' on Galvo Program page to slice.",
+                timeout_ms=3500
+            )
+            # Immediately load and render the G-code toolpaths onto the preview canvas
+            self.updatePreviewGalvo(filepath)
+        elif lower_path.endswith(('.stl', '.obj')):
+            if hasattr(self, 'cb_enable_3d_engraving'):
+                self.cb_enable_3d_engraving.setChecked(True)
+            if hasattr(self, 'combo_3d_mode'):
+                idx = self.combo_3d_mode.findText("3D Mesh / STL Relief", Qt.MatchContains)
+                if idx >= 0:
+                    self.combo_3d_mode.setCurrentIndex(idx)
+            self._cached_3d_key = None
+            self.showAutoCloseMessage(
+                "3D Mesh Selected",
+                f"Loaded: {fname}\n3D STL Slicing mode enabled.\nClick 'Save' on Galvo Program page to slice.",
+                timeout_ms=3500
+            )
+
+        # Cleanup orphaned param files and auto-fetch saved parameters
+        dxf_dir = os.path.dirname(self.pgm_file)
+        self.fh.cleanupOrphanedParams(dxf_dir)
+        params = self.fh.loadDxfParams(self.pgm_file)
+        if params:
+            self._apply_loaded_params(params)
+
+    def _apply_loaded_params(self, params):
+        if not params:
+            return
+        self.util.debugPrint(f"Fetched parameters for file: {params}")
+        nested_params = params.get("Galvo program page parameters", params)
+        param_map = {
+            "pgmheightgalvo": "Sample Height",
+            "pgmmarkspeedgalvo": "Mark Speed",
+            "pgmjumpspeed": "Jump Speed",
+            "pgmloopcount": "Loop Count",
+            "pgmstartposx": "Start Pos X",
+            "pgmstartposy": "Start Pos Y"
+        }
+        for role, key in param_map.items():
+            val = nested_params.get(key)
+            if val is not None:
+                widget_ui = getattr(self.programgalvo_widgets, role, None)
+                if widget_ui:
+                    self.wh.invokeMethod(widget_ui, "set", str(val))
+
+        pwr_val = nested_params.get("Laser Power")
+        if pwr_val is not None:
+            if hasattr(self.ui, 'laserpowerLineEdit'):
+                self.ui.laserpowerLineEdit.setText(str(pwr_val))
+            if hasattr(self.ui, 'pgmlaserpowerLineEdit'):
+                self.ui.pgmlaserpowerLineEdit.setText(str(pwr_val))
+            if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2'):
+                self.ui.galvolaserpowerHorizontalSlider_2.setValue(int(float(pwr_val)))
+
+        freq_val = nested_params.get("Laser Frequency")
+        if freq_val is not None:
+            if hasattr(self.ui, 'laserfreqLineEdit'):
+                self.ui.laserfreqLineEdit.setText(str(freq_val))
+            if hasattr(self.ui, 'pgmlaserfreqLineEdit'):
+                self.ui.pgmlaserfreqLineEdit.setText(str(freq_val))
+            if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
+                self.ui.galvolaserfreqHorizontalSlider.setValue(int(float(freq_val)))
+
+        enable_hatch = nested_params.get("Enable Hatch")
+        if enable_hatch is not None:
+            self.ui.pgmenablehatchCheckBox.setChecked(enable_hatch)
+            self.programsGalvoAction(self.ui.pgmenablehatchCheckBox)
+
+        mode = nested_params.get("Mode")
+        if mode is not None:
+            cross = getattr(self.ui, 'pgmmodeCheckBox', None)
+            if cross: cross.setChecked(mode)
+
+        enable_engrave = nested_params.get("Enable Engraving")
+        if enable_engrave is not None and hasattr(self, 'cb_enable_engraving'):
+            self.cb_enable_engraving.setChecked(bool(enable_engrave))
+            if nested_params.get("Engraving Material") and hasattr(self, 'combo_engrave_material'):
+                self.combo_engrave_material.setCurrentText(str(nested_params.get("Engraving Material")))
+            if nested_params.get("Engraving Depth") and hasattr(self, 'input_engrave_depth'):
+                self.input_engrave_depth.setText(str(nested_params.get("Engraving Depth")))
+            if nested_params.get("Engraving Step") and hasattr(self, 'input_engrave_step'):
+                self.input_engrave_step.setText(str(nested_params.get("Engraving Step")))
+            if nested_params.get("Engraving Style") and hasattr(self, 'combo_engrave_style'):
+                self.combo_engrave_style.setCurrentText(str(nested_params.get("Engraving Style")))
+            if nested_params.get("Engraving Pitch") and hasattr(self, 'input_engrave_pitch'):
+                self.input_engrave_pitch.setText(str(nested_params.get("Engraving Pitch")))
+            if nested_params.get("Engraving Substrate Height") and hasattr(self, 'input_engrave_obj_height'):
+                self.input_engrave_obj_height.setText(str(nested_params.get("Engraving Substrate Height")))
+
+        enable_3d = nested_params.get("Enable 3D Engraving")
+        if enable_3d is not None and hasattr(self, 'cb_enable_3d_engraving'):
+            self.cb_enable_3d_engraving.setChecked(bool(enable_3d))
+            if nested_params.get("3D Material") and hasattr(self, 'combo_3d_material'):
+                self.combo_3d_material.setCurrentText(str(nested_params.get("3D Material")))
+            if nested_params.get("3D Resolution") and hasattr(self, 'combo_3d_resolution'):
+                self.combo_3d_resolution.blockSignals(True)
+                self.combo_3d_resolution.setCurrentText(str(nested_params.get("3D Resolution")))
+                self.combo_3d_resolution.blockSignals(False)
+            if nested_params.get("3D Slicing Mode") and hasattr(self, 'combo_3d_mode'):
+                self.combo_3d_mode.setCurrentText(str(nested_params.get("3D Slicing Mode")))
+            if nested_params.get("3D Model File") and hasattr(self, 'input_3d_filepath') and self.input_3d_filepath:
+                self.input_3d_filepath.setText(str(nested_params.get("3D Model File")))
+            if nested_params.get("3D Max Depth") and hasattr(self, 'input_3d_max_depth'):
+                self.input_3d_max_depth.setText(str(nested_params.get("3D Max Depth")))
+            if nested_params.get("3D Passes") and hasattr(self, 'input_3d_passes'):
+                self.input_3d_passes.setText(str(nested_params.get("3D Passes")))
+            if nested_params.get("3D Pitch") and hasattr(self, 'input_3d_pitch'):
+                self.input_3d_pitch.setText(str(nested_params.get("3D Pitch")))
+
+        self.showAutoCloseMessage("Parameters Fetched", "Previous parameters for this file have been loaded.", timeout_ms=3000)
+
     def programsGalvoAction(self, widget, *args):
         action = self.wh.getRole(widget)
         self.util.debugPrint(f"programsGalvoAction : {action}")
         
         if action == "pgmfilegalvo":
-            self.pgm_file, _ = QFileDialog.getOpenFileName(self, "Select File", "", "Supported Files (*.svg *.dxf *.bmp *.jpg *.png *.gbr *.gtl *.gbl *.gto *.gbo *.gts *.gbs *.gml *.gtp *.gbp *.drl *.txt);;SVG Files (*.svg);;DXF Files (*.dxf);;Image Files (*.bmp *.jpg *.png);;Gerber Files (*.gbr *.gtl *.gbl *.gto *.gbo *.gts *.gbs *.gml *.gtp *.gbp *.drl *.txt)")
-            if self.pgm_file:
-                self.wh.invokeMethod(self.programgalvo_widgets.pgmfilegalvotext, "set", os.path.basename(self.pgm_file))
-                self.logger.info(f"File selected : {self.pgm_file}")
-
-                # --- CLEANUP ORPHANED JSON FILES ---
-                dxf_dir = os.path.dirname(self.pgm_file)
-                self.fh.cleanupOrphanedParams(dxf_dir)
-
-                # --- AUTO FETCH PARAMETERS ---
-                params = self.fh.loadDxfParams(self.pgm_file)
-                if params:
-                    self.util.debugPrint(f"Fetched parameters for file: {params}")
-                    
-                    nested_params = params.get("Galvo program page parameters", params)
-                    
-                    param_map = {
-                        "pgmheightgalvo": "Sample Height",
-                        "pgmmarkspeedgalvo": "Mark Speed",
-                        "pgmjumpspeed": "Jump Speed",
-                        "pgmloopcount": "Loop Count",
-                        "pgmstartposx": "Start Pos X",
-                        "pgmstartposy": "Start Pos Y"
-                    }
-                    
-                    for role, key in param_map.items():
-                        val = nested_params.get(key)
-                        if val is not None:
-                            widget_ui = getattr(self.programgalvo_widgets, role, None)
-                            if widget_ui:
-                                self.wh.invokeMethod(widget_ui, "set", str(val))
-                                
-                    # Also restore Power and Frequency from Laser Conf widgets and Design page widgets
-                    pwr_val = nested_params.get("Laser Power")
-                    if pwr_val is not None:
-                        if hasattr(self.ui, 'laserpowerLineEdit'):
-                            self.ui.laserpowerLineEdit.setText(str(pwr_val))
-                        if hasattr(self.ui, 'pgmlaserpowerLineEdit'):
-                            self.ui.pgmlaserpowerLineEdit.setText(str(pwr_val))
-                        if hasattr(self.ui, 'galvolaserpowerHorizontalSlider_2'):
-                            self.ui.galvolaserpowerHorizontalSlider_2.setValue(int(float(pwr_val)))
-                            
-                    freq_val = nested_params.get("Laser Frequency")
-                    if freq_val is not None:
-                        if hasattr(self.ui, 'laserfreqLineEdit'):
-                            self.ui.laserfreqLineEdit.setText(str(freq_val))
-                        if hasattr(self.ui, 'pgmlaserfreqLineEdit'):
-                            self.ui.pgmlaserfreqLineEdit.setText(str(freq_val))
-                        if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
-                            self.ui.galvolaserfreqHorizontalSlider.setValue(int(float(freq_val)))
-                                
-                    enable_hatch = nested_params.get("Enable Hatch")
-                    if enable_hatch is not None:
-                        self.ui.pgmenablehatchCheckBox.setChecked(enable_hatch)
-                        self.programsGalvoAction(self.ui.pgmenablehatchCheckBox)
-
-                    mode = nested_params.get("Mode")
-                    if mode is not None:
-                        cross = getattr(self.ui, 'pgmmodeCheckBox', None)
-                        if cross: cross.setChecked(mode)
-
-                    enable_engrave = nested_params.get("Enable Engraving")
-                    if enable_engrave is not None and hasattr(self, 'cb_enable_engraving'):
-                        self.cb_enable_engraving.setChecked(bool(enable_engrave))
-                        if nested_params.get("Engraving Material") and hasattr(self, 'combo_engrave_material'):
-                            self.combo_engrave_material.setCurrentText(str(nested_params.get("Engraving Material")))
-                        if nested_params.get("Engraving Depth") and hasattr(self, 'input_engrave_depth'):
-                            self.input_engrave_depth.setText(str(nested_params.get("Engraving Depth")))
-                        if nested_params.get("Engraving Step") and hasattr(self, 'input_engrave_step'):
-                            self.input_engrave_step.setText(str(nested_params.get("Engraving Step")))
-                        if nested_params.get("Engraving Style") and hasattr(self, 'combo_engrave_style'):
-                            self.combo_engrave_style.setCurrentText(str(nested_params.get("Engraving Style")))
-                        if nested_params.get("Engraving Pitch") and hasattr(self, 'input_engrave_pitch'):
-                            self.input_engrave_pitch.setText(str(nested_params.get("Engraving Pitch")))
-                        if nested_params.get("Engraving Substrate Height") and hasattr(self, 'input_engrave_obj_height'):
-                            self.input_engrave_obj_height.setText(str(nested_params.get("Engraving Substrate Height")))
-
-                    self.showAutoCloseMessage("Parameters Fetched", "Previous parameters for this file have been loaded.", timeout_ms=3000)
+            initial_dir = self._get_initial_file_dir()
+            filters = (
+                "All Supported Files (*.gcode *.nc *.tap *.gco *.stl *.obj *.svg *.dxf *.bmp *.jpg *.png *.gbr *.txt);;"
+                "G-Code Files (*.gcode *.nc *.tap *.gco);;"
+                "All Files (*.*);;"
+                "3D Mesh Files (*.stl *.obj);;"
+                "SVG Files (*.svg);;"
+                "DXF Files (*.dxf);;"
+                "Image Files (*.bmp *.jpg *.png);;"
+                "Gerber Files (*.gbr *.gtl *.gbl *.gto *.gbo *.gts *.gbs *.gml *.gtp *.gbp *.drl *.txt)"
+            )
+            selected_file, _ = QFileDialog.getOpenFileName(
+                self,
+                "Select Design / G-Code / 3D File",
+                initial_dir,
+                filters,
+                "All Supported Files (*.gcode *.nc *.tap *.gco *.stl *.obj *.svg *.dxf *.bmp *.jpg *.png *.gbr *.txt)"
+            )
+            if selected_file:
+                self.load_design_file(selected_file)
 
         elif action == "pgmenablehatch":
             is_checked = self.ui.pgmenablehatchCheckBox.isChecked()
@@ -2683,6 +4223,17 @@ class MainWindow(QMainWindow):
                     params["Galvo program page parameters"]["Engraving Style"] = self.combo_engrave_style.currentText()
                     params["Galvo program page parameters"]["Engraving Pitch"] = self.input_engrave_pitch.text()
                     params["Galvo program page parameters"]["Engraving Substrate Height"] = self.input_engrave_obj_height.text()
+                if hasattr(self, 'cb_enable_3d_engraving'):
+                    params["Galvo program page parameters"]["Enable 3D Engraving"] = self.cb_enable_3d_engraving.isChecked()
+                    if hasattr(self, 'combo_3d_material'):
+                        params["Galvo program page parameters"]["3D Material"] = self.combo_3d_material.currentText()
+                    if hasattr(self, 'combo_3d_resolution'):
+                        params["Galvo program page parameters"]["3D Resolution"] = self.combo_3d_resolution.currentText()
+                    params["Galvo program page parameters"]["3D Slicing Mode"] = self.combo_3d_mode.currentText()
+                    params["Galvo program page parameters"]["3D Model File"] = str(getattr(self, 'pgm_file', ''))
+                    params["Galvo program page parameters"]["3D Max Depth"] = self.input_3d_max_depth.text()
+                    params["Galvo program page parameters"]["3D Passes"] = self.input_3d_passes.text()
+                    params["Galvo program page parameters"]["3D Pitch"] = self.input_3d_pitch.text()
                 if self.fh.saveDxfParams(self.pgm_file, params):
                     self.util.debugPrint(f"Saved parameters for Galvo file: {params}")
                     self.logger.info(f"Parameters saved for {self.pgm_file}")
@@ -2699,7 +4250,11 @@ class MainWindow(QMainWindow):
                 if hasattr(self.ui, 'galvolaserfreqHorizontalSlider'):
                     self.ui.galvolaserfreqHorizontalSlider.setValue(int(freq))
                 
-            if self.process_galvo_file():
+            is_3d = hasattr(self, 'cb_enable_3d_engraving') and self.cb_enable_3d_engraving.isChecked()
+            if is_3d:
+                self.showMainPages("printgalvo")
+                self.start_background_3d_slicing()
+            elif self.process_galvo_file():
                 self.showMainPages("printgalvo")
 
         self.validateGalvoProgramFields()
@@ -2929,13 +4484,96 @@ class MainWindow(QMainWindow):
             parser = DXFParser(filepath)
             polygons = parser.parse_to_polygons(field_size=self.galvo_config.field_size)
         elif filepath.lower().endswith(('.bmp', '.jpg', '.jpeg', '.png')):
-            from core.image_parser import ImageParser
-            parser = ImageParser(field_size=self.galvo_config.field_size)
-            polygons = parser.parse_to_polygons(filepath)
+            is_3d = hasattr(self, 'cb_enable_3d_engraving') and self.cb_enable_3d_engraving.isChecked()
+            if is_3d:
+                target_sz = 27.0
+                try:
+                    if hasattr(self, 'input_3d_size') and self.input_3d_size.text().strip():
+                        target_sz = float(self.input_3d_size.text().strip() or 27.0)
+                except Exception:
+                    target_sz = 27.0
+                mode_text = self.combo_3d_mode.currentText() if hasattr(self, 'combo_3d_mode') else ""
+                if "Coin" in mode_text:
+                    r = target_sz / 2.0
+                    angles = np.linspace(0, 2 * np.pi, 64, endpoint=False)
+                    polygons = [[(float(start_x + r * np.cos(a)), float(start_y + r * np.sin(a))) for a in angles]]
+                else:
+                    hw = target_sz / 2.0
+                    polygons = [[
+                        (float(start_x - hw), float(start_y - hw)),
+                        (float(start_x + hw), float(start_y - hw)),
+                        (float(start_x + hw), float(start_y + hw)),
+                        (float(start_x - hw), float(start_y + hw)),
+                        (float(start_x - hw), float(start_y - hw))
+                    ]]
+            else:
+                from core.image_parser import ImageParser
+                parser = ImageParser(field_size=self.galvo_config.field_size)
+                polygons = parser.parse_to_polygons(filepath)
         elif filepath.lower().endswith(('.gbr', '.gtl', '.gbl', '.gto', '.gbo', '.gts', '.gbs', '.gml', '.gtp', '.gbp', '.drl', '.txt')):
             from gerber_parser import GerberParser
             parser = GerberParser(filepath)
             polygons = parser.parse_to_polygons(field_size=self.galvo_config.field_size)
+        elif filepath.lower().endswith(('.stl', '.obj')):
+            from core.stl_3d_engraver import STL3DEngraver
+            target_sz = 27.0
+            try:
+                if hasattr(self, 'input_3d_size') and self.input_3d_size.text().strip():
+                    target_sz = float(self.input_3d_size.text().strip() or 27.0)
+            except Exception:
+                target_sz = 27.0
+            engraver = STL3DEngraver(
+                stl_path=filepath,
+                target_size_mm=target_sz,
+                field_size=self.galvo_config.field_size
+            )
+            mode_text = self.combo_3d_mode.currentText() if hasattr(self, 'combo_3d_mode') else ""
+            if "Coin" in mode_text:
+                r = engraver.target_size_mm / 2.0
+                angles = np.linspace(0, 2 * np.pi, 64, endpoint=False)
+                polygons = [[(float(start_x + r * np.cos(a)), float(start_y + r * np.sin(a))) for a in angles]]
+            else:
+                hw = (engraver.width_mm or target_sz) / 2.0
+                hh = (engraver.height_mm or target_sz) / 2.0
+                polygons = [[
+                    (float(start_x - hw), float(start_y - hh)),
+                    (float(start_x + hw), float(start_y - hh)),
+                    (float(start_x + hw), float(start_y + hh)),
+                    (float(start_x - hw), float(start_y + hh)),
+                    (float(start_x - hw), float(start_y - hh))
+                ]]
+        elif filepath.lower().endswith(('.gcode', '.nc', '.tap', '.gco')):
+            from core.gcode_3d_adapter import GCode3DAdapter
+            try:
+                passes_cnt = int(self.input_3d_passes.text() or 50)
+            except Exception:
+                passes_cnt = 50
+            target_sz = None
+            try:
+                if hasattr(self, 'input_3d_size') and self.input_3d_size.text().strip():
+                    target_sz = float(self.input_3d_size.text().strip() or 27.0)
+            except Exception:
+                target_sz = None
+            mode_text = self.combo_3d_mode.currentText() if hasattr(self, 'combo_3d_mode') else ""
+            target_dia = target_sz if "Coin" in mode_text else None
+            adapter = GCode3DAdapter(
+                gcode_path=filepath,
+                field_size=self.galvo_config.field_size,
+                target_passes=passes_cnt,
+                target_diameter_mm=target_dia,
+                offset_x_mm=start_x,
+                offset_y_mm=start_y
+            )
+            w = adapter.bounding_box['width'] * adapter.scale_factor
+            h = adapter.bounding_box['height'] * adapter.scale_factor
+            half_w, half_h = w / 2.0, h / 2.0
+            polygons = [[
+                (float(start_x - half_w), float(start_y - half_h)),
+                (float(start_x + half_w), float(start_y - half_h)),
+                (float(start_x + half_w), float(start_y + half_h)),
+                (float(start_x - half_w), float(start_y + half_h)),
+                (float(start_x - half_w), float(start_y - half_h))
+            ]]
         else:
             parser = SVGParser(field_size=self.galvo_config.field_size)
             polygons = parser.parse_to_polygons(filepath)
@@ -2975,6 +4613,25 @@ class MainWindow(QMainWindow):
         shift_y = start_y - design_center_y
 
         self.planner.clear()
+        
+        is_3d = (hasattr(self, 'cb_enable_3d_engraving') and self.cb_enable_3d_engraving.isChecked()) or filepath.lower().endswith(('.gcode', '.nc', '.tap', '.gco'))
+        if is_3d:
+            if hasattr(self, 'cb_enable_3d_engraving'):
+                self.cb_enable_3d_engraving.setChecked(True)
+            q_3d = self.get_3d_engraving_queue()
+            if q_3d:
+                self.planner.send_queue = list(q_3d)
+                self.planner.preview_queue = [cmd for cmd in q_3d if cmd.get('type') in ('jump', 'mark')]
+                if hasattr(self, "galvo_preview"):
+                    if hasattr(self, 'slider_3d_layer') and hasattr(self, '_cached_3d_layers') and self._cached_3d_layers:
+                        curr_l = self.slider_3d_layer.value() if self.slider_3d_layer.value() > 0 else 1
+                        self.render_3d_preview_layer(curr_l)
+                    else:
+                        self.galvo_preview.draw_queue(self.planner.preview_queue)
+                self.update_galvo_preview_bounds()
+                return True
+            elif filepath.lower().endswith(('.gcode', '.nc', '.tap', '.gco')):
+                return False
         
         is_hatch = self.ui.pgmenablehatchCheckBox.isChecked()
         is_engraving = hasattr(self, 'cb_enable_engraving') and self.cb_enable_engraving.isChecked()
@@ -3115,7 +4772,15 @@ class MainWindow(QMainWindow):
         except Exception as e:
             self.util.debugPrint(f"Failed to write galvo_output.txt: {e}")
 
-        if hasattr(self, "galvo_preview"):
+        is_3d = hasattr(self, 'cb_enable_3d_engraving') and self.cb_enable_3d_engraving.isChecked()
+        if hasattr(self, 'layer_slider_frame'):
+            self.layer_slider_frame.setVisible(is_3d)
+
+        if is_3d:
+            if hasattr(self, '_cached_3d_layers') and self._cached_3d_layers:
+                curr_l = self.slider_3d_layer.value() if hasattr(self, 'slider_3d_layer') and self.slider_3d_layer.value() > 0 else 1
+                self.render_3d_preview_layer(curr_l)
+        elif hasattr(self, "galvo_preview"):
             self.galvo_preview.draw_queue(self.planner.preview_queue)
         self.update_galvo_preview_bounds()
         return True
@@ -3134,11 +4799,15 @@ class MainWindow(QMainWindow):
                 # Regenerate queue with current UI settings (start pos, scale, etc.) before previewing
                 self._apply_galvo_settings()
                 
-                if not self.planner.send_queue:
+                is_3d = hasattr(self, 'cb_enable_3d_engraving') and self.cb_enable_3d_engraving.isChecked()
+                check_queue = self.planner.send_queue
+                if is_3d and not check_queue:
+                    check_queue = self.get_3d_engraving_queue()
+                if not check_queue:
                     self.showAutoCloseMessage("Empty Queue", "Load a pattern first.")
                     return
                 min_x, max_x, min_y, max_y = float('inf'), float('-inf'), float('inf'), float('-inf')
-                for cmd in self.planner.send_queue:
+                for cmd in check_queue:
                     if 'x' in cmd and 'y' in cmd:
                         min_x = min(min_x, cmd['x'])
                         max_x = max(max_x, cmd['x'])
@@ -3211,7 +4880,11 @@ class MainWindow(QMainWindow):
                 return
             if not self.verify_hardware_connection():
                 return
-            if not self.planner.send_queue:
+            is_gcode_file = getattr(self, 'pgm_file', '') and str(self.pgm_file).lower().endswith(('.gcode', '.nc', '.tap', '.gco'))
+            enable_3d = (hasattr(self, 'cb_enable_3d_engraving') and self.cb_enable_3d_engraving.isChecked()) or is_gcode_file
+            if is_gcode_file and hasattr(self, 'cb_enable_3d_engraving'):
+                self.cb_enable_3d_engraving.setChecked(True)
+            if not enable_3d and not self.planner.send_queue:
                 self.showAutoCloseMessage("Empty Queue", "Load a pattern first.")
                 return
                 
@@ -3252,21 +4925,29 @@ class MainWindow(QMainWindow):
                     if hasattr(self, 'config_file_path'):
                         self.ch.updateFile(self.config_file_path)
 
-                    print("Homing Z axis before moving to focus position...")
-                    self.showAutoCloseMessage("Homing", "Homing Z-axis...", timeout_ms=2000)
-                    if not self.stepper_controller.home_z(app_instance=QApplication.instance()):
-                        self.showAutoCloseMessage("Error", "Failed to home Z-axis. Cannot start print.")
-                        return
-                        
-                    print(f"Moving Z axis to focus position: {finalgalvofocus:.2f} mm (Base: {focus_z}, ObjHeight: {galvoobjheight}, SampleHeight: {galvosampleheight})")
-                    self.stepper_controller.move_z_absolute(finalgalvofocus, speed=1000)
-                    self.ah.pos("Z", self.stepper_controller.z_position)
-                    self.jogPosDisplay()
-                    self.focusPosDisplay()
-                    import time
-                    while time.time() < getattr(self.stepper_controller, 'next_ready_time', time.time()):
-                        QApplication.instance().processEvents()
-                        time.sleep(0.05)
+                    current_z = getattr(self.stepper_controller, 'z_position', None)
+                    is_already_homed = getattr(self.stepper_controller, 'is_homed', False)
+                    
+                    if current_z is not None and abs(current_z - finalgalvofocus) < 0.05:
+                        print(f"Z axis is already at focus position ({current_z:.2f} mm). Skipping Z motion.")
+                    else:
+                        if not is_already_homed or current_z is None:
+                            print("Homing Z axis before moving to focus position...")
+                            self.showAutoCloseMessage("Homing", "Homing Z-axis...", timeout_ms=1500)
+                            if not self.stepper_controller.home_z(app_instance=QApplication.instance()):
+                                self.showAutoCloseMessage("Error", "Failed to home Z-axis. Cannot start print.")
+                                return
+                            self.stepper_controller.is_homed = True
+                            
+                        print(f"Moving Z axis to focus position: {finalgalvofocus:.2f} mm (Base: {focus_z}, ObjHeight: {galvoobjheight}, SampleHeight: {galvosampleheight})")
+                        self.stepper_controller.move_z_absolute(finalgalvofocus, speed=1000)
+                        self.ah.pos("Z", self.stepper_controller.z_position)
+                        self.jogPosDisplay()
+                        self.focusPosDisplay()
+                        import time
+                        while time.time() < getattr(self.stepper_controller, 'next_ready_time', time.time()):
+                            QApplication.instance().processEvents()
+                            time.sleep(0.02)
             except Exception as e:
                 print(f"Failed to move Z axis to focus position: {e}")
 
@@ -3306,6 +4987,21 @@ class MainWindow(QMainWindow):
                 self.galvo_controller.is_paused = False
                 
             enable_engrave = hasattr(self, 'cb_enable_engraving') and self.cb_enable_engraving.isChecked()
+            enable_3d = (hasattr(self, 'cb_enable_3d_engraving') and self.cb_enable_3d_engraving.isChecked()) or is_gcode_file
+            
+            queue_to_execute = self.planner.send_queue
+            if enable_3d:
+                self.util.debugPrint("[3D Engraving] Compiling 3D relief toolpaths...")
+                self.showAutoCloseMessage("Compiling 3D Model", "Generating 3D relief toolpaths and micro-hatch vectors...", timeout_ms=3000)
+                q_3d = self.get_3d_engraving_queue()
+                if q_3d:
+                    queue_to_execute = q_3d
+                    loop_count = 1
+                    enable_engrave = False # Already multi-pass in the compiled 3D queue
+                else:
+                    self.showAutoCloseMessage("Error", "Failed to compile 3D relief toolpaths.")
+                    return
+            
             z_step = 0.05
             target_depth = 1.0
             if enable_engrave:
@@ -3322,7 +5018,7 @@ class MainWindow(QMainWindow):
 
             self.galvo_exec_thread = ExecutionThread(
                 self.galvo_controller, 
-                self.planner.send_queue, 
+                queue_to_execute, 
                 loop_count,
                 stepper_controller=self.stepper_controller,
                 enable_engraving=enable_engrave,
@@ -3384,6 +5080,18 @@ class MainWindow(QMainWindow):
                     self.updateGalvoPauseUI(is_paused=True)
                         
     def on_galvo_execution_progress(self, idx, total, x, y, ctype):
+        if ctype and str(ctype).startswith("3d_layer:"):
+            try:
+                parts = str(ctype).split(":")
+                layer_num = int(parts[1])
+                total_layers = int(parts[2])
+                depth_val = float(parts[3])
+                ang_val = float(parts[4])
+                self.update_3d_layer_printing_ui(layer_num, total_layers, depth_val, ang_val)
+            except Exception as e:
+                print(f"[3D Progress Parse Error] {e}")
+            return
+
         if ctype and str(ctype).startswith("pass_change:"):
             try:
                 self._current_printing_pass = int(ctype.split(":")[1])
@@ -3419,6 +5127,11 @@ class MainWindow(QMainWindow):
         self.updateGalvoPauseUI(is_paused=False, enabled=False)
         if hasattr(self, 'galvo_controller'):
             self.galvo_controller.is_paused = False
+
+        if hasattr(self, 'label_3d_layer_status'):
+            if hasattr(self, 'cb_enable_3d_engraving') and self.cb_enable_3d_engraving.isChecked():
+                tot = self.slider_3d_layer.maximum() if hasattr(self, 'slider_3d_layer') else 50
+                self.label_3d_layer_status.setText(f"✅ 3D Relief Complete ({tot} Layers Finished)")
             
         is_disconnected = False
         if self.galvo_controller.connection and hasattr(self.galvo_controller.connection, 'is_physically_connected'):
@@ -3875,11 +5588,24 @@ class MainWindow(QMainWindow):
         # 1. FILE SELECTION
         # ---------------------------------------------------------
         if action == "pgmfileset":
-            self.pgm_file, _ = QFileDialog.getOpenFileName(self, "Select DXF File", "", "DXF Files (*.dxf)")
+            initial_dir = self._get_initial_file_dir()
+            filters = (
+                "All Supported Files (*.gcode *.nc *.tap *.gco *.dxf *.svg *.stl *.obj *.bmp *.jpg *.png);;"
+                "G-Code Files (*.gcode *.nc *.tap *.gco);;"
+                "DXF Files (*.dxf);;"
+                "SVG Files (*.svg);;"
+                "All Files (*.*)"
+            )
+            selected_file, _ = QFileDialog.getOpenFileName(
+                self,
+                "Select Program File",
+                initial_dir,
+                filters,
+                "All Supported Files (*.gcode *.nc *.tap *.gco *.dxf *.svg *.stl *.obj *.bmp *.jpg *.png)"
+            )
             
-            if self.pgm_file:                
-                self.wh.invokeMethod(self.program_widgets.pgmfile, "set", os.path.basename(self.pgm_file))
-                self.logger.info(f"DXF file selected : {self.pgm_file}")
+            if selected_file:
+                self.load_design_file(selected_file)
 
                 # --- CLEANUP ORPHANED JSON FILES ---
                 dxf_dir = os.path.dirname(self.pgm_file)
@@ -4208,9 +5934,23 @@ class MainWindow(QMainWindow):
         
         if btn:
             btn.click()
-        
         else:
             self.main_stack.setCurrentIndex(arg)
+
+        if page == "printgalvo" or role == "printgalvo":
+            is_3d = hasattr(self, 'cb_enable_3d_engraving') and self.cb_enable_3d_engraving.isChecked()
+            if hasattr(self, 'layer_slider_frame'):
+                self.layer_slider_frame.setVisible(is_3d)
+            if is_3d:
+                if hasattr(self, '_cached_3d_layers') and self._cached_3d_layers:
+                    tot = len(self._cached_3d_layers)
+                    cur = self.slider_3d_layer.value() if hasattr(self, 'slider_3d_layer') else 1
+                    if hasattr(self, 'slider_3d_layer'):
+                        self.slider_3d_layer.blockSignals(True)
+                        self.slider_3d_layer.setMaximum(tot)
+                        self.slider_3d_layer.setValue(cur)
+                        self.slider_3d_layer.blockSignals(False)
+                    self.render_3d_preview_layer(cur)
             
         self.util.debugPrint(f"index : {arg}")
         self.util.debugPrint(f"arg : {arg}")

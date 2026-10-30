@@ -855,7 +855,7 @@ class CadCanvasWidget(QWidget):
         new_size, ok = QInputDialog.getDouble(
             self, "Galvo Field Size",
             "Enter Galvo Field Size (mm):",
-            value=cur_size, min=5.0, max=1000.0, decimals=2
+            value=cur_size, minValue=5.0, maxValue=1000.0, decimals=2
         )
         if ok and new_size > 0:
             self.scene.set_field_size(new_size)

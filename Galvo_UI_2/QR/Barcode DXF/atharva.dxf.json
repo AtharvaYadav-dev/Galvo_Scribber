@@ -6,9 +6,16 @@
         "Loop Count": "1",
         "Start Pos X": "0",
         "Start Pos Y": "0",
-        "Enable Hatch": false,
+        "Enable Hatch": true,
         "Mode": null,
-        "Laser Power": 100.0,
-        "Laser Frequency": 80.0
+        "Laser Power": 5.0,
+        "Laser Frequency": 80.0,
+        "Enable Engraving": false,
+        "Engraving Material": "POM / Delrin (Hard Plastic)",
+        "Engraving Depth": "1.0",
+        "Engraving Step": "0.05",
+        "Engraving Style": "Cross-Hatch (90\u00b0 Grid)",
+        "Engraving Pitch": "0.04",
+        "Engraving Substrate Height": "0.0"
     }
 }

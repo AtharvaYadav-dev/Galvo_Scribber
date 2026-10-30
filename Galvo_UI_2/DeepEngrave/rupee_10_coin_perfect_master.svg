@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="27.000mm" height="27.000mm" viewBox="0 0 27.000 27.000" version="1.1">
+  <style>
+    .rim { fill: none; stroke: #000000; stroke-width: 0.05; }
+    .bead { fill: none; stroke: #0000ff; stroke-width: 0.05; }
+    .groove { fill: none; stroke: #00cccc; stroke-width: 0.05; }
+    .leaves { fill: none; stroke: #00aa00; stroke-width: 0.05; }
+    .num { fill: none; stroke: #ff8800; stroke-width: 0.05; }
+    .rupee { fill: none; stroke: #ff0000; stroke-width: 0.05; }
+  </style>
+  <g id="LAYER_00_RIM" class="rim">
+    <circle cx="13.500" cy="13.500" r="13.500" />
+    <circle cx="13.500" cy="13.500" r="12.650" />
+    <circle cx="13.500" cy="13.500" r="12.200" />
+  </g>
+  <g id="LAYER_01_BEADS" class="bead">
+    <circle cx="25.300" cy="13.500" r="0.220" />
+    <circle cx="25.255" cy="12.472" r="0.220" />
+    <circle cx="25.121" cy="11.451" r="0.220" />
+    <circle cx="24.898" cy="10.446" r="0.220" />
+    <circle cx="24.588" cy="9.464" r="0.220" />
+    <circle cx="24.194" cy="8.513" r="0.220" />
+    <circle cx="23.719" cy="7.600" r="0.220" />
+    <circle cx="23.166" cy="6.732" r="0.220" />
+    <circle cx="22.539" cy="5.915" r="0.220" />
+    <circle cx="21.844" cy="5.156" r="0.220" />
+    <circle cx="21.085" cy="4.461" r="0.220" />
+    <circle cx="20.268" cy="3.834" r="0.220" />
+    <circle cx="19.400" cy="3.281" r="0.220" />
+    <circle cx="18.487" cy="2.806" r="0.220" />
+    <circle cx="17.536" cy="2.412" r="0.220" />
+    <circle cx="16.554" cy="2.102" r="0.220" />
+    <circle cx="15.549" cy="1.879" r="0.220" />
+    <circle cx="14.528" cy="1.745" r="0.220" />
+    <circle cx="13.500" cy="1.700" r="0.220" />
+    <circle cx="12.472" cy="1.745" r="0.220" />
+    <circle cx="11.451" cy="1.879" r="0.220" />
+    <circle cx="10.446" cy="2.102" r="0.220" />
+    <circle cx="9.464" cy="2.412" r="0.220" />
+    <circle cx="8.513" cy="2.806" r="0.220" />
+    <circle cx="7.600" cy="3.281" r="0.220" />
+    <circle cx="6.732" cy="3.834" r="0.220" />
+    <circle cx="5.915" cy="4.461" r="0.220" />
+    <circle cx="5.156" cy="5.156" r="0.220" />
+    <circle cx="4.461" cy="5.915" r="0.220" />
+    <circle cx="3.834" cy="6.732" r="0.220" />
+    <circle cx="3.281" cy="7.600" r="0.220" />
+    <circle cx="2.806" cy="8.513" r="0.220" />
+    <circle cx="2.412" cy="9.464" r="0.220" />
+    <circle cx="2.102" cy="10.446" r="0.220" />
+    <circle cx="1.879" cy="11.451" r="0.220" />
+    <circle cx="1.745" cy="12.472" r="0.220" />
+    <circle cx="1.700" cy="13.500" r="0.220" />
+    <circle cx="1.745" cy="14.528" r="0.220" />
+    <circle cx="1.879" cy="15.549" r="0.220" />
+    <circle cx="2.102" cy="16.554" r="0.220" />
+    <circle cx="2.412" cy="17.536" r="0.220" />
+    <circle cx="2.806" cy="18.487" r="0.220" />
+    <circle cx="3.281" cy="19.400" r="0.220" />
+    <circle cx="3.834" cy="20.268" r="0.220" />
+    <circle cx="4.461" cy="21.085" r="0.220" />
+    <circle cx="5.156" cy="21.844" r="0.220" />
+    <circle cx="5.915" cy="22.539" r="0.220" />
+    <circle cx="6.732" cy="23.166" r="0.220" />
+    <circle cx="7.600" cy="23.719" r="0.220" />
+    <circle cx="8.513" cy="24.194" r="0.220" />
+    <circle cx="9.464" cy="24.588" r="0.220" />
+    <circle cx="10.446" cy="24.898" r="0.220" />
+    <circle cx="11.451" cy="25.121" r="0.220" />
+    <circle cx="12.472" cy="25.255" r="0.220" />
+    <circle cx="13.500" cy="25.300" r="0.220" />
+    <circle cx="14.528" cy="25.255" r="0.220" />
+    <circle cx="15.549" cy="25.121" r="0.220" />
+    <circle cx="16.554" cy="24.898" r="0.220" />
+    <circle cx="17.536" cy="24.588" r="0.220" />
+    <circle cx="18.487" cy="24.194" r="0.220" />
+    <circle cx="19.400" cy="23.719" r="0.220" />
+    <circle cx="20.268" cy="23.166" r="0.220" />
+    <circle cx="21.085" cy="22.539" r="0.220" />
+    <circle cx="21.844" cy="21.844" r="0.220" />
+    <circle cx="22.539" cy="21.085" r="0.220" />
+    <circle cx="23.166" cy="20.268" r="0.220" />
+    <circle cx="23.719" cy="19.400" r="0.220" />
+    <circle cx="24.194" cy="18.487" r="0.220" />
+    <circle cx="24.588" cy="17.536" r="0.220" />
+    <circle cx="24.898" cy="16.554" r="0.220" />
+    <circle cx="25.121" cy="15.549" r="0.220" />
+    <circle cx="25.255" cy="14.528" r="0.220" />
+  </g>
+  <g id="LAYER_02_GROOVE" class="groove">
+    <circle cx="13.500" cy="13.500" r="9.150" />
+    <circle cx="13.500" cy="13.500" r="8.850" />
+  </g>
+  <g id="LAYER_03_LEAVES" class="leaves">
+    <ellipse cx="10.626" cy="7.337" rx="0.700" ry="0.350" transform="rotate(-115.0 10.626 7.337)" />
+    <ellipse cx="16.374" cy="7.337" rx="0.700" ry="0.350" transform="rotate(-65.0 16.374 7.337)" />
+    <ellipse cx="9.221" cy="8.215" rx="0.700" ry="0.350" transform="rotate(-129.0 9.221 8.215)" />
+    <ellipse cx="17.779" cy="8.215" rx="0.700" ry="0.350" transform="rotate(-51.0 17.779 8.215)" />
+    <ellipse cx="8.069" cy="9.408" rx="0.700" ry="0.350" transform="rotate(-143.0 8.069 9.408)" />
+    <ellipse cx="18.931" cy="9.408" rx="0.700" ry="0.350" transform="rotate(-37.0 18.931 9.408)" />
+    <ellipse cx="7.241" cy="10.843" rx="0.700" ry="0.350" transform="rotate(-157.0 7.241 10.843)" />
+    <ellipse cx="19.759" cy="10.843" rx="0.700" ry="0.350" transform="rotate(-23.0 19.759 10.843)" />
+    <ellipse cx="6.784" cy="12.436" rx="0.700" ry="0.350" transform="rotate(-171.0 6.784 12.436)" />
+    <ellipse cx="20.216" cy="12.436" rx="0.700" ry="0.350" transform="rotate(-9.0 20.216 12.436)" />
+    <ellipse cx="6.726" cy="14.093" rx="0.700" ry="0.350" transform="rotate(-185.0 6.726 14.093)" />
+    <ellipse cx="20.274" cy="14.093" rx="0.700" ry="0.350" transform="rotate(5.0 20.274 14.093)" />
+    <ellipse cx="7.070" cy="15.714" rx="0.700" ry="0.350" transform="rotate(-199.0 7.070 15.714)" />
+    <ellipse cx="19.930" cy="15.714" rx="0.700" ry="0.350" transform="rotate(19.0 19.930 15.714)" />
+    <ellipse cx="7.797" cy="17.204" rx="0.700" ry="0.350" transform="rotate(-213.0 7.797 17.204)" />
+    <ellipse cx="19.203" cy="17.204" rx="0.700" ry="0.350" transform="rotate(33.0 19.203 17.204)" />
+    <ellipse cx="8.862" cy="18.473" rx="0.700" ry="0.350" transform="rotate(-227.0 8.862 18.473)" />
+    <ellipse cx="18.138" cy="18.473" rx="0.700" ry="0.350" transform="rotate(47.0 18.138 18.473)" />
+    <ellipse cx="10.203" cy="19.447" rx="0.700" ry="0.350" transform="rotate(-241.0 10.203 19.447)" />
+    <ellipse cx="16.797" cy="19.447" rx="0.700" ry="0.350" transform="rotate(61.0 16.797 19.447)" />
+  </g>
+  <g id="LAYER_04_NUMERAL_10" class="num">
+    <path d="M 10.700,14.700 L 11.600,14.100 L 12.300,14.100 L 12.300,18.300 L 13.000,18.300 L 13.000,18.900 L 10.300,18.900 L 10.300,18.300 L 11.300,18.300 L 11.300,14.700 Z" />
+    <ellipse cx="15.300" cy="16.500" rx="1.600" ry="2.400" />
+    <ellipse cx="15.300" cy="16.500" rx="0.800" ry="1.500" />
+  </g>
+  <g id="LAYER_05_RUPEE" class="rupee">
+    <rect x="11.100" y="8.700" width="4.800" height="0.500" />
+    <rect x="11.100" y="9.700" width="4.200" height="0.500" />
+    <rect x="12.100" y="8.700" width="0.600" height="2.800" />
+    <path d="M 12.700,10.700 L 15.400,12.400 L 14.800,12.400 L 12.100,11.000 Z" />
+  </g>
+</svg>

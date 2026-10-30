@@ -1,0 +1,21 @@
+{
+    "Galvo program page parameters": {
+        "Sample Height": "0.0",
+        "Mark Speed": "900",
+        "Jump Speed": "2000",
+        "Loop Count": "5",
+        "Start Pos X": "0",
+        "Start Pos Y": "0",
+        "Enable Hatch": false,
+        "Mode": null,
+        "Laser Power": 5.0,
+        "Laser Frequency": 45.0,
+        "Enable Engraving": true,
+        "Engraving Material": "Polycarbonate (PC)",
+        "Engraving Depth": "1",
+        "Engraving Step": "0.04",
+        "Engraving Style": "Concentric / Spiral Rings",
+        "Engraving Pitch": "0.05",
+        "Engraving Substrate Height": "0.0"
+    }
+}

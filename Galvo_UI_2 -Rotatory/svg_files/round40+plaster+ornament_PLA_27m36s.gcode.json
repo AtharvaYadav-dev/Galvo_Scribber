@@ -1,0 +1,29 @@
+{
+    "Galvo program page parameters": {
+        "Sample Height": "0.0",
+        "Mark Speed": "812",
+        "Jump Speed": "2000",
+        "Loop Count": "1000",
+        "Start Pos X": "0",
+        "Start Pos Y": "0",
+        "Enable Hatch": false,
+        "Mode": null,
+        "Laser Power": 45.0,
+        "Laser Frequency": 48.0,
+        "Enable Engraving": false,
+        "Engraving Material": "POM / Delrin (Hard Plastic)",
+        "Engraving Depth": "3.0",
+        "Engraving Step": "0.05",
+        "Engraving Style": "Cross-Hatch (90\u00b0 Grid)",
+        "Engraving Pitch": "0.04",
+        "Engraving Substrate Height": "0.0",
+        "Enable 3D Engraving": true,
+        "3D Material": "Brass Sheet (1.0 mm)",
+        "3D Resolution": "Custom (Manual Passes)",
+        "3D Slicing Mode": "Custom 16-Bit Heightmap File (.png, .bmp, .tiff)",
+        "3D Model File": "D:/Atharva/Galvo_Scribber/Galvo_UI_2/svg_files/round40+plaster+ornament_PLA_27m36s.gcode",
+        "3D Max Depth": "0.45",
+        "3D Passes": "1000",
+        "3D Pitch": "0.018"
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "Galvo program page parameters": {
+        "Sample Height": "0.0",
+        "Mark Speed": "450",
+        "Jump Speed": "2000",
+        "Loop Count": "150",
+        "Start Pos X": "0",
+        "Start Pos Y": "0",
+        "Enable Hatch": true,
+        "Mode": null,
+        "Laser Power": 100.0,
+        "Laser Frequency": 80.0,
+        "Enable Engraving": true,
+        "Engraving Material": "Brass / Copper",
+        "Engraving Depth": "3",
+        "Engraving Step": "0.02",
+        "Engraving Style": "Linear Bidirectional",
+        "Engraving Pitch": "0.025",
+        "Engraving Substrate Height": "0.0",
+        "Enable 3D Engraving": false,
+        "3D Material": "Brass Blank (~1.8 mm)",
+        "3D Resolution": "Medium Detail (~250 Passes - Balanced)",
+        "3D Slicing Mode": "3D Coin Relief (Continuous 50-Pass Slicing, 27mm)",
+        "3D Model File": "D:/Atharva/Galvo_Scribber/Galvo_UI_2/svg_files/B2.svg",
+        "3D Max Depth": "0.75",
+        "3D Passes": "250",
+        "3D Pitch": "0.020"
+    }
+}

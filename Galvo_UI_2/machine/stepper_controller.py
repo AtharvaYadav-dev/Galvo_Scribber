@@ -67,7 +67,7 @@ class StepperController:
         self.z_position += distance_mm
         return True
 
-    def move_z_absolute(self, position_mm, speed=10000, ignore_limits=False):
+    def move_z_absolute(self, position_mm, speed=1000, ignore_limits=False):
         """Moves the Z axis to an absolute position in mm (like Marlin G90; G1 Z)."""
         if not ignore_limits:
             if position_mm > 120.0:
@@ -133,11 +133,12 @@ class StepperController:
                 # Allow it to stop physically
                 time.sleep(0.5)
 
-                # Move slightly away from the switch (backoff UPWARD)
-                self.move_z_relative(1.0, speed=10000, ignore_limits=True)
+                # Move slightly away from the switch (backoff UPWARD at gentle homing speed)
+                self.move_z_relative(1.0, speed=1000, ignore_limits=True)
                 time.sleep(0.5)
                 # Reset logical position to 0 
                 self.z_position = 0.0
+                self.is_homed = True
                 if hasattr(self.connection, 'set_axis_position'):
                     self.connection.set_axis_position('Z', 0)
                 return True

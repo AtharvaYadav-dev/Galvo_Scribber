@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="2700"
+   height="2700"
+   viewBox="0 0 2700 2700"
+   sodipodi:docname="AYt.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <rect
+       x="-103.72149"
+       y="-103.72149"
+       width="372.7491"
+       height="4563.7455"
+       id="rect21" />
+    <rect
+       x="416.99033"
+       y="199.54227"
+       width="38.246795"
+       height="20.340992"
+       id="rect20" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.9362963"
+     inkscape:cx="412.65756"
+     inkscape:cy="263.45663"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g1">
+    <text
+       xml:space="preserve"
+       style="font-size:13.3102px;fill:#000000;fill-opacity:0.439216;stroke:#000000;stroke-width:1.10919;stroke-opacity:1"
+       x="284.81631"
+       y="320.34903"
+       id="text19"
+       transform="scale(1.5085182,0.66290218)"><tspan
+         sodipodi:role="line"
+         id="tspan19"
+         x="284.81631"
+         y="320.34903"
+         style="stroke-width:1.10919">A.Y</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text20"
+       style="fill:#000000;stroke:#000000;fill-opacity:0.43921599;stroke-opacity:1;white-space:pre;shape-inside:url(#rect20)" />
+    <text
+       xml:space="preserve"
+       id="text21"
+       style="fill:#000000;stroke:#000000;fill-opacity:0.43921599;stroke-opacity:1;white-space:pre;shape-inside:url(#rect21)" />
+  </g>
+</svg>

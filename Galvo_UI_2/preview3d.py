@@ -140,6 +140,13 @@ class GCode3DPreview(QOpenGLWidget):
         self.lbl_info.setFont(QFont("Arial", 9))
         v.addWidget(self.lbl_info)
 
+        self.slider_layer = QSlider(Qt.Horizontal)
+        self.slider_layer.setRange(0, 0)
+        self.slider_layer.setValue(0)
+        self.slider_layer.setToolTip("Scrub through 3D Sliced Layers")
+        self.slider_layer.valueChanged.connect(self._on_slider_layer_changed)
+        v.addWidget(self.slider_layer)
+
         h_ctrl = QHBoxLayout()
         self.btn_theme = QPushButton("Light Mode")
         self.btn_theme.setFixedWidth(85)
@@ -170,7 +177,7 @@ class GCode3DPreview(QOpenGLWidget):
             h_views.addWidget(btn)
         v.addLayout(h_views)
 
-        self.overlay.resize(210, 115)
+        self.overlay.resize(230, 145)
         
         # Eye button to toggle overlay
         self.btn_eye = QPushButton(self)
@@ -319,6 +326,13 @@ class GCode3DPreview(QOpenGLWidget):
         self.show_travel = bool(state)
         self.sigRequestUpdate.emit()
 
+    def _on_slider_layer_changed(self, val):
+        if not self.layer_z_list or val < 0 or val >= len(self.layer_z_list):
+            return
+        self.selected_layer_index = val
+        self._update_info_label()
+        self.sigRequestUpdate.emit()
+
     # -------------------------
     # Slots
     # -------------------------
@@ -385,6 +399,12 @@ class GCode3DPreview(QOpenGLWidget):
         self.layer_z_list = sorted(self.layers.keys())
         
         self.selected_layer_index = len(self.layer_z_list)-1 if self.layer_z_list else None
+        if hasattr(self, 'slider_layer') and self.layer_z_list:
+            self.slider_layer.blockSignals(True)
+            self.slider_layer.setRange(0, len(self.layer_z_list) - 1)
+            self.slider_layer.setValue(len(self.layer_z_list) - 1)
+            self.slider_layer.blockSignals(False)
+
         self._update_info_label()
         self.fit_model()
 
@@ -524,6 +544,8 @@ class GCode3DPreview(QOpenGLWidget):
         if self.live_printing and self.current_print_layer is not None:
             idx = self.layer_z_list.index(self.current_print_layer)
             layer_keys = self.layer_z_list[:idx + 1]
+        elif self.selected_layer_index is not None and self.selected_layer_index < len(self.layer_z_list):
+            layer_keys = self.layer_z_list[:self.selected_layer_index + 1]
         else:
             layer_keys = self.layer_z_list
 
@@ -555,7 +577,13 @@ class GCode3DPreview(QOpenGLWidget):
     # -------------------------
     def _update_info_label(self):
         total = len(self.layer_z_list)
-        self.lbl_info.setText(f"Layers: {total}")
+        if total == 0:
+            self.lbl_info.setText("Layers: 0")
+        elif self.selected_layer_index is not None and self.selected_layer_index < total:
+            cur_z = self.layer_z_list[self.selected_layer_index]
+            self.lbl_info.setText(f"Layer: {self.selected_layer_index + 1}/{total} (Z={cur_z:.3f}mm)")
+        else:
+            self.lbl_info.setText(f"Layers: {total}")
 
     def _classify_feature(self, x0, y0, x1, y1, line):
         """Classify a move segment for color coding.

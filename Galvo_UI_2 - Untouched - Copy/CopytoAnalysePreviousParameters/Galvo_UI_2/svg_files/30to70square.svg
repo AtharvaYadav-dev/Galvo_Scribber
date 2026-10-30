@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="80mm"
+   height="80mm"
+   viewBox="0 0 80 80"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="30to70square.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.3444141"
+     inkscape:cx="72.150389"
+     inkscape:cy="246.2039"
+     inkscape:window-width="1350"
+     inkscape:window-height="1032"
+     inkscape:window-x="130"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1" />
+  <!-- A perfectly square 80mm x 80mm box for testing Galvo calibration -->
+  <rect
+     x="18.913019"
+     y="16.945"
+     width="29.95994"
+     height="29.95994"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.0400608"
+     id="rect1" />
+  <rect
+     x="15.964328"
+     y="14.586714"
+     width="34.953262"
+     height="34.953262"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.0467376"
+     id="rect1-4" />
+  <rect
+     x="0.0467376"
+     y="0.0467376"
+     width="69.906525"
+     height="69.906525"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.0934752"
+     id="rect1-2"
+     inkscape:label="rect1-2" />
+  <rect
+     x="2.0114188"
+     y="1.4210129"
+     width="64.9132"
+     height="64.9132"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.0867984"
+     id="rect1-0" />
+  <rect
+     x="4.1729021"
+     y="3.3856943"
+     width="59.91988"
+     height="59.91988"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.0801216"
+     id="rect1-6" />
+  <rect
+     x="6.3343854"
+     y="5.5471773"
+     width="54.926556"
+     height="54.926556"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.0734448"
+     id="rect1-3" />
+  <rect
+     x="8.889472"
+     y="7.7086606"
+     width="49.933231"
+     height="49.933231"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.066768"
+     id="rect1-24" />
+  <rect
+     x="11.444559"
+     y="10.263747"
+     width="44.939907"
+     height="44.939907"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.0600912"
+     id="rect1-37" />
+  <rect
+     x="13.999646"
+     y="12.228429"
+     width="39.946583"
+     height="39.946587"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.0534144"
+     id="rect1-5" />
+</svg>
