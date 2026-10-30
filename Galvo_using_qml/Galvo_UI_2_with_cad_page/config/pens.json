@@ -1,0 +1,74 @@
+[
+  {
+    "color": "#FFFFFF",
+    "freq": 35.0,
+    "id": 0,
+    "name": "Pen 0 (Default)",
+    "passes": 1,
+    "power": 50.0,
+    "speed": 1200.0
+  },
+  {
+    "color": "#2563EB",
+    "freq": 45,
+    "id": 1,
+    "name": "Pen 1 (Blue)",
+    "passes": 1,
+    "power": 40,
+    "speed": 1800
+  },
+  {
+    "color": "#EF4444",
+    "freq": 30,
+    "id": 2,
+    "name": "Pen 2 (Red)",
+    "passes": 2,
+    "power": 75,
+    "speed": 800
+  },
+  {
+    "color": "#10B981",
+    "freq": 60,
+    "id": 3,
+    "name": "Pen 3 (Green)",
+    "passes": 1,
+    "power": 30,
+    "speed": 2000
+  },
+  {
+    "color": "#F59E0B",
+    "freq": 40,
+    "id": 4,
+    "name": "Pen 4 (Amber)",
+    "passes": 1,
+    "power": 60,
+    "speed": 1500
+  },
+  {
+    "color": "#A855F7",
+    "freq": 35,
+    "id": 5,
+    "name": "Pen 5 (Purple)",
+    "passes": 1,
+    "power": 70,
+    "speed": 1000
+  },
+  {
+    "color": "#06B6D4",
+    "freq": 70,
+    "id": 6,
+    "name": "Pen 6 (Cyan)",
+    "passes": 1,
+    "power": 25,
+    "speed": 2200
+  },
+  {
+    "color": "#854D0E",
+    "freq": 25,
+    "id": 7,
+    "name": "Pen 7 (Brown)",
+    "passes": 3,
+    "power": 85,
+    "speed": 600
+  }
+]

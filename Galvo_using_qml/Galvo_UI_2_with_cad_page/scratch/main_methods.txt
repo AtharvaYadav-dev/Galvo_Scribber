@@ -1,0 +1,177 @@
+    def __init__(self, parent=None):
+    def initConfig(self, config_dir="config", config_file="config.ini"):
+    def checkGalvoConnection(self):
+    def setup_di_polling(self):
+    def poll_di_inputs(self):
+    def applyGalvoMode(self):
+    def initSerial(self):
+    def configSerial(self, obj_name, widgets, response_callback=None, exception_callback=None):
+    def beginSerial(self, obj_name, refresh=False):
+    def validateSerial(self, obj, port, baud):
+    def activateSerial(self, obj_name, action):
+    def sendSerial(self, obj_name, data):
+    def setupCom(self):        
+    def setupLeftMenu(self):
+    def setupCenterMenu(self):
+    def setupNotifyMenu(self):
+    def setupProfile(self):
+    def setupMainPages(self):
+    def setupInfoPages(self):
+    def setupSettings(self):
+    def setupJog(self):
+    def setupFocus(self):
+    def setupOffset(self):
+    def setupProgram(self):
+    def setupPrint(self):
+    def setupCamera(self):
+    def setupTerminal(self):
+    def setupJogGalvo(self):
+    def setupLaserConfGalvo(self):
+    def update_galvo_focus_calculations(self):
+    def save_galvoobjheight_to_config(self):
+    def setupMapMatrix(self):
+    def initMapMatrix(self):
+    def setupProgramsGalvo(self):
+    def setupPrintGalvo(self):
+    def handle_f1_shortcut(self):
+    def handle_f2_shortcut(self):
+    def handle_f3_shortcut(self):
+    def updateGalvoPauseUI(self, is_paused=False, enabled=None):
+    def setupConfigGalvo(self):
+    def setupHeader(self): 
+    def initCom(self):
+    def initLeftMenu(self):
+    def initCenterMenu(self):
+    def initNotifyMenu(self):
+    def initProfile(self):
+    def initMainPages(self):
+    def initInfoPages(self):
+    def initSettings(self):
+    def initJog(self):
+    def initFocus(self):
+    def initOffset(self):
+    def initProgram(self):
+    def initPrint(self):
+    def initCamera(self):
+    def initJogGalvo(self):
+    def initLaserConfGalvo(self):
+    def initProgramsGalvo(self):
+    def initPrintGalvo(self):
+    def initConfigGalvo(self):
+    def initTerminal(self):
+    def comAction(self, widget, *args):
+    def leftMenuAction(self, widget, *args):
+    def centerMenuAction(self, widget, *args):
+    def notifyMenuAction(self, widget):
+    def onPopupBtnClicked(self, result):
+    def showCustomPopup(self, title, message, buttons=QMessageBox.Ok):
+    def showAutoCloseMessage(self, title, message, timeout_ms=5000):
+    def closeEvent(self, event):
+    def showExceptionPopup(self, args: str):
+    def profileAction(self, widget, *args):
+    def mainPagesAction(self, widget, *args):
+    def infoPagesAction(self, widget, *args):
+    def settingAction(self, widget, *args):
+    def toggleCameraJog(self):
+    def jogGalvoAction(self, widget, *args):
+    def load_galvo_test_pattern(self, shape):
+    def update_galvo_preview_bounds(self):
+    def _apply_galvo_laser_settings(self):
+    def laserConfGalvoAction(self, widget, *args):
+    def programsGalvoAction(self, widget, *args):
+    def validateGalvoProgramFields(self):
+    def _apply_galvo_config_to_core(self):
+    def _apply_galvo_settings(self):
+    def _default_hatch_profile(self):
+    def _load_hatch_profiles_from_config(self):
+    def save_current_hatch_profile(self):
+    def load_hatch_profile(self, idx):
+    def updatePreviewGalvo(self, filepath):
+    def process_galvo_file(self):
+    def printGalvoAction(self, widget, *args):
+    def on_galvo_execution_progress(self, idx, total, x, y, ctype):
+    def on_galvo_execution_finished(self, success):
+    def on_galvo_preview_finished(self, success):
+    def verify_hardware_connection(self):
+    def configGalvoAction(self, widget, *args):
+    def jogAction(self, widget, *args):
+    def focusAction(self, widget, *args):
+    def offsetAction(self, widget, *args):
+    def programAction(self, widget, *args):
+    def onPgmDataChanged(self, *args):
+    def printAction(self, widget, *args):
+    def mapmatrixAction(self, widget, *args):
+    def terminalAction(self, widget, event=None):
+    def onKeyEnter(self, widget, event):
+    def onKeyUp(self, widget, event):
+    def onKeyDown(self, widget, event):
+    def onLoad(self):
+    def showMainPages(self, page):
+    def axisTravel(self, arg, mode=None):
+    def axisMotion(self, arg, mode=None):
+    def terminalData(self, widget, response=None):
+    def valueSelector(self, widget, index, *args):
+    def goHome(self):
+    def updateAxisPos(self):
+    def moveFinish(self):
+    def _updatePrintProgress(self, value: float):
+    def setProgress(self, value: float):        
+    def updateProgress(self, signal: Signal, value: float):
+    def setWidgetPara(self, widget, method_name, value=None):
+    def getWidgetPara(self, widget, method_name):
+    def getPageIndex(self, page_dict, arg):
+    def showStackPage(self, widget, page_dict, arg):
+    def configCom(self, com, mode):
+    def recoverFirmware(self):
+    def updateData(self, msg):
+    def updateException(self, args):
+    def sendGcode(self, gstr):
+    def pgmGcode(self, gstr):
+    def jogPosDisplay(self):                
+    def focusPosDisplay(self):
+    def offsetPosDisplay(self):
+    def canMoveZPlus(self, delta: float) -> bool:
+    def initLaser(self):
+    def shutdownLaser(self, name=None):
+    def initAxis(self):
+    def resetPrintState(self, reason="unknown"):
+    def programInit(self):
+    def runInspection(self):
+    def pauseWidget(self, widget, arg):
+    def runProgram(self, arg):
+    def startProgram(self):
+    def initPrintRun(self):
+    def resumeProgram(self):
+    def finishProgram(self):
+    def indexProgram(self):
+    def markSegment(self, gcode):
+    def getProgress(self, index, total):
+    def showProgress(self):
+    def initProgress(self):
+    def clearPreview(self):
+    def resetPreviewForNewRun(self):
+    def cameraAction(self, widget, *args, skip_restart=False):
+    def stop_camera(self):
+    def update_frame(self, image):
+    def on_camera_error(self, err_msg):
+    def receiveACK(self, widget, arg):
+    def resetProfile(self):
+    def setupAdvancedCalibration(self):
+    def set_cal_status(self, text):
+    def on_cal_power_changed(self, val):
+    def on_cal_freq_changed(self, val):
+    def on_cal_w_changed(self, text):
+    def update_cal_preview(self):
+    def reset_cal_to_nominal(self):
+    def next_cal_state(self):
+    def toggle_cal_reddot_framing(self):
+    def stop_cal_reddot(self):
+    def on_cal_reddot_finished(self, success):
+    def draw_cal_pattern(self):
+    def stop_cal_pattern(self):
+    def generate_calibration(self):
+    def apply_calibration_to_main_design(self):
+    def _throttled_process_events(self, idx, tot, x, y, ctype):
+    def mark_verification_shape(self):
+    def dummy_cal_action(self):
+    def close_calibration_studio(self):
