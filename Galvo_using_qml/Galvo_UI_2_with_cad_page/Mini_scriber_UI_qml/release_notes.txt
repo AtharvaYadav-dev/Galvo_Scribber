@@ -1,0 +1,36 @@
+### What's New in this Release:
+
+• Fluid UI Micro-Interactions & Animations:
+  - Tactile spring depression and subtle hover lift across all application buttons with Easing.OutBack curves.
+  - Navigation sidebar active glowing cyan accent indicator pill with gentle hover nudging.
+  - Live connection status pill equipped with breathing radar pulse aura ring.
+  - Expanding laser firing shockwave sonar aura on the live bed reticle.
+  - Flowing luminous shimmer sweep across the job execution progress bar.
+  - Smooth spring pop-in scale entrances on all modal dialogs and notification flyouts.
+
+• Laser UI Nomenclature & Stored Calibration Adaptation:
+  - Standardized all laser naming to "Laser 1" and "Laser 2" across the entire interface (completely removed legacy P0 and P1 channel designations).
+  - Dynamic Stored Calibration view: When operating in Single Laser mode (laserCount = 1), the Stored Calibration card automatically collapses Laser 2 and dual-beam optical offset readouts, displaying solely Laser 1.
+
+• Role-Based Page Visibility Access Control (Admin RBAC Matrix):
+  - Administrator can now explicitly configure and decide which workspace pages the Operator and Supervisor roles can see.
+  - Interactive two-column Access Control Matrix in Admin Machine Setup with animated iOS-style toggle switches for Motion & DRO, Laser Control, Job & Run, Camera Vision, Terminal, and Settings.
+  - Instant live sidebar filtering: Disabling or enabling a page takes effect immediately in the sidebar navigation without requiring a restart.
+  - Automatic unauthorized route protection: If an active page becomes disallowed upon switching roles or changing permissions, the UI instantly redirects the user to the first permitted view.
+  - Permissions persist permanently in config/config.ini under the [permissions] section.
+
+• Unified Settings Layout & Role Section Access Control:
+  - Clean, balanced two-column dashboard layout displaying all permitted configuration cards together without separating sub-tabs.
+  - Administrator can selectively configure and grant access to individual Settings sections for Operator and Supervisor roles via a dedicated Access Control Matrix in Admin Setup.
+  - Non-permitted sections are hidden automatically based on active role permissions.
+  - Settings section permissions persist permanently in config/config.ini under [settings_permissions].
+
+• Smart Connection Failure Auto-Navigation:
+  - When clicking "Connect port" and the machine is offline or unable to connect, the UI now displays the error notification toast and automatically navigates straight to the Settings page.
+  - Serial hardware configuration card is positioned right at the top left with live COM port refresh so the user can immediately inspect and select the correct port.
+
+• One-Click Header Quick Logout Button:
+  - Added a dedicated quick-logout icon button in the top navigation header right next to the active Supervisor / Admin session pill.
+  - Displays a clean "Logout" tooltip upon hover with subtle micro-scale and accent highlight animations.
+  - Allows supervisors and administrators to instantly terminate elevated sessions with a single click from any page, safely reverting the machine to standard Operator production mode.
+

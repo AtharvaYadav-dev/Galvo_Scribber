@@ -1,0 +1,18 @@
+# PyInstaller & build outputs (NEVER commit to GitHub - contains DLLs > 100MB)
+dist/
+build/
+*.spec
+
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Local scratch and test scripts
+scratch/
+.tempmediaStorage/
+
+# Log and temporary files
+*.log
+*.tmp

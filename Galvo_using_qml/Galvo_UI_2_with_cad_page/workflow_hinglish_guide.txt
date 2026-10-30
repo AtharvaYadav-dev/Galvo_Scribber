@@ -1,0 +1,139 @@
+================================================================================
+  GALVO SCRIBBER - WORKFLOW & UNDERSTANDING GUIDE (IN HINGLISH)
+  Features: Z-Axis Layer Depth, Surface Texturing & Material Presets
+================================================================================
+
+Yeh guide teenon main features ko bilkul simple aur practical bhasha me samjhati hai:
+1. Z-Axis Layer Depth (Multi-pass loop + 0.05 mm Z-drop + Max depth limit)
+2. Surface Texturing (100 µm - 250 µm finishes: Cross-hatch, Spirals, Waves)
+3. Material Presets (Hard Plastics ke liye Auto-fill Power / Speed / Freq)
+
+--------------------------------------------------------------------------------
+PART 1: Z-AXIS LAYER DEPTH MARKING (0.05 mm Step, 3mm-5mm Max)
+--------------------------------------------------------------------------------
+
+KYA HAI YEH?
+Jab hum kisi material par thodi gehri engraving (depth) chahte hain, toh ek baar me 
+gehra cut nahi lagaya ja sakta (laser defocus ho jata hai aur plastic jal jata hai). 
+Isliye hum design ko baar-baar repeat karte hain aur har pass ke baad Z-axis ko 
+thoda sa niche (drop) shift karte hain taaki laser ka focus hamesha cutting point 
+par perfect rahe.
+
+KAISE KAAM KAREGA (STEP-BY-STEP WORKFLOW):
+1. Pehle Z-Axis Starting Focus Position par jayega (Base Focus - Object Height).
+2. Layer Loop Shuru Hoga:
+   - Pass 1: Galvo design ko mark karega.
+   - Laser OFF hoga (Safety ke liye).
+   - Stepper motor Z-axis ko 0.05 mm niche drop karega (move_z_relative(-0.05)).
+   - System 0.1-0.2 second wait karega taaki motor settle ho jaye.
+   - Pass 2: Laser dobara design mark karega nayi Z depth par.
+   - Phir se 0.05 mm drop hoga.
+3. Max Depth Check (Safety Limit):
+   - Har layer ke baad check hoga: 
+     `Total Engraved Depth = Layer Count * 0.05 mm`
+   - Agar depth 3.0 mm (ya max limit 5.0 mm) tak pahunch gayi, toh process 
+     automatically STOP ho jayega.
+4. Process complete hone ke baad laser safely band hoga aur Z wapas safe height 
+   par aa jayega.
+
+--------------------------------------------------------------------------------
+PART 2: SURFACE TEXTURING HATCH GENERATOR (100 µm - 250 µm Finishes)
+--------------------------------------------------------------------------------
+
+KYA HAI YEH?
+Surface Texturing ka matlab hai plastic ya metal ki surface par ek fine rough 
+finish, matte look, ya anti-slip grip texture create karna. 
+Isme laser se gehri engraving nahi hoti, balki micro-lines (100 se 250 micron spacing) 
+se surface ko halke se texture kiya jata hai.
+
+TEEN TEXTURE PATTERNS:
+1. Cross-Hatch (Jaali Pattern):
+   - Pehli layer ek angle (jaise 45 degree) par hatch line banayegi.
+   - Doosri layer 90 degree orthogonal (135 degree) par usko cross karegi.
+   - Line-to-line gap: 0.10 mm se 0.25 mm (100-250 µm).
+   - Result: Diamond grid jaisa fine matte surface.
+
+2. Spirals (Ghoomti Hui Rings / Concentric):
+   - Polygon boundary ke andar concentric rings ya spiral paths bante hain.
+   - Bahar se andar ki taraf continuous laser chalta hai.
+   - Result: Smooth circular texture, kam jump motions ke sath.
+
+3. Waves / Sine-Waves (Lehar Pattern):
+   - Seedhi hatch lines ke upar ek chhota sa sine-wave math formula lagaya jata hai:
+     y = Amplitude * sin(x / Wavelength).
+   - Amplitude: 20-50 µm, Spacing: 100-250 µm.
+   - Result: Leather ya organic wave jaisa tactile grip texture.
+
+PARAMETER LOGIC:
+- Texturing ke liye High Frequency (40-60 kHz) aur Low-to-Medium Power (10-25%) 
+  chahiye hoti hai taaki surface jale nahi, sirf micro-melt hokar texture bane.
+
+--------------------------------------------------------------------------------
+PART 3: MATERIAL PRESETS SYSTEM (HARD PLASTICS AUTO-FILL)
+--------------------------------------------------------------------------------
+
+KYA HAI YEH?
+Hard plastics (jaise Delrin/POM, ABS, Acrylic, Nylon, Polycarbonate) laser me alag-alag 
+tarike se react karte hain. Agar power zyada ho toh plastic melt hokar char ban jata hai.
+Presets system me ek JSON file hogi jisme har material ke tested parameters save honge.
+User ko bas dropdown se material choose karna hai, baki sab apne aap UI me set ho jayega.
+
+DEFAULT PRESETS (HARD PLASTICS):
+1. POM / Delrin:
+   - Power: 14% | Frequency: 50 kHz | Speed: 800 mm/s
+   - Hatch Pitch: 0.12 mm (Cross-Hatch) | Z-Step: 0.05 mm | Max Depth: 3.0 mm
+   - Result: Clean vaporisation, chip chipahat nahi hoti.
+
+2. ABS:
+   - Power: 18% | Frequency: 40 kHz | Speed: 650 mm/s
+   - Hatch Pitch: 0.15 mm (Cross-Hatch) | Z-Step: 0.05 mm | Max Depth: 3.5 mm
+   - Result: No foaming/bubble formation.
+
+3. Acrylic (PMMA):
+   - Power: 20% | Frequency: 30 kHz | Speed: 500 mm/s
+   - Hatch Pitch: 0.10 mm (Cross-Hatch) | Z-Step: 0.05 mm | Max Depth: 4.0 mm
+   - Result: Crisp frosted white finish.
+
+4. Nylon (PA):
+   - Power: 22% | Frequency: 60 kHz | Speed: 700 mm/s
+   - Hatch Pitch: 0.20 mm (Waves) | Z-Step: 0.05 mm | Max Depth: 3.0 mm
+
+5. Polycarbonate (PC):
+   - Power: 12% | Frequency: 45 kHz | Speed: 900 mm/s
+   - Hatch Pitch: 0.18 mm (Spirals) | Z-Step: 0.05 mm | Max Depth: 3.0 mm
+
+AUTO-FILL KAISE KAAM KAREGA:
+- User UI me dropdown se "Hard Plastic - POM (Delrin)" select karega.
+- Software JSON file se values read karega aur turant:
+  1. Power Slider ko 14% par set kar dega.
+  2. Frequency Slider ko 50 kHz par set kar dega.
+  3. Hatch Spacing ko 0.12 mm par set kar dega.
+  4. Z-drop Step ko 0.05 mm aur Max Depth ko 3.0 mm par set kar dega.
+- User ko baar-baar manual typing karne ki zaroorat nahi padegi.
+
+--------------------------------------------------------------------------------
+PART 4: COMPLETE INTEGRATED WORKFLOW (OPERATOR SE RUN HONE TAK)
+--------------------------------------------------------------------------------
+
+STEP 1: Shape / Pattern Load Karein
+  - DXF, text ya drawing canvas se outline load hui.
+
+STEP 2: Material Select Karein
+  - Dropdown se "Hard Plastic - ABS" select kiya.
+  - Power, Speed, Freq, aur Spacing apne aap fill ho gaye.
+
+STEP 3: Texture Pattern Choose Karein
+  - Surface texture me "Cross-Hatch" ya "Waves" chuna (100-250 µm pitch).
+  - Software ne background me micro-lines generate karke preview screen par dikha di.
+
+STEP 4: Red Pointer Alignment (Preview)
+  - Operator ne "Red Light" dabakar actual sample part par marking ki boundary verify ki.
+
+STEP 5: Multi-Pass Z Marking (Start Print)
+  - Operator ne "Start Print" dabaya.
+  - Z-axis initial focus position par gaya.
+  - Pass 1 chala -> Z 0.05 mm drop hua -> Pass 2 chala -> Z 0.05 mm drop hua...
+  - Jaise hi 3.0 mm depth limit touch hui, execution complete ho gaya.
+  - Laser automatically OFF hua aur Z wapas home/clear position par chala gaya.
+
+================================================================================

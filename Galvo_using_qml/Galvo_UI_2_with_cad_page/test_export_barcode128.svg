@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10.0 -3.5 20.0 7.0" width="20.0mm" height="7.0mm">
+  <rect x="-10.0" y="-3.5" width="20.0" height="7.0" fill="white"/>
+  <g fill="black">
+    <rect x="-8.601" y="-3.5" width="0.28" height="7.0"/>
+    <rect x="-8.182" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="-7.762" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="-7.063" y="-3.5" width="0.42" height="7.0"/>
+    <rect x="-6.503" y="-3.5" width="0.42" height="7.0"/>
+    <rect x="-5.944" y="-3.5" width="0.28" height="7.0"/>
+    <rect x="-5.524" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="-5.245" y="-3.5" width="0.28" height="7.0"/>
+    <rect x="-4.545" y="-3.5" width="0.42" height="7.0"/>
+    <rect x="-3.986" y="-3.5" width="0.28" height="7.0"/>
+    <rect x="-3.566" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="-3.007" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="-2.448" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="-2.028" y="-3.5" width="0.28" height="7.0"/>
+    <rect x="-1.608" y="-3.5" width="0.42" height="7.0"/>
+    <rect x="-0.909" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="-0.49" y="-3.5" width="0.42" height="7.0"/>
+    <rect x="0.21" y="-3.5" width="0.28" height="7.0"/>
+    <rect x="0.629" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="0.909" y="-3.5" width="0.42" height="7.0"/>
+    <rect x="1.469" y="-3.5" width="0.559" height="7.0"/>
+    <rect x="2.168" y="-3.5" width="0.42" height="7.0"/>
+    <rect x="2.727" y="-3.5" width="0.28" height="7.0"/>
+    <rect x="3.147" y="-3.5" width="0.42" height="7.0"/>
+    <rect x="3.706" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="3.986" y="-3.5" width="0.42" height="7.0"/>
+    <rect x="4.545" y="-3.5" width="0.28" height="7.0"/>
+    <rect x="5.245" y="-3.5" width="0.559" height="7.0"/>
+    <rect x="6.224" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="6.503" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="6.783" y="-3.5" width="0.28" height="7.0"/>
+    <rect x="7.483" y="-3.5" width="0.42" height="7.0"/>
+    <rect x="8.042" y="-3.5" width="0.14" height="7.0"/>
+    <rect x="8.322" y="-3.5" width="0.28" height="7.0"/>
+  </g>
+</svg>
