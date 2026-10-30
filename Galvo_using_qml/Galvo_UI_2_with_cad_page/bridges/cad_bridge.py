@@ -48,6 +48,8 @@ class CadBridge(QObject):
     cadStateChanged = Signal()
     framingChanged = Signal(bool)
     markingChanged = Signal(bool)
+    pauseChanged = Signal(bool)
+    laserPositionChanged = Signal(float, float, bool)  # x_mm, y_mm, is_laser_active
     progressChanged = Signal(int, int, float)  # current, total, percent (0.0 to 100.0)
     shapeCountChanged = Signal(int)
     shapesImported = Signal(list)              # Emits list of parsed shapes for QML
@@ -82,6 +84,19 @@ class CadBridge(QObject):
         self._offset_y = 0.0
         self._angle = 0.0
         self._status_message = "Ready"
+        self._mark_progress = 0.0
+        self._mark_current_cmd = 0
+        self._mark_total_cmds = 0
+        self._live_laser_x = 0.0
+        self._live_laser_y = 0.0
+        self._live_laser_active = False
+        self._mark_start_time = 0.0
+        self._mark_paused_accum = 0.0
+        self._mark_pause_start = 0.0
+        self._mark_elapsed_sec = 0.0
+        self._mark_remaining_sec = 0.0
+        self._mark_elapsed_str = "00:00"
+        self._mark_remaining_str = "--:--" 
 
         self.preview_thread = None
         self.exec_thread = None
@@ -446,7 +461,17 @@ class CadBridge(QObject):
 
     isFraming = Property(bool, get_is_framing, notify=framingChanged)
     isMarking = Property(bool, get_is_marking, notify=markingChanged)
-    isPaused = Property(bool, get_is_paused, notify=cadStateChanged)
+    markProgress = Property(float, lambda self: self._mark_progress, notify=progressChanged)
+    markCurrentCmd = Property(int, lambda self: self._mark_current_cmd, notify=progressChanged)
+    markTotalCmds = Property(int, lambda self: self._mark_total_cmds, notify=progressChanged)
+    isPaused = Property(bool, lambda self: self._is_paused, notify=pauseChanged)
+    liveLaserX = Property(float, lambda self: self._live_laser_x, notify=laserPositionChanged)
+    liveLaserY = Property(float, lambda self: self._live_laser_y, notify=laserPositionChanged)
+    liveLaserActive = Property(bool, lambda self: self._live_laser_active, notify=laserPositionChanged)
+    markElapsedStr = Property(str, lambda self: self._mark_elapsed_str, notify=progressChanged)
+    markRemainingStr = Property(str, lambda self: self._mark_remaining_str, notify=progressChanged)
+    markElapsedSec = Property(float, lambda self: self._mark_elapsed_sec, notify=progressChanged)
+    markRemainingSec = Property(float, lambda self: self._mark_remaining_sec, notify=progressChanged)
     autoFocusZ = Property(bool, get_auto_focus_z, set_auto_focus_z, notify=autoFocusZChanged)
     shapeCount = Property(int, get_shape_count, notify=shapeCountChanged)
     fieldSize = Property(float, get_field_size, setFieldSize, notify=fieldSizeChanged)
@@ -1731,6 +1756,20 @@ class CadBridge(QObject):
 
         cmd_count = len(self.planner.send_queue)
         print(f"[CadBridge] Preparing laser mark: {cmd_count} vector commands (loops={loop_count})")
+        import time
+        self._mark_progress = 0.0
+        self._mark_current_cmd = 0
+        self._mark_total_cmds = cmd_count
+        self._is_paused = False
+        self._live_laser_x = 0.0
+        self._live_laser_y = 0.0
+        self._live_laser_active = False
+        self._mark_start_time = time.time()
+        self._mark_paused_accum = 0.0
+        self._mark_pause_start = 0.0
+        self._update_mark_times(0.0)
+        self.pauseChanged.emit(False)
+        self.laserPositionChanged.emit(0.0, 0.0, False)
 
         # 5. Automatic Z-Axis Focal Alignment (Matching main.py lines 2795-2838)
         if self._auto_focus_z:
@@ -1756,6 +1795,30 @@ class CadBridge(QObject):
         self.markingChanged.emit(True)
         self._set_status(f"Laser Marking Active ({cmd_count} commands)...")
 
+    def _update_mark_times(self, pct: float):
+        import time
+        now = time.time()
+        if self._is_paused:
+            elapsed = max(0.0, (self._mark_pause_start if self._mark_pause_start > 0 else now) - self._mark_start_time - self._mark_paused_accum)
+        else:
+            elapsed = max(0.0, now - self._mark_start_time - self._mark_paused_accum) if self._mark_start_time > 0 else 0.0
+
+        self._mark_elapsed_sec = elapsed
+        m_el, s_el = divmod(int(elapsed), 60)
+        self._mark_elapsed_str = f"{m_el:02d}:{s_el:02d}"
+
+        if pct > 1.5 and pct < 100.0:
+            total_est = elapsed / (pct / 100.0)
+            rem = max(0.0, total_est - elapsed)
+            self._mark_remaining_sec = rem
+            m_rem, s_rem = divmod(int(rem), 60)
+            self._mark_remaining_str = f"{m_rem:02d}:{s_rem:02d}"
+        elif pct >= 100.0:
+            self._mark_remaining_sec = 0.0
+            self._mark_remaining_str = "00:00"
+        else:
+            self._mark_remaining_str = "--:--"
+
     def _simulate_execution(self, total_cmds: int):
         """Simulates laser mark progress smoothly if hardware is in demo mode."""
         from PySide6.QtCore import QTimer
@@ -1763,19 +1826,58 @@ class CadBridge(QObject):
         self._sim_timer = QTimer(self)
 
         def step():
-            self._sim_idx += max(1, total_cmds // 40)
+            if self._is_paused:
+                return
+
+            self._sim_idx += max(1, total_cmds // 35)
+            pct = min(100.0, (self._sim_idx / float(total_cmds)) * 100.0)
+            self._mark_current_cmd = min(self._sim_idx, total_cmds)
+            self._mark_total_cmds = total_cmds
+            self._mark_progress = pct
+
+            if hasattr(self, 'planner') and self.planner.send_queue:
+                cmd_idx = min(self._sim_idx, len(self.planner.send_queue) - 1)
+                cmd = self.planner.send_queue[cmd_idx]
+                gx = cmd.get('x', 0)
+                gy = cmd.get('y', 0)
+                try:
+                    px, py = self.galvo_config.reverse_transform(gx, gy)
+                    self._live_laser_x = float(px)
+                    self._live_laser_y = float(py)
+                    self._live_laser_active = (cmd.get('type') == 'mark')
+                    self.laserPositionChanged.emit(self._live_laser_x, self._live_laser_y, self._live_laser_active)
+                except Exception:
+                    pass
+
+            self._update_mark_times(pct)
+            self.progressChanged.emit(self._sim_idx, total_cmds, pct)
+
             if self._sim_idx >= total_cmds:
                 self._sim_timer.stop()
+                self._mark_current_cmd = total_cmds
+                self._mark_total_cmds = total_cmds
+                self._mark_progress = 100.0
                 self._on_execution_finished(True)
-            else:
-                pct = (self._sim_idx / float(total_cmds)) * 100.0
-                self.progressChanged.emit(self._sim_idx, total_cmds, pct)
 
         self._sim_timer.timeout.connect(step)
         self._sim_timer.start(50)
 
     def _on_execution_progress(self, idx, total, x, y, ctype):
         pct = (idx / float(total)) * 100.0 if total > 0 else 0.0
+        self._mark_current_cmd = idx
+        self._mark_total_cmds = total
+        self._mark_progress = pct
+
+        try:
+            pure_x, pure_y = self.galvo_config.reverse_transform(x, y)
+            self._live_laser_x = float(pure_x)
+            self._live_laser_y = float(pure_y)
+            self._live_laser_active = (ctype == "mark")
+            self.laserPositionChanged.emit(self._live_laser_x, self._live_laser_y, self._live_laser_active)
+        except Exception:
+            pass
+
+        self._update_mark_times(pct)
         self.progressChanged.emit(idx, total, pct)
 
     def _execute_post_mark_park(self):
@@ -1815,8 +1917,15 @@ class CadBridge(QObject):
 
     def _on_execution_finished(self, success: bool):
         self._is_marking = False
+        self._is_paused = False
+        self._live_laser_active = False
+        self._mark_progress = 100.0 if success else 0.0
+        self._mark_current_cmd = self._mark_total_cmds
+        self._update_mark_times(100.0)
         self.markingChanged.emit(False)
-        self.progressChanged.emit(100, 100, 100.0)
+        self.pauseChanged.emit(False)
+        self.laserPositionChanged.emit(self._live_laser_x, self._live_laser_y, False)
+        self.progressChanged.emit(self._mark_total_cmds, self._mark_total_cmds, 100.0 if success else 0.0)
         status = "Laser marking completed successfully!" if success else "Laser marking ended with warnings/aborted."
         self._set_status(status)
         if success:
@@ -1847,19 +1956,48 @@ class CadBridge(QObject):
                 print(f"[CadBridge] Abort error: {e}")
 
         self._is_marking = False
+        self._is_paused = False
+        self._live_laser_active = False
+        self._mark_progress = 0.0
+        self._mark_current_cmd = 0
+        self._mark_total_cmds = 0
+        self._update_mark_times(0.0)
         self.markingChanged.emit(False)
+        self.pauseChanged.emit(False)
+        self.laserPositionChanged.emit(0.0, 0.0, False)
         self.progressChanged.emit(0, 0, 0.0)
         self._set_status("Operation ABORTED.")
 
     @Slot()
     def togglePause(self):
         """Toggles Pause/Resume for laser marking (F3 hotkey)."""
+        if not self._is_marking:
+            return
+
+        import time
+        self._is_paused = not self._is_paused
+
         ctrl = self.galvo_controller
         if ctrl:
-            ctrl.is_paused = not getattr(ctrl, 'is_paused', False)
-            self._is_paused = ctrl.is_paused
-            self.cadStateChanged.emit()
-            self._set_status("Laser Marking PAUSED" if self._is_paused else "Laser Marking RESUMED")
+            ctrl.is_paused = self._is_paused
+            if hasattr(ctrl, 'connection') and ctrl.connection:
+                if self._is_paused and hasattr(ctrl.connection, 'laser_off'):
+                    try:
+                        ctrl.connection.laser_off()
+                    except Exception:
+                        pass
+
+        now = time.time()
+        if self._is_paused:
+            self._mark_pause_start = now
+        else:
+            if self._mark_pause_start > 0:
+                self._mark_paused_accum += (now - self._mark_pause_start)
+                self._mark_pause_start = 0.0
+
+        self.pauseChanged.emit(self._is_paused)
+        self.cadStateChanged.emit()
+        self._set_status("Laser Marking PAUSED (F3 to Resume)" if self._is_paused else "Laser Marking RESUMED")
 
     # ---------------- File Import (DXF / SVG / Gerber / Raster) ---------------- #
 

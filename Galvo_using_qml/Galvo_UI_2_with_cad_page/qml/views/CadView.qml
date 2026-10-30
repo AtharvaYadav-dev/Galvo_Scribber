@@ -8,6 +8,17 @@ import ".."
 Item {
     id: pageRoot
 
+    readonly property bool isAnyCadModalOpen: Boolean(
+        (typeof hatchModal !== "undefined" && hatchModal && hatchModal.visible) ||
+        (typeof barcodeModal !== "undefined" && barcodeModal && barcodeModal.visible) ||
+        (typeof textFontModal !== "undefined" && textFontModal && textFontModal.visible) ||
+        (typeof arrayModal !== "undefined" && arrayModal && arrayModal.visible) ||
+        (typeof inputPortModal !== "undefined" && inputPortModal && inputPortModal.visible) ||
+        (typeof variableTextModal !== "undefined" && variableTextModal && variableTextModal.visible) ||
+        (typeof colorPickerModal !== "undefined" && colorPickerModal && colorPickerModal.visible)
+    )
+    readonly property bool isAnyModalActive: isAnyCadModalOpen || (typeof rootWindow !== "undefined" && rootWindow && rootWindow.isAnyModalOpen)
+
     function createDefaultText() {
         toolbox.textTriggered()
     }
@@ -52,6 +63,27 @@ Item {
             if (typeof cad !== "undefined" && cad) {
                 cad.updateShapes(cadCanvas.shapes)
             }
+        }
+        function onProgressChanged(current, total, pct) {
+            bottomLaunchDeck.markProgress = pct
+            bottomLaunchDeck.markCurrentCmd = current
+            bottomLaunchDeck.markTotalCmds = total
+            if (typeof cad !== "undefined" && cad) {
+                bottomLaunchDeck.markElapsedStr = cad.markElapsedStr
+                bottomLaunchDeck.markRemainingStr = cad.markRemainingStr
+            }
+        }
+        function onMarkingChanged(marking) {
+            if (!marking && bottomLaunchDeck.markProgress >= 99.0) {
+                bottomLaunchDeck.partCount += 1
+            }
+        }
+        function onPauseChanged(paused) {
+            bottomLaunchDeck.isPaused = paused
+        }
+        function onLaserPositionChanged(x, y, active) {
+            bottomLaunchDeck.liveLaserX = x
+            bottomLaunchDeck.liveLaserY = y
         }
     }
 
@@ -269,7 +301,7 @@ Item {
                         CadCanvas {
                             id: cadCanvas
                             objectName: "cadCanvas"
-                            interactionBlocked: root.isAnyModalActive
+                            interactionBlocked: pageRoot.isAnyModalActive
                             currentPenId: inspector.selectedPenId
                             Layout.fillWidth: true
                             Layout.fillHeight: true
@@ -409,6 +441,9 @@ Item {
                     if (typeof cad !== "undefined" && cad) {
                         cad.executeMark(cadCanvas.shapes, markSelectedOnly, cadCanvas.selectedIndex, continuousMode ? 999999 : 1)
                     }
+                }
+                onPauseTriggered: {
+                    triggerPause()
                 }
                 onAbortTriggered: {
                     if (typeof cad !== "undefined" && cad) {

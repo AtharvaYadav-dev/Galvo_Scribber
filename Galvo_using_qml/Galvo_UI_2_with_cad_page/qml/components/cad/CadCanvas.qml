@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 import "../.."
 
 Item {
@@ -13,6 +14,11 @@ Item {
     property real fieldOffsetY: (typeof cad !== "undefined" && cad) ? cad.offsetY : 0.0
     property real fieldAngleDeg: (typeof cad !== "undefined" && cad) ? cad.fieldAngle : 0.0
     property real g1ScalePct: (typeof settings !== "undefined" && settings) ? settings.g1Scale : 100.0
+    property real liveLaserMmX: (typeof cad !== "undefined" && cad) ? cad.liveLaserX : 0.0
+    property real liveLaserMmY: (typeof cad !== "undefined" && cad) ? cad.liveLaserY : 0.0
+    property bool liveLaserActive: (typeof cad !== "undefined" && cad) ? cad.liveLaserActive : false
+    property bool isMarking: (typeof cad !== "undefined" && cad) ? cad.isMarking : false
+    property bool isPaused: (typeof cad !== "undefined" && cad) ? cad.isPaused : false
     property real g2ScalePct: (typeof settings !== "undefined" && settings) ? settings.g2Scale : 100.0
 
     // Viewport Navigation
@@ -290,6 +296,77 @@ Item {
 
     // Active CAD tool: 'select', 'node', 'line', 'curve', 'rect', 'circle', 'polygon', etc.
     property string activeTool: "select"
+
+    // Interactive 8-Handle Object Resizing Engine
+    property int hoveredResizeHandle: -1
+    property int activeResizeHandle: -1
+    property bool isResizingShape: false
+    property real resizeInitX: 0.0
+    property real resizeInitY: 0.0
+    property real resizeInitW: 10.0
+    property real resizeInitH: 10.0
+    property real resizeInitRot: 0.0
+    property real resizeAnchorWorldX: 0.0
+    property real resizeAnchorWorldY: 0.0
+    property var resizeInitPaths: null
+    property var resizeInitPoints: null
+    property var resizeInitRects: null
+
+    onSelectedIndexChanged: {
+        hoveredResizeHandle = -1
+        activeResizeHandle = -1
+        isResizingShape = false
+    }
+
+    function getResizeCursor(hIndex, rotation) {
+        var baseAngles = [135, 90, 45, 0, 135, 90, 45, 0]
+        var base = (hIndex >= 0 && hIndex < 8) ? baseAngles[hIndex] : 0
+        var eff = ((base + (rotation || 0)) % 180 + 180) % 180
+        if (eff < 22.5 || eff >= 157.5) return Qt.SizeHorCursor
+        else if (eff >= 22.5 && eff < 67.5) return Qt.SizeBDiagCursor
+        else if (eff >= 67.5 && eff < 112.5) return Qt.SizeVerCursor
+        else return Qt.SizeFDiagCursor
+    }
+
+    function getHandlePixelPos(shp, hIndex) {
+        if (!shp) return { x: 0, y: 0 }
+        var hw = ((shp.wMm || 10.0) / 2.0) * root.zoomScale
+        var hh = ((shp.hMm || 10.0) / 2.0) * root.zoomScale
+        var pad = 4.0
+        var hlx = 0.0, hly = 0.0
+        if (hIndex === 0)      { hlx = -hw - pad; hly = -hh - pad }
+        else if (hIndex === 1) { hlx = 0;         hly = -hh - pad }
+        else if (hIndex === 2) { hlx = hw + pad;  hly = -hh - pad }
+        else if (hIndex === 3) { hlx = hw + pad;  hly = 0 }
+        else if (hIndex === 4) { hlx = hw + pad;  hly = hh + pad }
+        else if (hIndex === 5) { hlx = 0;         hly = hh + pad }
+        else if (hIndex === 6) { hlx = -hw - pad; hly = hh + pad }
+        else if (hIndex === 7) { hlx = -hw - pad; hly = 0 }
+
+        var canvasRot = (-(shp.rotation || 0) * Math.PI) / 180.0
+        var cosC = Math.cos(canvasRot)
+        var sinC = Math.sin(canvasRot)
+        var rotX = hlx * cosC - hly * sinC
+        var rotY = hlx * sinC + hly * cosC
+
+        var sx = root.originX + (shp.xMm * root.zoomScale)
+        var sy = root.originY - (shp.yMm * root.zoomScale)
+        return { x: sx + rotX, y: sy + rotY }
+    }
+
+    function getHitResizeHandle(mouseX, mouseY) {
+        if (root.selectedIndex < 0 || root.selectedIndex >= root.shapes.length) return -1
+        var shp = root.shapes[root.selectedIndex]
+        if (!shp || shp.locked || shp.visible === false) return -1
+        var hitRadius = 8.0
+        for (var h = 0; h < 8; h++) {
+            var hp = getHandlePixelPos(shp, h)
+            if (Math.abs(mouseX - hp.x) <= hitRadius && Math.abs(mouseY - hp.y) <= hitRadius) {
+                return h
+            }
+        }
+        return -1
+    }
 
     // Interactive Node / Vertex Edit Engine
     property int hoveredNodePathIndex: -1
@@ -1080,9 +1157,6 @@ Item {
                     ctx.strokeRect(-sw / 2 - pad, -sh / 2 - pad, sw + pad * 2, sh + pad * 2)
                     ctx.setLineDash([])
 
-                    ctx.fillStyle = Theme.canvasHandleFill
-                    ctx.strokeStyle = Theme.canvasHandleBorder
-                    ctx.lineWidth = 1
                     var hs = 6
                     var handlePts = [
                         { x: -sw / 2 - pad, y: -sh / 2 - pad },
@@ -1095,8 +1169,13 @@ Item {
                         { x: -sw / 2 - pad, y: 0 }
                     ]
                     for (var h = 0; h < handlePts.length; h++) {
-                        ctx.fillRect(handlePts[h].x - hs / 2, handlePts[h].y - hs / 2, hs, hs)
-                        ctx.strokeRect(handlePts[h].x - hs / 2, handlePts[h].y - hs / 2, hs, hs)
+                        var isHovH = (root.hoveredResizeHandle === h || root.activeResizeHandle === h)
+                        var curHs = isHovH ? hs + 3 : hs
+                        ctx.fillStyle = isHovH ? "#FFFFFF" : Theme.canvasHandleFill
+                        ctx.strokeStyle = isHovH ? Theme.accentCyan : Theme.canvasHandleBorder
+                        ctx.lineWidth = isHovH ? 1.8 : 1.0
+                        ctx.fillRect(handlePts[h].x - curHs / 2, handlePts[h].y - curHs / 2, curHs, curHs)
+                        ctx.strokeRect(handlePts[h].x - curHs / 2, handlePts[h].y - curHs / 2, curHs, curHs)
                     }
 
                     // Vertex Node Handles for Node / Vertex Edit Tool
@@ -1241,6 +1320,62 @@ Item {
                 }
                 ctx.restore()
             }
+
+            // 8. Live Laser Cursor / Firing Spot Preview during Execution
+            if (root.isMarking) {
+                var lx = ox + (root.liveLaserMmX * scale)
+                var ly = oy - (root.liveLaserMmY * scale)
+
+                ctx.save()
+                var isLaserOn = root.liveLaserActive
+                var lColor = root.isPaused ? "#F59E0B" : (isLaserOn ? "#EF4444" : Theme.accentCyan)
+
+                // Outer pulsating glow halo
+                ctx.beginPath()
+                ctx.arc(lx, ly, isLaserOn ? 14 : 9, 0, Math.PI * 2)
+                ctx.fillStyle = isLaserOn
+                    ? Qt.rgba(0.94, 0.27, 0.27, 0.25)
+                    : (root.isPaused ? Qt.rgba(0.96, 0.62, 0.04, 0.25) : Qt.rgba(0.0, 0.94, 1.0, 0.2))
+                ctx.fill()
+
+                // Targeting Reticle Circle
+                ctx.beginPath()
+                ctx.arc(lx, ly, 6.5, 0, Math.PI * 2)
+                ctx.strokeStyle = lColor
+                ctx.lineWidth = 1.5
+                ctx.stroke()
+
+                // Crosshair Hairline Ticks
+                ctx.beginPath()
+                ctx.moveTo(lx - 10, ly); ctx.lineTo(lx - 3, ly)
+                ctx.moveTo(lx + 3, ly);  ctx.lineTo(lx + 10, ly)
+                ctx.moveTo(lx, ly - 10); ctx.lineTo(lx, ly - 3)
+                ctx.moveTo(lx, ly + 3);  ctx.lineTo(lx, ly + 10)
+                ctx.strokeStyle = lColor
+                ctx.lineWidth = 1.2
+                ctx.stroke()
+
+                // Center High-Intensity Laser Spot
+                ctx.beginPath()
+                ctx.arc(lx, ly, 2.5, 0, Math.PI * 2)
+                ctx.fillStyle = "#FFFFFF"
+                ctx.fill()
+
+                // Live Position Pill Badge following the spot
+                var tagText = (root.isPaused ? "PAUSED " : (isLaserOn ? "LASER ON " : "")) + "(" + root.liveLaserMmX.toFixed(2) + ", " + root.liveLaserMmY.toFixed(2) + ")"
+                ctx.font = "bold 9px 'Consolas', monospace"
+                var tagW = ctx.measureText(tagText).width + 8
+                ctx.fillStyle = Theme.isDark ? "#0D172AEE" : "#FFFFFFEE"
+                ctx.strokeStyle = lColor
+                ctx.lineWidth = 1
+                ctx.fillRect(lx + 9, ly - 16, tagW, 14)
+                ctx.strokeRect(lx + 9, ly - 16, tagW, 14)
+                ctx.fillStyle = lColor
+                ctx.textAlign = "left"
+                ctx.textBaseline = "middle"
+                ctx.fillText(tagText, lx + 13, ly - 9)
+                ctx.restore()
+            }
         }
     }
 
@@ -1312,6 +1447,11 @@ Item {
                 return Qt.CrossCursor
             }
             if (root.activeTool !== "select") return Qt.CrossCursor
+            if (root.hoveredResizeHandle >= 0 || root.activeResizeHandle >= 0) {
+                var hIdx = root.activeResizeHandle >= 0 ? root.activeResizeHandle : root.hoveredResizeHandle
+                var sRot = (root.selectedIndex >= 0 && root.selectedIndex < root.shapes.length) ? (root.shapes[root.selectedIndex].rotation || 0) : 0
+                return root.getResizeCursor(hIdx, sRot)
+            }
             return Qt.ArrowCursor
         }
 
@@ -1350,6 +1490,46 @@ Item {
             if (mouse.button === Qt.LeftButton) {
                 var clickMmX = (mouse.x - root.originX) / root.zoomScale
                 var clickMmY = (root.originY - mouse.y) / root.zoomScale
+
+                // 0. Interactive 8-Handle Resize Selection Hit
+                if (root.activeTool === "select" && root.selectedIndex >= 0 && root.selectedIndex < root.shapes.length) {
+                    var hitH = root.getHitResizeHandle(mouse.x, mouse.y)
+                    if (hitH >= 0) {
+                        root.pushUndoState()
+                        isResizingShape = true
+                        activeResizeHandle = hitH
+                        var shp = root.shapes[root.selectedIndex]
+                        resizeInitX = shp.xMm || 0
+                        resizeInitY = shp.yMm || 0
+                        resizeInitW = Math.max(0.1, Number(shp.wMm || 10.0))
+                        resizeInitH = Math.max(0.1, Number(shp.hMm || 10.0))
+                        resizeInitRot = Number(shp.rotation || 0)
+
+                        var alx = 0, aly = 0
+                        var hw = resizeInitW / 2
+                        var hh = resizeInitH / 2
+                        if (hitH === 0)      { alx = hw;  aly = -hh }
+                        else if (hitH === 1) { alx = 0;   aly = -hh }
+                        else if (hitH === 2) { alx = -hw; aly = -hh }
+                        else if (hitH === 3) { alx = -hw; aly = 0 }
+                        else if (hitH === 4) { alx = -hw; aly = hh }
+                        else if (hitH === 5) { alx = 0;   aly = hh }
+                        else if (hitH === 6) { alx = hw;  aly = hh }
+                        else if (hitH === 7) { alx = hw;  aly = 0 }
+
+                        var rad = resizeInitRot * Math.PI / 180.0
+                        var cosR = Math.cos(rad)
+                        var sinR = Math.sin(rad)
+                        resizeAnchorWorldX = resizeInitX + alx * cosR - aly * sinR
+                        resizeAnchorWorldY = resizeInitY + alx * sinR + aly * cosR
+
+                        resizeInitPaths = (shp.paths && shp.paths.length > 0) ? JSON.parse(JSON.stringify(shp.paths)) : null
+                        resizeInitPoints = (shp.points && shp.points.length > 0) ? JSON.parse(JSON.stringify(shp.points)) : null
+                        resizeInitRects = (shp.rects && shp.rects.length > 0) ? JSON.parse(JSON.stringify(shp.rects)) : null
+                        canvas.requestPaint()
+                        return
+                    }
+                }
 
                 // 1. Interactive Node Tool
                 if (root.activeTool === "node") {
@@ -1435,6 +1615,140 @@ Item {
 
             var dx = mouse.x - lastMouseX
             var dy = mouse.y - lastMouseY
+
+            // 0. Handle Drag Resizing of Selected Shape
+            if (isResizingShape && activeResizeHandle >= 0 && root.selectedIndex >= 0 && root.selectedIndex < root.shapes.length) {
+                var shp = root.shapes[root.selectedIndex]
+                if (shp && !shp.locked) {
+                    var vWorldX = root.mouseCoordMmX - resizeAnchorWorldX
+                    var vWorldY = root.mouseCoordMmY - resizeAnchorWorldY
+
+                    var rad = resizeInitRot * Math.PI / 180.0
+                    var cosR = Math.cos(rad)
+                    var sinR = Math.sin(rad)
+                    var vLocalX = vWorldX * cosR + vWorldY * sinR
+                    var vLocalY = -vWorldX * sinR + vWorldY * cosR
+
+                    var h = activeResizeHandle
+                    var newW = resizeInitW
+                    var newH = resizeInitH
+
+                    if (h === 4) {
+                        newW = Math.max(0.5, vLocalX)
+                        newH = Math.max(0.5, -vLocalY)
+                    } else if (h === 0) {
+                        newW = Math.max(0.5, -vLocalX)
+                        newH = Math.max(0.5, vLocalY)
+                    } else if (h === 2) {
+                        newW = Math.max(0.5, vLocalX)
+                        newH = Math.max(0.5, vLocalY)
+                    } else if (h === 6) {
+                        newW = Math.max(0.5, -vLocalX)
+                        newH = Math.max(0.5, -vLocalY)
+                    } else if (h === 3) {
+                        newW = Math.max(0.5, vLocalX)
+                    } else if (h === 7) {
+                        newW = Math.max(0.5, -vLocalX)
+                    } else if (h === 1) {
+                        newH = Math.max(0.5, vLocalY)
+                    } else if (h === 5) {
+                        newH = Math.max(0.5, -vLocalY)
+                    }
+
+                    var isAspectLocked = (mouse.modifiers & Qt.ShiftModifier) ||
+                                         (shp.type === "circle" || shp.type === "qrcode" || shp.type === "datamatrix")
+                    if (isAspectLocked) {
+                        if (h === 0 || h === 2 || h === 4 || h === 6) {
+                            var sFactor = Math.max(newW / resizeInitW, newH / resizeInitH)
+                            newW = Math.max(0.5, resizeInitW * sFactor)
+                            newH = Math.max(0.5, resizeInitH * sFactor)
+                        } else if (h === 3 || h === 7) {
+                            newH = Math.max(0.5, resizeInitH * (newW / resizeInitW))
+                        } else if (h === 1 || h === 5) {
+                            newW = Math.max(0.5, resizeInitW * (newH / resizeInitH))
+                        }
+                    }
+
+                    var cLocalX = 0, cLocalY = 0
+                    if (h === 4)      { cLocalX = +newW / 2; cLocalY = -newH / 2 }
+                    else if (h === 0) { cLocalX = -newW / 2; cLocalY = +newH / 2 }
+                    else if (h === 2) { cLocalX = +newW / 2; cLocalY = +newH / 2 }
+                    else if (h === 6) { cLocalX = -newW / 2; cLocalY = -newH / 2 }
+                    else if (h === 3) { cLocalX = +newW / 2; cLocalY = 0 }
+                    else if (h === 7) { cLocalX = -newW / 2; cLocalY = 0 }
+                    else if (h === 1) { cLocalX = 0;         cLocalY = +newH / 2 }
+                    else if (h === 5) { cLocalX = 0;         cLocalY = -newH / 2 }
+
+                    var newCenterX = resizeAnchorWorldX + cLocalX * cosR - cLocalY * sinR
+                    var newCenterY = resizeAnchorWorldY + cLocalX * sinR + cLocalY * cosR
+
+                    shp.wMm = root.round3(newW)
+                    shp.hMm = root.round3(newH)
+                    shp.xMm = root.round3(newCenterX)
+                    shp.yMm = root.round3(newCenterY)
+
+                    if (resizeInitPaths && resizeInitPaths.length > 0) {
+                        var scaleX = newW / resizeInitW
+                        var scaleY = newH / resizeInitH
+                        var scaledPaths = []
+                        for (var p = 0; p < resizeInitPaths.length; p++) {
+                            var sub = resizeInitPaths[p]
+                            var newSub = []
+                            for (var k = 0; k < sub.length; k++) {
+                                newSub.push([root.round3(sub[k][0] * scaleX), root.round3(sub[k][1] * scaleY)])
+                            }
+                            scaledPaths.push(newSub)
+                        }
+                        shp.paths = scaledPaths
+                    }
+
+                    if (resizeInitPoints && resizeInitPoints.length > 0) {
+                        var scaleX2 = newW / resizeInitW
+                        var scaleY2 = newH / resizeInitH
+                        var scaledPts = []
+                        for (var pt = 0; pt < resizeInitPoints.length; pt++) {
+                            scaledPts.push([root.round3(resizeInitPoints[pt][0] * scaleX2), root.round3(resizeInitPoints[pt][1] * scaleY2)])
+                        }
+                        shp.points = scaledPts
+                    }
+
+                    if (resizeInitRects && resizeInitRects.length > 0) {
+                        var scaleX3 = newW / resizeInitW
+                        var scaleY3 = newH / resizeInitH
+                        var scaledRects = []
+                        for (var r = 0; r < resizeInitRects.length; r++) {
+                            var rc = resizeInitRects[r]
+                            scaledRects.push({
+                                x: root.round3(rc.x * scaleX3),
+                                y: root.round3(rc.y * scaleY3),
+                                w: root.round3(rc.w * scaleX3),
+                                h: root.round3(rc.h * scaleY3)
+                            })
+                        }
+                        shp.rects = scaledRects
+                    }
+
+                    shp.hatch_lines = []
+                    root.shapesChanged()
+                    root.shapeModified(shp)
+                    canvas.requestPaint()
+                }
+                lastMouseX = mouse.x
+                lastMouseY = mouse.y
+                return
+            }
+
+            // Handle hover detection when in select tool
+            if (root.activeTool === "select" && root.selectedIndex >= 0 && !root.isDrawingShape && !isDraggingShape) {
+                var newHovH = root.getHitResizeHandle(mouse.x, mouse.y)
+                if (newHovH !== root.hoveredResizeHandle) {
+                    root.hoveredResizeHandle = newHovH
+                    canvas.requestPaint()
+                }
+            } else if (root.hoveredResizeHandle >= 0) {
+                root.hoveredResizeHandle = -1
+                canvas.requestPaint()
+            }
 
             // 1. Vertex Dragging in Node Tool
             if (root.activeTool === "node" && root.draggingNodePointIndex >= 0 && root.selectedIndex >= 0 && root.selectedIndex < root.shapes.length) {
@@ -1543,6 +1857,27 @@ Item {
                 mouse.accepted = true
                 return
             }
+            // 0. Finish Resize Drag
+            if (isResizingShape) {
+                isResizingShape = false
+                activeResizeHandle = -1
+                if (root.selectedIndex >= 0 && root.selectedIndex < root.shapes.length) {
+                    var relShp = root.shapes[root.selectedIndex]
+                    if (relShp) {
+                        if (relShp.hatched && typeof cad !== "undefined" && cad) {
+                            relShp.hatch_lines = cad.computeHatchPreviewLines(relShp)
+                        }
+                        if (typeof cad !== "undefined" && cad) {
+                            cad.updateShapes(root.shapes)
+                        }
+                    }
+                    root.shapesChanged()
+                    root.shapeModified(relShp)
+                    canvas.requestPaint()
+                }
+                return
+            }
+
             // 1. Finish Vertex Drag in Node Tool
             if (root.activeTool === "node" && root.draggingNodePointIndex >= 0) {
                 root.draggingNodePathIndex = -1
@@ -1828,6 +2163,119 @@ Item {
                 enabled: !hudRow.isLocked
                 onClicked: root.deleteSelectedShape()
             }
+        }
+    }
+
+    // Live Laser Marking Floating Canvas HUD Pill
+    Rectangle {
+        id: canvasMarkingOverlay
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 16
+        height: 38
+        radius: 19
+        visible: (typeof cad !== "undefined" && cad && cad.isMarking) || (typeof galvo !== "undefined" && galvo && galvo.isLaserFiring)
+        color: Theme.isDark ? "#0A1224EE" : "#FFFFFFEE"
+        border.color: (typeof cad !== "undefined" && cad && cad.isPaused) ? "#F59E0B" : Theme.accentCyan
+        border.width: 1.5
+        implicitWidth: markingOverlayRow.implicitWidth + 28
+        z: 100
+
+        RowLayout {
+            id: markingOverlayRow
+            anchors.centerIn: parent
+            spacing: 10
+
+            Rectangle {
+                width: 10
+                height: 10
+                radius: 5
+                color: (typeof cad !== "undefined" && cad && cad.isPaused) ? "#F59E0B" : Theme.accentCyan
+                SequentialAnimation on opacity {
+                    running: canvasMarkingOverlay.visible && !(typeof cad !== "undefined" && cad && cad.isPaused)
+                    loops: Animation.Infinite
+                    PropertyAnimation { to: 0.2; duration: 300 }
+                    PropertyAnimation { to: 1.0; duration: 300 }
+                }
+            }
+
+            Text {
+                text: (typeof cad !== "undefined" && cad && cad.isPaused) ? "LASER MARKING PAUSED" : "LASER MARKING IN PROGRESS"
+                font.family: "Segoe UI, Inter, sans-serif"
+                font.pixelSize: 11
+                font.weight: Font.Bold
+                color: (typeof cad !== "undefined" && cad && cad.isPaused) ? "#F59E0B" : Theme.textPrimary
+            }
+
+            Rectangle {
+                width: 110
+                height: 6
+                radius: 3
+                color: Theme.isDark ? "#17233D" : "#E2E8F0"
+                clip: true
+
+                Rectangle {
+                    height: parent.height
+                    radius: 3
+                    width: parent.width * (((typeof cad !== "undefined" && cad) ? cad.markProgress : 0.0) / 100.0)
+                    color: (typeof cad !== "undefined" && cad && cad.isPaused) ? "#F59E0B" : Theme.accentCyan
+                    Behavior on width { NumberAnimation { duration: 80 } }
+                }
+            }
+
+            Text {
+                text: ((typeof cad !== "undefined" && cad) ? cad.markProgress.toFixed(0) : "0") + "%"
+                font.family: "Consolas, monospace"
+                font.pixelSize: 11
+                font.weight: Font.Bold
+                color: (typeof cad !== "undefined" && cad && cad.isPaused) ? "#F59E0B" : Theme.accentCyan
+            }
+
+            // Elapsed & Remaining Time Telemetry
+            Text {
+                text: ((typeof cad !== "undefined" && cad) ? ("⏱ " + cad.markElapsedStr + " / " + cad.markRemainingStr) : "⏱ 00:00 / --:--")
+                font.family: "Consolas, monospace"
+                font.pixelSize: 10
+                font.weight: Font.DemiBold
+                color: Theme.textSecondary
+            }
+
+            // Pause / Resume Button
+            CadButton {
+                text: (typeof cad !== "undefined" && cad && cad.isPaused) ? "RESUME" : "PAUSE"
+                customRadius: 10
+                implicitHeight: 24
+                implicitWidth: 64
+                variant: (typeof cad !== "undefined" && cad && cad.isPaused) ? "warning" : "secondary"
+                onClicked: {
+                    if (typeof cad !== "undefined" && cad) cad.togglePause()
+                }
+            }
+
+            CadButton {
+                text: "ABORT"
+                customRadius: 10
+                implicitHeight: 24
+                implicitWidth: 56
+                variant: "danger"
+                onClicked: {
+                    if (typeof cad !== "undefined" && cad) cad.abortMark()
+                }
+            }
+        }
+    }
+
+    Connections {
+        target: (typeof cad !== "undefined") ? cad : null
+        function onLaserPositionChanged(x, y, active) {
+            root.liveLaserMmX = x
+            root.liveLaserMmY = y
+            root.liveLaserActive = active
+            canvas.requestPaint()
+        }
+        function onPauseChanged(paused) {
+            root.isPaused = paused
+            canvas.requestPaint()
         }
     }
 

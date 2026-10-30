@@ -8,6 +8,14 @@ Rectangle {
 
     property bool isFraming: (typeof cad !== "undefined" && cad) ? cad.isFraming : ((typeof galvo !== "undefined" && galvo) ? galvo.redPointerOn : false)
     property bool isMarking: (typeof cad !== "undefined" && cad) ? cad.isMarking : ((typeof galvo !== "undefined" && galvo) ? galvo.isLaserFiring : false)
+    property real markProgress: (typeof cad !== "undefined" && cad) ? cad.markProgress : 0.0
+    property int markCurrentCmd: (typeof cad !== "undefined" && cad) ? cad.markCurrentCmd : 0
+    property int markTotalCmds: (typeof cad !== "undefined" && cad) ? cad.markTotalCmds : 0
+    property bool isPaused: (typeof cad !== "undefined" && cad) ? cad.isPaused : false
+    property string markElapsedStr: (typeof cad !== "undefined" && cad) ? cad.markElapsedStr : "00:00"
+    property string markRemainingStr: (typeof cad !== "undefined" && cad) ? cad.markRemainingStr : "--:--"
+    property real liveLaserX: (typeof cad !== "undefined" && cad) ? cad.liveLaserX : 0.0
+    property real liveLaserY: (typeof cad !== "undefined" && cad) ? cad.liveLaserY : 0.0
     property real mouseCoordX: 0.0
     property real mouseCoordY: 0.0
     property real zoomPercent: 100.0
@@ -20,6 +28,7 @@ Rectangle {
     signal redPointerToggled(bool active)
     signal markTriggered()
     signal abortTriggered()
+    signal pauseTriggered()
     signal resetCounter()
 
     height: 56
@@ -144,6 +153,54 @@ Rectangle {
                     }
                     ToolTip.visible: containsMouse
                     ToolTip.text: "Execute high-speed galvo laser burn (HotKey: F2)"
+                }
+            }
+
+            // Pause / Resume Button (F3) - visible when marking is active
+            Rectangle {
+                id: pauseBtnBg
+                height: 38
+                implicitWidth: pauseBtnRow.implicitWidth + 20
+                radius: 7
+                visible: root.isMarking
+                color: root.isPaused
+                    ? (pauseMa.containsMouse ? "#D97706" : "#F59E0B")
+                    : (pauseMa.containsMouse ? Theme.bgCardHover : Theme.bgCardAlt)
+                border.color: root.isPaused ? "#F59E0B" : Theme.borderCard
+                border.width: 1.5
+
+                scale: pauseMa.pressed ? 0.94 : (pauseMa.containsMouse ? 1.03 : 1.0)
+                Behavior on scale { NumberAnimation { duration: 100 } }
+                Behavior on color { ColorAnimation { duration: 150 } }
+
+                RowLayout {
+                    id: pauseBtnRow
+                    anchors.centerIn: parent
+                    spacing: 6
+
+                    CadIcon {
+                        name: root.isPaused ? "play_arrow" : "pause"
+                        size: 16
+                        iconColor: root.isPaused ? "#000000" : Theme.textPrimary
+                    }
+
+                    Text {
+                        text: root.isPaused ? "RESUME (F3)" : "PAUSE (F3)"
+                        font.family: "Segoe UI, Inter, sans-serif"
+                        font.pixelSize: 11
+                        font.weight: Font.Bold
+                        color: root.isPaused ? "#000000" : Theme.textPrimary
+                    }
+                }
+
+                MouseArea {
+                    id: pauseMa
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: root.pauseTriggered()
+                    ToolTip.visible: containsMouse
+                    ToolTip.text: root.isPaused ? "Resume laser execution (F3)" : "Pause laser execution safely (F3)"
                 }
             }
         }
@@ -299,7 +356,179 @@ Rectangle {
             }
         }
 
-        Item { Layout.fillWidth: true }
+        // Center Area: Laser Marking Live Progress Deck or Flexible Spacer
+        Item {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            // Live Progress Bar (Visible whenever laser marking is firing or completing)
+            RowLayout {
+                anchors.centerIn: parent
+                width: Math.min(parent.width - 20, 380)
+                spacing: 10
+                visible: root.isMarking || (root.markProgress > 0 && root.markProgress < 100)
+                opacity: visible ? 1.0 : 0.0
+                Behavior on opacity { NumberAnimation { duration: 200 } }
+
+                // Glowing Laser Activity Badge
+                Rectangle {
+                    height: 28
+                    implicitWidth: progressBadgeRow.implicitWidth + 14
+                    radius: 5
+                    color: root.isPaused
+                        ? (Theme.isDark ? "#291800" : "#FEF3C7")
+                        : (Theme.isDark ? "#0C1B33" : "#ECFEFF")
+                    border.color: root.isPaused ? "#F59E0B" : Theme.accentCyan
+                    border.width: 1
+
+                    RowLayout {
+                        id: progressBadgeRow
+                        anchors.centerIn: parent
+                        spacing: 6
+
+                        Rectangle {
+                            width: 8
+                            height: 8
+                            radius: 4
+                            color: root.isPaused ? "#F59E0B" : Theme.accentCyan
+                            SequentialAnimation on opacity {
+                                running: root.isMarking && !root.isPaused
+                                loops: Animation.Infinite
+                                PropertyAnimation { to: 0.2; duration: 250 }
+                                PropertyAnimation { to: 1.0; duration: 250 }
+                            }
+                        }
+
+                        Text {
+                            text: root.isPaused ? "PAUSED" : "MARKING"
+                            font.family: "Segoe UI, Inter, sans-serif"
+                            font.pixelSize: 10
+                            font.weight: Font.Bold
+                            color: root.isPaused ? "#F59E0B" : Theme.accentCyan
+                        }
+                    }
+                }
+
+                // Sleek Progress Track with percentage & command count
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: 3
+
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text {
+                            text: (root.markTotalCmds > 0)
+                                ? ("Cmd " + root.markCurrentCmd + " / " + root.markTotalCmds)
+                                : "Laser Firing..."
+                            font.family: "Consolas, monospace"
+                            font.pixelSize: 10
+                            font.weight: Font.DemiBold
+                            color: Theme.textSecondary
+                        }
+                        Item { Layout.fillWidth: true }
+                        Text {
+                            text: root.markProgress.toFixed(1) + "%"
+                            font.family: "Consolas, monospace"
+                            font.pixelSize: 10
+                            font.weight: Font.Bold
+                            color: Theme.accentCyan
+                        }
+                    }
+
+                    // Progress Track
+                    Rectangle {
+                        Layout.fillWidth: true
+                        height: 7
+                        radius: 3.5
+                        color: Theme.isDark ? "#0A101D" : "#E2E8F0"
+                        border.color: Theme.borderCard
+                        border.width: 1
+                        clip: true
+
+                        Rectangle {
+                            id: progTrackFill
+                            height: parent.height
+                            radius: 3.5
+                            width: Math.max(0, Math.min(parent.width, parent.width * (root.markProgress / 100.0)))
+                            gradient: Gradient {
+                                orientation: Gradient.Horizontal
+                                GradientStop { position: 0.0; color: Theme.accentCyan }
+                                GradientStop { position: 1.0; color: Theme.accentGreen }
+                            }
+                            Behavior on width {
+                                NumberAnimation { duration: 60 }
+                            }
+
+                            // Shimmer light sweep
+                            Rectangle {
+                                width: 25
+                                height: parent.height
+                                opacity: 0.6
+                                gradient: Gradient {
+                                    orientation: Gradient.Horizontal
+                                    GradientStop { position: 0.0; color: "transparent" }
+                                    GradientStop { position: 0.5; color: "#FFFFFF" }
+                                    GradientStop { position: 1.0; color: "transparent" }
+                                }
+                                NumberAnimation on x {
+                                    running: root.isMarking && !root.isPaused
+                                    loops: Animation.Infinite
+                                    from: -25
+                                    to: progTrackFill.width + 10
+                                    duration: 750
+                                }
+                            }
+                        }
+                    }
+
+                    // Elapsed & Remaining Time Telemetry
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: 8
+
+                        Row {
+                            spacing: 4
+                            Text {
+                                text: "⏱ Elapsed:"
+                                font.family: "Segoe UI, Inter, sans-serif"
+                                font.pixelSize: 10
+                                font.weight: Font.DemiBold
+                                color: Theme.textMuted
+                            }
+                            Text {
+                                text: root.markElapsedStr
+                                font.family: "Consolas, monospace"
+                                font.pixelSize: 10
+                                font.weight: Font.Bold
+                                color: Theme.textPrimary
+                            }
+                        }
+
+                        Text { text: "•"; font.pixelSize: 9; color: Theme.textMuted }
+
+                        Row {
+                            spacing: 4
+                            Text {
+                                text: "Remaining:"
+                                font.family: "Segoe UI, Inter, sans-serif"
+                                font.pixelSize: 10
+                                font.weight: Font.DemiBold
+                                color: Theme.textMuted
+                            }
+                            Text {
+                                text: root.markRemainingStr
+                                font.family: "Consolas, monospace"
+                                font.pixelSize: 10
+                                font.weight: Font.Bold
+                                color: root.isPaused ? "#F59E0B" : Theme.accentCyan
+                            }
+                        }
+
+                        Item { Layout.fillWidth: true }
+                    }
+                }
+            }
+        }
 
         // Precision Telemetry: Live Cursor Coordinates
         Rectangle {
@@ -317,14 +546,38 @@ Rectangle {
 
                 RowLayout {
                     spacing: 4
-                    Text { text: "X"; font.family: "Consolas, monospace"; font.pixelSize: 10; font.weight: Font.Bold; color: Theme.accentAmber }
-                    Text { text: root.mouseCoordX.toFixed(3) + " mm"; font.family: "Consolas, monospace"; font.pixelSize: 11; font.weight: Font.Bold; color: Theme.textPrimary }
+                    Text {
+                        text: "X"
+                        font.family: "Consolas, monospace"
+                        font.pixelSize: 10
+                        font.weight: Font.Bold
+                        color: root.isMarking ? Theme.accentCyan : Theme.accentAmber
+                    }
+                    Text {
+                        text: (root.isMarking ? root.liveLaserX : root.mouseCoordX).toFixed(3) + " mm"
+                        font.family: "Consolas, monospace"
+                        font.pixelSize: 11
+                        font.weight: Font.Bold
+                        color: root.isMarking ? Theme.accentCyan : Theme.textPrimary
+                    }
                 }
 
                 RowLayout {
                     spacing: 4
-                    Text { text: "Y"; font.family: "Consolas, monospace"; font.pixelSize: 10; font.weight: Font.Bold; color: Theme.accentCyan }
-                    Text { text: root.mouseCoordY.toFixed(3) + " mm"; font.family: "Consolas, monospace"; font.pixelSize: 11; font.weight: Font.Bold; color: Theme.textPrimary }
+                    Text {
+                        text: "Y"
+                        font.family: "Consolas, monospace"
+                        font.pixelSize: 10
+                        font.weight: Font.Bold
+                        color: root.isMarking ? Theme.accentGreen : Theme.accentCyan
+                    }
+                    Text {
+                        text: (root.isMarking ? root.liveLaserY : root.mouseCoordY).toFixed(3) + " mm"
+                        font.family: "Consolas, monospace"
+                        font.pixelSize: 11
+                        font.weight: Font.Bold
+                        color: root.isMarking ? Theme.accentGreen : Theme.textPrimary
+                    }
                 }
             }
         }
