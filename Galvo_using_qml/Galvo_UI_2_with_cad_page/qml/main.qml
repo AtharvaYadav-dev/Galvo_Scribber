@@ -5,6 +5,11 @@ import "components"
 import "views"
 
 ApplicationWindow {
+    FontLoader {
+        id: materialIconsFont
+        source: "fonts/MaterialIcons-Regular.ttf"
+    }
+
     id: window
     visible: true
     width: 1440

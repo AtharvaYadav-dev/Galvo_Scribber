@@ -38,9 +38,9 @@ Rectangle {
 
     RowLayout {
         anchors.fill: parent
-        anchors.leftMargin: 16
-        anchors.rightMargin: 16
-        spacing: 12
+        anchors.leftMargin: 12
+        anchors.rightMargin: 12
+        spacing: 8
 
         // 1. Primary Industrial Action Buttons
         RowLayout {
@@ -207,25 +207,25 @@ Rectangle {
 
         // Custom Themed Toggles
         RowLayout {
-            spacing: 12
+            spacing: 8
 
             // Toggle 1: Continuous
-            Row {
-                spacing: 6
+            RowLayout {
+                spacing: 5
                 Rectangle {
-                    width: 16
-                    height: 16
+                    width: 15
+                    height: 15
                     radius: 3
                     color: root.continuousMode ? Theme.accentCyan : (Theme.isDark ? "#16223B" : "#F1F5F9")
                     border.color: root.continuousMode ? Theme.accentCyan : Theme.borderCard
                     border.width: 1
-                    anchors.verticalCenter: parent.verticalCenter
+                    Layout.alignment: Qt.AlignVCenter
 
                     CadIcon {
                         visible: root.continuousMode
                         anchors.centerIn: parent
                         name: "check"
-                        size: 12
+                        size: 11
                         iconColor: "#0A0F1D"
                     }
 
@@ -236,31 +236,31 @@ Rectangle {
                     }
                 }
                 Text {
-                    anchors.verticalCenter: parent.verticalCenter
+                    Layout.alignment: Qt.AlignVCenter
                     text: "Continuous"
                     font.family: "Segoe UI, Inter, sans-serif"
-                    font.pixelSize: 11
+                    font.pixelSize: 10
                     color: Theme.textPrimary
                 }
             }
 
             // Toggle 2: Mark Selected
-            Row {
-                spacing: 6
+            RowLayout {
+                spacing: 5
                 Rectangle {
-                    width: 16
-                    height: 16
+                    width: 15
+                    height: 15
                     radius: 3
                     color: root.markSelectedOnly ? Theme.accentCyan : (Theme.isDark ? "#16223B" : "#F1F5F9")
                     border.color: root.markSelectedOnly ? Theme.accentCyan : Theme.borderCard
                     border.width: 1
-                    anchors.verticalCenter: parent.verticalCenter
+                    Layout.alignment: Qt.AlignVCenter
 
                     CadIcon {
                         visible: root.markSelectedOnly
                         anchors.centerIn: parent
                         name: "check"
-                        size: 12
+                        size: 11
                         iconColor: "#0A0F1D"
                     }
 
@@ -271,31 +271,31 @@ Rectangle {
                     }
                 }
                 Text {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: "Mark Selected"
+                    Layout.alignment: Qt.AlignVCenter
+                    text: "Selected"
                     font.family: "Segoe UI, Inter, sans-serif"
-                    font.pixelSize: 11
+                    font.pixelSize: 10
                     color: Theme.textPrimary
                 }
             }
 
             // Toggle 3: Auto Z-Focus (Workpiece Target Focal Plane)
-            Row {
-                spacing: 6
+            RowLayout {
+                spacing: 5
                 Rectangle {
-                    width: 16
-                    height: 16
+                    width: 15
+                    height: 15
                     radius: 3
                     color: (typeof cad !== "undefined" && cad && cad.autoFocusZ) ? Theme.accentCyan : (Theme.isDark ? "#16223B" : "#F1F5F9")
                     border.color: (typeof cad !== "undefined" && cad && cad.autoFocusZ) ? Theme.accentCyan : Theme.borderCard
                     border.width: 1
-                    anchors.verticalCenter: parent.verticalCenter
+                    Layout.alignment: Qt.AlignVCenter
 
                     CadIcon {
                         visible: typeof cad !== "undefined" && cad && cad.autoFocusZ
                         anchors.centerIn: parent
                         name: "check"
-                        size: 12
+                        size: 11
                         iconColor: "#0A0F1D"
                     }
 
@@ -310,10 +310,10 @@ Rectangle {
                     }
                 }
                 Text {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: "Auto Z-Focus (" + (typeof jog !== "undefined" ? jog.targetFocusZ.toFixed(1) : "27.0") + "mm)"
+                    Layout.alignment: Qt.AlignVCenter
+                    text: "Auto Z (" + (typeof jog !== "undefined" ? jog.targetFocusZ.toFixed(1) : "27.0") + "mm)"
                     font.family: "Segoe UI, Inter, sans-serif"
-                    font.pixelSize: 11
+                    font.pixelSize: 10
                     font.weight: (typeof cad !== "undefined" && cad && cad.autoFocusZ) ? Font.DemiBold : Font.Normal
                     color: (typeof cad !== "undefined" && cad && cad.autoFocusZ) ? Theme.accentCyan : Theme.textPrimary
                 }
@@ -321,11 +321,11 @@ Rectangle {
         }
 
         // Divider
-        Rectangle { width: 1; height: 26; color: Theme.borderMuted }
+        Rectangle { width: 1; height: 22; color: Theme.borderMuted }
 
         // Batch Counter Card
         RowLayout {
-            spacing: 6
+            spacing: 4
             Text {
                 text: "PARTS:"
                 font.family: "Segoe UI, Inter, sans-serif"
@@ -336,204 +336,193 @@ Rectangle {
             Text {
                 text: root.partCount.toString()
                 font.family: "Consolas, monospace"
-                font.pixelSize: 13
+                font.pixelSize: 12
                 font.weight: Font.Bold
                 color: Theme.textPrimary
             }
             Text {
-                text: "/ Total: " + root.totalCount.toString()
+                text: "/" + root.totalCount.toString()
                 font.family: "Consolas, monospace"
-                font.pixelSize: 11
+                font.pixelSize: 10
                 color: Theme.textSecondary
             }
             CadButton {
                 text: "R"
-                customRadius: 4
-                implicitWidth: 24
-                implicitHeight: 24
+                customRadius: 3
+                implicitWidth: 20
+                implicitHeight: 20
                 tooltipText: "Reset batch part counter"
                 onClicked: root.resetCounter()
             }
         }
 
-        // Center Area: Laser Marking Live Progress Deck or Flexible Spacer
+        // Flexible Spring Spacer Before Progress
         Item {
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            Layout.minimumWidth: 4
+        }
 
-            // Live Progress Bar (Visible whenever laser marking is firing or completing)
-            RowLayout {
-                anchors.centerIn: parent
-                width: Math.min(parent.width - 20, 380)
-                spacing: 10
-                visible: root.isMarking || (root.markProgress > 0 && root.markProgress < 100)
-                opacity: visible ? 1.0 : 0.0
-                Behavior on opacity { NumberAnimation { duration: 200 } }
+        // Center Laser Marking Progress HUD Card (Self-contained, bounded, responsive)
+        Rectangle {
+            id: centerProgressCard
+            visible: root.isMarking || (root.markProgress > 0 && root.markProgress < 100)
+            opacity: visible ? 1.0 : 0.0
+            Behavior on opacity { NumberAnimation { duration: 200 } }
 
-                // Glowing Laser Activity Badge
-                Rectangle {
-                    height: 28
-                    implicitWidth: progressBadgeRow.implicitWidth + 14
-                    radius: 5
-                    color: root.isPaused
-                        ? (Theme.isDark ? "#291800" : "#FEF3C7")
-                        : (Theme.isDark ? "#0C1B33" : "#ECFEFF")
-                    border.color: root.isPaused ? "#F59E0B" : Theme.accentCyan
-                    border.width: 1
+            Layout.preferredWidth: 260
+            Layout.minimumWidth: 160
+            Layout.maximumWidth: 300
+            Layout.fillWidth: false
+            Layout.alignment: Qt.AlignVCenter
+            height: 40
+            radius: 6
+            color: root.isPaused 
+                ? (Theme.isDark ? "#241604" : "#FEF3C7") 
+                : (Theme.isDark ? "#0A1424" : "#F0F9FF")
+            border.color: root.isPaused ? "#F59E0B" : (Theme.isDark ? "#1E3A5F" : "#BAE6FD")
+            border.width: 1
 
-                    RowLayout {
-                        id: progressBadgeRow
-                        anchors.centerIn: parent
-                        spacing: 6
+            ColumnLayout {
+                anchors.fill: parent
+                anchors.leftMargin: 8
+                anchors.rightMargin: 8
+                anchors.topMargin: 3
+                anchors.bottomMargin: 3
+                spacing: 2
 
-                        Rectangle {
-                            width: 8
-                            height: 8
-                            radius: 4
-                            color: root.isPaused ? "#F59E0B" : Theme.accentCyan
-                            SequentialAnimation on opacity {
-                                running: root.isMarking && !root.isPaused
-                                loops: Animation.Infinite
-                                PropertyAnimation { to: 0.2; duration: 250 }
-                                PropertyAnimation { to: 1.0; duration: 250 }
-                            }
+                // Row 1: Status indicator + Cmd Counter + Percentage
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: 4
+
+                    Rectangle {
+                        width: 6
+                        height: 6
+                        radius: 3
+                        color: root.isPaused ? "#F59E0B" : Theme.accentCyan
+                        SequentialAnimation on opacity {
+                            running: root.isMarking && !root.isPaused
+                            loops: Animation.Infinite
+                            PropertyAnimation { to: 0.2; duration: 250 }
+                            PropertyAnimation { to: 1.0; duration: 250 }
                         }
+                    }
 
-                        Text {
-                            text: root.isPaused ? "PAUSED" : "MARKING"
-                            font.family: "Segoe UI, Inter, sans-serif"
-                            font.pixelSize: 10
-                            font.weight: Font.Bold
-                            color: root.isPaused ? "#F59E0B" : Theme.accentCyan
-                        }
+                    Text {
+                        text: root.isPaused ? "PAUSED" : "MARKING"
+                        font.family: "Segoe UI, Inter, sans-serif"
+                        font.pixelSize: 10
+                        font.weight: Font.Bold
+                        color: root.isPaused ? "#F59E0B" : Theme.accentCyan
+                    }
+
+                    Text {
+                        text: "•"
+                        font.pixelSize: 8
+                        color: Theme.textMuted
+                    }
+
+                    Text {
+                        text: (root.markTotalCmds > 0)
+                            ? ("Cmd " + root.markCurrentCmd + "/" + root.markTotalCmds)
+                            : "Laser Firing..."
+                        font.family: "Consolas, monospace"
+                        font.pixelSize: 9
+                        color: Theme.textSecondary
+                        elide: Text.ElideRight
+                        Layout.fillWidth: true
+                    }
+
+                    Text {
+                        text: root.markProgress.toFixed(1) + "%"
+                        font.family: "Consolas, monospace"
+                        font.pixelSize: 10
+                        font.weight: Font.Bold
+                        color: root.isPaused ? "#F59E0B" : Theme.accentCyan
                     }
                 }
 
-                // Sleek Progress Track with percentage & command count
-                ColumnLayout {
+                // Row 2: Sleek Progress Track with Shimmer
+                Rectangle {
                     Layout.fillWidth: true
-                    spacing: 3
+                    height: 4
+                    radius: 2
+                    color: Theme.isDark ? "#060B14" : "#E2E8F0"
+                    border.color: Theme.borderCard
+                    border.width: 0.5
+                    clip: true
 
-                    RowLayout {
-                        Layout.fillWidth: true
-                        Text {
-                            text: (root.markTotalCmds > 0)
-                                ? ("Cmd " + root.markCurrentCmd + " / " + root.markTotalCmds)
-                                : "Laser Firing..."
-                            font.family: "Consolas, monospace"
-                            font.pixelSize: 10
-                            font.weight: Font.DemiBold
-                            color: Theme.textSecondary
-                        }
-                        Item { Layout.fillWidth: true }
-                        Text {
-                            text: root.markProgress.toFixed(1) + "%"
-                            font.family: "Consolas, monospace"
-                            font.pixelSize: 10
-                            font.weight: Font.Bold
-                            color: Theme.accentCyan
-                        }
-                    }
-
-                    // Progress Track
                     Rectangle {
-                        Layout.fillWidth: true
-                        height: 7
-                        radius: 3.5
-                        color: Theme.isDark ? "#0A101D" : "#E2E8F0"
-                        border.color: Theme.borderCard
-                        border.width: 1
-                        clip: true
+                        id: progTrackFill
+                        height: parent.height
+                        radius: 2
+                        width: Math.max(0, Math.min(parent.width, parent.width * (root.markProgress / 100.0)))
+                        gradient: Gradient {
+                            orientation: Gradient.Horizontal
+                            GradientStop { position: 0.0; color: root.isPaused ? "#F59E0B" : Theme.accentCyan }
+                            GradientStop { position: 1.0; color: root.isPaused ? "#D97706" : Theme.accentGreen }
+                        }
+                        Behavior on width { NumberAnimation { duration: 60 } }
 
+                        // Shimmer light sweep
                         Rectangle {
-                            id: progTrackFill
+                            width: 20
                             height: parent.height
-                            radius: 3.5
-                            width: Math.max(0, Math.min(parent.width, parent.width * (root.markProgress / 100.0)))
+                            opacity: 0.5
                             gradient: Gradient {
                                 orientation: Gradient.Horizontal
-                                GradientStop { position: 0.0; color: Theme.accentCyan }
-                                GradientStop { position: 1.0; color: Theme.accentGreen }
+                                GradientStop { position: 0.0; color: "transparent" }
+                                GradientStop { position: 0.5; color: "#FFFFFF" }
+                                GradientStop { position: 1.0; color: "transparent" }
                             }
-                            Behavior on width {
-                                NumberAnimation { duration: 60 }
-                            }
-
-                            // Shimmer light sweep
-                            Rectangle {
-                                width: 25
-                                height: parent.height
-                                opacity: 0.6
-                                gradient: Gradient {
-                                    orientation: Gradient.Horizontal
-                                    GradientStop { position: 0.0; color: "transparent" }
-                                    GradientStop { position: 0.5; color: "#FFFFFF" }
-                                    GradientStop { position: 1.0; color: "transparent" }
-                                }
-                                NumberAnimation on x {
-                                    running: root.isMarking && !root.isPaused
-                                    loops: Animation.Infinite
-                                    from: -25
-                                    to: progTrackFill.width + 10
-                                    duration: 750
-                                }
+                            NumberAnimation on x {
+                                running: root.isMarking && !root.isPaused
+                                loops: Animation.Infinite
+                                from: -20
+                                to: progTrackFill.width + 10
+                                duration: 750
                             }
                         }
-                    }
-
-                    // Elapsed & Remaining Time Telemetry
-                    RowLayout {
-                        Layout.fillWidth: true
-                        spacing: 8
-
-                        Row {
-                            spacing: 4
-                            Text {
-                                text: "⏱ Elapsed:"
-                                font.family: "Segoe UI, Inter, sans-serif"
-                                font.pixelSize: 10
-                                font.weight: Font.DemiBold
-                                color: Theme.textMuted
-                            }
-                            Text {
-                                text: root.markElapsedStr
-                                font.family: "Consolas, monospace"
-                                font.pixelSize: 10
-                                font.weight: Font.Bold
-                                color: Theme.textPrimary
-                            }
-                        }
-
-                        Text { text: "•"; font.pixelSize: 9; color: Theme.textMuted }
-
-                        Row {
-                            spacing: 4
-                            Text {
-                                text: "Remaining:"
-                                font.family: "Segoe UI, Inter, sans-serif"
-                                font.pixelSize: 10
-                                font.weight: Font.DemiBold
-                                color: Theme.textMuted
-                            }
-                            Text {
-                                text: root.markRemainingStr
-                                font.family: "Consolas, monospace"
-                                font.pixelSize: 10
-                                font.weight: Font.Bold
-                                color: root.isPaused ? "#F59E0B" : Theme.accentCyan
-                            }
-                        }
-
-                        Item { Layout.fillWidth: true }
                     }
                 }
+
+                // Row 3: Elapsed & Remaining Time Telemetry
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: 4
+
+                    Text {
+                        text: "⏱ " + root.markElapsedStr
+                        font.family: "Consolas, monospace"
+                        font.pixelSize: 9
+                        color: Theme.textMuted
+                    }
+
+                    Text { text: "•"; font.pixelSize: 8; color: Theme.textMuted }
+
+                    Text {
+                        text: "Rem: " + root.markRemainingStr
+                        font.family: "Consolas, monospace"
+                        font.pixelSize: 9
+                        font.weight: Font.DemiBold
+                        color: root.isPaused ? "#F59E0B" : Theme.accentCyan
+                    }
+
+                    Item { Layout.fillWidth: true }
+                }
             }
+        }
+
+        // Flexible Spring Spacer After Progress
+        Item {
+            Layout.fillWidth: true
+            Layout.minimumWidth: 4
         }
 
         // Precision Telemetry: Live Cursor Coordinates
         Rectangle {
             height: 30
-            implicitWidth: telemetryRow.implicitWidth + 18
+            implicitWidth: telemetryRow.implicitWidth + 14
             radius: 5
             color: Theme.bgCardAlt
             border.color: Theme.borderCard
@@ -542,7 +531,7 @@ Rectangle {
             RowLayout {
                 id: telemetryRow
                 anchors.centerIn: parent
-                spacing: 12
+                spacing: 8
 
                 RowLayout {
                     spacing: 4
