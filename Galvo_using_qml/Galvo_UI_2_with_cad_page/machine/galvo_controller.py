@@ -88,6 +88,7 @@ class GalvoController:
                 
                 if ctype == 'mark':
                     dist_bits = math.hypot(cal_x - precalc_x, cal_y - precalc_y)
+                    cmd['dist_bits'] = dist_bits
                     cmd['dist_mm'] = dist_bits / 600.0
                     
                 precalc_x = cal_x
@@ -206,6 +207,10 @@ class GalvoController:
                             cmd_y = cmd['cal_y']
                         
                             self.connection.galvo_move_xy(cmd_x, cmd_y, cmd.get('speed'))
+                            if hasattr(self.connection, 'send_buffer'):
+                                self.connection.send_buffer()
+                            if hasattr(self.connection, 'wait_for_motion'):
+                                self.connection.wait_for_motion()
                             current_galvo_x = float(cmd_x)
                             current_galvo_y = float(cmd_y)
                             if progress_callback:
@@ -233,9 +238,10 @@ class GalvoController:
                             
                             speed_val = float(cmd.get('speed') or 1000)
                             if speed_val > 0:
-                                expected_duration += cmd.get('dist_mm', 0.0) / speed_val
+                                expected_duration += cmd.get('dist_bits', 0.0) / speed_val
                                 elapsed = time.time() - path_start_time
                                 # If Python is more than 500ms ahead of the hardware execution, sleep a tiny bit
+                                # Only throttle if Python is more than 500ms ahead of hardware motion
                                 if (expected_duration - elapsed) > 0.500:
                                     time.sleep(0.005)
                         
@@ -274,6 +280,10 @@ class GalvoController:
                                 laser_state = False
                         
                         elif ctype == 'delay':
+                            if hasattr(self.connection, 'send_buffer'):
+                                self.connection.send_buffer()
+                            if hasattr(self.connection, 'wait_for_motion'):
+                                self.connection.wait_for_motion()
                             ms = cmd.get('ms', 0)
                             time.sleep(ms / 1000.0)
                         

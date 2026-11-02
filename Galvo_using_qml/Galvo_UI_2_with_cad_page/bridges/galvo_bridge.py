@@ -30,8 +30,8 @@ class GalvoBridge(QObject):
         self._is_demo = True
         self._status_message = "Ready (Not Connected)"
         self._power = 20.0        # % (0 - 100)
-        self._speed = 1000.0      # mm/s (Marking Speed)
-        self._jump_speed = 2000.0 # mm/s (Jump Speed)
+        self._speed = 300.0       # mm/s (Marking Speed)
+        self._jump_speed = 1000.0 # mm/s (Jump Speed)
         self._frequency = 30.0    # kHz (20 - 80)
         self._is_firing = False
         self._red_pointer_on = False

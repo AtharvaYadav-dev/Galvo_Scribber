@@ -48,6 +48,8 @@ Rectangle {
     signal penChanged(int penId)
     signal openColorPickerRequested(int penId, string color, string name)
     signal hatchTriggered(var shape)
+    signal moveShapeUp(int index)
+    signal moveShapeDown(int index)
     signal unhatchTriggered(var shape)
     signal fontDialogTriggered(var shape)
     signal arrayDialogTriggered(var shape)
@@ -141,6 +143,29 @@ Rectangle {
         }
     }
 
+    function refreshTextShape() {
+        if (!root.selectedShape || root.selectedShape.type !== "text") return
+        if (typeof cad !== "undefined" && cad) {
+            var res = cad.generateTextEntity(root.selectedShape)
+            if (res) {
+                if (res.wMm > 0) {
+                    root.selectedShape.wMm = res.wMm
+                    inputW.text = res.wMm.toFixed(3)
+                }
+                if (res.hMm > 0) {
+                    root.selectedShape.hMm = res.hMm
+                    inputH.text = res.hMm.toFixed(3)
+                }
+                if (res.paths) {
+                    root.selectedShape.paths = res.paths
+                }
+            }
+        }
+        if (root.selectedShape.hatch_lines) root.selectedShape.hatch_lines = []
+        root.shapeModified(root.selectedShape)
+        root.applyTriggered(root.selectedShape)
+    }
+
     function applyXChange(newVal) {
         if (!root.selectedShape || root.selectedShape.locked) return
         var curAnchor = getAnchorPos(root.selectedShape.xMm || 0, root.selectedShape.yMm || 0, root.selectedShape.wMm || 0, root.selectedShape.hMm || 0, root.activeAnchorIndex)
@@ -168,7 +193,9 @@ Rectangle {
         var newW = Math.max(0.1, newVal)
         var newH = oldH
 
-        if (root.lockAspectRatio && oldW > 0) {
+        if (root.selectedShape && root.selectedShape.type === "circle") {
+            newH = newW
+        } else if (root.lockAspectRatio && oldW > 0) {
             newH = Math.max(0.1, oldH * (newW / oldW))
         }
 
@@ -197,7 +224,9 @@ Rectangle {
         var newH = Math.max(0.1, newVal)
         var newW = oldW
 
-        if (root.lockAspectRatio && oldH > 0) {
+        if (root.selectedShape && root.selectedShape.type === "circle") {
+            newW = newH
+        } else if (root.lockAspectRatio && oldH > 0) {
             newW = Math.max(0.1, oldW * (newH / oldH))
         }
 
@@ -412,6 +441,16 @@ Rectangle {
                                             spacing: 6
                                             z: 1
 
+                                            // Order Badge
+                                            Text {
+                                                text: "" + (index + 1) + "."
+                                                font.family: "Consolas, monospace"
+                                                font.pixelSize: 10
+                                                font.bold: true
+                                                color: root.selectedIndex === index ? Theme.accentCyan : Theme.textMuted
+                                                Layout.minimumWidth: 16
+                                            }
+
                                             // Pen Color Indicator Dot
                                             Rectangle {
                                                 width: 8
@@ -561,6 +600,54 @@ Rectangle {
                                                     font.weight: Font.Bold
                                                     color: Theme.textSecondary
                                                 }
+                                            }
+
+                                            // Move Up in Order Button
+                                            Rectangle {
+                                                width: 16
+                                                height: 16
+                                                radius: 2
+                                                color: upMa.containsMouse ? (Theme.isDark ? "#2A3B5C" : "#CBD5E1") : "transparent"
+                                                visible: index > 0
+                                                Text {
+                                                    anchors.centerIn: parent
+                                                    text: "▲"
+                                                    font.pixelSize: 8
+                                                    color: upMa.containsMouse ? Theme.accentCyan : Theme.textMuted
+                                                }
+                                                MouseArea {
+                                                    id: upMa
+                                                    anchors.fill: parent
+                                                    hoverEnabled: true
+                                                    cursorShape: Qt.PointingHandCursor
+                                                    onClicked: root.moveShapeUp(index)
+                                                }
+                                                ToolTip.visible: upMa.containsMouse
+                                                ToolTip.text: "Move Up in Marking Order"
+                                            }
+
+                                            // Move Down in Order Button
+                                            Rectangle {
+                                                width: 16
+                                                height: 16
+                                                radius: 2
+                                                color: downMa.containsMouse ? (Theme.isDark ? "#2A3B5C" : "#CBD5E1") : "transparent"
+                                                visible: index < root.shapesModel.length - 1
+                                                Text {
+                                                    anchors.centerIn: parent
+                                                    text: "▼"
+                                                    font.pixelSize: 8
+                                                    color: downMa.containsMouse ? Theme.accentCyan : Theme.textMuted
+                                                }
+                                                MouseArea {
+                                                    id: downMa
+                                                    anchors.fill: parent
+                                                    hoverEnabled: true
+                                                    cursorShape: Qt.PointingHandCursor
+                                                    onClicked: root.moveShapeDown(index)
+                                                }
+                                                ToolTip.visible: downMa.containsMouse
+                                                ToolTip.text: "Move Down in Marking Order"
                                             }
 
                                             // Delete entity
@@ -1161,9 +1248,7 @@ Rectangle {
                                         if (index === 1) {
                                             root.selectedShape.fontFamily = "Simplex (Single-Stroke Vector)"
                                         }
-                                        if (root.selectedShape.hatch_lines) root.selectedShape.hatch_lines = []
-                                        root.shapeModified(root.selectedShape)
-                                        root.applyTriggered(root.selectedShape)
+                                        root.refreshTextShape()
                                     }
                                 }
                             }
@@ -1201,22 +1286,7 @@ Rectangle {
                                     if (root.selectedShape && root.selectedShape.type === "text") {
                                         var chosenFont = (index >= 0 && model && index < model.length) ? model[index] : currentText
                                         root.selectedShape.fontFamily = chosenFont
-                                        if (root.selectedShape.hatch_lines) root.selectedShape.hatch_lines = []
-                                        if (typeof cad !== "undefined" && cad) {
-                                            var m = cad.measureText(
-                                                root.selectedShape.text || "TEXT",
-                                                chosenFont,
-                                                root.selectedShape.hMm || 4.0,
-                                                Boolean(root.selectedShape.bold),
-                                                Boolean(root.selectedShape.italic)
-                                            )
-                                            if (m && m.wMm > 0) {
-                                                root.selectedShape.wMm = m.wMm
-                                                inputW.text = m.wMm.toFixed(3)
-                                            }
-                                        }
-                                        root.shapeModified(root.selectedShape)
-                                        root.applyTriggered(root.selectedShape)
+                                        root.refreshTextShape()
                                     }
                                 }
                             }
@@ -1337,9 +1407,7 @@ Rectangle {
                                             onClicked: {
                                                 if (root.selectedShape) {
                                                     root.selectedShape.textAlign = modelData.val
-                                                    if (root.selectedShape.hatch_lines) root.selectedShape.hatch_lines = []
-                                                    root.shapeModified(root.selectedShape)
-                                                    root.applyTriggered(root.selectedShape)
+                                                    root.refreshTextShape()
                                                 }
                                             }
                                         }
@@ -1362,8 +1430,7 @@ Rectangle {
                                 onValueChanged: function(v) {
                                     if (root.selectedShape) {
                                         root.selectedShape.charSpace = v
-                                        if (root.selectedShape.hatch_lines) root.selectedShape.hatch_lines = []
-                                        root.shapeModified(root.selectedShape)
+                                        root.refreshTextShape()
                                     }
                                 }
                             }
@@ -1377,23 +1444,7 @@ Rectangle {
                                 onValueChanged: function(v) {
                                     if (root.selectedShape && root.selectedShape.type === "text") {
                                         root.selectedShape.hMm = Math.max(0.5, v)
-                                        if (root.selectedShape.hatch_lines) root.selectedShape.hatch_lines = []
-                                        if (typeof cad !== "undefined" && cad) {
-                                            var m = cad.measureText(
-                                                root.selectedShape.text || "TEXT",
-                                                root.selectedShape.fontFamily || "Segoe UI",
-                                                root.selectedShape.hMm,
-                                                Boolean(root.selectedShape.bold),
-                                                Boolean(root.selectedShape.italic)
-                                            )
-                                            if (m && m.wMm > 0) {
-                                                root.selectedShape.wMm = m.wMm
-                                                inputW.text = m.wMm.toFixed(3)
-                                            }
-                                        }
-                                        inputH.text = root.selectedShape.hMm.toFixed(3)
-                                        root.shapeModified(root.selectedShape)
-                                        root.applyTriggered(root.selectedShape)
+                                        root.refreshTextShape()
                                     }
                                 }
                             }
@@ -1434,21 +1485,7 @@ Rectangle {
                                     onTextChanged: {
                                         if (root.selectedShape && root.selectedShape.type === "text" && root.selectedShape.text !== text) {
                                             root.selectedShape.text = text
-                                            if (root.selectedShape.hatch_lines) root.selectedShape.hatch_lines = []
-                                            if (typeof cad !== "undefined" && cad) {
-                                                var m = cad.measureText(
-                                                    text || "TEXT",
-                                                    root.selectedShape.fontFamily || "Segoe UI",
-                                                    root.selectedShape.hMm || 4.0,
-                                                    Boolean(root.selectedShape.bold),
-                                                    Boolean(root.selectedShape.italic)
-                                                )
-                                                if (m && m.wMm > 0) {
-                                                    root.selectedShape.wMm = m.wMm
-                                                    inputW.text = m.wMm.toFixed(3)
-                                                }
-                                            }
-                                            root.shapeModified(root.selectedShape)
+                                            root.refreshTextShape()
                                         }
                                     }
                                 }
@@ -2065,10 +2102,10 @@ Rectangle {
                         Slider {
                             id: speedSlider
                             Layout.fillWidth: true
-                            from: 100
-                            to: 5000
-                            value: 1200
-                            stepSize: 50
+                            from: 20
+                            to: 2000
+                            value: 300
+                            stepSize: 10
                             onMoved: {
                                 Theme.updatePenParam(root.selectedPenId, "speed", value)
                                 if (typeof galvo !== "undefined" && galvo) galvo.setSpeed(value)

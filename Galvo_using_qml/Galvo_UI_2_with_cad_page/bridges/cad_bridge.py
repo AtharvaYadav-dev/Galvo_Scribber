@@ -4,8 +4,9 @@ import math
 import json
 import copy
 import datetime
-from PySide6.QtCore import QObject, Signal, Slot, Property, Qt
-from PySide6.QtGui import QPainterPath, QFont, QPolygonF, QFontDatabase
+import uuid
+from PySide6.QtCore import QObject, Signal, Slot, Property, Qt, QThread
+from PySide6.QtGui import QPainterPath, QFont, QPolygonF, QFontDatabase, QFontMetrics
 from PySide6.QtWidgets import QApplication
 
 _root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,6 +38,98 @@ class MockMainWindow:
         self.planner = MotionPlanner()
         self.galvo_config = CoordinateConfig()
         self.galvo_threads = {}
+
+
+
+class FileImportWorker(QThread):
+    finished = Signal(dict)
+    error = Signal(str)
+
+    def __init__(self, local_path, ext, field_size, parent=None):
+        super().__init__(parent)
+        self.local_path = local_path
+        self.ext = ext
+        self.field_size = field_size
+
+    def run(self):
+        try:
+            polygons = []
+            if self.ext == ".dxf":
+                parser = DXFParser(self.local_path)
+                polygons = parser.parse_to_polygons(field_size=self.field_size)
+            elif self.ext == ".svg":
+                parser = SVGParser(field_size=self.field_size)
+                polygons = parser.parse_to_polygons(self.local_path)
+            elif self.ext in ('.gbr', '.gtl', '.gbl', '.gto', '.gbo', '.gts', '.gbs', '.gml', '.gtp', '.gbp', '.drl', '.txt'):
+                parser = GerberParser(self.local_path)
+                polygons = parser.parse_to_polygons(field_size=self.field_size)
+            elif self.ext in ('.bmp', '.jpg', '.jpeg', '.png'):
+                parser = ImageParser(field_size=self.field_size)
+                polygons = parser.parse_to_polygons(self.local_path)
+            else:
+                parser = SVGParser(field_size=self.field_size)
+                polygons = parser.parse_to_polygons(self.local_path)
+
+            if not polygons:
+                self.error.emit(f"No vector curves or polylines found in {os.path.basename(self.local_path)}.")
+                return
+
+            min_x, max_x = float('inf'), float('-inf')
+            min_y, max_y = float('inf'), float('-inf')
+            for poly in polygons:
+                for pt in poly:
+                    min_x = min(min_x, pt[0])
+                    max_x = max(max_x, pt[0])
+                    min_y = min(min_y, pt[1])
+                    max_y = max(max_y, pt[1])
+
+            if min_x == float('inf'):
+                self.error.emit("Invalid geometry found.")
+                return
+
+            bw = float(max_x - min_x) if max_x > min_x else 10.0
+            bh = float(max_y - min_y) if max_y > min_y else 10.0
+            cx = float((min_x + max_x) / 2.0)
+            cy = float((min_y + max_y) / 2.0)
+
+            try:
+                from shapely.geometry import LineString
+                has_shapely = True
+            except ImportError:
+                has_shapely = False
+
+            rel_paths = []
+            for poly in polygons:
+                if len(poly) < 2:
+                    continue
+                rel_poly = [(pt[0] - cx, pt[1] - cy) for pt in poly]
+                if has_shapely and len(rel_poly) > 4:
+                    try:
+                        ls = LineString(rel_poly)
+                        sim = ls.simplify(0.012, preserve_topology=True)
+                        rel_poly = list(sim.coords)
+                    except Exception:
+                        pass
+                rel_paths.append([[round(p[0], 3), round(p[1], 3)] for p in rel_poly])
+
+            file_name = os.path.basename(self.local_path)
+            shape_name = os.path.splitext(file_name)[0]
+
+            result = {
+                "shape_name": shape_name,
+                "file_name": file_name,
+                "cx": cx,
+                "cy": cy,
+                "bw": bw,
+                "bh": bh,
+                "rel_paths": rel_paths,
+                "raw_polygons": polygons,
+                "poly_count": len(polygons)
+            }
+            self.finished.emit(result)
+
+        except Exception as e:
+            self.error.emit(str(e))
 
 
 class CadBridge(QObject):
@@ -261,14 +354,14 @@ class CadBridge(QObject):
 
     def _default_pens(self):
         return [
-            {"id": 0, "name": "Pen 0 (Default)", "color": "#00E5FF", "speed": 1200, "power": 50, "freq": 35, "passes": 1},
-            {"id": 1, "name": "Pen 1 (Blue)",    "color": "#2563EB", "speed": 1800, "power": 40, "freq": 45, "passes": 1},
-            {"id": 2, "name": "Pen 2 (Red)",     "color": "#EF4444", "speed": 800,  "power": 75, "freq": 30, "passes": 2},
-            {"id": 3, "name": "Pen 3 (Green)",   "color": "#10B981", "speed": 2000, "power": 30, "freq": 60, "passes": 1},
-            {"id": 4, "name": "Pen 4 (Amber)",   "color": "#F59E0B", "speed": 1500, "power": 60, "freq": 40, "passes": 1},
-            {"id": 5, "name": "Pen 5 (Purple)",  "color": "#A855F7", "speed": 1000, "power": 70, "freq": 35, "passes": 1},
-            {"id": 6, "name": "Pen 6 (Cyan)",    "color": "#06B6D4", "speed": 2200, "power": 25, "freq": 70, "passes": 1},
-            {"id": 7, "name": "Pen 7 (Brown)",   "color": "#854D0E", "speed": 600,  "power": 85, "freq": 25, "passes": 3}
+            {"id": 0, "name": "Pen 0 (Default)", "color": "#00E5FF", "speed": 300, "power": 50, "freq": 35, "passes": 1},
+            {"id": 1, "name": "Pen 1 (Blue)",    "color": "#2563EB", "speed": 400, "power": 40, "freq": 45, "passes": 1},
+            {"id": 2, "name": "Pen 2 (Red)",     "color": "#EF4444", "speed": 200, "power": 75, "freq": 30, "passes": 2},
+            {"id": 3, "name": "Pen 3 (Green)",   "color": "#10B981", "speed": 500, "power": 30, "freq": 60, "passes": 1},
+            {"id": 4, "name": "Pen 4 (Amber)",   "color": "#F59E0B", "speed": 350, "power": 60, "freq": 40, "passes": 1},
+            {"id": 5, "name": "Pen 5 (Purple)",  "color": "#A855F7", "speed": 250, "power": 70, "freq": 35, "passes": 1},
+            {"id": 6, "name": "Pen 6 (Cyan)",    "color": "#06B6D4", "speed": 400, "power": 25, "freq": 70, "passes": 1},
+            {"id": 7, "name": "Pen 7 (Brown)",   "color": "#854D0E", "speed": 150, "power": 85, "freq": 25, "passes": 3}
         ]
 
     def _load_pens(self):
@@ -505,16 +598,20 @@ class CadBridge(QObject):
                 w_mm = len(text) * h_mm * 0.7
                 return {"wMm": round(w_mm, 2), "hMm": round(h_mm, 2)}
 
-            qf = QFont(font_family if font_family else "Arial", int(round(h_mm * 10)))
+            base_size = 200
+            qf = QFont(font_family if font_family else "Arial", base_size)
             qf.setBold(bool(bold))
             qf.setItalic(bool(italic))
-            path = QPainterPath()
-            path.addText(0, 0, qf, text)
-            br = path.boundingRect()
-            if br.height() > 0:
-                scale = h_mm / br.height()
-                w_mm = float(br.width() * scale)
-                return {"wMm": round(w_mm, 2), "hMm": round(h_mm, 2)}
+            fm = QFontMetrics(qf)
+            cap_h = fm.capHeight() if fm.capHeight() > 0 else (fm.ascent() * 0.7)
+            if cap_h <= 0:
+                cap_h = float(base_size)
+            scale = h_mm / cap_h
+            lines = text.split("\n")
+            max_adv = max(fm.horizontalAdvance(l) for l in lines) if lines else fm.horizontalAdvance(text)
+            w_mm = float(max_adv * scale)
+            total_h = len(lines) * h_mm
+            return {"wMm": round(w_mm, 2), "hMm": round(total_h, 2)}
         except Exception as e:
             print(f"[CadBridge] measureText error: {e}")
         return {"wMm": round(float(len(text) * font_height_mm * 0.7), 2), "hMm": round(float(font_height_mm), 2)}
@@ -817,6 +914,233 @@ class CadBridge(QObject):
             "paths": paths
         }
 
+    @Slot("QVariantMap", result="QVariantMap")
+    @Slot(str, str, float, result="QVariantMap")
+    def generateTextEntity(self, *args) -> dict:
+        """
+        Generates industrial-grade vector outline geometry and bounding dimensions (wMm, hMm)
+        for text entities with DXFParser 0.02mm resolution and cKDTree optimization.
+        - Supports TrueType / OpenType system fonts
+        - Supports Hershey Simplex single-stroke CAD fonts
+        - Supports multi-line blocks with line-spacing and alignment (left, center, right)
+        - Supports CircleText arc distribution
+        Returns: { 'success': True, 'wMm': float, 'hMm': float, 'paths': list of [[x, y], ...] }
+        """
+        if len(args) == 1 and isinstance(args[0], dict):
+            shp = args[0]
+        elif len(args) >= 3:
+            shp = {
+                "text": str(args[0]),
+                "fontFamily": str(args[1]),
+                "hMm": float(args[2]),
+                "fontType": "TrueType Font"
+            }
+        else:
+            return {"success": False, "paths": [], "wMm": 10.0, "hMm": 4.0}
+
+        raw_text = str(shp.get("text", "TEXT"))
+        if not raw_text:
+            raw_text = "TEXT"
+
+        font_family = str(shp.get("fontFamily", "Segoe UI"))
+        font_type = str(shp.get("fontType", "TrueType Font"))
+        font_h_mm = max(0.5, float(shp.get("hMm", 4.0)))
+        bold = bool(shp.get("bold", False))
+        italic = bool(shp.get("italic", False))
+        char_space = float(shp.get("charSpace", 0.0))
+        line_space = float(shp.get("lineSpace", 0.0))
+        char_width_pct = max(10.0, float(shp.get("charWidthPct", 100.0))) / 100.0
+        slant_deg = float(shp.get("angle", 0.0))
+        slant_rad = math.radians(slant_deg)
+        text_align = str(shp.get("textAlign", "center")).lower()
+        circle_text = bool(shp.get("circleText", False))
+        circle_diam = max(1.0, float(shp.get("circleDiameter", 20.0)))
+        circle_base_angle = float(shp.get("circleBaseAngle", 90.0))
+
+        # 1. CircleText Mode
+        if circle_text:
+            try:
+                radius_mm = circle_diam / 2.0
+                total_len = len(raw_text)
+                if total_len > 0:
+                    char_w = font_h_mm * 0.7 * char_width_pct
+                    angular_step_rad = char_w / radius_mm
+                    start_angle_rad = math.radians(circle_base_angle) + (total_len - 1) * angular_step_rad / 2.0
+                    base_sz = 200
+                    qf_c = QFont(font_family if not font_family.startswith("Simplex") else "Arial", base_sz)
+                    qf_c.setBold(bold)
+                    qf_c.setItalic(italic)
+                    fm_c = QFontMetrics(qf_c)
+                    cap_h_c = fm_c.capHeight() if fm_c.capHeight() > 0 else (fm_c.ascent() * 0.7)
+                    if cap_h_c <= 0: cap_h_c = float(base_sz)
+                    scale_c = font_h_mm / cap_h_c
+
+                    import ezdxf
+                    doc = ezdxf.new("R2010")
+                    msp = doc.modelspace()
+
+                    for i, ch in enumerate(raw_text):
+                        theta = start_angle_rad - i * angular_step_rad
+                        char_cx = radius_mm * math.cos(theta)
+                        char_cy = radius_mm * math.sin(theta)
+                        rot_tangent = theta - math.pi / 2.0
+
+                        path = QPainterPath()
+                        path.addText(0, 0, qf_c, ch)
+                        br = path.boundingRect()
+                        if br.width() <= 0 or br.height() <= 0:
+                            continue
+
+                        cos_t = math.cos(rot_tangent)
+                        sin_t = math.sin(rot_tangent)
+
+                        for sp in path.toSubpathPolygons():
+                            pts = []
+                            for k in range(sp.size()):
+                                pt = sp.at(k)
+                                lx0 = (pt.x() - br.center().x()) * scale_c * char_width_pct
+                                ly0 = -(pt.y() - br.center().y()) * scale_c
+                                if slant_deg != 0:
+                                    lx0 += ly0 * math.tan(slant_rad)
+                                rx0 = char_cx + lx0 * cos_t - ly0 * sin_t
+                                ry0 = char_cy + lx0 * sin_t + ly0 * cos_t
+                                pts.append((round(rx0, 4), round(ry0, 4)))
+                            if len(pts) >= 2:
+                                is_c = (pts[0] == pts[-1])
+                                if is_c: pts = pts[:-1]
+                                msp.add_lwpolyline(pts, close=is_c)
+
+                    parser = DXFParser(doc=doc)
+                    polys = parser.parse_to_polygons(align_center=False, ignore_fit=True)
+                    clean_polys = [[[round(float(pt[0]), 4), round(float(pt[1]), 4)] for pt in poly] for poly in polys if len(poly) >= 2]
+                    return {"success": True, "paths": clean_polys, "wMm": circle_diam, "hMm": circle_diam}
+            except Exception as e:
+                print(f"[CadBridge] CircleText entity generation error: {e}")
+
+        # 2. Single-Stroke Hershey Simplex Font Mode
+        elif font_family.startswith("Simplex") or font_type == "Single-Stroke (Hershey)":
+            try:
+                from core.mk_lib.tools.jhfparser import SimplexFont, JhfPath
+                sfont = SimplexFont('')
+                spath = JhfPath()
+                sfont.render(spath, raw_text, True, font_h_mm, 1.0, 1.0, 'start')
+
+                strokes = []
+                curr = []
+                for item in spath.path:
+                    if item is None:
+                        if curr: strokes.append(curr); curr = []
+                    elif isinstance(item, tuple):
+                        if len(item) == 2:
+                            if curr: strokes.append(curr)
+                            curr = [item]
+                        elif len(item) == 4:
+                            if not curr: curr.append((item[0], item[1]))
+                            elif curr[-1] != (item[0], item[1]):
+                                strokes.append(curr)
+                                curr = [(item[0], item[1])]
+                            curr.append((item[2], item[3]))
+                if curr: strokes.append(curr)
+
+                if strokes:
+                    all_pts = [pt for st in strokes for pt in st]
+                    min_lx = min(p[0] for p in all_pts)
+                    max_lx = max(p[0] for p in all_pts)
+                    min_ly = min(p[1] for p in all_pts)
+                    max_ly = max(p[1] for p in all_pts)
+                    local_cx = (min_lx + max_lx) / 2.0
+                    local_cy = (min_ly + max_ly) / 2.0
+
+                    import ezdxf
+                    doc = ezdxf.new("R2010")
+                    msp = doc.modelspace()
+                    for st in strokes:
+                        pts = []
+                        for pt in st:
+                            lx = (pt[0] - local_cx) * char_width_pct
+                            ly = (pt[1] - local_cy)
+                            if slant_deg != 0:
+                                lx += ly * math.tan(slant_rad)
+                            pts.append((round(lx, 4), round(ly, 4)))
+                        if len(pts) >= 2:
+                            msp.add_lwpolyline(pts, close=False)
+                    parser = DXFParser(doc=doc)
+                    polys = parser.parse_to_polygons(align_center=False, ignore_fit=True)
+                    clean_polys = [[[round(float(pt[0]), 4), round(float(pt[1]), 4)] for pt in poly] for poly in polys if len(poly) >= 2]
+                    w_mm = round(max_lx - min_lx, 2)
+                    h_mm = round(max_ly - min_ly, 2)
+                    return {"success": True, "paths": clean_polys, "wMm": w_mm, "hMm": h_mm}
+            except Exception as e:
+                print(f"[CadBridge] Simplex stroke text error: {e}")
+
+        # 3. Standard TrueType / OpenType Vector Outline
+        try:
+            lines = raw_text.split("\n")
+            line_count = len(lines)
+            base_size = 200
+            qf = QFont(font_family if font_family else "Segoe UI", base_size)
+            qf.setBold(bold)
+            qf.setItalic(italic)
+            if char_space != 0:
+                qf.setLetterSpacing(QFont.SpacingType.AbsoluteSpacing, char_space * (base_size / 4.0))
+
+            fm = QFontMetrics(qf)
+            cap_h = fm.capHeight() if fm.capHeight() > 0 else (fm.ascent() * 0.7)
+            if cap_h <= 0: cap_h = float(base_size)
+            scale_y = font_h_mm / cap_h
+            scale_x = scale_y * char_width_pct
+            total_block_h = line_count * font_h_mm + max(0, line_count - 1) * line_space
+
+            line_widths = [fm.horizontalAdvance(l) * scale_x for l in lines]
+            max_line_w = max(line_widths) if line_widths else 0.0
+
+            import ezdxf
+            doc = ezdxf.new("R2010")
+            msp = doc.modelspace()
+
+            for line_idx, line_str in enumerate(lines):
+                if not line_str:
+                    continue
+                path = QPainterPath()
+                path.addText(0, 0, qf, line_str)
+                brect = path.boundingRect()
+                if brect.width() <= 0 or brect.height() <= 0:
+                    continue
+
+                line_w_mm = line_widths[line_idx]
+                line_y_offset = (total_block_h / 2.0) - (line_idx * (font_h_mm + line_space)) - (font_h_mm / 2.0)
+
+                line_x_offset = 0.0
+                if "left" in text_align:
+                    line_x_offset = -max_line_w / 2.0 + line_w_mm / 2.0
+                elif "right" in text_align:
+                    line_x_offset = max_line_w / 2.0 - line_w_mm / 2.0
+
+                for subpoly in path.toSubpathPolygons():
+                    pts = []
+                    for pt in list(subpoly):
+                        lx = (pt.x() - brect.center().x()) * scale_x + line_x_offset
+                        ly = -(pt.y() - brect.center().y()) * scale_y + line_y_offset
+                        if slant_deg != 0:
+                            lx += ly * math.tan(slant_rad)
+                        pts.append((round(lx, 4), round(ly, 4)))
+                    if len(pts) >= 2:
+                        is_c = (pts[0] == pts[-1])
+                        if is_c: pts = pts[:-1]
+                        msp.add_lwpolyline(pts, close=is_c)
+
+            parser = DXFParser(doc=doc)
+            polys = parser.parse_to_polygons(align_center=False, ignore_fit=True)
+            clean_polys = [[[round(float(pt[0]), 4), round(float(pt[1]), 4)] for pt in poly] for poly in polys if len(poly) >= 2]
+            all_p = [pt for p in clean_polys for pt in p]
+            w_calc = round(max(p[0] for p in all_p) - min(p[0] for p in all_p), 2) if all_p else round(max_line_w, 2)
+            h_calc = round(total_block_h, 2)
+            return {"success": True, "paths": clean_polys, "wMm": w_calc, "hMm": h_calc}
+        except Exception as e:
+            print(f"[CadBridge] Vector text error: {e}")
+
+        return {"success": False, "paths": [], "wMm": round(font_h_mm * len(raw_text) * 0.7, 2), "hMm": round(font_h_mm, 2)}
+
     @Slot("QVariantMap", str, result="QVariantMap")
     @Slot("QVariantMap", str, str, result="QVariantMap")
     def exportBarcodeFile(self, shape_dict: dict, format_ext: str, target_path: str = "") -> dict:
@@ -950,6 +1274,10 @@ class CadBridge(QObject):
         """Synchronizes current QML vector shapes model to Python backend."""
         self._shapes = shapes or []
         self._shape_count = len(self._shapes)
+        # Purge deleted imported raw shapes from cache immediately
+        if hasattr(self, "_raw_imported_shapes") and self._raw_imported_shapes:
+            active_keys = {s.get("rawKey") for s in self._shapes if isinstance(s, dict) and s.get("rawKey")}
+            self._raw_imported_shapes = {k: v for k, v in self._raw_imported_shapes.items() if k in active_keys}
         self.shapeCountChanged.emit(self._shape_count)
 
     # ---------------- Hatch Profiles Management (EZCad & main.py) ---------------- #
@@ -1183,6 +1511,10 @@ class CadBridge(QObject):
         """
         Converts a single QML shape dictionary into a list of 2D millimeter polygons
         relative to the center origin (0, 0).
+        Leverages DXFParser and ezdxf for all drawn entities (circles, rectangles,
+        lines, polygons, curves, QR code, DataMatrix, barcodes, text) so that drawn
+        geometry achieves the exact same precision, smooth arc discretization, and
+        cKDTree nearest-neighbor path optimization as imported DXF CAD files.
         Returns: list of [(x, y), ...] polygons.
         """
         stype = shp.get("type", "rect")
@@ -1215,34 +1547,122 @@ class CadBridge(QObject):
                 polys.extend(child_polys)
             return polys
 
-        if stype == "rect":
-            corners = [
-                (-w / 2.0, -h / 2.0),
-                (w / 2.0, -h / 2.0),
-                (w / 2.0, h / 2.0),
-                (-w / 2.0, h / 2.0),
-                (-w / 2.0, -h / 2.0)
-            ]
-            polys.append([rotate_and_shift(x, y) for (x, y) in corners])
+        # DXF-based Precision Conversion for Drawn Shapes
+        try:
+            import ezdxf
 
-        elif stype == "circle":
-            r = w / 2.0
-            n_segments = 64
-            pts = []
-            for i in range(n_segments + 1):
-                theta = (2.0 * math.pi * i) / n_segments
-                lx = r * math.cos(theta)
-                ly = r * math.sin(theta)
-                pts.append(rotate_and_shift(lx, ly))
-            polys.append(pts)
+            if stype == "circle":
+                # Circle / Ellipse: Discretized with exact DXFParser 0.02mm resolution math and perfect closure
+                rx = w / 2.0
+                ry = h / 2.0
+                doc = ezdxf.new("R2010")
+                msp = doc.modelspace()
+                if abs(rx - ry) < 1e-4 and rot_deg == 0:
+                    msp.add_circle((cx, cy), rx)
+                else:
+                    if rx >= ry:
+                        major_vec = (rx * cos_a, rx * sin_a)
+                        ratio = max(0.001, ry / rx)
+                    else:
+                        major_vec = (-ry * sin_a, ry * cos_a)
+                        ratio = max(0.001, rx / ry)
+                    msp.add_ellipse(center=(cx, cy), major_axis=major_vec, ratio=ratio)
+                parser = DXFParser(doc=doc)
+                return parser.parse_to_polygons(align_center=False, ignore_fit=True, resolution=0.02)
 
-        elif stype == "text":
+            elif stype == "rect":
+                # Rectangle: Clean 4-corner closed LWPOLYLINE optimized by DXFParser
+                corners = [
+                    rotate_and_shift(-w / 2.0, -h / 2.0),
+                    rotate_and_shift(w / 2.0, -h / 2.0),
+                    rotate_and_shift(w / 2.0, h / 2.0),
+                    rotate_and_shift(-w / 2.0, h / 2.0)
+                ]
+                doc = ezdxf.new("R2010")
+                msp = doc.modelspace()
+                msp.add_lwpolyline(corners, close=True)
+                parser = DXFParser(doc=doc)
+                return parser.parse_to_polygons(align_center=False, ignore_fit=True)
+
+            elif stype == "line":
+                # Line: Exact 2-point LINE entity
+                raw_paths = shp.get("paths", [])
+                if raw_paths and len(raw_paths[0]) >= 2:
+                    p0 = rotate_and_shift(raw_paths[0][0][0], raw_paths[0][0][1])
+                    p1 = rotate_and_shift(raw_paths[0][1][0], raw_paths[0][1][1])
+                else:
+                    p0 = rotate_and_shift(-w / 2.0, 0.0)
+                    p1 = rotate_and_shift(w / 2.0, 0.0)
+                doc = ezdxf.new("R2010")
+                msp = doc.modelspace()
+                msp.add_line(p0, p1)
+                parser = DXFParser(doc=doc)
+                return parser.parse_to_polygons(align_center=False, ignore_fit=True)
+
+            elif stype in ["polygon", "curve"]:
+                raw_paths = shp.get("paths", [])
+                raw_pts = shp.get("points", [])
+                subpaths = raw_paths if raw_paths else ([raw_pts] if raw_pts else [])
+                is_c = bool(shp.get("closed", False))
+                if "closed" not in shp:
+                    is_c = (stype == "polygon" and not str(shp.get("name", "")).startswith("Polyline"))
+                doc = ezdxf.new("R2010")
+                msp = doc.modelspace()
+                for sp in subpaths:
+                    if len(sp) >= 2:
+                        pts = [rotate_and_shift(p[0], p[1]) for p in sp]
+                        if is_c and pts[0] == pts[-1]:
+                            pts = pts[:-1]
+                        msp.add_lwpolyline(pts, close=is_c)
+                parser = DXFParser(doc=doc)
+                return parser.parse_to_polygons(align_center=False, ignore_fit=True)
+
+            elif stype in ["qrcode", "barcode128", "datamatrix"]:
+                # 2D & 1D Codes: Every module box is converted to DXF LWPOLYLINE and
+                # sequenced using cKDTree nearest-neighbor algorithm for minimum galvo jumping!
+                raw_rects = shp.get("rects", [])
+                if not raw_rects:
+                    b_res = self.generateBarcodeEntity(stype, shp.get("text", "12345"), w)
+                    raw_rects = b_res.get("rects", [])
+                if raw_rects:
+                    doc = ezdxf.new("R2010")
+                    msp = doc.modelspace()
+                    for rc in raw_rects:
+                        rx0 = float(rc["x"])
+                        ry0 = float(rc["y"]) - float(rc["h"])
+                        rx1 = float(rc["x"]) + float(rc["w"])
+                        ry1 = float(rc["y"])
+                        corners = [
+                            rotate_and_shift(rx0, ry0),
+                            rotate_and_shift(rx1, ry0),
+                            rotate_and_shift(rx1, ry1),
+                            rotate_and_shift(rx0, ry1)
+                        ]
+                        msp.add_lwpolyline(corners, close=True)
+                    parser = DXFParser(doc=doc)
+                    return parser.parse_to_polygons(align_center=False, ignore_fit=True)
+
+            elif (stype in ["dxf", "svg", "gerber"] or bool(shp.get("isImported", False))):
+                raw_key = shp.get("rawKey")
+                if raw_key and hasattr(self, "_raw_imported_shapes") and raw_key in self._raw_imported_shapes:
+                    raw_polys = self._raw_imported_shapes[raw_key]
+                    return [[rotate_and_shift(p[0] - cx, p[1] - cy) for p in subpath] for subpath in raw_polys if len(subpath) >= 2]
+                raw_paths = shp.get("paths", [])
+                if raw_paths:
+                    return [[rotate_and_shift(p[0], p[1]) for p in subpath] for subpath in raw_paths if len(subpath) >= 2]
+
+        except Exception as dxf_err:
+            print(f"[CadBridge] DXFParser geometry conversion warning: {dxf_err}")
+
+        # Text handling & Fallback handling
+        if stype == "text":
             raw_text = str(shp.get("text", "TEXT"))
             if not raw_text:
                 raw_text = "TEXT"
 
             # 1. Resolve Variable Text if enabled
-            if bool(shp.get("enableVariableText", False)):
+            is_var = bool(shp.get("enableVariableText", False))
+            if is_var:
                 var_entities = shp.get("variableEntities", [])
                 if var_entities:
                     composed = []
@@ -1261,185 +1681,145 @@ class CadBridge(QObject):
                             fmt = str(ent.get("format", "%Y-%m-%d %H:%M:%S"))
                             composed.append(datetime.datetime.now().strftime(fmt))
                     raw_text = "".join(composed) if composed else raw_text
+                    shp_copy = dict(shp)
+                    shp_copy["text"] = raw_text
+                    res = self.generateTextEntity(shp_copy)
+                    if res and res.get("paths"):
+                        return [[rotate_and_shift(p[0], p[1]) for p in subpath] for subpath in res["paths"] if len(subpath) >= 2]
 
-            font_family = str(shp.get("fontFamily", "Segoe UI"))
-            font_type = str(shp.get("fontType", "TrueType Font"))
-            font_h_mm = max(0.5, float(shp.get("hMm", 5.0)))
-            bold = bool(shp.get("bold", False))
-            italic = bool(shp.get("italic", False))
-            char_space = float(shp.get("charSpace", 0.0))
-            line_space = float(shp.get("lineSpace", 0.0))
-            char_width_pct = max(10.0, float(shp.get("charWidthPct", 100.0))) / 100.0
-            slant_deg = float(shp.get("angle", 0.0))
-            slant_rad = math.radians(slant_deg)
-            circle_text = bool(shp.get("circleText", False))
-            circle_diam = max(1.0, float(shp.get("circleDiameter", 20.0)))
-            circle_base_angle = float(shp.get("circleBaseAngle", 90.0))
-            text_align = str(shp.get("textAlign", "center")).lower()
-
-            # 2. CircleText Mode: Distribute characters along circle circumference
-            if circle_text:
-                radius_mm = circle_diam / 2.0
-                total_len = len(raw_text)
-                if total_len > 0:
-                    char_w = font_h_mm * 0.7 * char_width_pct
-                    angular_step_rad = char_w / radius_mm
-                    start_angle_rad = math.radians(circle_base_angle) + (total_len - 1) * angular_step_rad / 2.0
-                    qf_c = QFont(font_family if not font_family.startswith("Simplex") else "Arial", int(round(font_h_mm * 10)))
-                    qf_c.setBold(bold)
-                    qf_c.setItalic(italic)
-
-                    for i, ch in enumerate(raw_text):
-                        theta = start_angle_rad - i * angular_step_rad
-                        char_cx = radius_mm * math.cos(theta)
-                        char_cy = radius_mm * math.sin(theta)
-                        rot_tangent = theta - math.pi / 2.0
-
-                        path = QPainterPath()
-                        path.addText(0, 0, qf_c, ch)
-                        br = path.boundingRect()
-                        if br.width() <= 0 or br.height() <= 0:
-                            continue
-
-                        scale_c = font_h_mm / br.height()
-                        cos_t = math.cos(rot_tangent)
-                        sin_t = math.sin(rot_tangent)
-
-                        for sp in path.toSubpathPolygons():
-                            pts = []
-                            for k in range(sp.size()):
-                                pt = sp.at(k)
-                                lx0 = (pt.x() - br.center().x()) * scale_c * char_width_pct
-                                ly0 = -(pt.y() - br.center().y()) * scale_c
-                                if slant_deg != 0:
-                                    lx0 += ly0 * math.tan(slant_rad)
-                                rx0 = char_cx + lx0 * cos_t - ly0 * sin_t
-                                ry0 = char_cy + lx0 * sin_t + ly0 * cos_t
-                                pts.append(rotate_and_shift(rx0, ry0))
-                            if len(pts) >= 2:
-                                polys.append(pts)
-
-            # 3. Single-Stroke Hershey Simplex Font Mode
-            elif font_family.startswith("Simplex") or font_type == "Single-Stroke (Hershey)":
-                try:
-                    sfont = SimplexFont('')
-                    spath = JhfPath()
-                    sfont.render(spath, raw_text, True, font_h_mm, 1.0, 1.0, 'start')
-
-                    strokes = []
-                    curr_stroke = []
-                    for item in spath.path:
-                        if item is None:
-                            if curr_stroke:
-                                strokes.append(curr_stroke)
-                                curr_stroke = []
-                        elif isinstance(item, tuple):
-                            if len(item) == 2:
-                                if curr_stroke: strokes.append(curr_stroke)
-                                curr_stroke = [item]
-                            elif len(item) == 4:
-                                if not curr_stroke: curr_stroke.append((item[0], item[1]))
-                                elif curr_stroke[-1] != (item[0], item[1]):
-                                    strokes.append(curr_stroke)
-                                    curr_stroke = [(item[0], item[1])]
-                                curr_stroke.append((item[2], item[3]))
-                    if curr_stroke:
-                        strokes.append(curr_stroke)
-
-                    if strokes:
-                        all_pts = [pt for st in strokes for pt in st]
-                        min_lx = min(p[0] for p in all_pts)
-                        max_lx = max(p[0] for p in all_pts)
-                        min_ly = min(p[1] for p in all_pts)
-                        max_ly = max(p[1] for p in all_pts)
-                        local_cx = (min_lx + max_lx) / 2.0
-                        local_cy = (min_ly + max_ly) / 2.0
-
-                        for st in strokes:
-                            pts = []
-                            for pt in st:
-                                lx = (pt[0] - local_cx) * char_width_pct
-                                ly = -(pt[1] - local_cy)
-                                if slant_deg != 0:
-                                    lx += ly * math.tan(slant_rad)
-                                pts.append(rotate_and_shift(lx, ly))
-                            if len(pts) >= 2:
-                                polys.append(pts)
-                except Exception as e:
-                    print(f"[CadBridge] Simplex stroke text error: {e}")
-
-            # 4. Standard TrueType / OpenType Vector Outline Subpaths
-            else:
-                lines = raw_text.split("\n")
-                line_count = len(lines)
-                qf = QFont(font_family, int(round(font_h_mm * 10)))
-                qf.setBold(bold)
-                qf.setItalic(italic)
-                if char_space != 0:
-                    qf.setLetterSpacing(QFont.SpacingType.AbsoluteSpacing, char_space * 10)
-
-                total_block_h = line_count * font_h_mm + max(0, line_count - 1) * line_space
-
-                for line_idx, line_str in enumerate(lines):
-                    if not line_str:
-                        continue
-                    path = QPainterPath()
-                    path.addText(0, 0, qf, line_str)
-                    brect = path.boundingRect()
-                    if brect.width() <= 0 or brect.height() <= 0:
-                        continue
-
-                    scale_y = font_h_mm / brect.height()
-                    scale_x = scale_y * char_width_pct
-
-                    line_y_offset = (total_block_h / 2.0) - (line_idx * (font_h_mm + line_space)) - (font_h_mm / 2.0)
-
-                    line_x_offset = 0.0
-                    line_w_mm = brect.width() * scale_x
-                    if "left" in text_align:
-                        line_x_offset = -w / 2.0 + line_w_mm / 2.0
-                    elif "right" in text_align:
-                        line_x_offset = w / 2.0 - line_w_mm / 2.0
-
-                    for subpoly in path.toSubpathPolygons():
-                        pts = []
-                        for pt in list(subpoly):
-                            lx = (pt.x() - brect.center().x()) * scale_x + line_x_offset
-                            ly = -(pt.y() - brect.center().y()) * scale_y + line_y_offset
-                            if slant_deg != 0:
-                                lx += ly * math.tan(slant_rad)
-                            pts.append(rotate_and_shift(lx, ly))
-                        if len(pts) >= 2:
-                            polys.append(pts)
-
-        elif stype in ["qrcode", "barcode128", "datamatrix"]:
             raw_paths = shp.get("paths", [])
-            if not raw_paths:
-                # Dynamically generate merged horizontal run-length polygons
-                b_res = self.generateBarcodeEntity(stype, shp.get("text", "12345"), w)
-                raw_paths = b_res.get("paths", [])
-            if raw_paths:
-                for subpath in raw_paths:
-                    pts = [rotate_and_shift(p[0], p[1]) for p in subpath]
-                    if len(pts) >= 2:
-                        polys.append(pts)
-            if not polys:
-                corners = [(-w / 2.0, -h / 2.0), (w / 2.0, -h / 2.0), (w / 2.0, h / 2.0), (-w / 2.0, h / 2.0), (-w / 2.0, -h / 2.0)]
-                polys.append([rotate_and_shift(x, y) for (x, y) in corners])
+            if raw_paths and not is_var:
+                return [[rotate_and_shift(p[0], p[1]) for p in subpath] for subpath in raw_paths if len(subpath) >= 2]
 
-        elif stype in ["polygon", "dxf", "svg", "line", "curve"]:
-            raw_paths = shp.get("paths", [])
-            if raw_paths:
-                for subpath in raw_paths:
-                    pts = [rotate_and_shift(p[0], p[1]) for p in subpath]
-                    if len(pts) >= 2:
-                        polys.append(pts)
-            else:
-                raw_pts = shp.get("points", [])
-                if len(raw_pts) >= 2:
-                    polys.append([rotate_and_shift(p[0], p[1]) for p in raw_pts])
+            res = self.generateTextEntity(shp)
+            if res and res.get("paths"):
+                return [[rotate_and_shift(p[0], p[1]) for p in subpath] for subpath in res["paths"] if len(subpath) >= 2]
+            return []
+
+        # Generic fallback if not matched above
+        raw_paths = shp.get("paths", [])
+        if raw_paths:
+            for subpath in raw_paths:
+                pts = [rotate_and_shift(p[0], p[1]) for p in subpath]
+                if len(pts) >= 2:
+                    polys.append(pts)
+        else:
+            raw_pts = shp.get("points", [])
+            if len(raw_pts) >= 2:
+                polys.append([rotate_and_shift(p[0], p[1]) for p in raw_pts])
 
         return polys
+
+    @Slot(list, str, result="QVariantMap")
+    @Slot(list, result="QVariantMap")
+    def exportCanvasToDxf(self, shapes=None, target_path: str = "") -> dict:
+        """
+        Exports the entire drawn CAD canvas to an industry-standard DXF file.
+        All drawn shapes (lines, circles, rectangles, polygons, curves, barcodes, text)
+        are exported as native DXF entities (CIRCLE, LINE, LWPOLYLINE).
+        """
+        try:
+            from PySide6.QtWidgets import QFileDialog
+            active = self._extract_active_shapes(shapes)
+            if not active:
+                return {"success": False, "error": "No shapes on canvas to export"}
+
+            save_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "QR", "Barcode DXF")
+            os.makedirs(save_dir, exist_ok=True)
+            default_target = os.path.join(save_dir, "canvas_export.dxf")
+
+            if not target_path:
+                chosen, _ = QFileDialog.getSaveFileName(
+                    None,
+                    "Export Canvas to DXF File",
+                    default_target,
+                    "DXF Vector CAD File (*.dxf);;All Files (*)"
+                )
+                if not chosen:
+                    return {"success": False, "cancelled": True}
+                target_path = chosen
+
+            if not target_path.lower().endswith(".dxf"):
+                target_path += ".dxf"
+
+            import ezdxf
+            doc = ezdxf.new("R2010")
+            msp = doc.modelspace()
+
+            for shp in active:
+                stype = shp.get("type", "rect")
+                cx = float(shp.get("xMm", 0.0))
+                cy = float(shp.get("yMm", 0.0))
+                w = float(shp.get("wMm", 10.0))
+                h = float(shp.get("hMm", 10.0))
+                rot_deg = float(shp.get("rotation", 0.0))
+                rot_rad = math.radians(rot_deg)
+                cos_a = math.cos(rot_rad)
+                sin_a = math.sin(rot_rad)
+
+                def rotate_and_shift(lx, ly):
+                    return (cx + lx * cos_a - ly * sin_a, cy + lx * sin_a + ly * cos_a)
+
+                if stype == "circle":
+                    diam = max(w, h) if abs(w - h) < 1e-4 else (w + h) / 2.0
+                    msp.add_circle((cx, cy), diam / 2.0)
+                elif stype == "rect":
+                    corners = [
+                        rotate_and_shift(-w / 2.0, -h / 2.0),
+                        rotate_and_shift(w / 2.0, -h / 2.0),
+                        rotate_and_shift(w / 2.0, h / 2.0),
+                        rotate_and_shift(-w / 2.0, h / 2.0),
+                    ]
+                    msp.add_lwpolyline(corners, close=True)
+                elif stype == "line":
+                    raw_paths = shp.get("paths", [])
+                    if raw_paths and len(raw_paths[0]) >= 2:
+                        p0 = rotate_and_shift(raw_paths[0][0][0], raw_paths[0][0][1])
+                        p1 = rotate_and_shift(raw_paths[0][1][0], raw_paths[0][1][1])
+                    else:
+                        p0 = rotate_and_shift(-w / 2.0, 0.0)
+                        p1 = rotate_and_shift(w / 2.0, 0.0)
+                    msp.add_line(p0, p1)
+                elif stype in ["polygon", "curve", "dxf", "svg"]:
+                    raw_paths = shp.get("paths", [])
+                    raw_pts = shp.get("points", [])
+                    subpaths = raw_paths if raw_paths else ([raw_pts] if raw_pts else [])
+                    is_c = bool(shp.get("closed", False)) or (stype == "polygon")
+                    for sp in subpaths:
+                        if len(sp) >= 2:
+                            pts = [rotate_and_shift(p[0], p[1]) for p in sp]
+                            if is_c and pts[0] == pts[-1]: pts = pts[:-1]
+                            msp.add_lwpolyline(pts, close=is_c)
+                elif stype in ["qrcode", "barcode128", "datamatrix"]:
+                    raw_rects = shp.get("rects", [])
+                    if not raw_rects:
+                        b_res = self.generateBarcodeEntity(stype, shp.get("text", "12345"), w)
+                        raw_rects = b_res.get("rects", [])
+                    for rc in raw_rects:
+                        rx0 = float(rc["x"])
+                        ry0 = float(rc["y"]) - float(rc["h"])
+                        rx1 = float(rc["x"]) + float(rc["w"])
+                        ry1 = float(rc["y"])
+                        corners = [
+                            rotate_and_shift(rx0, ry0),
+                            rotate_and_shift(rx1, ry0),
+                            rotate_and_shift(rx1, ry1),
+                            rotate_and_shift(rx0, ry1)
+                        ]
+                        msp.add_lwpolyline(corners, close=True)
+                elif stype == "text":
+                    polys = self._shape_to_polygons(shp)
+                    for poly in polys:
+                        if len(poly) >= 2:
+                            msp.add_lwpolyline(poly, close=(poly[0] == poly[-1]))
+
+            doc.saveas(target_path)
+            self._set_status(f"Exported Canvas to DXF: {os.path.basename(target_path)}")
+            return {"success": True, "filePath": target_path}
+        except Exception as e:
+            print(f"[CadBridge] exportCanvasToDxf error: {e}")
+            self._set_status(f"Export DXF failed: {e}")
+            return {"success": False, "error": str(e)}
 
     def _extract_active_shapes(self, shapes=None, mark_selected_only=False, selected_index=-1) -> list:
         source = shapes if shapes is not None else self._shapes
@@ -1597,14 +1977,21 @@ class CadBridge(QObject):
             self._set_status("No shapes to mark. Create or import vector geometry first.")
             return
 
+        if mark_selected_only and shapes and 0 <= selected_index < len(shapes):
+            sel_n = shapes[selected_index].get("name", f"Shape #{selected_index + 1}")
+            self._set_status(f"Marking selected object only: '{sel_n}'")
+        else:
+            self._set_status(f"Marking {len(active_shapes)} canvas shape(s)")
+
         # 1. Sync calibration scale & optical field from main.py math
         calib_scale, galvo_units_per_mm, lens_size = self._sync_calibration_and_field_size()
 
         # 2. Speeds math from main.py lines 2487-2496
-        raw_jump = float(getattr(self.galvo_bridge, 'jumpSpeed', 2000.0)) if self.galvo_bridge else 2000.0
-        if raw_jump > 50000: raw_jump = 2000.0
+        raw_jump = float(getattr(self.galvo_bridge, 'jumpSpeed', 1000.0)) if self.galvo_bridge else 1000.0
+        if raw_jump > 3000.0: raw_jump = 1000.0
         jump_speed = int(raw_jump * galvo_units_per_mm)
-        default_mark_speed_mm = float(getattr(self.galvo_bridge, 'speed', 1000.0)) if self.galvo_bridge else 1000.0
+        default_mark_speed_mm = float(getattr(self.galvo_bridge, 'speed', 300.0)) if self.galvo_bridge else 300.0
+        if default_mark_speed_mm > 1500.0: default_mark_speed_mm = 300.0
 
         # 3. Apply Laser Power and Frequency from main.py math (lines 1980-2015, 2846-2865)
         mark_power = float(self.galvo_bridge.power) if self.galvo_bridge else 50.0
@@ -1630,11 +2017,47 @@ class CadBridge(QObject):
             if not polys:
                 continue
 
-            raw_mark = float(shp.get("speed", default_mark_speed_mm))
-            if raw_mark > 50000: raw_mark = 1000.0
-            mark_speed = int(raw_mark * galvo_units_per_mm)
+            stype = shp.get("type", "rect")
+            shape_pen_id = int(shp.get("penId", 0) or 0)
+            pen_cfg = next((p for p in self._pens if p.get("id") == shape_pen_id), None)
+
+            shape_speed_mm = default_mark_speed_mm
+            shape_power = mark_power
+            shape_freq = mark_freq
+            shape_passes = 1
+
+            if pen_cfg:
+                shape_speed_mm = float(pen_cfg.get("speed", default_mark_speed_mm))
+                shape_power = float(pen_cfg.get("power", mark_power))
+                shape_freq = float(pen_cfg.get("freq", mark_freq))
+                shape_passes = max(1, int(pen_cfg.get("passes", 1)))
+
+            if "speed" in shp:
+                shape_speed_mm = float(shp["speed"])
+            if "power" in shp:
+                shape_power = float(shp["power"])
+            if "frequency" in shp:
+                shape_freq = float(shp["frequency"])
+
+            if shape_speed_mm > 1500.0:
+                shape_speed_mm = 300.0
+            mark_speed = int(shape_speed_mm * galvo_units_per_mm)
+
+            if hasattr(self.planner, 'add_set_params'):
+                self.planner.add_set_params(power=shape_power, freq=shape_freq)
 
             is_hatched = bool(shp.get("hatched", False))
+            is_single_stroke = (
+                str(shp.get("fontType", "")).startswith("Single-Stroke")
+                or str(shp.get("fontFamily", "")).startswith("Simplex")
+            )
+            is_closed_shape = (
+                bool(shp.get("closed", False))
+                or (stype in ["rect", "circle", "polygon", "qrcode", "barcode128", "datamatrix"])
+                or (stype == "text" and not is_single_stroke)
+            )
+            if stype in ["line", "curve"]:
+                is_closed_shape = False
 
             # Deduplicate identical overlapping paths (main.py lines 2629-2637)
             all_polys_galvo = []
@@ -1659,13 +2082,22 @@ class CadBridge(QObject):
 
             def emit_contours():
                 if shp_mark_contour:
-                    for poly_galvo in all_polys_galvo:
-                        self.planner.add_jump(poly_galvo[0][0], poly_galvo[0][1], speed=jump_speed)
-                        for pt in poly_galvo[1:]:
-                            self.planner.add_mark(pt[0], pt[1], speed=mark_speed)
-                        # Close contour loop only if not already closed
-                        if poly_galvo[0] != poly_galvo[-1]:
-                            self.planner.add_mark(poly_galvo[0][0], poly_galvo[0][1], speed=mark_speed)
+                    for pass_num in range(shape_passes):
+                        for poly_galvo in all_polys_galvo:
+                            if len(poly_galvo) < 2:
+                                continue
+                            self.planner.add_jump(poly_galvo[0][0], poly_galvo[0][1], speed=jump_speed)
+                            self.planner.add_delay(2)  # 2ms Settling delay after jump before firing laser
+                            num_pts = len(poly_galvo)
+                            for pt_idx, pt in enumerate(poly_galvo[1:], start=1):
+                                self.planner.add_mark(pt[0], pt[1], speed=mark_speed)
+                                if stype in ["rect", "polygon"] and pt_idx < num_pts - 1:
+                                    self.planner.add_delay(2)  # 2ms Corner delay (Poly TC) only for sharp geometric vertices
+                            # Close contour loop only if shape is meant to be closed and not already closed
+                            if is_closed_shape and poly_galvo[0] != poly_galvo[-1]:
+                                self.planner.add_mark(poly_galvo[0][0], poly_galvo[0][1], speed=mark_speed)
+                                if stype in ["rect", "polygon"]:
+                                    self.planner.add_delay(2)
 
             # 4a. Outer Contours First (if mark_contour_first)
             if shp_mark_contour_first:
@@ -2005,7 +2437,7 @@ class CadBridge(QObject):
     def importFile(self, file_path: str):
         """
         Parses a CAD vector or raster file (.dxf, .svg, .gbr/.gtl/... Gerber, .png/.jpg/.bmp)
-        and converts entities into native QML shapes that display immediately on the QML Canvas.
+        in a background QThread to ensure the UI NEVER hangs, freezes, or closes on heavy files.
         """
         if not file_path:
             return
@@ -2029,84 +2461,46 @@ class CadBridge(QObject):
 
         file_name = os.path.basename(local_path)
         ext = os.path.splitext(local_path)[1].lower()
-        self._set_status(f"Importing CAD file: {file_name}...")
-        imported_shapes = []
+        self._set_status(f"Importing {file_name}... Parsing vector entities in background.")
 
-        try:
-            polygons = []
-            if ext == ".dxf":
-                parser = DXFParser(local_path)
-                polygons = parser.parse_to_polygons(field_size=self.galvo_config.field_size)
-            elif ext == ".svg":
-                parser = SVGParser(field_size=self.galvo_config.field_size)
-                polygons = parser.parse_to_polygons(local_path)
-            elif ext in ('.gbr', '.gtl', '.gbl', '.gto', '.gbo', '.gts', '.gbs', '.gml', '.gtp', '.gbp', '.drl', '.txt'):
-                parser = GerberParser(local_path)
-                polygons = parser.parse_to_polygons(field_size=self.galvo_config.field_size)
-            elif ext in ('.bmp', '.jpg', '.jpeg', '.png'):
-                parser = ImageParser(field_size=self.galvo_config.field_size)
-                polygons = parser.parse_to_polygons(local_path)
-            else:
-                # Default fallback attempt as SVG
-                parser = SVGParser(field_size=self.galvo_config.field_size)
-                polygons = parser.parse_to_polygons(local_path)
+        # Launch background worker
+        self._import_worker = FileImportWorker(local_path, ext, self.galvo_config.field_size, self)
+        self._import_worker.finished.connect(self._on_import_finished)
+        self._import_worker.error.connect(lambda err: self._set_status(f"Import error: {err}"))
+        self._import_worker.start()
 
-            if not polygons:
-                self._set_status(f"No vector curves or polylines found in {file_name}.")
-                return
+    def _on_import_finished(self, res: dict):
+        new_id = int(len(self._shapes) + 1)
+        raw_key = f"imported_{uuid.uuid4().hex}"
+        fname = str(res.get("shape_name", ""))
+        is_svg = fname.lower().endswith(".svg")
+        is_dxf = fname.lower().endswith(".dxf")
+        stype = "svg" if is_svg else ("dxf" if is_dxf else "polygon")
+        qml_shape = {
+            "id": new_id,
+            "rawKey": raw_key,
+            "isImported": True,
+            "name": fname,
+            "type": stype,
+            "xMm": float(round(res["cx"], 2)),
+            "yMm": float(round(res["cy"], 2)),
+            "wMm": float(round(res["bw"], 2)),
+            "hMm": float(round(res["bh"], 2)),
+            "rotation": 0.0,
+            "penId": 0,
+            "hatched": False,
+            "visible": True,
+            "locked": False,
+            "paths": res["rel_paths"]
+        }
 
-            # Compute overall bounding box
-            min_x, max_x = float('inf'), float('-inf')
-            min_y, max_y = float('inf'), float('-inf')
-            for poly in polygons:
-                for pt in poly:
-                    min_x = min(min_x, pt[0])
-                    max_x = max(max_x, pt[0])
-                    min_y = min(min_y, pt[1])
-                    max_y = max(max_y, pt[1])
+        # Cache full-precision raw polygons in backend for laser marking
+        if not hasattr(self, "_raw_imported_shapes"):
+            self._raw_imported_shapes = {}
+        self._raw_imported_shapes[raw_key] = res["raw_polygons"]
 
-            if min_x == float('inf'):
-                self._set_status(f"Invalid geometry in {file_name}.")
-                return
-
-            bw = float(max_x - min_x) if max_x > min_x else 10.0
-            bh = float(max_y - min_y) if max_y > min_y else 10.0
-            cx = float((min_x + max_x) / 2.0)
-            cy = float((min_y + max_y) / 2.0)
-
-            # Normalize polylines relative to (cx, cy)
-            rel_paths = []
-            for poly in polygons:
-                rel_poly = [[float(round(pt[0] - cx, 3)), float(round(pt[1] - cy, 3))] for pt in poly]
-                rel_paths.append(rel_poly)
-
-            # Package as a unified QML Vector CAD Shape
-            shape_name = os.path.splitext(file_name)[0]
-            qml_shape = {
-                "id": int(len(self._shapes) + 1),
-                "name": str(shape_name),
-                "type": "polygon",
-                "xMm": float(round(cx, 2)),
-                "yMm": float(round(cy, 2)),
-                "wMm": float(round(bw, 2)),
-                "hMm": float(round(bh, 2)),
-                "rotation": 0.0,
-                "penId": 0,
-                "hatched": False,
-                "visible": True,
-                "locked": False,
-                "paths": rel_paths
-            }
-            imported_shapes.append(qml_shape)
-
-            # Emit to QML Canvas
-            self.shapesImported.emit(imported_shapes)
-            self._set_status(f"Imported '{shape_name}' ({len(polygons)} curves, {bw:.1f}x{bh:.1f}mm)")
-
-        except Exception as e:
-            err_msg = f"Import error: {e}"
-            print(f"[CadBridge] {err_msg}")
-            self._set_status(err_msg)
+        self.shapesImported.emit([qml_shape])
+        self._set_status(f"Imported '{res['shape_name']}' ({res['poly_count']} curves, {res['bw']:.1f}x{res['bh']:.1f}mm)")
 
     @Slot()
     def reimportLastFile(self):

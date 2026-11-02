@@ -294,6 +294,12 @@ class MotionPlanner:
     def add_delay(self, ms):
         self.preview_queue.append({'type': 'delay', 'ms': ms})
 
+    def add_set_params(self, power=None, freq=None):
+        cmd = {'type': 'set_params'}
+        if power is not None: cmd['power'] = power
+        if freq is not None: cmd['freq'] = freq
+        self.preview_queue.append(cmd)
+
     def generate_hatch(self, polygons, hatch_configs, mark_speed=None, jump_speed=None, galvo_units_per_mm=1.0):
         """
         Generates scanline hatching for multiple configurations.

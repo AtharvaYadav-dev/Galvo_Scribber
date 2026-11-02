@@ -221,11 +221,16 @@ Item {
         anchors.margins: 16
         spacing: 12
 
-        // Main 2-column workspace
-        RowLayout {
+        // Main 2-column workspace wrapped in ScrollView for small screens
+        ScrollView {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            spacing: 14
+            clip: true
+            contentWidth: availableWidth
+
+            RowLayout {
+                width: parent.width
+                spacing: 14
 
             // ================= LEFT REGION (Aspect + Galvo 1 & 2) ================= //
             ColumnLayout {
@@ -384,12 +389,14 @@ Item {
                     Rectangle {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
+                        implicitHeight: galvo1Col.implicitHeight + 28
                         radius: 8
                         color: Theme.isDark ? "#121824" : "#F8FAFC"
                         border.color: Theme.borderCard
                         border.width: 1
 
                         ColumnLayout {
+                            id: galvo1Col
                             anchors.fill: parent
                             anchors.margins: 14
                             spacing: 10
@@ -507,12 +514,14 @@ Item {
                     Rectangle {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
+                        implicitHeight: galvo2Col.implicitHeight + 28
                         radius: 8
                         color: Theme.isDark ? "#121824" : "#F8FAFC"
                         border.color: Theme.borderCard
                         border.width: 1
 
                         ColumnLayout {
+                            id: galvo2Col
                             anchors.fill: parent
                             anchors.margins: 14
                             spacing: 10
@@ -760,6 +769,7 @@ Item {
                     Item { Layout.fillHeight: true }
                 }
             }
+        }
         }
 
         // ================= BOTTOM ACTION BAR ================= //

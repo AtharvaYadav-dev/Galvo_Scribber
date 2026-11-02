@@ -7,6 +7,7 @@ import ".."
 
 Item {
     id: pageRoot
+    objectName: "cadView"
 
     readonly property bool isAnyCadModalOpen: Boolean(
         (typeof hatchModal !== "undefined" && hatchModal && hatchModal.visible) ||
@@ -185,6 +186,7 @@ Item {
                 // Left Vertical Toolbox
                 CadToolbox {
                     id: toolbox
+                    objectName: "toolbox"
                     Layout.fillHeight: true
                     onBarcodeTriggered: barcodeModal.visible = true
                     onTextTriggered: {
@@ -192,11 +194,23 @@ Item {
                         var defaultText = "TEXT"
                         var defaultFamily = "Segoe UI"
                         var defaultHeight = 4.0
-                        var calculatedW = 12.15
+                        var calculatedW = 12.12
+                        var calculatedH = 4.0
+                        var initialPaths = []
                         if (typeof cad !== "undefined" && cad) {
-                            var m = cad.measureText(defaultText, defaultFamily, defaultHeight, false, false)
-                            if (m && m.wMm > 0) {
-                                calculatedW = m.wMm
+                            var res = cad.generateTextEntity({
+                                text: defaultText,
+                                fontFamily: defaultFamily,
+                                hMm: defaultHeight,
+                                fontType: "TrueType Font",
+                                bold: false,
+                                italic: false,
+                                textAlign: "center"
+                            })
+                            if (res) {
+                                if (res.wMm > 0) calculatedW = res.wMm
+                                if (res.hMm > 0) calculatedH = res.hMm
+                                if (res.paths) initialPaths = res.paths
                             }
                         }
                         var newText = {
@@ -207,7 +221,7 @@ Item {
                             xMm: 0,
                             yMm: 0,
                             wMm: calculatedW,
-                            hMm: defaultHeight,
+                            hMm: calculatedH,
                             rotation: 0,
                             fontFamily: defaultFamily,
                             fontType: "TrueType Font",
@@ -219,7 +233,8 @@ Item {
                             penId: inspector.selectedPenId,
                             hatched: false,
                             visible: true,
-                            locked: false
+                            locked: false,
+                            paths: initialPaths
                         }
                         var updatedT = cadCanvas.shapes.slice()
                         updatedT.push(newText)
@@ -347,6 +362,12 @@ Item {
                     }
                     onShapeRenamed: function(idx, newName) {
                         cadCanvas.renameShape(idx, newName)
+                    }
+                    onMoveShapeUp: function(idx) {
+                        cadCanvas.moveShapeUp(idx)
+                    }
+                    onMoveShapeDown: function(idx) {
+                        cadCanvas.moveShapeDown(idx)
                     }
                     onShapeModified: function(shp) {
                         if (shp) {

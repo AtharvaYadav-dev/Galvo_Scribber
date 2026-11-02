@@ -14,6 +14,9 @@ Rectangle {
 
     property int currentTab: 0 // 0: Inspect / Upload, 1: 9-Point Studio
 
+    readonly property bool isNarrow: root.width < 1080
+    readonly property bool isShort: root.height < 680
+
     onCurrentTabChanged: {
         if (currentTab === 0 && distortionCanvas) distortionCanvas.requestPaint()
         if (currentTab === 1 && plateCanvas) plateCanvas.requestPaint()
@@ -23,8 +26,8 @@ Rectangle {
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: 14
-        spacing: 10
+        anchors.margins: root.isShort ? 8 : 14
+        spacing: root.isShort ? 6 : 10
 
         // ================= TOP BAR: TAB SWITCHER & TITLE ================= //
         RowLayout {
@@ -42,10 +45,11 @@ Rectangle {
                     font.letterSpacing: 0.5
                 }
                 Text {
-                    text: "Inspect binary .cor files, analyze 65×65 lens distortion, and generate new calibration files from 9 physical measurements"
+                    text: isNarrow ? "Inspect .cor files & generate calibration" : "Inspect binary .cor files, analyze 65×65 lens distortion, and generate new calibration files from 9 physical measurements"
                     font.family: "Segoe UI, Inter, sans-serif"
                     font.pixelSize: 11
                     color: Theme.textSecondary
+                    visible: root.width > 750
                 }
             }
 
@@ -66,14 +70,14 @@ Rectangle {
                     spacing: 4
 
                     Rectangle {
-                        implicitWidth: 185
+                        implicitWidth: root.isNarrow ? 120 : 185
                         implicitHeight: 28
                         radius: 5
                         color: root.currentTab === 0 ? Theme.accentCyan : (t0Ma.containsMouse ? (Theme.isDark ? "#22355C" : "#E2E8F0") : "transparent")
 
                         Text {
                             anchors.centerIn: parent
-                            text: "📁 1. Upload & Inspect .COR"
+                            text: root.isNarrow ? "📁 1. Inspect" : "📁 1. Upload & Inspect .COR"
                             font.family: "Segoe UI, Inter, sans-serif"
                             font.pixelSize: 11
                             font.weight: Font.Bold
@@ -89,14 +93,14 @@ Rectangle {
                     }
 
                     Rectangle {
-                        implicitWidth: 215
+                        implicitWidth: root.isNarrow ? 130 : 215
                         implicitHeight: 28
                         radius: 5
                         color: root.currentTab === 1 ? Theme.accentCyan : (t1Ma.containsMouse ? (Theme.isDark ? "#22355C" : "#E2E8F0") : "transparent")
 
                         Text {
                             anchors.centerIn: parent
-                            text: "📐 2. 9-Point Studio (Generator)"
+                            text: root.isNarrow ? "📐 2. 9-Point" : "📐 2. 9-Point Studio (Generator)"
                             font.family: "Segoe UI, Inter, sans-serif"
                             font.pixelSize: 11
                             font.weight: Font.Bold
@@ -451,16 +455,31 @@ Rectangle {
         }
 
         // ================= TAB 2: 9-POINT CALIBRATION STUDIO ================= //
-        ColumnLayout {
+        Flickable {
+            id: tab2Flick
             Layout.fillWidth: true
             Layout.fillHeight: true
-            spacing: 10
+            contentWidth: width
+            contentHeight: Math.max(height, tab2Col.implicitHeight + 16)
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
             visible: root.currentTab === 1
+
+            ScrollBar.vertical: ScrollBar {
+                active: true
+                visible: parent.contentHeight > parent.height
+            }
+
+            ColumnLayout {
+                id: tab2Col
+                width: parent.width
+                spacing: root.isShort ? 6 : 10
 
             // 1. Top Toolbar: Parameters & Laser Action Bar
             Rectangle {
+                id: topToolbarRect
                 Layout.fillWidth: true
-                implicitHeight: 66
+                implicitHeight: root.isShort ? 46 : 66
                 radius: 8
                 color: Theme.bgCard
                 border.color: Theme.borderCard
@@ -593,7 +612,7 @@ Rectangle {
 
                     // Group C: Q-Switch Frequency (Custom Sleek Slider)
                     ColumnLayout {
-                        Layout.preferredWidth: 135
+                        Layout.preferredWidth: root.isNarrow ? 95 : 135
                         spacing: 3
                         RowLayout {
                             Layout.fillWidth: true
@@ -701,28 +720,28 @@ Rectangle {
 
                         ModernButton {
                             implicitHeight: 34
-                            implicitWidth: 135
+                            implicitWidth: root.isNarrow ? 85 : 135
                             btnColor: (cal && cal.isFraming) ? Theme.accentRed : (Theme.isDark ? "#17233D" : "#FFFFFF")
                             textColor: (cal && cal.isFraming) ? "#FFFFFF" : Theme.textPrimary
                             borderColor: (cal && cal.isFraming) ? Theme.accentRed : Theme.borderCard
-                            text: (cal && cal.isFraming) ? "⏹ Stop Red Dot" : "🔴 Red Dot Frame"
+                            text: (cal && cal.isFraming) ? (root.isNarrow ? "Stop Red" : "⏹ Stop Red Dot") : (root.isNarrow ? "Red Frame" : "🔴 Red Dot Frame")
                             onClicked: if (cal) cal.toggleRedDotFraming()
                         }
 
                         ModernButton {
                             implicitHeight: 34
-                            implicitWidth: 145
+                            implicitWidth: root.isNarrow ? 90 : 145
                             primary: true
                             enabled: !(cal && (cal.isMarking || cal.isFraming))
-                            text: (cal && cal.isMarking) ? "⏳ Marking Grid..." : "⚡ Mark Cal Grid"
+                            text: (cal && cal.isMarking) ? (root.isNarrow ? "Marking..." : "⏳ Marking Grid...") : (root.isNarrow ? "Mark Grid" : "⚡ Mark Cal Grid")
                             onClicked: if (cal) cal.markCalibrationGrid()
                         }
 
                         ModernButton {
                             implicitHeight: 34
-                            implicitWidth: 85
+                            implicitWidth: root.isNarrow ? 60 : 85
                             danger: true
-                            text: "🛑 STOP"
+                            text: root.isNarrow ? "STOP" : "🛑 STOP"
                             onClicked: if (cal) cal.stopLaser()
                         }
                     }
@@ -731,13 +750,16 @@ Rectangle {
 
             // Split Layout: Left Plate Diagram | Right 9 Caliper Inputs & Execution
             RowLayout {
+                id: splitRowLayout
                 Layout.fillWidth: true
-                Layout.fillHeight: true
+                implicitHeight: root.isShort ? 430 : 470
+                Layout.preferredHeight: implicitHeight
                 spacing: 12
 
                 // Left: Physical Plate Diagram & Orientation Canvas
                 Rectangle {
-                    Layout.preferredWidth: 460
+                    Layout.preferredWidth: root.isNarrow ? 360 : 460
+                    Layout.minimumWidth: 280
                     Layout.fillHeight: true
                     radius: 8
                     color: Theme.bgCard
@@ -746,8 +768,8 @@ Rectangle {
 
                     ColumnLayout {
                         anchors.fill: parent
-                        anchors.margins: 12
-                        spacing: 8
+                        anchors.margins: root.isShort ? 8 : 12
+                        spacing: root.isShort ? 4 : 8
 
                         RowLayout {
                             Layout.fillWidth: true
@@ -978,7 +1000,7 @@ Rectangle {
                 // ---------------- Right: 9 Caliper Measurements & Calibration Workbench ---------------- //
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.minimumWidth: 580
+                    Layout.minimumWidth: root.isNarrow ? 450 : 580
                     Layout.fillHeight: true
                     radius: 8
                     color: Theme.bgCard
@@ -987,8 +1009,8 @@ Rectangle {
 
                     ColumnLayout {
                         anchors.fill: parent
-                        anchors.margins: 14
-                        spacing: 8
+                        anchors.margins: root.isShort ? 8 : 14
+                        spacing: root.isShort ? 4 : 8
 
                         // Header
                         RowLayout {
@@ -1024,7 +1046,7 @@ Rectangle {
                         // Table Headers
                         Rectangle {
                             Layout.fillWidth: true
-                            height: 26
+                            height: root.isShort ? 22 : 26
                             radius: 4
                             color: Theme.isDark ? "#111827" : "#F1F5F9"
                             border.color: Theme.borderCard
@@ -1036,25 +1058,25 @@ Rectangle {
                                 anchors.rightMargin: 8
                                 spacing: 8
 
-                                Text { text: "#"; font.pixelSize: 10; font.bold: true; color: Theme.textMuted; Layout.preferredWidth: 24 }
-                                Text { text: "Node Position"; font.pixelSize: 10; font.bold: true; color: Theme.textMuted; Layout.preferredWidth: 105 }
-                                Text { text: "Measured X (mm)"; font.pixelSize: 10; font.bold: true; color: Theme.textMuted; Layout.preferredWidth: 115 }
-                                Text { text: "Measured Y (mm)"; font.pixelSize: 10; font.bold: true; color: Theme.textMuted; Layout.preferredWidth: 115 }
+                                Text { text: "#"; font.pixelSize: 10; font.bold: true; color: Theme.textMuted; Layout.preferredWidth: 20 }
+                                Text { text: "Node Position"; font.pixelSize: 10; font.bold: true; color: Theme.textMuted; Layout.preferredWidth: root.isNarrow ? 78 : 105 }
+                                Text { text: root.isNarrow ? "Meas X" : "Measured X (mm)"; font.pixelSize: 10; font.bold: true; color: Theme.textMuted; Layout.preferredWidth: root.isNarrow ? 80 : 115 }
+                                Text { text: root.isNarrow ? "Meas Y" : "Measured Y (mm)"; font.pixelSize: 10; font.bold: true; color: Theme.textMuted; Layout.preferredWidth: root.isNarrow ? 80 : 115 }
                                 Item { Layout.fillWidth: true }
-                                Text { text: "Deviation (Δ)"; font.pixelSize: 10; font.bold: true; color: Theme.textMuted; Layout.preferredWidth: 100 }
+                                Text { text: root.isNarrow ? "Δ Dev" : "Deviation (Δ)"; font.pixelSize: 10; font.bold: true; color: Theme.textMuted; Layout.preferredWidth: root.isNarrow ? 70 : 100 }
                             }
                         }
 
                         // Table Rows (9 Points)
                         ColumnLayout {
                             Layout.fillWidth: true
-                            spacing: 4
+                            spacing: root.isShort ? 2 : 4
 
                             Repeater {
                                 model: 9
                                 delegate: Rectangle {
                                     Layout.fillWidth: true
-                                    height: 29
+                                    height: root.isShort ? 24 : 29
                                     radius: 4
                                     color: (index % 2 === 0)
                                            ? (Theme.isDark ? "#0E1729" : "#F8FAFC")
@@ -1087,7 +1109,7 @@ Rectangle {
 
                                         // Badge #
                                         Rectangle {
-                                            Layout.preferredWidth: 24; height: 20; radius: 3
+                                            Layout.preferredWidth: 20; height: root.isShort ? 18 : 20; radius: 3
                                             color: (index === 0) ? (Theme.isDark ? "#083344" : "#CFFAFE")
                                                  : (index === 8) ? (Theme.isDark ? "#3B0764" : "#F3E8FF")
                                                  : (Theme.isDark ? "#17233D" : "#E2E8F0")
@@ -1112,13 +1134,14 @@ Rectangle {
                                             font.pixelSize: 10
                                             font.bold: (index === 4)
                                             color: (index === 4) ? Theme.accentCyan : Theme.textPrimary
-                                            Layout.preferredWidth: 105
+                                            Layout.preferredWidth: root.isNarrow ? 78 : 105
+                                            elide: Text.ElideRight
                                         }
 
                                         // Measured X Input
                                         Rectangle {
-                                            Layout.preferredWidth: 115
-                                            height: 24; radius: 4
+                                            Layout.preferredWidth: root.isNarrow ? 80 : 115
+                                            height: root.isShort ? 21 : 24; radius: 4
                                             color: (index === 1 || index === 4 || index === 7) ? (Theme.isDark ? "#0A0F1D" : "#F1F5F9") : Theme.bgInput
                                             border.color: tX.activeFocus ? Theme.borderActive : Theme.borderInput
                                             border.width: 1
@@ -1144,8 +1167,8 @@ Rectangle {
 
                                         // Measured Y Input
                                         Rectangle {
-                                            Layout.preferredWidth: 115
-                                            height: 24; radius: 4
+                                            Layout.preferredWidth: root.isNarrow ? 80 : 115
+                                            height: root.isShort ? 21 : 24; radius: 4
                                             color: (index === 3 || index === 4 || index === 5) ? (Theme.isDark ? "#0A0F1D" : "#F1F5F9") : Theme.bgInput
                                             border.color: tY.activeFocus ? Theme.borderActive : Theme.borderInput
                                             border.width: 1
@@ -1203,12 +1226,12 @@ Rectangle {
                             }
                         }
 
-                        Item { Layout.fillHeight: true }
+                        Item { Layout.fillHeight: true; visible: !root.isShort }
 
                         // Staged Calibration Quality & Diagnostics Card
                         Rectangle {
                             Layout.fillWidth: true
-                            implicitHeight: 48
+                            implicitHeight: root.isShort ? 38 : 48
                             radius: 6
                             color: Theme.isDark ? "#0A101D" : "#F8FAFC"
                             border.color: (cal && cal.stagedIsValid) ? Theme.accentCyan : Theme.borderCard
@@ -1284,7 +1307,7 @@ Rectangle {
 
                             ModernButton {
                                 Layout.fillWidth: true
-                                implicitHeight: 36
+                                implicitHeight: root.isShort ? 30 : 36
                                 primary: true
                                 text: "⚙️ 1. Calculate & Stage .COR"
                                 onClicked: if (cal) cal.calculateAndStageCalibration()
@@ -1292,7 +1315,7 @@ Rectangle {
 
                             ModernButton {
                                 Layout.fillWidth: true
-                                implicitHeight: 36
+                                implicitHeight: root.isShort ? 30 : 36
                                 btnColor: Theme.isDark ? "#17233D" : "#FFFFFF"
                                 textColor: Theme.textPrimary
                                 borderColor: Theme.borderCard
@@ -1303,7 +1326,7 @@ Rectangle {
 
                             ModernButton {
                                 Layout.fillWidth: true
-                                implicitHeight: 36
+                                implicitHeight: root.isShort ? 30 : 36
                                 btnColor: (cal && cal.stagedIsValid) ? Theme.accentGreen : (Theme.isDark ? "#1E2A44" : "#E2E8F0")
                                 textColor: (cal && cal.stagedIsValid) ? "#000000" : Theme.textMuted
                                 borderColor: (cal && cal.stagedIsValid) ? Theme.accentGreen : Theme.borderCard
@@ -1316,11 +1339,12 @@ Rectangle {
                 }
             }
         }
+        }
 
         // ================= BOTTOM STATUS BAR ================= //
         Rectangle {
             Layout.fillWidth: true
-            height: 32
+            height: root.isShort ? 26 : 32
             radius: 5
             color: Theme.bgCard
             border.color: Theme.borderCard

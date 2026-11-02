@@ -97,14 +97,14 @@ QtObject {
 
     // --- Dynamic Industrial Laser Pens / Layers Palette ---
     property var penPalette: [
-        { id: 0, name: "Pen 0 (Default)", color: "#000000", speed: 1200, power: 50, freq: 35, passes: 1 },
-        { id: 1, name: "Pen 1 (Blue)",    color: "#2563EB", speed: 1800, power: 40, freq: 45, passes: 1 },
-        { id: 2, name: "Pen 2 (Red)",     color: "#EF4444", speed: 800,  power: 75, freq: 30, passes: 2 },
-        { id: 3, name: "Pen 3 (Green)",   color: "#10B981", speed: 2000, power: 30, freq: 60, passes: 1 },
-        { id: 4, name: "Pen 4 (Amber)",   color: "#F59E0B", speed: 1500, power: 60, freq: 40, passes: 1 },
-        { id: 5, name: "Pen 5 (Purple)",  color: "#A855F7", speed: 1000, power: 70, freq: 35, passes: 1 },
-        { id: 6, name: "Pen 6 (Cyan)",    color: "#06B6D4", speed: 2200, power: 25, freq: 70, passes: 1 },
-        { id: 7, name: "Pen 7 (Brown)",   color: "#854D0E", speed: 600,  power: 85, freq: 25, passes: 3 }
+        { id: 0, name: "Pen 0 (Default)", color: "#00E5FF", speed: 300, power: 50, freq: 35, passes: 1 },
+        { id: 1, name: "Pen 1 (Blue)",    color: "#2563EB", speed: 400, power: 40, freq: 45, passes: 1 },
+        { id: 2, name: "Pen 2 (Red)",     color: "#EF4444", speed: 200, power: 75, freq: 30, passes: 2 },
+        { id: 3, name: "Pen 3 (Green)",   color: "#10B981", speed: 500, power: 30, freq: 60, passes: 1 },
+        { id: 4, name: "Pen 4 (Amber)",   color: "#F59E0B", speed: 350, power: 60, freq: 40, passes: 1 },
+        { id: 5, name: "Pen 5 (Purple)",  color: "#A855F7", speed: 250, power: 70, freq: 35, passes: 1 },
+        { id: 6, name: "Pen 6 (Cyan)",    color: "#06B6D4", speed: 400, power: 25, freq: 70, passes: 1 },
+        { id: 7, name: "Pen 7 (Brown)",   color: "#854D0E", speed: 150, power: 85, freq: 25, passes: 3 }
     ]
 
     signal penPaletteUpdated()

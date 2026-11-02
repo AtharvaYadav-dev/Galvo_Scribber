@@ -14,10 +14,14 @@ ApplicationWindow {
     visible: true
     width: 1440
     height: 900
-    minimumWidth: 1100
-    minimumHeight: 720
+    minimumWidth: 1024
+    minimumHeight: 680
     title: ((typeof settings !== "undefined" && settings.machineName) ? settings.machineName : "Galvo Studio") + " — Industrial CAD & Laser Workstation"
     color: Theme.bgApp
+
+    readonly property bool isCompact: window.width < 1400
+    readonly property bool isNarrow: window.width < 1240
+    readonly property bool isUltraNarrow: window.width < 1120
 
     function toggleTheme() {
         Theme.toggleTheme()
@@ -98,7 +102,7 @@ ApplicationWindow {
                         Text {
                             text: (typeof settings !== "undefined" && settings.machineName) ? settings.machineName.toUpperCase() : "GALVO STUDIO"
                             color: Theme.textPrimary
-                            font.pixelSize: 15
+                            font.pixelSize: isNarrow ? 13 : 15
                             font.weight: Font.Bold
                             font.family: "Segoe UI, Inter, sans-serif"
                         }
@@ -107,6 +111,7 @@ ApplicationWindow {
                             color: Theme.accentCyan
                             font.pixelSize: 9
                             font.weight: Font.DemiBold
+                            visible: !isCompact
                         }
                     }
                 }
@@ -114,7 +119,7 @@ ApplicationWindow {
                 // Hardware Connection Status Badge
                 Rectangle {
                     height: 28
-                    implicitWidth: statusRow.width + 20
+                    implicitWidth: statusRow.width + (isNarrow ? 14 : 20)
                     radius: 14
                     color: (typeof galvo !== "undefined" && galvo.isConnected)
                            ? (galvo.isDemo ? (Theme.isDark ? "#2E2413" : "#FEF3C7") : (Theme.isDark ? "#062E20" : "#D1FAE5"))
@@ -139,8 +144,8 @@ ApplicationWindow {
 
                         Text {
                             text: (typeof galvo !== "undefined" && galvo.isConnected && !galvo.isDemo)
-                                  ? "HARDWARE ONLINE"
-                                  : "SIMULATION MODE — DEMO"
+                                  ? (isNarrow ? "ONLINE" : "HARDWARE ONLINE")
+                                  : (isNarrow ? "DEMO" : (isCompact ? "SIMULATION" : "SIMULATION MODE — DEMO"))
                             color: Theme.textPrimary
                             font.pixelSize: 10
                             font.weight: Font.Bold
@@ -150,9 +155,11 @@ ApplicationWindow {
 
                 // Connect / Disconnect Button
                 ModernButton {
-                    text: (typeof galvo !== "undefined" && galvo.isConnected && !galvo.isDemo) ? "Disconnect" : "Connect Hardware"
+                    text: (typeof galvo !== "undefined" && galvo.isConnected && !galvo.isDemo)
+                          ? "Disconnect"
+                          : (isNarrow ? "Connect" : "Connect Hardware")
                     primary: !(typeof galvo !== "undefined" && galvo.isConnected && !galvo.isDemo)
-                    implicitWidth: 130
+                    implicitWidth: isNarrow ? 80 : (isCompact ? 95 : 130)
                     implicitHeight: 34
                     onClicked: {
                         if (typeof galvo !== "undefined") {
@@ -167,46 +174,51 @@ ApplicationWindow {
 
                 // ================= SLIDEABLE / SCROLLABLE PAGES TAB BAR ================= //
                 RowLayout {
+                    id: tabsContainerRow
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignVCenter
                     spacing: 4
+
+                    readonly property bool needsScroll: window.width < 900
+                    readonly property bool canScrollLeft: scrollFlick.contentX > 4
+                    readonly property bool canScrollRight: (scrollFlick.contentWidth - (scrollFlick.contentX + scrollFlick.width)) > 4
 
                     // Left Scroll Arrow Button
                     Rectangle {
                         id: scrollLeftBtn
                         width: 24
                         height: 34
-                        radius: 4
-                        visible: scrollFlick.contentWidth > scrollFlick.width
-                        color: scrollFlick.contentX > 2 ? (leftMa.containsMouse ? (Theme.isDark ? "#2a3958" : "#CBD5E1") : (Theme.isDark ? "#17233D" : "#E2E8F0")) : "transparent"
-                        border.color: scrollFlick.contentX > 2 ? Theme.borderCard : "transparent"
-                        opacity: scrollFlick.contentX > 2 ? 1.0 : 0.25
-                        enabled: scrollFlick.contentX > 2
+                        radius: 6
+                        visible: tabsContainerRow.needsScroll && tabsContainerRow.canScrollLeft
+                        color: leftMa.containsMouse ? (Theme.isDark ? "#2a3958" : "#CBD5E1") : (Theme.isDark ? "#17233D" : "#E2E8F0")
+                        border.color: Theme.borderCard
+                        border.width: 1
 
                         Text {
                             anchors.centerIn: parent
                             text: "◀"
                             font.pixelSize: 10
-                            color: parent.enabled ? Theme.textPrimary : Theme.textMuted
+                            color: Theme.textPrimary
                         }
 
                         MouseArea {
                             id: leftMa
                             anchors.fill: parent
                             hoverEnabled: true
-                            cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+                            cursorShape: Qt.PointingHandCursor
                             onClicked: {
-                                var target = Math.max(0, scrollFlick.contentX - 160);
+                                var target = Math.max(0, scrollFlick.contentX - 85);
                                 scrollAnim.to = target;
                                 scrollAnim.start();
                             }
                         }
                     }
 
-                    // Slideable / Flickable Container
+                    // Slideable / Responsive Tabs Container
                     Flickable {
                         id: scrollFlick
                         Layout.fillWidth: true
+                        Layout.minimumWidth: 60
                         height: 38
                         contentWidth: buttonsRow.width
                         contentHeight: 38
@@ -225,7 +237,7 @@ ApplicationWindow {
                             anchors.fill: parent
                             acceptedButtons: Qt.NoButton
                             onWheel: function(wheel) {
-                                if (wheel.angleDelta.y !== 0) {
+                                if (wheel.angleDelta.y !== 0 && scrollFlick.contentWidth > scrollFlick.width) {
                                     var newX = Math.max(0, Math.min(scrollFlick.contentWidth - scrollFlick.width, scrollFlick.contentX - wheel.angleDelta.y));
                                     scrollFlick.contentX = newX;
                                 }
@@ -234,14 +246,14 @@ ApplicationWindow {
 
                         Row {
                             id: buttonsRow
-                            spacing: 8
+                            spacing: isUltraNarrow ? 3 : (isNarrow ? 4 : (isCompact ? 6 : 8))
                             anchors.verticalCenter: parent.verticalCenter
 
                             // 1. Z-Focus & Focal Stepper
                             ModernButton {
-                                text: "🎯 Focus"
+                                text: isNarrow ? "Focus" : "🎯 Focus"
                                 implicitHeight: 34
-                                implicitWidth: 90
+                                implicitWidth: isUltraNarrow ? 58 : (isNarrow ? 68 : (isCompact ? 80 : 90))
                                 btnColor: Theme.isDark ? "#17233D" : "#FFFFFF"
                                 textColor: Theme.textPrimary
                                 borderColor: Theme.borderCard
@@ -250,9 +262,9 @@ ApplicationWindow {
 
                             // 2. Laser Hardware Diagnostics & Controls
                             ModernButton {
-                                text: "⚡ Laser"
+                                text: isNarrow ? "Laser" : "⚡ Laser"
                                 implicitHeight: 34
-                                implicitWidth: 88
+                                implicitWidth: isUltraNarrow ? 56 : (isNarrow ? 66 : (isCompact ? 78 : 88))
                                 btnColor: Theme.isDark ? "#17233D" : "#FFFFFF"
                                 textColor: Theme.textPrimary
                                 borderColor: Theme.borderCard
@@ -261,9 +273,9 @@ ApplicationWindow {
 
                             // 3. Hardware Configuration (configgalvo)
                             ModernButton {
-                                text: "🔧 Config"
+                                text: isNarrow ? "Config" : "🔧 Config"
                                 implicitHeight: 34
-                                implicitWidth: 92
+                                implicitWidth: isUltraNarrow ? 60 : (isNarrow ? 70 : (isCompact ? 82 : 92))
                                 btnColor: Theme.isDark ? "#17233D" : "#FFFFFF"
                                 textColor: Theme.textPrimary
                                 borderColor: Theme.borderCard
@@ -272,9 +284,9 @@ ApplicationWindow {
 
                             // 4. Parameter Mapping Matrix
                             ModernButton {
-                                text: "📊 Matrix"
+                                text: isNarrow ? "Matrix" : "📊 Matrix"
                                 implicitHeight: 34
-                                implicitWidth: 92
+                                implicitWidth: isUltraNarrow ? 60 : (isNarrow ? 70 : (isCompact ? 82 : 92))
                                 btnColor: Theme.isDark ? "#17233D" : "#FFFFFF"
                                 textColor: Theme.textPrimary
                                 borderColor: Theme.borderCard
@@ -283,9 +295,9 @@ ApplicationWindow {
 
                             // 5. System Settings & Field Calibration
                             ModernButton {
-                                text: "⚙️ Settings"
+                                text: isNarrow ? "Settings" : "⚙️ Settings"
                                 implicitHeight: 34
-                                implicitWidth: 96
+                                implicitWidth: isUltraNarrow ? 64 : (isNarrow ? 74 : (isCompact ? 86 : 96))
                                 btnColor: Theme.isDark ? "#17233D" : "#FFFFFF"
                                 textColor: Theme.textPrimary
                                 borderColor: Theme.borderCard
@@ -294,9 +306,9 @@ ApplicationWindow {
 
                             // 6. .COR Optical Scale & Lens Calibration Studio
                             ModernButton {
-                                text: "📐 Calibrate (.cor)"
+                                text: isNarrow ? "Calibrate" : (isCompact ? "📐 Calibrate" : "📐 Calibrate (.cor)")
                                 implicitHeight: 34
-                                implicitWidth: 130
+                                implicitWidth: isUltraNarrow ? 68 : (isNarrow ? 78 : (isCompact ? 92 : 130))
                                 btnColor: Theme.isDark ? "#17233D" : "#FFFFFF"
                                 textColor: Theme.textPrimary
                                 borderColor: Theme.borderCard
@@ -310,48 +322,107 @@ ApplicationWindow {
                         id: scrollRightBtn
                         width: 24
                         height: 34
-                        radius: 4
-                        visible: scrollFlick.contentWidth > scrollFlick.width
-                        property bool canScrollRight: (scrollFlick.contentWidth - (scrollFlick.contentX + scrollFlick.width)) > 2
-                        color: canScrollRight ? (rightMa.containsMouse ? (Theme.isDark ? "#2a3958" : "#CBD5E1") : (Theme.isDark ? "#17233D" : "#E2E8F0")) : "transparent"
-                        border.color: canScrollRight ? Theme.borderCard : "transparent"
-                        opacity: canScrollRight ? 1.0 : 0.25
-                        enabled: canScrollRight
+                        radius: 6
+                        visible: tabsContainerRow.needsScroll && tabsContainerRow.canScrollRight
+                        color: rightMa.containsMouse ? (Theme.isDark ? "#2a3958" : "#CBD5E1") : (Theme.isDark ? "#17233D" : "#E2E8F0")
+                        border.color: Theme.borderCard
+                        border.width: 1
 
                         Text {
                             anchors.centerIn: parent
                             text: "▶"
                             font.pixelSize: 10
-                            color: parent.enabled ? Theme.textPrimary : Theme.textMuted
+                            color: Theme.textPrimary
                         }
 
                         MouseArea {
                             id: rightMa
                             anchors.fill: parent
                             hoverEnabled: true
-                            cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+                            cursorShape: Qt.PointingHandCursor
                             onClicked: {
-                                var target = Math.min(scrollFlick.contentWidth - scrollFlick.width, scrollFlick.contentX + 160);
+                                var target = Math.min(scrollFlick.contentWidth - scrollFlick.width, scrollFlick.contentX + 85);
                                 scrollAnim.to = target;
                                 scrollAnim.start();
                             }
                         }
                     }
+
+                    // Overflow Menu Button ("⋮ More Pages")
+                    Rectangle {
+                        id: overflowBtn
+                        width: 28
+                        height: 34
+                        radius: 6
+                        visible: tabsContainerRow.needsScroll
+                        color: (overflowMenu.visible || overflowMa.containsMouse) ? (Theme.isDark ? "#2a3958" : "#CBD5E1") : (Theme.isDark ? "#17233D" : "#E2E8F0")
+                        border.color: Theme.borderCard
+                        border.width: 1
+
+                        Text {
+                            anchors.centerIn: parent
+                            text: "⋮"
+                            font.pixelSize: 16
+                            font.weight: Font.Bold
+                            color: Theme.textPrimary
+                        }
+
+                        MouseArea {
+                            id: overflowMa
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: overflowMenu.open()
+                        }
+
+                        Menu {
+                            id: overflowMenu
+                            y: overflowBtn.height + 4
+                            width: 180
+
+                            MenuItem {
+                                text: "🎯  Z-Focus & Stepper"
+                                onClicked: jogModal.open()
+                            }
+                            MenuItem {
+                                text: "⚡  Laser Diagnostics"
+                                onClicked: laserModal.open()
+                            }
+                            MenuItem {
+                                text: "🔧  Hardware Config"
+                                onClicked: configModal.open()
+                            }
+                            MenuItem {
+                                text: "📊  Parameter Matrix"
+                                onClicked: paramMatrixModal.open()
+                            }
+                            MenuItem {
+                                text: "⚙️  System Settings"
+                                onClicked: settingsModal.open()
+                            }
+                            MenuItem {
+                                text: "📐  Calibrate (.cor) Studio"
+                                onClicked: corCalibrationModal.open()
+                            }
+                        }
+                    }
                 }
+
+                Item { Layout.fillWidth: true }
 
                 // EMERGENCY STOP BUTTON
                 ModernButton {
-                    text: "🛑 E-STOP"
+                    text: isNarrow ? "🛑 STOP" : "🛑 E-STOP"
                     danger: true
-                    implicitWidth: 96
+                    implicitWidth: isNarrow ? 76 : (isCompact ? 86 : 96)
                     implicitHeight: 34
                     onClicked: if (typeof galvo !== "undefined") galvo.emergencyStop()
                 }
 
                 // Theme Toggle (Dark / Light)
                 ModernButton {
-                    text: Theme.isDark ? "🌙 DARK" : "☀️ LIGHT"
-                    implicitWidth: 92
+                    text: isNarrow ? (Theme.isDark ? "🌙" : "☀️") : (Theme.isDark ? "🌙 DARK" : "☀️ LIGHT")
+                    implicitWidth: isNarrow ? 36 : (isCompact ? 42 : 92)
                     implicitHeight: 34
                     btnColor: Theme.isDark ? "#17233D" : "#FFFFFF"
                     textColor: Theme.textPrimary

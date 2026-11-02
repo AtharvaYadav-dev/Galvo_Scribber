@@ -25,6 +25,9 @@ Rectangle {
     property bool continuousMode: false
     property bool markSelectedOnly: true
 
+    readonly property bool isCompact: root.width < 1120
+    readonly property bool isNarrow: root.width < 960
+
     signal redPointerToggled(bool active)
     signal markTriggered()
     signal abortTriggered()
@@ -38,9 +41,9 @@ Rectangle {
 
     RowLayout {
         anchors.fill: parent
-        anchors.leftMargin: 12
-        anchors.rightMargin: 12
-        spacing: 8
+        anchors.leftMargin: root.isCompact ? 8 : 12
+        anchors.rightMargin: root.isCompact ? 8 : 12
+        spacing: root.isCompact ? 6 : 8
 
         // 1. Primary Industrial Action Buttons
         RowLayout {
@@ -82,7 +85,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: root.isFraming ? "FRAMING ON (F1)" : "RED LIGHT (F1)"
+                        text: root.isFraming ? (root.isNarrow ? "FRAMING" : (root.isCompact ? "FRAMING (F1)" : "FRAMING ON (F1)")) : (root.isNarrow ? "RED LIGHT" : (root.isCompact ? "RED (F1)" : "RED LIGHT (F1)"))
                         font.family: "Segoe UI, Inter, sans-serif"
                         font.pixelSize: 11
                         font.weight: Font.Bold
@@ -131,7 +134,7 @@ Rectangle {
                     }
 
                     Text {
-                        text: root.isMarking ? "STOP LASER (F2)" : "START MARK (F2)"
+                        text: root.isMarking ? "STOP" : (root.isNarrow ? "MARK" : (root.isCompact ? "MARK (F2)" : "START MARK (F2)"))
                         font.family: "Segoe UI, Inter, sans-serif"
                         font.pixelSize: 11
                         font.weight: Font.Bold
@@ -251,7 +254,7 @@ Rectangle {
                     width: 15
                     height: 15
                     radius: 3
-                    color: root.markSelectedOnly ? Theme.accentCyan : (Theme.isDark ? "#16223B" : "#F1F5F9")
+                    color: root.markSelectedOnly ? Theme.accentCyan : (selToggleMa.containsMouse ? (Theme.isDark ? "#1E293B" : "#E2E8F0") : (Theme.isDark ? "#16223B" : "#F1F5F9"))
                     border.color: root.markSelectedOnly ? Theme.accentCyan : Theme.borderCard
                     border.width: 1
                     Layout.alignment: Qt.AlignVCenter
@@ -263,19 +266,25 @@ Rectangle {
                         size: 11
                         iconColor: "#0A0F1D"
                     }
-
-                    MouseArea {
-                        anchors.fill: parent
-                        cursorShape: Qt.PointingHandCursor
-                        onClicked: root.markSelectedOnly = !root.markSelectedOnly
-                    }
                 }
                 Text {
                     Layout.alignment: Qt.AlignVCenter
                     text: "Selected"
                     font.family: "Segoe UI, Inter, sans-serif"
                     font.pixelSize: 10
-                    color: Theme.textPrimary
+                    font.weight: root.markSelectedOnly ? Font.DemiBold : Font.Normal
+                    color: root.markSelectedOnly ? Theme.accentCyan : Theme.textPrimary
+                }
+
+                MouseArea {
+                    id: selToggleMa
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: root.markSelectedOnly = !root.markSelectedOnly
+                    ToolTip.visible: containsMouse
+                    ToolTip.text: root.markSelectedOnly ? "Mark Selected Part (Only marks currently selected object)" : "Mark All Visible Parts"
+                    ToolTip.delay: 350
                 }
             }
 

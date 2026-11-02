@@ -20,9 +20,12 @@ class DXFParser:
     - SPLINE/ELLIPSE are flattened with a configurable geometric tolerance.
     """
 
-    def __init__(self, filepath):
+    def __init__(self, filepath=None, doc=None):
         self.filepath = filepath
-        self.doc = ezdxf.readfile(filepath)
+        if doc is not None:
+            self.doc = doc
+        else:
+            self.doc = ezdxf.readfile(filepath)
         self.msp = self.doc.modelspace()
 
         self.gcode_xmin = 0.0
@@ -59,7 +62,7 @@ class DXFParser:
         self.path_join_tolerance = 0.005
         self.point_duplicate_tolerance = 0.0001
         self.endpoint_tolerance = 0.001
-        self.curve_flatten_tolerance = 0.005
+        self.curve_flatten_tolerance = 0.02
 
         # Diagnostics
         self.debug = False
@@ -314,7 +317,28 @@ class DXFParser:
 
                 if dxftype in ("TEXT", "MTEXT"):
                     self.debug_stats[dxftype] += 1
-                    paths = text2path.make_paths_from_entity(e)
+                    try:
+                        if dxftype == "MTEXT":
+                            lines = e.plain_text().split("\n")
+                            h = float(getattr(e.dxf, 'char_height', 2.5))
+                            ins = getattr(e.dxf, 'insert', (0, 0, 0))
+                            paths = []
+                            for l_idx, line in enumerate(lines):
+                                if line:
+                                    t_dummy = e.doc.modelspace().add_text(line, dxfattribs={
+                                        'height': h,
+                                        'insert': (ins[0], ins[1] - l_idx * h * 1.4, ins[2]),
+                                        'style': getattr(e.dxf, 'style', 'Standard')
+                                    })
+                                    paths.extend(text2path.make_paths_from_entity(t_dummy))
+                                    e.doc.modelspace().delete_entity(t_dummy)
+                        else:
+                            paths = text2path.make_paths_from_entity(e)
+                    except Exception as err:
+                        if self.debug:
+                            print(f"[DXF] Error converting {dxftype} to paths: {err}")
+                        return
+
                     for p in paths:
                         for sub_path in p.sub_paths():
                             points = [
@@ -325,10 +349,11 @@ class DXFParser:
                             ]
                             points = self._remove_consecutive_duplicate_vertices(points)
                             if len(points) >= 2:
+                                is_c = getattr(sub_path, 'is_closed', False) or (points[0] == points[-1])
                                 entities[layer].append(
                                     ("POLYLINE", {
                                         "points": points,
-                                        "closed": False,
+                                        "closed": is_c,
                                     })
                                 )
                     return
@@ -626,6 +651,9 @@ class DXFParser:
             # For Galvo, center the design at exactly (0,0) plus any laser offset
             self.shift_x = - (self.gcode_xmin + self.gcode_width / 2.0) + laser_xoff
             self.shift_y = - (self.gcode_ymin + self.gcode_height / 2.0) + laser_yoff
+        else:
+            self.shift_x = laser_xoff
+            self.shift_y = laser_yoff
 
         if not self.validateFit() and not ignore_fit:
             if self.debug:
@@ -648,7 +676,7 @@ class DXFParser:
                     cx = self.shiftX(data[0])
                     cy = self.shiftY(data[1])
                     r = self._scale_value(data[2])
-                    num_samples = max(12, int(2 * math.pi * r / resolution))
+                    num_samples = min(360, max(24, int(2 * math.pi * r / resolution)))
                     for i in range(num_samples + 1):
                         angle = 2 * math.pi * i / num_samples
                         path_mm.append((cx + r * math.cos(angle), cy + r * math.sin(angle)))
@@ -663,7 +691,7 @@ class DXFParser:
                     if end_angle <= start_angle:
                         end_angle += 2 * math.pi
                     arc_length = r * (end_angle - start_angle)
-                    num_samples = max(2, int(arc_length / resolution))
+                    num_samples = min(180, max(4, int(arc_length / resolution)))
                     for i in range(num_samples + 1):
                         angle = start_angle + (end_angle - start_angle) * i / num_samples
                         path_mm.append((cx + r * math.cos(angle), cy + r * math.sin(angle)))
@@ -713,7 +741,7 @@ class DXFParser:
                                     true_start = end_ang
                                     
                                 arc_length = radius * abs(sweep)
-                                num_samples = max(2, int(arc_length / resolution))
+                                num_samples = min(180, max(4, int(arc_length / resolution)))
                                 for j in range(1, num_samples):
                                     angle = true_start + sweep * j / num_samples
                                     path_mm.append((cx + radius * math.cos(angle), cy + radius * math.sin(angle)))
@@ -1049,7 +1077,7 @@ class DXFParser:
             return []
             
         # Bypass optimization for huge layers to prevent UI freezing (O(N^2) or slow KD-Tree rebuilds)
-        if len(items) > 10000:
+        if len(items) > 1500:
             return list(items)
 
         try:

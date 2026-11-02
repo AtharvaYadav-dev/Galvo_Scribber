@@ -138,8 +138,26 @@ Item {
     readonly property bool canUndo: undoStack.length > 0
     readonly property bool canRedo: redoStack.length > 0
 
+    function cloneShapesModel(source) {
+        if (!source) return []
+        var out = []
+        for (var i = 0; i < source.length; i++) {
+            var shp = source[i]
+            var c = {}
+            for (var key in shp) {
+                if (key === "children" && shp.children) {
+                    c.children = shp.children.map(function(ch) { return Object.assign({}, ch) })
+                } else {
+                    c[key] = shp[key]
+                }
+            }
+            out.push(c)
+        }
+        return out
+    }
+
     function pushUndoState() {
-        var snap = JSON.stringify(shapes)
+        var snap = cloneShapesModel(shapes)
         var newStack = undoStack.slice()
         newStack.push(snap)
         if (newStack.length > maxHistory) newStack.shift()
@@ -152,7 +170,7 @@ Item {
             if (typeof cad !== "undefined" && cad) cad.set_status_message("Nothing to undo.")
             return
         }
-        var curSnap = JSON.stringify(shapes)
+        var curSnap = cloneShapesModel(shapes)
         var newRedo = redoStack.slice()
         newRedo.push(curSnap)
         redoStack = newRedo
@@ -161,7 +179,7 @@ Item {
         var prev = newUndo.pop()
         undoStack = newUndo
 
-        shapes = JSON.parse(prev)
+        shapes = prev
         if (selectedIndex >= shapes.length) selectedIndex = shapes.length - 1
         shapesChanged()
         canvas.requestPaint()
@@ -176,7 +194,7 @@ Item {
             if (typeof cad !== "undefined" && cad) cad.set_status_message("Nothing to redo.")
             return
         }
-        var curSnap = JSON.stringify(shapes)
+        var curSnap = cloneShapesModel(shapes)
         var newUndo = undoStack.slice()
         newUndo.push(curSnap)
         undoStack = newUndo
@@ -185,7 +203,7 @@ Item {
         var next = newRedo.pop()
         redoStack = newRedo
 
-        shapes = JSON.parse(next)
+        shapes = next
         if (selectedIndex >= shapes.length) selectedIndex = shapes.length - 1
         shapesChanged()
         canvas.requestPaint()
@@ -407,6 +425,7 @@ Item {
                 rotation: 0,
                 penId: root.currentPenId,
                 hatched: false,
+                closed: false,
                 visible: true,
                 locked: false,
                 paths: [relPts]
@@ -426,6 +445,36 @@ Item {
         activeTool = "select"
         toolFinished()
         canvas.requestPaint()
+    }
+
+    function moveShapeUp(idx) {
+        if (idx > 0 && idx < shapes.length) {
+            pushUndoState()
+            var arr = shapes.slice()
+            var temp = arr[idx]
+            arr[idx] = arr[idx - 1]
+            arr[idx - 1] = temp
+            shapes = arr
+            shapesChanged()
+            selectedIndex = idx - 1
+            if (typeof cad !== "undefined" && cad) cad.updateShapes(shapes)
+            canvas.requestPaint()
+        }
+    }
+
+    function moveShapeDown(idx) {
+        if (idx >= 0 && idx < shapes.length - 1) {
+            pushUndoState()
+            var arr = shapes.slice()
+            var temp = arr[idx]
+            arr[idx] = arr[idx + 1]
+            arr[idx + 1] = temp
+            shapes = arr
+            shapesChanged()
+            selectedIndex = idx + 1
+            if (typeof cad !== "undefined" && cad) cad.updateShapes(shapes)
+            canvas.requestPaint()
+        }
     }
 
     function recalculateShapeBounds(shp) {
@@ -1000,7 +1049,8 @@ Item {
                     }
                 } else if (shp.type === "circle") {
                     ctx.beginPath()
-                    ctx.arc(0, 0, sw / 2, 0, Math.PI * 2)
+                    var cRadius = Math.min(sw, sh) / 2
+                    ctx.arc(0, 0, cRadius, 0, Math.PI * 2)
                     if (!shp.hatched || shp.mark_contour !== false) {
                         ctx.stroke()
                     } else {
@@ -1011,9 +1061,40 @@ Item {
                         ctx.restore()
                     }
                 } else if (shp.type === "text") {
-                    // If shape is not hatched, draw crisp Canvas 2D font text.
-                    // If hatched, MotionPlanner vector hatch lines (drawn below) render the entity.
-                    if (!shp.hatched) {
+                    if (shp.paths && shp.paths.length > 0) {
+                        ctx.save()
+                        ctx.strokeStyle = isSel ? (shp.locked ? "#F59E0B" : penColor) : penColor
+                        ctx.fillStyle = penColor
+                        ctx.lineWidth = isSel ? 2.0 : 1.2
+
+                        var isSingle = (shp.fontType && String(shp.fontType).indexOf("Single-Stroke") !== -1) ||
+                                       (shp.fontFamily && String(shp.fontFamily).indexOf("Simplex") !== -1)
+
+                        ctx.beginPath()
+                        for (var pi = 0; pi < shp.paths.length; pi++) {
+                            var sp = shp.paths[pi]
+                            if (!sp || sp.length < 2) continue
+                            for (var ki = 0; ki < sp.length; ki++) {
+                                var pt = sp[ki]
+                                var rawX = (pt[0] !== undefined) ? pt[0] : (pt.x !== undefined ? pt.x : 0)
+                                var rawY = (pt[1] !== undefined) ? pt[1] : (pt.y !== undefined ? pt.y : 0)
+                                var px = rawX * scale
+                                var py = -rawY * scale
+                                if (ki === 0) ctx.moveTo(px, py)
+                                else ctx.lineTo(px, py)
+                            }
+                            if (!isSingle) {
+                                ctx.closePath()
+                            }
+                        }
+                        if (isSingle || shp.mark_contour !== false) {
+                            ctx.stroke()
+                        }
+                        if (!isSingle && !shp.hatched) {
+                            ctx.fill()
+                        }
+                        ctx.restore()
+                    } else if (!shp.hatched) {
                         var txt = String(shp.text || "TEXT")
                         var fFamily = shp.fontFamily || "Segoe UI"
                         var isBold = Boolean(shp.bold)
@@ -1026,13 +1107,11 @@ Item {
                         ctx.textBaseline = "middle"
 
                         if (shp.circleText) {
-                            // CircleText Mode: Render along circular arc
                             var cDiamMm = (shp.circleDiameter !== undefined && shp.circleDiameter > 0) ? Number(shp.circleDiameter) : 20.0
                             var cRadiusPx = (cDiamMm / 2.0) * scale
                             var baseAngleDeg = (shp.circleBaseAngle !== undefined) ? Number(shp.circleBaseAngle) : 90.0
                             var totalChars = txt.length
 
-                            // Draw subtle circular reference path
                             ctx.save()
                             ctx.strokeStyle = Qt.rgba(penColor.r, penColor.g, penColor.b, 0.25)
                             ctx.lineWidth = 1.0
@@ -1051,7 +1130,7 @@ Item {
                                 for (var cIdx = 0; cIdx < totalChars; cIdx++) {
                                     var theta = startAngle - cIdx * angularStep
                                     var chX = cRadiusPx * Math.cos(theta)
-                                    var chY = -cRadiusPx * Math.sin(theta) // Invert Y for canvas
+                                    var chY = -cRadiusPx * Math.sin(theta)
                                     var rotTangent = -theta + Math.PI / 2.0
 
                                     ctx.save()
@@ -1062,17 +1141,16 @@ Item {
                                 }
                             }
                         } else {
-                            // Linear Text Mode: Multi-line and alignment support (alphabetic baseline prevents Marathi/Devanagari font descent shift)
                             var lines = txt.split("\n")
                             var lineH = sh / Math.max(1, lines.length)
-                            ctx.font = fontStyle + Math.max(8, Math.round(lineH * 0.85)) + "px '" + fFamily + "', sans-serif"
-                            ctx.textBaseline = "alphabetic"
+                            var fontPx = Math.max(8, Math.round(lineH * 0.72))
+                            ctx.font = fontStyle + fontPx + "px '" + fFamily + "', sans-serif"
 
                             for (var lIdx = 0; lIdx < lines.length; lIdx++) {
-                                var lY = (-sh / 2) + (lIdx + 0.75) * lineH
+                                var lY = (-sh / 2.0) + (lIdx + 0.5) * lineH
                                 var lX = 0
-                                if (tAlign === "left") lX = -sw / 2
-                                else if (tAlign === "right") lX = sw / 2
+                                if (tAlign === "left") lX = -sw / 2.0
+                                else if (tAlign === "right") lX = sw / 2.0
                                 ctx.fillText(lines[lIdx], lX, lY)
                             }
                         }
@@ -1126,15 +1204,33 @@ Item {
                     ctx.strokeStyle = penColor
                     ctx.lineWidth = 1.5
                     ctx.strokeRect(-sw / 2, -sh / 2, sw, sh)
-                } else if (shp.type === "polygon" || shp.type === "dxf" || shp.type === "svg" || shp.type === "line") {
+                } else if (shp.type === "polygon" || shp.type === "dxf" || shp.type === "svg" || shp.type === "line" || shp.type === "curve") {
                     if (shp.paths && shp.paths.length > 0) {
                         ctx.beginPath()
                         for (var p = 0; p < shp.paths.length; p++) {
                             var sub = shp.paths[p]
                             if (!sub || sub.length < 2) continue
-                            ctx.moveTo(sub[0][0] * scale, -sub[0][1] * scale)
-                            for (var k = 1; k < sub.length; k++) {
-                                ctx.lineTo(sub[k][0] * scale, -sub[k][1] * scale)
+                            var subLen = sub.length
+                            var p0x = sub[0][0] * scale
+                            var p0y = -sub[0][1] * scale
+                            ctx.moveTo(p0x, p0y)
+                            if (subLen > 150) {
+                                var lastX = p0x
+                                var lastY = p0y
+                                for (var k = 1; k < subLen - 1; k++) {
+                                    var px = sub[k][0] * scale
+                                    var py = -sub[k][1] * scale
+                                    if (Math.abs(px - lastX) >= 1.0 || Math.abs(py - lastY) >= 1.0) {
+                                        ctx.lineTo(px, py)
+                                        lastX = px
+                                        lastY = py
+                                    }
+                                }
+                                ctx.lineTo(sub[subLen - 1][0] * scale, -sub[subLen - 1][1] * scale)
+                            } else {
+                                for (var k2 = 1; k2 < subLen; k2++) {
+                                    ctx.lineTo(sub[k2][0] * scale, -sub[k2][1] * scale)
+                                }
                             }
                         }
                         ctx.stroke()
@@ -1182,20 +1278,26 @@ Item {
                     if (root.activeTool === "node") {
                         var nodeRad = 5.0
                         if (shp.paths && shp.paths.length > 0) {
-                            for (var npi = 0; npi < shp.paths.length; npi++) {
-                                var nsub = shp.paths[npi]
-                                for (var nki = 0; nki < nsub.length; nki++) {
-                                    var vX = nsub[nki][0] * scale
-                                    var vY = -nsub[nki][1] * scale
-                                    var isHovN = (root.hoveredNodePathIndex === npi && root.hoveredNodePointIndex === nki)
-                                    var isDragN = (root.draggingNodePathIndex === npi && root.draggingNodePointIndex === nki)
-                                    ctx.beginPath()
-                                    ctx.arc(vX, vY, (isHovN || isDragN) ? nodeRad + 2 : nodeRad, 0, Math.PI * 2)
-                                    ctx.fillStyle = (isHovN || isDragN) ? Theme.accentCyan : "#FFFFFF"
-                                    ctx.fill()
-                                    ctx.strokeStyle = Theme.isDark ? "#0F172A" : "#1E293B"
-                                    ctx.lineWidth = 1.5
-                                    ctx.stroke()
+                            var totalNodePts = 0
+                            for (var pci = 0; pci < shp.paths.length; pci++) {
+                                totalNodePts += shp.paths[pci].length
+                            }
+                            if (totalNodePts <= 600) {
+                                for (var npi = 0; npi < shp.paths.length; npi++) {
+                                    var nsub = shp.paths[npi]
+                                    for (var nki = 0; nki < nsub.length; nki++) {
+                                        var vX = nsub[nki][0] * scale
+                                        var vY = -nsub[nki][1] * scale
+                                        var isHovN = (root.hoveredNodePathIndex === npi && root.hoveredNodePointIndex === nki)
+                                        var isDragN = (root.draggingNodePathIndex === npi && root.draggingNodePointIndex === nki)
+                                        ctx.beginPath()
+                                        ctx.arc(vX, vY, (isHovN || isDragN) ? nodeRad + 2 : nodeRad, 0, Math.PI * 2)
+                                        ctx.fillStyle = (isHovN || isDragN) ? Theme.accentCyan : "#FFFFFF"
+                                        ctx.fill()
+                                        ctx.strokeStyle = Theme.isDark ? "#0F172A" : "#1E293B"
+                                        ctx.lineWidth = 1.5
+                                        ctx.stroke()
+                                    }
                                 }
                             }
                         }
@@ -1265,7 +1367,7 @@ Item {
                     var pSides = 5
                     ctx.beginPath()
                     for (var psi = 0; psi <= pSides; psi++) {
-                        var pAng = -Math.PI / 2 + (psi * 2 * Math.PI) / pSides
+                        var pAng = Math.PI / 2 + (psi * 2 * Math.PI) / pSides
                         var pxx = dsx0 + radPolyPx * Math.cos(pAng)
                         var pyy = dsy0 + radPolyPx * Math.sin(pAng)
                         if (psi === 0) ctx.moveTo(pxx, pyy)
@@ -1658,7 +1760,11 @@ Item {
                     var isAspectLocked = (mouse.modifiers & Qt.ShiftModifier) ||
                                          (shp.type === "circle" || shp.type === "qrcode" || shp.type === "datamatrix")
                     if (isAspectLocked) {
-                        if (h === 0 || h === 2 || h === 4 || h === 6) {
+                        if (shp.type === "circle") {
+                            var cSize = Math.max(newW, newH)
+                            newW = cSize
+                            newH = cSize
+                        } else if (h === 0 || h === 2 || h === 4 || h === 6) {
                             var sFactor = Math.max(newW / resizeInitW, newH / resizeInitH)
                             newW = Math.max(0.5, resizeInitW * sFactor)
                             newH = Math.max(0.5, resizeInitH * sFactor)
@@ -1729,8 +1835,6 @@ Item {
                     }
 
                     shp.hatch_lines = []
-                    root.shapesChanged()
-                    root.shapeModified(shp)
                     canvas.requestPaint()
                 }
                 lastMouseX = mouse.x
@@ -1841,9 +1945,6 @@ Item {
                 if (!sel.locked) {
                     sel.xMm += dx / root.zoomScale
                     sel.yMm -= dy / root.zoomScale
-                    sel.hatch_lines = []
-                    root.shapesChanged()
-                    root.shapeModified(sel)
                     canvas.requestPaint()
                 }
             }
@@ -1915,6 +2016,7 @@ Item {
                             rotation: 0,
                             penId: penId,
                             hatched: false,
+                            closed: true,
                             visible: true,
                             locked: false
                         }
@@ -1941,6 +2043,7 @@ Item {
                             rotation: 0,
                             penId: penId,
                             hatched: false,
+                            closed: true,
                             visible: true,
                             locked: false
                         }
@@ -1959,7 +2062,7 @@ Item {
                         var pSides = 5
                         var polyPts = []
                         for (var psi = 0; psi < pSides; psi++) {
-                            var pAng = -Math.PI / 2 + (psi * 2 * Math.PI) / pSides
+                            var pAng = Math.PI / 2 + (psi * 2 * Math.PI) / pSides
                             polyPts.push([root.round3(rPoly * Math.cos(pAng)), root.round3(rPoly * Math.sin(pAng))])
                         }
                         polyPts.push([polyPts[0][0], polyPts[0][1]])
@@ -1974,6 +2077,7 @@ Item {
                             rotation: 0,
                             penId: penId,
                             hatched: false,
+                            closed: true,
                             visible: true,
                             locked: false,
                             paths: [polyPts]
@@ -2002,7 +2106,7 @@ Item {
                         var newLine = {
                             id: root.shapes.length + 1,
                             name: "Line_" + (root.shapes.length + 1),
-                            type: "polygon",
+                            type: "line",
                             xMm: root.round2(lcx),
                             yMm: root.round2(lcy),
                             wMm: root.round2(Math.max(1.0, lw)),
@@ -2010,6 +2114,7 @@ Item {
                             rotation: 0,
                             penId: penId,
                             hatched: false,
+                            closed: false,
                             visible: true,
                             locked: false,
                             paths: [relLine]
@@ -2044,7 +2149,7 @@ Item {
                         var newCurve = {
                             id: root.shapes.length + 1,
                             name: "Curve_" + (root.shapes.length + 1),
-                            type: "polygon",
+                            type: "curve",
                             xMm: root.round2(ccx),
                             yMm: root.round2(ccy),
                             wMm: root.round2(Math.max(1.0, cw)),
@@ -2052,6 +2157,7 @@ Item {
                             rotation: 0,
                             penId: penId,
                             hatched: false,
+                            closed: false,
                             visible: true,
                             locked: false,
                             paths: [relPts]
